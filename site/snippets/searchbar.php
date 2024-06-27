@@ -13,7 +13,9 @@
     </div>
     <div class="">
         <button class="tag">X Feminism</button>
+        <button class="tag">X Internet</button>
+        <button class="tag">X Digital</button>
     </div>
     <!-- Search Box -->
     <input type="text" id="search-box" placeholder="Search content...">
-</div>
+    </div>
