@@ -1,0 +1,172 @@
+title: Thesis
+icon: book
+
+columns: 
+  main:
+    width: 2/3 
+    sections: 
+
+      thesisInfo: 
+        type: fields
+        fields: 
+
+          headline1: 
+            label: Thesis Info
+            type: headline
+            numbered: false
+
+          thesisSubtitle:
+            label: Thesis Subtitle
+            type: text
+
+
+          thesisAbstract: 
+            label: Abstract for the Thesis
+            type: textarea
+            buttons: 
+              - bold
+              - italic
+            size: medium
+            width: 2/3
+
+          thesisTags: 
+            label: Keywords and Topics
+            type: tags
+            width: 1/3
+
+          selectBM:
+            label: Bachelor or Master Thesis
+            type: radio
+            default: false
+            required: true
+            options: 
+              - BA
+              - MA
+            width: 1/2
+
+          language: 
+            label: Language the thesis is written in
+            type: radio
+            default: false
+            required: true
+            options: 
+              de: German
+              en: English
+            width: 1/2
+                            
+          semesterCycle:
+            label: Summersemester / Wintersemester
+            type: select
+            options: 
+              - SuSe 
+              - WiSe
+            width: 1/2
+            required: true
+
+
+          yearOfPublishing:
+            label: Year of Publishing
+            type: text
+            required: true
+            icon: calendar
+            width: 1/2
+
+      advisors:
+        type: fields
+        fields:
+
+          headline2: 
+            label: Thesis Advisors
+            type: headline
+            numbered: false
+
+          advisor1: 
+            label: First Advisior
+            type: text
+            width: 1/3
+
+          advisor2: 
+            label: Second Advisior
+            type: text
+            width: 1/3
+
+          advisor3:
+            label: Third Advisior
+            type: text
+            width: 1/3
+
+  sidebar: 
+    width: 1/3
+    sections: 
+      thesisUpload:
+        type: fields
+        fields: 
+
+          headline3: 
+            label: File Upload
+            type: headline
+            numbered: false
+
+          thesispdf: 
+            label: Upload here
+            type: files
+            help: Please upload the thesis as a pdf or in a zip file here. 
+            max: 1
+            multiple: false
+
+      thesisLinks: 
+        type: fields
+        fields: 
+          headline4: 
+            label: Thesis Website Mirrors
+            type: headline
+            numbered: false
+
+          mirrorExternal:
+            type: url
+            label: Link to Thesis Website on your own hosting service. 
+            width: 1/2
+
+          mirrorExternalBroken:
+            type: toggle
+            label: Is the website on the extrernal hosting still online?
+            width: 1/2
+            text: 
+              - "offline"
+              - "online"
+          mirrorKDG:
+            type: url
+            label: Link to Thesis Website archived on the KDG Server. 
+
+      graduateinfo:
+        type: fields
+        fields:
+
+          headline5: 
+            label: Connect Graduate Profile
+            type: headline
+            numbered: false
+
+          connectedGraduate:
+            label: Graduate
+            type: pages
+            query: site.find('graduates')
+            help: Select your name here
+            icon: user
+            image:
+              cover: false
+            multiple: false
+
+      hfbkRepository:
+        type: fields
+        fields: 
+          
+          headline6: 
+            type: headline
+            label: HFBK Repository
+
+          repositoryLink:
+            type: url
+            label: Link to HFBK Repository
+
+        

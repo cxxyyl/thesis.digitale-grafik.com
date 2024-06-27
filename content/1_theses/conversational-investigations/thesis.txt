@@ -1,0 +1,69 @@
+Title: Conversational Investigations
+
+----
+
+Thesissubtitle: 
+
+----
+
+Thesisabstract: 
+
+----
+
+Thesistags: AI
+
+----
+
+Selectbm: MA
+
+----
+
+Language: en
+
+----
+
+Semestercycle: SuSe
+
+----
+
+Yearofpublishing: 2022
+
+----
+
+Advisor1: 
+
+----
+
+Advisor2: Konrad Renner
+
+----
+
+Advisor3: 
+
+----
+
+Thesispdf: 
+
+----
+
+Mirrorexternal: 
+
+----
+
+Mirrorexternalbroken: false
+
+----
+
+Mirrorkdg: 
+
+----
+
+Connectedgraduate: - page://1Sq9tgTge6U8npIM
+
+----
+
+Repositorylink: 
+
+----
+
+Uuid: bm6WhxSEp9yQtycK

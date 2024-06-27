@@ -1,0 +1,120 @@
+title: Thesis
+
+tabs:
+
+  content: 
+    label: Theses & Graduates
+
+    
+    columns: 
+      left:
+        width: 2/3
+        sections: 
+
+          theses:
+            type: pages
+            label: Theses
+            parent: site.find("theses")
+            template: thesis
+            
+            layout: table
+            columns: 
+              graduate: 
+                label: Linked Graduate
+                value: "{{ page.connectedGraduate.toPage.Title }}"
+              degree: 
+                label: Degree
+                value: "{{ page.selectBM }}"
+
+          graduates:
+            label: Graduates
+            type: pages
+            parent: site.find("graduates")
+            template: graduate
+            sortBy: title asc
+
+            layout: table
+            columns: 
+              linkedBA:
+                label: Linked BA Thesis
+                value: "{{ page.linkBA.toPage.Title }}"
+
+              linkedMA:
+                label: Linked MA Thesis
+                value: "{{ page.LinkMA.toPage.Title }}"
+
+
+            
+
+
+      right:
+        width: 1/3
+        sections: 
+        
+          todo: 
+            type: fields
+            fields: 
+              todo: 
+                label: ToDo
+                type: textarea
+                counter: true
+                size: large
+                spellcheck: true
+    
+  imprint: 
+    label: Imprint & About
+    sections:
+      imprintandabout: 
+        type: fields
+        fields: 
+          about: 
+            label: About
+            type: textarea
+            counter: true
+            size: large
+            spellcheck: true
+
+          imprint: 
+            label: Imprint
+            type: textarea
+            counter: true
+            size: large
+            spellcheck: true
+           
+  housekeeping: 
+    label: Housekeeping
+    sections: 
+      unlisted: 
+        label: Unlisted Pages
+        type: pages
+      
+      meta: 
+        type: fields
+        fields: 
+          headline1: 
+            label: Open Graph
+            type: headline
+            numberd: false
+
+          ogDescription:
+            label: OG Description
+            type: text
+            counter: true
+            font: sans
+            minlength: 50
+            maxlength: 200
+            required: true
+
+          ogImage:
+            label: OG Image
+            type: files
+            max: 1
+            multriple: false
+            size: medium
+
+        
+
+
+
+
+

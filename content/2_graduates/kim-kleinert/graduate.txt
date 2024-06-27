@@ -1,0 +1,53 @@
+Title: Kim Kleinert
+
+----
+
+Name: Kim
+
+----
+
+Surname: Kleinert
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Degree: BFA
+
+----
+
+Graduation: 2024-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Website: 
+
+----
+
+Email: 
+
+----
+
+Socials: 
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: e50ELZm58jhcmSNL

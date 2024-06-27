@@ -1,0 +1,53 @@
+Title: Marco Wesche
+
+----
+
+Name: Marco
+
+----
+
+Surname: Wesche
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Degree: MFA
+
+----
+
+Graduation: 2022-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Website: 
+
+----
+
+Email: 
+
+----
+
+Socials: 
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: zWMsU9KycOm9aWZq

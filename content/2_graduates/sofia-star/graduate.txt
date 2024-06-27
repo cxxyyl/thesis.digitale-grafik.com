@@ -1,0 +1,53 @@
+Title: Sofia Star
+
+----
+
+Name: Sofia
+
+----
+
+Surname: Star
+
+----
+
+Bio: 
+
+----
+
+Gradimage: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Degree: MA
+
+----
+
+Graduation: 2021-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Website: 
+
+----
+
+Email: sofiastar@outlook.de
+
+----
+
+Socials: 
+
+----
+
+Uuid: Sxk6F6wDvuVOCf2b

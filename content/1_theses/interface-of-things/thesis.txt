@@ -1,0 +1,69 @@
+Title: Interface Of Things
+
+----
+
+Thesissubtitle: Zukunftsvisionen der (semi-)digitalen Wahrnehmung
+
+----
+
+Thesisabstract: 
+
+----
+
+Thesistags: 
+
+----
+
+Selectbm: MA
+
+----
+
+Language: de
+
+----
+
+Semestercycle: SuSe
+
+----
+
+Yearofpublishing: 2021
+
+----
+
+Advisor1: Christoph Knoth
+
+----
+
+Advisor2: Konrad Renner
+
+----
+
+Advisor3: Dr. Friedrich von Borries
+
+----
+
+Thesispdf: - file://KGIhar4VXDNye3nm
+
+----
+
+Mirrorexternal: 
+
+----
+
+Mirrorexternalbroken: true
+
+----
+
+Mirrorkdg: 
+
+----
+
+Connectedgraduate: - page://Ichc7LTZydjR5YxX
+
+----
+
+Repositorylink: 
+
+----
+
+Uuid: AFvMlyLD24Zw1413

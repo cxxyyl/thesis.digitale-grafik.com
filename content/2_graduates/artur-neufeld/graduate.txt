@@ -1,0 +1,57 @@
+Title: Artur Neufeld
+
+----
+
+Name: Artur
+
+----
+
+Surname: Neufeld
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Degree: MA
+
+----
+
+Graduation: 2022-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: - page://bm6WhxSEp9yQtycK
+
+----
+
+Website: http://arturneufeld.com/
+
+----
+
+Email: hello@arturneufeld.com
+
+----
+
+Socials:
+
+- 
+  socialname: Instagram
+  sociallink: https://www.instagram.com/artur.neufeld/
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: 1Sq9tgTge6U8npIM

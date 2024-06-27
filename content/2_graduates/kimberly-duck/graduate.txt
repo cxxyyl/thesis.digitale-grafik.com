@@ -1,0 +1,57 @@
+Title: Kimberly Duck
+
+----
+
+Name: Kimberly
+
+----
+
+Surname: Duck
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Degree: BFA, MFA
+
+----
+
+Graduation: 2022-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Website: 
+
+----
+
+Email: 
+
+----
+
+Socials:
+
+- 
+  socialname: Instagram
+  sociallink: ""
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: zJSBTSc5dkzjFFuy

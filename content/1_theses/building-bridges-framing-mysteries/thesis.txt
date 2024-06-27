@@ -1,0 +1,69 @@
+Title: Building Bridges, Framing Mysteries
+
+----
+
+Thesissubtitle: 
+
+----
+
+Thesisabstract: 
+
+----
+
+Thesistags: 
+
+----
+
+Selectbm: MA
+
+----
+
+Language: en
+
+----
+
+Semestercycle: WiSe
+
+----
+
+Yearofpublishing: 2021/2022
+
+----
+
+Advisor1: 
+
+----
+
+Advisor2: 
+
+----
+
+Advisor3: 
+
+----
+
+Thesispdf: 
+
+----
+
+Mirrorexternal: 
+
+----
+
+Mirrorexternalbroken: false
+
+----
+
+Mirrorkdg: 
+
+----
+
+Connectedgraduate: - page://5MXS7YSseGhQydVD
+
+----
+
+Repositorylink: 
+
+----
+
+Uuid: DjmeYxmIgjBtre0V

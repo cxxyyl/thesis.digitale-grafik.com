@@ -1,0 +1,53 @@
+Title: Julius Kühn
+
+----
+
+Name: Julius
+
+----
+
+Surname: Kühn
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Degree: BFA
+
+----
+
+Graduation: 2021-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: - page://HlAO0GVqKlY5nb2n
+
+----
+
+Website: 
+
+----
+
+Email: christoph@knoth-renner.com
+
+----
+
+Socials: 
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: qM8aHaYorVuEEiDF

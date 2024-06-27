@@ -1,0 +1,65 @@
+Title: „Don’t be evil“
+
+----
+
+Thesissubtitle: Machtanalyse der Google Websuche
+
+----
+
+Thesisabstract: 
+
+----
+
+Thesistags: google
+
+----
+
+Selectbm: MA
+
+----
+
+Language: de
+
+----
+
+Semestercycle: SS
+
+----
+
+Yearofpublishing: 2021-01-01
+
+----
+
+Advisor1: Anja Steidinger
+
+----
+
+Advisor2: Konrad Renner
+
+----
+
+Advisor3: 
+
+----
+
+Thesispdf: - file://2mlS5kLtCjKxFZDC
+
+----
+
+Mirrorexternal: 
+
+----
+
+Mirrorkdg: 
+
+----
+
+Connectedgraduate: - page://Sxk6F6wDvuVOCf2b
+
+----
+
+Repositorylink: 
+
+----
+
+Uuid: HqcWUoiOWhkls3MT

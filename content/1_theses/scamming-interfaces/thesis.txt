@@ -1,0 +1,69 @@
+Title: Scamming Interfaces
+
+----
+
+Thesissubtitle: 
+
+----
+
+Thesisabstract: 
+
+----
+
+Thesistags: Scamming, Scammer
+
+----
+
+Selectbm: MA
+
+----
+
+Language: de
+
+----
+
+Semestercycle: WiSe
+
+----
+
+Yearofpublishing: 2020/2021
+
+----
+
+Advisor1: 
+
+----
+
+Advisor2: 
+
+----
+
+Advisor3: 
+
+----
+
+Thesispdf: 
+
+----
+
+Mirrorexternal: https://www.scam.me
+
+----
+
+Mirrorexternalbroken: false
+
+----
+
+Mirrorkdg: https://scamming-interfaces.digitale-grafik.com
+
+----
+
+Connectedgraduate: - page://U2x1o75NeQlhTuKH
+
+----
+
+Repositorylink: 
+
+----
+
+Uuid: saUoAEIu9ZUPk4Nc

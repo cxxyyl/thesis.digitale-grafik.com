@@ -1,0 +1,62 @@
+Title: Benedikt Rottstegge
+
+----
+
+Name: Benedikt
+
+----
+
+Surname: Rottstegge
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Degree: MA
+
+----
+
+Graduation: 2021-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: - page://gt6N1Qu6MxQYpOwR
+
+----
+
+Website: 
+
+----
+
+Email: benedikt.rottstegge@gmail.com
+
+----
+
+Socials: 
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: p6cmEcsGhRqkkV4C
+
+----
+
+Help:
+
+- 
+  socialname: null
+  sociallink: null
+  _id: 262da730-cf32-4a0b-86bb-ba4a1791ecf2

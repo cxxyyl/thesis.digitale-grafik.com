@@ -1,0 +1,8 @@
+title: Image Upload
+
+accept: image/jpeg, image/png
+
+fields: 
+  alt: 
+    label: Alt Text
+    type: text

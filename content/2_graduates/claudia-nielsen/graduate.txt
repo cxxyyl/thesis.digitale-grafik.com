@@ -1,0 +1,53 @@
+Title: Claudia Nielsen
+
+----
+
+Name: Claudia
+
+----
+
+Surname: Nielsen
+
+----
+
+Bio: 
+
+----
+
+Gradimage: 
+
+----
+
+Class: Klasse Digitale Grafik
+
+----
+
+Degree: MA
+
+----
+
+Graduation: 2021-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Website: 
+
+----
+
+Email: claudianielsen@gmx.net
+
+----
+
+Socials: 
+
+----
+
+Uuid: htx4oE1ucjHFGIIK

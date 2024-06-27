@@ -1,0 +1,81 @@
+body {
+    font-family: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 1vw;
+    padding: 0;
+    margin: 0;
+}
+
+#selection {
+    position: fixed;
+    font-size: 4rem;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#scroll-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex: none;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+}
+
+#scroll-wrapper>div {
+    width: 100%;
+    flex: none;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+
+#theses-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.2rem;
+    padding-bottom: 5rem;
+    background-color: #fff
+}
+
+#graduates-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.2rem;
+    padding-bottom: 5rem;
+    background-color: #fff;
+}
+
+#spacer {
+    user-select: none;
+    pointer-events: none;
+}
+
+.row-wrapper {
+    width: 100%;
+    display: grid;
+    justify-content: start;
+    grid-template-columns: 5% 3fr 1fr 5%;
+}
+
+.row-wrapper>* {
+    padding-left: 1rem;
+}
+
+@media print {
+    .row-wrapper {
+        width: 70%;
+    }
+
+}
