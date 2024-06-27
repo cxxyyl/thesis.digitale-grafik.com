@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="../css/style.css">
+    <?= js('/js/script.js', ['defer' => true]) ?>
    
 </head>
 <body>
