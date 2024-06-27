@@ -1,0 +1,24 @@
+title: Theses
+icon: archive
+ 
+sections:
+
+  thesisDrafts:
+    label: Thesis Drafts
+    type: pages
+    status: draft
+    template: thesis
+
+  thesisUnlisted:
+    label: Thesis Unlisted
+    type: pages
+    status: unlisted
+
+  thesisPublished:
+    label: Thesis Online
+    type: pages
+    status: listed
+	
+	
+
+ 

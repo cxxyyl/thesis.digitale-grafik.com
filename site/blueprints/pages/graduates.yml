@@ -1,0 +1,14 @@
+title: Graduates
+
+icon: users
+ 
+sections:
+
+  graduates:
+    label: List of Graduates
+    type: pages
+    template: graduate
+    image:
+    sortBy: title asc
+
+

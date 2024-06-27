@@ -1,0 +1,167 @@
+title: Graduate
+icon: user
+
+columns: 
+  info: 
+    width: 1/2
+
+    sections: 
+      graduate:
+        type: fields
+        fields: 
+
+          headline1: 
+            type: headline
+            label: Personal Information
+            numbered: false
+
+          name:
+            label: Name
+            type: text
+            required: true
+            width: 1/2
+
+
+          surname:
+            label: Surname
+            type: text
+            required: true
+            width: 1/2
+
+          bio:
+            label: Short Bio
+            type: textarea
+            buttons: 
+              - bold
+              - italic
+              - ul
+              - ol
+              - link
+              - email
+            size: medium
+            counter: true           
+
+          class: 
+            label: Part of the following Classes
+            type: tags
+            required: true 
+            options:
+              - Digitale Grafik
+              - Typografie
+              - Grafik
+              - Fotografie
+
+              - Film
+
+              - Boyce
+              - Demand
+              - Slominski
+              - Stadtbäumer
+              - Atkins
+              
+              - Social Design
+              - Experimental Design
+              - Industrial Design
+              - Product Design
+
+              - Kahlon
+              - Koether
+              - Voigt
+
+              - Attia
+              - Bulloch
+              - Denny
+              - Faust
+              - Afsah
+
+          degree:
+            label: Degree
+            type: checkboxes
+            default: false
+            required: true
+            options: 
+              BA: Bachelor of Arts
+              BFA: Bachelor of Fine Arts
+              MA: Master of Arts
+              MFA: Master of Fine Arts
+
+          graduation: 
+            label: Year of Graduation
+            type: date
+            calendar: false
+            display: YYYY
+            required: true 
+
+  social:
+    width: 1/2
+    
+    sections: 
+      projects: 
+        type: fields
+        fields: 
+
+          headline2: 
+            type: headline
+            label: Connect Thesis
+            numbered: false
+             
+          linkBA:
+            label: Connect BA Thesis
+            type: pages
+            query: site.find('theses')
+            help: Select your BA Thesis here
+            icon: book
+            image:
+              cover: false
+            multiple: false
+
+          linkMA:
+            label: Connect MA Thesis
+            type: pages
+            query: site.find('theses')
+            help: Select your MA Thesis here
+            icon: book
+            image:
+              cover: false
+            multiple: false
+
+
+      contact:
+        type: fields
+        fields: 
+
+          headline3: 
+            type: headline
+            label: Contact & Socials
+            numbered: false
+          
+          website:
+            label: Link to Website
+            type: url
+            icon: heart-filled
+
+          email: 
+            label: Email
+            type: email
+            icon: email
+
+          socials: 
+            label: Socials
+            type: structure
+            fields:
+
+              socialName:
+                label: Site Name
+                type: text
+                maxlength: 50
+                requiered: true
+                help: Connect your Socials here. Instagram, Github, Arena, Soundcloud. Whatever you want to share.
+
+              socialLink:
+                label: Profile Link
+                type: url
+                requiered: true
+				
+
+
+      
