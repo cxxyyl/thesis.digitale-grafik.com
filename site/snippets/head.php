@@ -9,4 +9,5 @@
    
 </head>
 <body>
+<?php snippet('nav') ?>
  
