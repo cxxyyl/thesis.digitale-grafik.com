@@ -38,6 +38,11 @@ body {
     margin: 0;
 }
 
+/* ! delete later */
+.nav {
+    background-color: red;
+}
+
 #selection {
     position: fixed;
     font-size: 4rem;
