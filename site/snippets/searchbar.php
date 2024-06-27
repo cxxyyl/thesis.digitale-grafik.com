@@ -11,11 +11,14 @@
             <option value="WiSe2023/24">WiSe2023/24</option>
         </select>
     </div>
-    <div class="">
-        <button class="tag">X Feminism</button>
-        <button class="tag">X Internet</button>
-        <button class="tag">X Digital</button>
+
+    <div class="searchbar__search-container">
+        <div class="searchbar__tag-container">
+            <button class="tag">X Feminism</button>
+            <button class="tag">X Internet</button>
+            <button class="tag">X Digital</button>
+        </div>
+        <!-- Search Box -->
+        <input type="text" id="search-box" placeholder="Search content...">
     </div>
-    <!-- Search Box -->
-    <input type="text" id="search-box" placeholder="Search content...">
-    </div>
+</div>

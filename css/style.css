@@ -11,14 +11,18 @@
 
   /* Color */
   --color-primary: #000000;
-  --color-secondary: #000000;
-  --color-tertiary: #000000;
+  --color-secondary: #FFFFFF;
+  --color-tertiary: #b5b5b5;
+
+  --color-text-lght: #000000;
+  --color-text-drk: #FFFFFF;
   
   /* Typography */
   --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
 
   /* Spacing */
   --spacing-none: 0;
+  --spacing-xxs: .25rem;
   --spacing-xs: .5rem;
   --spacing-sm: 1rem;
   --spacing-md: 1rem;
@@ -57,7 +61,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-xs);
-    border-bottom: .5px var(--color-secondary) solid;
+    border-bottom: .5px var(--color-primary) solid;
 
    
         a {
@@ -81,6 +85,10 @@ nav {
 
 /* ^ Searchbar */
 
+#search-box {
+    padding: var(--spacing-xxs);
+}
+
 .searchbar {
 
     padding: var(--spacing-xs);
@@ -90,6 +98,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     input {
         border-radius: 1rem;
@@ -98,6 +107,18 @@ nav {
     select {
         border-radius: 1rem;
     }
+}
+
+.searchbar__search-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.tag {
+    background-color: var(--color-primary);
+    color: var(--color-text-drk);
+    border-radius: 1rem;
+    padding: var(--spacing-xxs);
 }
 
 #selection {
