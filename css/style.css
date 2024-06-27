@@ -71,7 +71,28 @@ nav {
     }
     }
 
-} 
+}
+
+/* ^ Searchbar */
+
+.searchbar {
+
+    padding: var(--spacing-xs);
+    border-bottom: .5px var(--color-primary) solid;
+
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    input {
+        border-radius: 1rem;
+    }
+
+    select {
+        border-radius: 1rem;
+    }
+}
 
 #selection {
     position: fixed;
