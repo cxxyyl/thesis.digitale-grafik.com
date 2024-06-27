@@ -6,8 +6,33 @@
     max-width: 100%;
 }
 
+/* CSS Variables */
+:root {
+
+  /* Color */
+  --color-primary: #000000;
+  --color-secondary: #000000;
+  --color-tertiary: #000000;
+  
+  /* Typography */
+  --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
+
+  /* Spacing */
+  --spacing-none: 0;
+  --spacing-xs: 1rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1rem;
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-primary);
+}
+
 body {
-    font-family: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
+    font-family: var(--font-primary);
     font-size: 1vw;
     padding: 0;
     margin: 0;
