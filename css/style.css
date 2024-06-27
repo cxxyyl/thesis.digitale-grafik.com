@@ -59,6 +59,12 @@ nav {
     padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-xs);
     border-bottom: .5px var(--color-secondary) solid;
 
+   
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
     ul {
 
     li {
