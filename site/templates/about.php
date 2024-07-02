@@ -1,3 +1,11 @@
 <?php snippet('head') ?>
-About Page
+
+<p>
+    About Page
+</p>
+
+<p>
+    Impressum
+</p>
+
 <?php snippet('footer') ?>

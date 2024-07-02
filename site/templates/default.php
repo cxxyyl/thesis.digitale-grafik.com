@@ -1,29 +1,17 @@
 <?php snippet('head')?>
 <?php snippet('searchbar') ?>
-<?php snippet('accordion') ?>
 
-   <div id="selection">
+   <!-- <div id="selection">
         <div>Thesis</div>
         <div>Graduates</div>
-    </div>
+    </div> -->
 
     <!-- Content to be searched -->
     <div id="content">
 
-        <div class="search-result">Megan MA</div>
-        <div class="search-result">BA Thesis</div>
-        <div class="search-result">
-            <h4>Cyborg Cunt Glitch</h4>
-            <p>Christoph Knoth</p>
-            <p>2022</p>
-        </div>
-                <div class="search-result">
-            <h4>Testing the Test</h4>
-            <p>Konrad Renner</p>
-            <p>Astrid Mania</p>
-            <p>2024</p>
-        </div>
-    </div>
+    <?php snippet('accordion') ?>
+    <?php snippet('accordion') ?>
+    <?php snippet('accordion') ?>
 
 <div id="scroll-wrapper" dir="ltr">
 
