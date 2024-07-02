@@ -38,13 +38,19 @@ columns:
               - ol
               - link
               - email
+            counter: true
+            maxlength: 500
             size: medium
-            counter: true           
+            counter: true 
+            help: Write a few sentences about yourself. your interests, what you do ore where you studied. You can also add links to other websites or projects in the field.   
+            Your Bio is one of the pieces of information that feed the search option on thesis.digitale. The Bio should not be longer than 500 characters with spaces. 
+
+
 
           class: 
             label: Part of the following Classes
             type: tags
-            required: true 
+            help: If you are in multiple classes, please select / add all of them. If you're only in Klasse Digitale Grafik you only add "Digitale Grafik"
             options:
               - Digitale Grafik
               - Typografie
@@ -74,36 +80,94 @@ columns:
               - Faust
               - Afsah
 
-          degree:
+          degreeCondtional: 
+            label: Select Studies
+            type: toggles
+            options: 
+              - Fine Arts or Design
+              - Teaching Degree
+            help: Please select if you're enrolled in the fine arts or theaching study program. 
+           
+          degreeFineArts:
             label: Degree
             type: checkboxes
             default: false
-            required: true
             options: 
-              BA: Bachelor of Arts
-              BFA: Bachelor of Fine Arts
-              MA: Master of Arts
-              MFA: Master of Fine Arts
+              - Bachelor of Fine Arts
+              - Master of Fine Arts
+            when:
+                degreeCondtional: Fine Arts or Design
+            help: Please only select the degrees you finished at HFBK Hamburg. If you finished your BA or MA at HFBK, only select one. If you completed your BA and MA at HFBK select both options. 
+
+          degreeTeaching:
+            label: Degree
+            type: checkboxes
+            default: false
+            options: 
+              - Bachelor of Arts
+              - Master of Arts
+            when:
+              degreeCondtional: Teaching Degree
+            help: Please only select the degrees you finished at HFBK Hamburg. If you finished your BA or MA at HFBK, only select one. If you completed your BA and MA at HFBK select both options. 
+
+
+        
 
           graduation: 
             label: Year of Graduation
             type: date
             calendar: false
             display: YYYY
-            required: true 
 
   social:
     width: 1/2
     
     sections: 
-      projects: 
+
+      contact:
         type: fields
         fields: 
 
           headline2: 
             type: headline
+            label: Contact & Socials
+            numbered: false
+            help: This is the Section for all your Contact Information and Social Media Links. If you have your own website you can link it here. If people should be able to contact you via Email enter you Email adress here. It will be encrypted so website scrapers won't be easily able to scrape your Email. The last field called "Social" is a structure field. You can add multiple entries into it by clicking on the +add Button in the top right corner. Enter what ever you want to share. are.na, github, instagram, or some obscure forum.
+          
+          website:
+            label: Link to Website
+            type: url
+            icon: heart-filled
+
+          email: 
+            label: Email
+            type: email
+            icon: email
+
+          socials: 
+            label: Socials
+            type: structure
+            fields:
+
+              socialName:
+                label: Site Name
+                type: text
+                maxlength: 50
+                help: Connect your Socials here. Instagram, Github, Arena, Soundcloud. Whatever you want to share.
+
+              socialLink:
+                label: Profile Link
+                type: url
+                
+      projects: 
+        type: fields
+        fields: 
+
+          headline3: 
+            type: headline
             label: Connect Thesis
             numbered: false
+            help: This section connects your Graduate Profile to your Thesis Project. Once you filled out and published your Graduate Profile as well as your Thesis Project come back here to connect your BA and/or MA Thesis. Click one the "Connect BA Thesis" or "Connect MA Thesis" field to choose your Thesis Project from the dropdown. Please keep in mind that only published and unlisted pages are showing up. If your Thesis Project is still a draft, it will not show up. Once the connection is made you will be able to go to you Thesis Project by clicking on this field. 
              
           linkBA:
             label: Connect BA Thesis
@@ -126,41 +190,7 @@ columns:
             multiple: false
 
 
-      contact:
-        type: fields
-        fields: 
 
-          headline3: 
-            type: headline
-            label: Contact & Socials
-            numbered: false
-          
-          website:
-            label: Link to Website
-            type: url
-            icon: heart-filled
-
-          email: 
-            label: Email
-            type: email
-            icon: email
-
-          socials: 
-            label: Socials
-            type: structure
-            fields:
-
-              socialName:
-                label: Site Name
-                type: text
-                maxlength: 50
-                requiered: true
-                help: Connect your Socials here. Instagram, Github, Arena, Soundcloud. Whatever you want to share.
-
-              socialLink:
-                label: Profile Link
-                type: url
-                requiered: true
 				
 
 

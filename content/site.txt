@@ -23,8 +23,12 @@ Imprint:
 
 ----
 
-Ogdescription: Thesis ThesisThesisThesisThesisThesisThesisThesisThesis
+Ogdescription: 
 
 ----
 
 Ogimage: 
+
+----
+
+Favicon: 

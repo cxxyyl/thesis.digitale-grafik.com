@@ -18,7 +18,15 @@ Class: Digitale Grafik
 
 ----
 
-Degree: MA
+Degreecondtional: Fine Arts or Design
+
+----
+
+Degreefinearts: Master of Fine Arts
+
+----
+
+Degreeteaching: 
 
 ----
 
@@ -47,6 +55,10 @@ Socials:
 - 
   socialname: Instagram
   sociallink: https://www.instagram.com/artur.neufeld/
+
+----
+
+Degree: MA
 
 ----
 
