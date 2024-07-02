@@ -1,4 +1,8 @@
-/* Browser Reset */
+/* ? Foundation (Typography,
+/* * Atoms Single Elements (Buttons,...) */
+/* ^ Blocks & Elements (Footer,Nav,...)
+
+/* ? Browser Reset */
 * {
     padding: 0;
     margin: 0;
@@ -6,13 +10,14 @@
     max-width: 100%;
 }
 
-/* CSS Variables */
+/* ? CSS Variables */
 :root {
 
   /* Color */
   --color-primary: #000000;
   --color-secondary: #FFFFFF;
-  --color-tertiary: #b5b5b5;
+  --color-tertiary: #ededed;
+  --color-queriary: #b5b5b5;
 
   --color-text-lght: #000000;
   --color-text-drk: #FFFFFF;
@@ -29,6 +34,11 @@
   --spacing-lg: 1rem;
   --spacing-xl: 1rem;
 
+  /* Radius */
+  --radius-xs: .5rem;
+  --radius-sm: 1rem;
+  --radius-lg: 2rem;
+
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -39,6 +49,7 @@ p {
     
 }
 
+/* ? Body Base Styling */
 body {
     font-family: var(--font-primary);
     font-size: 1vw;
@@ -83,6 +94,21 @@ nav {
 
 }
 
+/* * Buttons */
+
+.button-primary {
+    color: var(--color-text-lght);
+    border-radius: var(--radius-lg);
+    border: .5px solid;
+    text-decoration: none;
+    padding: var(--spacing-xxs);
+    text-transform: uppercase;
+}
+
+.button-secondary {
+    color: var(--color-text-lght);
+}
+
 /* ^ Searchbar */
 
 #search-box {
@@ -119,6 +145,63 @@ nav {
     color: var(--color-text-drk);
     border-radius: 1rem;
     padding: var(--spacing-xxs);
+}
+
+
+/* ^ Accordion */
+
+.accordion {
+    width: 100%;
+    border-bottom: .5px solid var(--color-text-lght);
+}
+
+.accordion-content {
+    height: auto;
+    overflow: hidden;
+
+    padding: var(--spacing-xs);
+
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.accordion-content__left {
+    display: flex;
+    flex-direction: row;
+    max-width: 20%;
+    gap: var(--spacing-xs);
+}
+
+.accoridon-content__right {
+    display: flex;
+    flex-direction: row;
+    max-width: 20%;
+    gap: var(--spacing-xs);
+}
+
+.accordion-title {
+    width: 100%;
+    padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-xs);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .5px solid var(--color-text-lght);
+}
+
+.accordion__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-xs);
+
+    ul {
+        li {
+            list-style: none;
+        }
+    }
 }
 
 #selection {
