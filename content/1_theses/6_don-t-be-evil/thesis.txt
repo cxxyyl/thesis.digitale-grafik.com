@@ -22,11 +22,11 @@ Language: de
 
 ----
 
-Semestercycle: SS
+Semestercycle: 
 
 ----
 
-Yearofpublishing: 2021-01-01
+Yearofpublishing: 
 
 ----
 
@@ -47,6 +47,10 @@ Thesispdf: - file://2mlS5kLtCjKxFZDC
 ----
 
 Mirrorexternal: 
+
+----
+
+Mirrorexternalbroken: false
 
 ----
 

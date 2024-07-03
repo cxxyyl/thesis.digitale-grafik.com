@@ -6,8 +6,8 @@
 
     <h2>INFO</h2>
 
-        <?php if ($page->thesisTitle()->isNotEmpty()): ?>
-            <div><?= $page->thesisTitle()?></div>
+        <?php if ($page->title()->isNotEmpty()): ?>
+            <div><?= $page->title()?></div>
         <?php endif ?>
 
         <?php if ($page->thesisSubtitle()->isNotEmpty()): ?>
@@ -90,10 +90,6 @@
         <?php if ($graduate->bio()->isNotEmpty()): ?>
             <?= $graduate->bio()->kirbytext()?> 
         <?php endif ?>
-
-        <?php if($image = $graduate->gradImage()->toFile()): ?>
-            <img src="<?= $image->url() ?>" alt="<?= $image->alt() ?>">
-        <?php endif ?>
         
         <?php if ($graduate->class()->isNotEmpty()): ?>
             <div>
@@ -122,29 +118,5 @@
             <?= Str::encode($graduate->email()) ?>
             </a>
         <?php endif ?>
-
-    <h2>Socials</h2>
-        
-        <?php if ($graduate->instagram()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $graduate->instagram()->toUrl()?>">Instagram</a>
-        <?php endif ?>
-
-        <?php if ($graduate->arena()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $graduate->arena()->toUrl()?>">Arena</a>
-        <?php endif ?>
-
-        <?php if ($graduate->git()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $graduate->git()->toUrl()?>">Github</a>
-        <?php endif ?>
-
-        <?php if ($graduate->social1name()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $graduate->social1link()->toUrl()?>"><?=$graduate->social1name() ?></a>
-        <?php endif ?>
-
-        <?php if ($graduate->social2name()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $graduate->social2link()->toUrl()?>"><?=$graduate->social2name() ?></a>
-        <?php endif ?>
-
-
 
 <?php snippet('footer')?>
