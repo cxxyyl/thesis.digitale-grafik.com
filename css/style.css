@@ -155,16 +155,18 @@ nav {
     border-bottom: .5px solid var(--color-text-lght);
 }
 
-.accordion-content {
+.accordion:hover .accordion-content {
     height: auto;
+}
+
+.accordion-content {
+    height: 0;
     overflow: hidden;
 
-    padding: var(--spacing-xs);
-
     /* Layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid; 
+    grid-template-rows: 0fr;
+    transition: 750ms grid-template-rows ease;
 }
 
 .accordion-content__left {
