@@ -146,6 +146,7 @@ columns:
             text: 
               - "offline"
               - "online"
+          
           mirrorKDG:
             type: url
             label: MIRROR ARCHIVE — Link to Thesis Website Archive. 
@@ -158,7 +159,7 @@ columns:
             label: Connect Graduate Profile
             type: headline
             numbered: false
-            help: This section connects your Thesis Project to your Graduate Profile. Once you filled out and published your Graduate Profile you will able to select it by clicking on the "Graduate Profile" field. Please keep in mind that only published and unlisted pages are showing up. If your Graduate Profile is still a draft, it will not show up. Once the connection is made you will be able to go to you Graduate Profile by clicking on this field. 
+            help: This section connects your Thesis Project to your Graduate Profile. Once you filled out and published your Graduate Profile you will able to select it by clicking on the "Graduate Profile" field. Please keep in mind that only published and unlisted pages are showing up. If your Graduate Profile is still a draft, it will not show up. Once the connection is made you will be able to go to you Graduate Profile by clicking on this field.
 
           connectedGraduate:
             label: Graduate Profile
