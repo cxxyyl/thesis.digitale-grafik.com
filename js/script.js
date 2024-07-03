@@ -1,3 +1,6 @@
+/* Basics */
+/* JS Accordion Toggle */
+       
        // Function to handle search
        function searchContent() {
         const searchText = document.getElementById('search-box').value.toLowerCase();
