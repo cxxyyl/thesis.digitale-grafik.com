@@ -21,7 +21,6 @@ columns:
             required: true
             width: 1/2
 
-
           surname:
             label: Surname
             type: text
@@ -42,10 +41,8 @@ columns:
             maxlength: 500
             size: medium
             counter: true 
-            help: Write a few sentences about yourself. your interests, what you do ore where you studied. You can also add links to other websites or projects in the field.   
+            help: Write a few sentences about yourself. Your interests, what you do or where you studied. You can also add links to other websites or projects in the field.   
             Your Bio is one of the pieces of information that feed the search option on thesis.digitale. The Bio should not be longer than 500 characters with spaces. 
-
-
 
           class: 
             label: Part of the following Classes
@@ -80,55 +77,58 @@ columns:
               - Faust
               - Afsah
 
-          degreeCondtional: 
-            label: Select Studies
-            type: toggles
-            options: 
-              - Fine Arts or Design
-              - Teaching Degree
-            help: Please select if you're enrolled in the fine arts or theaching study program. 
-           
-          degreeFineArts:
-            label: Degree
-            type: checkboxes
-            default: false
-            options: 
-              - Bachelor of Fine Arts
-              - Master of Fine Arts
-            when:
-                degreeCondtional: Fine Arts or Design
-            help: Please only select the degrees you finished at HFBK Hamburg. If you finished your BA or MA at HFBK, only select one. If you completed your BA and MA at HFBK select both options. 
+          headline2:
+            type: headline
+            label: Degrees and Projects
+            help: In this section you can fill out what degrees you pursued at HFBK. To add a new fild to theis structure you can click on the +add button on the top right corner or down in the middle. If it's for example a BA, you would add only one entry in this structure. If you graduated with both a BA and MA from HFBK you would make two entries — one for your BA and one for your MA. You're also able to add the year you've graduated. What's also important is the "Connect Thesis" field. Please remember to conect your thesis, once you're done. 
+          
+          studies: 
+            label: Studies
+            type: structure
+            fields:
+      
+              selectStudies:
+                label: Select Degree
+                type: radio
+                options:
+                 - Fine Arts or Design — Bachelor of Fine Arts
+                 - Fine Arts or Design — Master of Fine Arts
+                 - Teaching Degree — Bachelor of Arts
+                 - Teaching Degree — Master of Arts
+                 - Doctoral Studies — PHD
+                help: Please select the degree that corresponds with your current thesis project.  
 
-          degreeTeaching:
-            label: Degree
-            type: checkboxes
-            default: false
-            options: 
-              - Bachelor of Arts
-              - Master of Arts
-            when:
-              degreeCondtional: Teaching Degree
-            help: Please only select the degrees you finished at HFBK Hamburg. If you finished your BA or MA at HFBK, only select one. If you completed your BA and MA at HFBK select both options. 
+              graduation: 
+                label: Year of Graduation
+                type: date
+                calendar: false
+                display: YYYY
 
-
-        
-
-          graduation: 
-            label: Year of Graduation
-            type: date
-            calendar: false
-            display: YYYY
+              headline4: 
+                type: headline
+                label: Connect Thesis
+                numbered: false
+                help: This section connects your Graduate Profile to your Thesis Project. Once you filled out and published your Graduate Profile as well as your Thesis Project come back here to connect your Thesis. Click one the "Connect Thesis" field to choose your Thesis Project from the dropdown. Please keep in mind that only published and unlisted pages are showing up. If your Thesis Project is still a draft, it will not show up. Once the connection is made you will be able to go to you Thesis Project by clicking on this field. 
+                
+              linkThesis:
+                label: Connect Thesis
+                type: pages
+                query: site.find('theses')
+                help: Select your Thesis here
+                icon: book
+                image:
+                  cover: false
+                multiple: false
 
   social:
-    width: 1/2
-    
+    width: 1/2 
     sections: 
 
       contact:
         type: fields
         fields: 
 
-          headline2: 
+          headline3: 
             type: headline
             label: Contact & Socials
             numbered: false
@@ -159,35 +159,6 @@ columns:
                 label: Profile Link
                 type: url
                 
-      projects: 
-        type: fields
-        fields: 
-
-          headline3: 
-            type: headline
-            label: Connect Thesis
-            numbered: false
-            help: This section connects your Graduate Profile to your Thesis Project. Once you filled out and published your Graduate Profile as well as your Thesis Project come back here to connect your BA and/or MA Thesis. Click one the "Connect BA Thesis" or "Connect MA Thesis" field to choose your Thesis Project from the dropdown. Please keep in mind that only published and unlisted pages are showing up. If your Thesis Project is still a draft, it will not show up. Once the connection is made you will be able to go to you Thesis Project by clicking on this field. 
-             
-          linkBA:
-            label: Connect BA Thesis
-            type: pages
-            query: site.find('theses')
-            help: Select your BA Thesis here
-            icon: book
-            image:
-              cover: false
-            multiple: false
-
-          linkMA:
-            label: Connect MA Thesis
-            type: pages
-            query: site.find('theses')
-            help: Select your MA Thesis here
-            icon: book
-            image:
-              cover: false
-            multiple: false
 
 
 

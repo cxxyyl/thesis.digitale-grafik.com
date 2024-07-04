@@ -6,6 +6,21 @@
     <div>Graduates</div>
 </div> -->
 
+<!-- Devlog -->
+<!-- 
+
+Naming conventions
+
+BEM 
+
+css clean nesting aber damit html multiclassing vs nesting
+
+kurz begründen warum wir was genommen haben
+
+
+
+
+-->
 
 
 <!---------------------------- List of all Klasse Digitale Grafik Thesis Projects ---------------------------->
@@ -35,3 +50,4 @@
 <script>
     document.getElementById('scroll-wrapper').scrollLeft = document.getElementById('spacer').offsetLeft;
 </script>
+

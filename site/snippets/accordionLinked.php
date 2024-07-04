@@ -1,7 +1,7 @@
 <?php  foreach ($site->grandchildren()->listed() as $item):?> 
 <?php  $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): ?>     
 
-<article id="<?= $item->title()->slug()?>" class="search-result accordion" >
+<article data-info="<?= $item->title()->slug()?>" class="search-result accordion" >
     
         <!--  can i write comments with kirby? here is some php that displays the thesis title: <?= $item->title()?>
         yes! it works! great :-) 
@@ -18,10 +18,10 @@
         -->
 
         <!-- This is the code for everything that is displayed in the rows of the table. -->
-        <div data-info="" class="accordion-title">
-            <div class="accordion__row">
+        <div data-info="" class="accordion__row">
+            <div class="accordion__container">
                 
-            <!-- Persued Degree -->
+            <!-- Pursued Degree -->
                 <?php if($item->selectBM()->isNotEmpty()): ?>
                 <p class="accordion__degree"><?= $item->selectBM()?></p>
                 <?php endif?>
@@ -47,7 +47,7 @@
 
                 <!-- Language the thesis is written in -->
                 <?php if ($item->language()->isNotEmpty()): ?>
-                <p class="button-primary"><?= $item->language()->category()?></p>
+                <p class="button-primary "><?= $item->language()->category()?></p>
                 <?php endif ?>
             
                 <!-- Links for downloading the Thesis and opening the original thesis website  -->

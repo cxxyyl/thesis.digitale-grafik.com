@@ -18,19 +18,19 @@ Class: Digitale Grafik
 
 ----
 
-Degreecondtional: Fine Arts or Design
+Studies:
 
-----
-
-Degreefinearts: Bachelor of Fine Arts
-
-----
-
-Degreeteaching: 
-
-----
-
-Graduation: 2019-01-01
+- 
+  selectstudies: Doctoral Studies — PHD
+  linkba: [ ]
+  degreecondtional: Fine Arts or Design
+  degreefinearts: PHD
+  degreeteaching: PHD
+- 
+  selectstudies: ""
+  linkba: [ ]
+  degreefinearts: [ ]
+  degreeteaching: [ ]
 
 ----
 
@@ -53,6 +53,22 @@ Socials:
 - 
   socialname: Social 3
   sociallink: http://www.digitale-grafik.com/
+
+----
+
+Degreecondtional: Fine Arts or Design
+
+----
+
+Degreefinearts: Bachelor of Fine Arts
+
+----
+
+Degreeteaching: 
+
+----
+
+Graduation: 2019-01-01
 
 ----
 

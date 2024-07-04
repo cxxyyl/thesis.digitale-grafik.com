@@ -51,8 +51,9 @@ columns:
             options: 
               - BA
               - MA
+              - PHD
             width: 1/2
-            help: Please select if you wrote a BA or MA thesis. 
+            help: Please select if you wrote a BA, MA or PHD thesis. 
 
           language: 
             label: Language the thesis is written in
