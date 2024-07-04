@@ -12,17 +12,23 @@
 <!-- This <main> element contains all the theses. You can find all the single theses inside each <article> -->
 <main id="content">
 
-<?php snippet('accordion') ?>
-<?php snippet('accordion') ?>
-<?php snippet('accordion') ?>
-<?php snippet('accordion') ?>
-<?php snippet('accordion') ?>
-<?php snippet('accordion') ?>
+<!-- From here on there is a lot of stuff happening that is generated with php/ Kirby. Sadly I'm still not sure how to make that really accessible. 
+ Christoph Knoth was talking about using pre -->
+<?php snippet('accordionLinked') ?>
+</main>
 
+  <!-- <pre>Where is this text
+       displayed? only the code
+       or on the website ?
 
-<?php // foreach ($site->grandchildren()->listed() as $item):?> 
-<?php // $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): ?>     
-<?php // snippet('accordionLinked') ?>
+       >okay it's not the code
+
+    what happens if i plug in a piece of php 
+    >okay displays all the content - not what i wanted
+    
+    what happens if i plug in a piece of php that is commented out <?php //snippet('accordion') ?>
+    > it juest does not appear at all
+  </pre> -->
 
 <?php snippet('footer')?>
 
