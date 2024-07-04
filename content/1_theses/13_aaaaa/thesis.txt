@@ -1,0 +1,69 @@
+Title: AAAAA
+
+----
+
+Thesissubtitle: AAAAAAAA
+
+----
+
+Thesisabstract: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et e
+
+----
+
+Thesistags: Test
+
+----
+
+Selectbm: BA
+
+----
+
+Language: de
+
+----
+
+Semestercycle: SuSe
+
+----
+
+Yearofpublishing: 2019
+
+----
+
+Advisor1: Lorem
+
+----
+
+Advisor2: ipsum
+
+----
+
+Advisor3: 
+
+----
+
+Thesispdf: - file://EsN8CcwOXkJQmsLs
+
+----
+
+Mirrorexternal: http://www.digitale-grafik.com/
+
+----
+
+Mirrorexternalbroken: false
+
+----
+
+Mirrorkdg: http://www.digitale-grafik.com/
+
+----
+
+Connectedgraduate: - page://ilcfnV57BM6QMxV9
+
+----
+
+Repositorylink: http://www.digitale-grafik.com/
+
+----
+
+Uuid: 3YDVce69JnT6PkXW

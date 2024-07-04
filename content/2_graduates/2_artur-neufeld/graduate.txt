@@ -18,27 +18,19 @@ Class: Digitale Grafik
 
 ----
 
-Degreecondtional: Fine Arts or Design
+Degreecondtional: Teaching Degree
 
 ----
 
-Degreefinearts: Master of Fine Arts
+Degreefinearts: Master of Fine Arts, Bachelor of Fine Arts
 
 ----
 
-Degreeteaching: 
+Degreeteaching: Master of Arts
 
 ----
 
 Graduation: 2022-01-01
-
-----
-
-Linkba: 
-
-----
-
-Linkma: - page://bm6WhxSEp9yQtycK
 
 ----
 
@@ -55,6 +47,14 @@ Socials:
 - 
   socialname: Instagram
   sociallink: https://www.instagram.com/artur.neufeld/
+
+----
+
+Linkba: 
+
+----
+
+Linkma: - page://bm6WhxSEp9yQtycK
 
 ----
 
