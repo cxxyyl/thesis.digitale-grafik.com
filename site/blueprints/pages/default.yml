@@ -1,5 +1,10 @@
 title: Default Page
 
+options: 
+  read: 
+    admin: true
+    graduates: false
+
 columns:
   main:
     width: 2/3

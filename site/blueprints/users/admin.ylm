@@ -1,0 +1,55 @@
+title: Admin
+permissions:
+  access:
+    account: true
+    panel: true
+    site: true
+    languages: true
+    system: true
+    users: true
+  files:
+    create: true
+    changeName: true
+    changeTemplate: true
+    delete: true
+    read: true
+    replace: true
+    update: true
+  languages:
+    create: true
+    delete: true
+  pages:
+    access: true
+    changeSlug: true
+    changeStatus: true
+    changeTemplate: true
+    changeTitle: true
+    create: true
+    delete: true
+    list: true
+    move: true
+    duplicate: true
+    preview: true
+    read: true
+    sort: true
+    update: true
+  site:
+    changeTitle: true
+    update: true
+  user:
+    changeEmail: true
+    changeLanguage: true
+    changeName: true
+    changePassword: true
+    changeRole: true
+    delete: true
+    update: true
+  users:
+    changeEmail: true
+    changeLanguage: true
+    changeName: true
+    changePassword: true
+    changeRole: true
+    create: true
+    delete: true
+    update: true

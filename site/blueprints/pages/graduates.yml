@@ -1,5 +1,23 @@
 title: Graduates
 
+options:
+  changeSlug: 
+    admin: true
+    graduates: false
+  changeTitle: 
+    admin: true
+    graduates: false
+  changeStatus: 
+    admin: true
+    graduates: false
+  changeTemplate: 
+    admin: true
+    graduates: false
+  delete: 
+    admin: true
+    graduates: false
+  update: false
+
 icon: users
  
 sections:
@@ -10,5 +28,4 @@ sections:
     template: graduate
     image:
     sortBy: title asc
-
 

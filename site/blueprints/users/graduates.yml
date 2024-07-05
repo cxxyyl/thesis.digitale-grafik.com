@@ -1,0 +1,56 @@
+title: Graduates
+  
+permissions:
+  access:
+    account: false
+    panel: true
+    site: true
+    languages: true
+    system: false
+    users: false
+  files:
+    create: true
+    changeName: true
+    changeTemplate: false
+    delete: true
+    read: true
+    replace: true
+    update: true
+  languages:
+    create: false
+    delete: false
+  pages:
+    access: true
+    changeSlug: true
+    changeStatus: true
+    changeTemplate: false
+    changeTitle: true
+    create: true
+    delete: false
+    list: true
+    move: false
+    duplicate: false
+    preview: true
+    read: true
+    sort: false
+    update: true
+  site:
+    changeTitle: false
+    update: false
+  user:
+    changeEmail: false
+    changeLanguage: false
+    changeName: false
+    changePassword: false
+    changeRole: false
+    delete: false
+    update: false
+  users:
+    changeEmail: false
+    changeLanguage: false
+    changeName: false
+    changePassword: false
+    changeRole: false
+    create: false
+    delete: false
+    update: false
