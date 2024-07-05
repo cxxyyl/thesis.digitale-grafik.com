@@ -14,7 +14,7 @@ Thesistags: Test
 
 ----
 
-Selectbm: BA
+Selectdegree: PHD
 
 ----
 
@@ -58,11 +58,27 @@ Mirrorkdg: http://www.digitale-grafik.com/
 
 ----
 
+Repositorylink: http://www.digitale-grafik.com/
+
+----
+
 Connectedgraduate: - page://ilcfnV57BM6QMxV9
 
 ----
 
-Repositorylink: http://www.digitale-grafik.com/
+Todothesis:
+
+- Email Schreiben
+- Thesis Einfügeen
+- Dinge Tun
+
+----
+
+Toggletodo: false
+
+----
+
+Selectbm: BA
 
 ----
 

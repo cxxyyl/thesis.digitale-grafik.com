@@ -14,7 +14,7 @@ Thesistags:
 
 ----
 
-Selectbm: BA
+Selectdegree: BA
 
 ----
 
@@ -58,12 +58,22 @@ Mirrorkdg:
 
 ----
 
+Repositorylink: 
+
+----
+
 Connectedgraduate: - page://z8imBNEklfhzgWTp
 
 ----
 
-Repositorylink: 
+Todothesis: 
 
 ----
+
+Toggletodo: false
+
+----
+
+
 
 Uuid: Uf454W5HbvQt6zwx

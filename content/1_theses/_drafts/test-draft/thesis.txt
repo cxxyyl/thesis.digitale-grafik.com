@@ -1,0 +1,25 @@
+Title: test draft
+
+----
+
+Uuid: 6AYphDu1UAgpqAFE
+
+----
+
+Thesisabstract: 
+
+----
+
+Thesistags: 
+
+----
+
+Thesispdf: 
+
+----
+
+Mirrorexternalbroken: false
+
+----
+
+Connectedgraduate: 

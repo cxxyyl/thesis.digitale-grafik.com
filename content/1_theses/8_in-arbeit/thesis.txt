@@ -14,7 +14,7 @@ Thesistags:
 
 ----
 
-Selectbm: MA
+Selectdegree: MA
 
 ----
 
@@ -58,11 +58,23 @@ Mirrorkdg:
 
 ----
 
+Repositorylink: 
+
+----
+
 Connectedgraduate: - page://7FpyfhjsbpP61QAl
 
 ----
 
-Repositorylink: 
+Todothesis: 
+
+----
+
+Toggletodo: false
+
+----
+
+Selectbm: MA
 
 ----
 

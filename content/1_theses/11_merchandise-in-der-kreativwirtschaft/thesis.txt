@@ -14,7 +14,7 @@ Thesistags: Merchandise, capitalism
 
 ----
 
-Selectbm: BA
+Selectdegree: BA
 
 ----
 
@@ -58,11 +58,19 @@ Mirrorkdg:
 
 ----
 
+Repositorylink: 
+
+----
+
 Connectedgraduate: - page://qM8aHaYorVuEEiDF
 
 ----
 
-Repositorylink: 
+Todothesis: 
+
+----
+
+Toggletodo: false
 
 ----
 

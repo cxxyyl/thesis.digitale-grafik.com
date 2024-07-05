@@ -14,7 +14,7 @@ Thesistags: glitch, feminism
 
 ----
 
-Selectbm: MA
+Selectdegree: MA
 
 ----
 
@@ -22,7 +22,7 @@ Language: en
 
 ----
 
-Semestercycle: WS
+Semestercycle: 
 
 ----
 
@@ -50,7 +50,15 @@ Mirrorexternal: https://cyborgcuntglitch.megandieudonne.com/
 
 ----
 
+Mirrorexternalbroken: false
+
+----
+
 Mirrorkdg: 
+
+----
+
+Repositorylink: 
 
 ----
 
@@ -58,7 +66,15 @@ Connectedgraduate: - page://CAgAP3mKqdoYnsgo
 
 ----
 
-Repositorylink: 
+Todothesis: 
+
+----
+
+Toggletodo: false
+
+----
+
+Selectbm: MA
 
 ----
 

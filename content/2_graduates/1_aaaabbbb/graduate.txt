@@ -21,16 +21,34 @@ Class: Digitale Grafik
 Studies:
 
 - 
-  selectstudies: Doctoral Studies — PHD
+  selectstudies: >
+    Fine Arts or Design — Bachelor of Fine
+    Arts
+  graduation: 2022-01-01
+  linkthesis:
+    - page://6AYphDu1UAgpqAFE
   linkba: [ ]
   degreecondtional: Fine Arts or Design
   degreefinearts: PHD
   degreeteaching: PHD
 - 
-  selectstudies: ""
+  selectstudies: >
+    Fine Arts or Design — Master of Fine
+    Arts
+  graduation: ""
+  linkthesis:
+    - page://5oUCbh48YNa8TQI4
   linkba: [ ]
   degreefinearts: [ ]
   degreeteaching: [ ]
+- 
+  selectstudies: Teaching Degree — Master of Arts
+  graduation: ""
+  linkthesis: [ ]
+- 
+  selectstudies: ""
+  graduation: ""
+  linkthesis: [ ]
 
 ----
 
@@ -53,6 +71,14 @@ Socials:
 - 
   socialname: Social 3
   sociallink: http://www.digitale-grafik.com/
+
+----
+
+Todograduate: 
+
+----
+
+Toggletodo: false
 
 ----
 

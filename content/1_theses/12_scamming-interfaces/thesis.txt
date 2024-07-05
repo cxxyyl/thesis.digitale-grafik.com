@@ -14,7 +14,7 @@ Thesistags: Scamming
 
 ----
 
-Selectbm: MA
+Selectdegree: MA
 
 ----
 
@@ -58,12 +58,24 @@ Mirrorkdg: https://scamming-interfaces.digitale-grafik.com
 
 ----
 
-Connectedgraduate: - page://U2x1o75NeQlhTuKH
-
-----
-
 Repositorylink: 
 
 ----
 
+Connectedgraduate: - page://U2x1o75NeQlhTuKH
+
+----
+
+Todothesis: 
+
+----
+
+Toggletodo: false
+
+----
+
 Uuid: saUoAEIu9ZUPk4Nc
+
+----
+
+Selectbm: MA
