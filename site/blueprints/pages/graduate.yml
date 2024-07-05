@@ -113,7 +113,7 @@ columns:
               linkThesis:
                 label: Connect Thesis
                 type: pages
-                query: site.find('theses')
+                query: site.find('theses').childrenAndDrafts()
                 help: Select your Thesis here
                 icon: book
                 image:
@@ -158,6 +158,30 @@ columns:
               socialLink:
                 label: Profile Link
                 type: url
+
+
+          headline4:
+            label: To Do's
+            type: headline
+
+          toDoGraduate: 
+            label: Whats left to do?
+            type: textarea
+            counter: true
+            size: medium
+            buttons: false
+            spellcheck: true
+            when: 
+              toggleToDo: false
+
+          toggleToDo: 
+            label: Hide ToDo List
+            type: toggle
+            text: 
+            - 'No'
+            - 'Yes'
+
+
                 
 
 

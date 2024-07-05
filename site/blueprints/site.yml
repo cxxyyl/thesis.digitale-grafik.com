@@ -24,7 +24,7 @@ tabs:
                 value: "{{ page.connectedGraduate.toPage.Title }}"
               degree: 
                 label: Degree
-                value: "{{ page.selectBM }}"
+                value: "{{ page.selectDegree }}"
 
           graduates:
             label: Overview of all Graduates
@@ -33,17 +33,15 @@ tabs:
             template: graduate
             sortBy: title asc
 
-            layout: table
-            columns: 
-              linkedBA:
-                label: Linked BA Thesis
-                value: "{{ page.linkBA.toPage.Title }}"
+            # layout: table
+            # columns: 
+            #   linkedBA:
+            #     label: Linked BA Thesis
+            #     value: "{{ page.linkBA.toPage.Title }}"
 
-              linkedMA:
-                label: Linked MA Thesis
-                value: "{{ page.LinkMA.toPage.Title }}"
-
-
+            #   linkedMA:
+            #     label: Linked MA Thesis
+            #     value: "{{ page.LinkMA.toPage.Title }}"
           
       right:
         width: 1/3
@@ -86,15 +84,6 @@ tabs:
                 
                   With this, you are done!
 
-
-              todo: 
-                label: ToDo's
-                type: textarea
-                counter: true
-                size: large
-                buttons: false
-                spellcheck: true
-    
   imprint: 
     label: Imprint & About
     sections:
@@ -147,18 +136,20 @@ tabs:
             size: medium
             width: 1/2
 
-          headline3: 
-            type: headline
-            label: Favicon
-            numberd: false
+    # FAVICON
+
+          # headline3: 
+          #   type: headline
+          #   label: Favicon
+          #   numberd: false
           
-          favIcon:
-            label: Favicon
-            type: files
-            max: 1
-            multriple: false
-            size: medium
-            width: 1/2
+          # favIcon:
+          #   label: Favicon
+          #   type: files
+          #   max: 1
+          #   multriple: false
+          #   size: medium
+          #   width: 1/2
           
 
         
