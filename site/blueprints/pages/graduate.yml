@@ -92,11 +92,11 @@ columns:
                 label: Select Degree
                 type: radio
                 options:
-                 - Fine Arts or Design — Bachelor of Fine Arts
-                 - Fine Arts or Design — Master of Fine Arts
-                 - Teaching Degree — Bachelor of Arts
-                 - Teaching Degree — Master of Arts
-                 - Doctoral Studies — PHD
+                  Bachelor of Fine Arts: Fine Arts or Design — Bachelor of Fine Arts
+                  Master of Fine Arts: Fine Arts or Design — Master of Fine Arts
+                  Bachelor of Arts: Teaching Degree — Bachelor of Arts
+                  Master of Arts: Teaching Degree — Master of Arts
+                  PHD: Doctoral Studies — PHD
                 help: Please select the degree that corresponds with your current thesis project.  
 
               graduation: 
