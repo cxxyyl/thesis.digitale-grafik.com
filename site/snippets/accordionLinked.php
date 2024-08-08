@@ -145,8 +145,13 @@
 
                 <div>
                     <div>
-                    <!-- MA Abschluss, Jahr -->
-                    <!-- BA Abschluss, Jahr -->
+                    <?php if ($graduate->studies()->isNotEmpty()): ?> 
+
+                    <?php $gradProjects = $graduate->studies()->toStructure();
+                    foreach ($gradProjects as $gradProject): ?>
+                    <p><?= $gradProject->selectStudies()?>, <?= $gradProject->graduation()->toDate('Y')?></p>
+                    <?php endforeach ?>
+                     <?php endif ?>
                     </div>
 
                     <!-- Klassen -->
@@ -161,22 +166,18 @@
                     <div class="">
                         <!-- Link to other Thesis Projects -->
                         <p>Thesis Projects at KDG:</p>
-                        <!-- connected MA Title -->
-                        <?php if ($graduate->linkMA()->isNotEmpty()): ?> 
-                            <?php $thesisMA = $graduate->linkMA()->toPage() ?>
+                       
+                        <!-- Kirby Structure for all connected projects -->
+                        <?php if ($graduate->studies()->isNotEmpty()): ?> 
 
-                            <?php if ($thesisMA->thesisTitle()->isNotEmpty()): ?>
-                                <a href="<?= $thesisMA->url() ?>"><?= $thesisMA->thesisTitle()?></a>
-                            <?php endif ?>
-                        <?php endif ?>  
-  
-                        <!-- connected BA Title -->
-                         <?php if ($graduate->linkBA()->isNotEmpty()): ?>    
-                            <?php $thesisBA = $graduate->linkBA()->toPage() ?>
+                        <?php $gradProjects = $graduate->studies()->toStructure();
+                     
+                        foreach ($gradProjects as $gradProject): ?>
+                        
+                        <!-- hier muss noch ein Hook rein -> wie springe ich zum entsprechenden Eintrag -->
+                        <p><?= $gradProject->linkThesis()->toPage()->title()?></p>
+                        <?php endforeach ?>
 
-                            <?php if ($thesisBA->thesisTitle()->isNotEmpty()): ?>
-                            <a href="<?= $thesisBA->url() ?>"><?= $thesisBA->thesisTitle()?></a>
-                            <?php endif ?>
                         <?php endif ?>
                     </div>
 

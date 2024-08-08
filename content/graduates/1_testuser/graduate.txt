@@ -1,0 +1,81 @@
+Title: Test User
+
+----
+
+Name: Test
+
+----
+
+Surname: User
+
+----
+
+Bio: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Studies:
+
+- 
+  selectstudies: Bachelor of Fine Arts
+  graduation: 2024-01-01
+  linkthesis:
+    - page://Uf454W5HbvQt6zwx
+- 
+  selectstudies: Master of Fine Arts
+  graduation: 2025-01-01
+  linkthesis:
+    - page://DjmeYxmIgjBtre0V
+- 
+  selectstudies: Bachelor of Arts
+  graduation: 2026-01-01
+  linkthesis:
+    - page://bm6WhxSEp9yQtycK
+- 
+  selectstudies: Master of Arts
+  graduation: 2030-01-01
+  linkthesis:
+    - page://9WTrUDFsuuq49kQ4
+- 
+  selectstudies: PHD
+  graduation: 2031-01-01
+  linkthesis:
+    - page://5oUCbh48YNa8TQI4
+
+----
+
+Website: http://www.digitale-grafik.com/
+
+----
+
+Email: mail@mail.com
+
+----
+
+Socials:
+
+- 
+  socialname: Instagram
+  sociallink: http://www.digitale-grafik.com/
+- 
+  socialname: Github
+  sociallink: http://www.digitale-grafik.com/
+- 
+  socialname: Arena
+  sociallink: http://www.digitale-grafik.com/
+
+----
+
+Todograduate: 
+
+----
+
+Toggletodo: false
+
+----
+
+Uuid: WduS3Ts0hPVEzyh0
