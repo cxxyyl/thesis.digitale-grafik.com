@@ -25,29 +25,53 @@
   /* Typography */
   --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
 
+  /* Accordion Content Height */
+  --contentMaxHeight: 33rem;
+  --contentMaxHeightInner:calc(var(--contentMaxHeight) * 2/3);
+  /* --contentMaxHeightInner:10rem; */
+
+
+
   /* Spacing */
   --spacing-none: 0;
   --spacing-xxs: .25rem;
   --spacing-xs: .5rem;
   --spacing-sm: 1rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1rem;
-  --spacing-xl: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
 
   /* Radius */
   --radius-xs: .5rem;
   --radius-sm: 1rem;
   --radius-lg: 2rem;
 
+  /* Font Sizes */
+  --font-md: 1rem;
+  --font-lg: 1.3rem;
+
 }
 
 h1,h2,h3,h4,h5,h6 {
-    
+    font-size: var(--font-md);
+    text-decoration: none;
+    font-weight: normal;
 }
+
 
 p {
     
 }
+
+li {
+    list-style: none;
+}
+
+a{
+    color: var(--color-primary);
+}
+
+
 
 /* ? Body Base Styling */
 body {
@@ -74,7 +98,6 @@ nav {
     padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-xs);
     border-bottom: .5px var(--color-primary) solid;
 
-   
         a {
             color: var(--color-primary);
             text-decoration: none;
@@ -82,21 +105,28 @@ nav {
 
     ul {
 
-    li {
-        list-style: none;
-    }
-    
-    a {
-        text-decoration: none;
-        color: var(--color-primary);
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--color-primary);
     }
     }
 
 }
 
+
+
+
+
+
 /* * Buttons */
 
 .button-primary {
+    width: fit-content;
+    height: fit-content;
     color: var(--color-text-lght);
     border-radius: var(--radius-lg);
     border: .5px solid;
@@ -135,7 +165,7 @@ nav {
     }
 }
 
-.searchbar__search-container {
+.searchbar_search-container {
     display: flex;
     flex-direction: row;
 }
@@ -148,6 +178,11 @@ nav {
 }
 
 
+
+
+
+
+
 /* ^ Accordion */
 
 .accordion {
@@ -155,128 +190,159 @@ nav {
     border-bottom: .5px solid var(--color-text-lght);
 }
 
-.accordion:hover .accordion-content {
-    height: auto;
-}
 
-.accordion-content {
-    height: 0;
-    overflow: hidden;
+    /* ^  Accordion Table Rows */
 
-    /* Layout */
-    display: grid; 
-    grid-template-rows: 0fr;
-    transition: 750ms grid-template-rows ease;
-}
+    .accordion_container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 3% 11% 22% 38% 4.5% 21%;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
 
-.accordion-content__left {
-    display: flex;
-    flex-direction: row;
-    max-width: 20%;
-    gap: var(--spacing-xs);
-}
-
-.accoridon-content__right {
-    display: flex;
-    flex-direction: row;
-    max-width: 20%;
-    gap: var(--spacing-xs);
-}
-
-.accordion-title {
-    width: 100%;
-    padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-xs);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: .5px solid var(--color-text-lght);
-}
-
-.accordion__row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--spacing-xs);
-
-    ul {
-        li {
-            list-style: none;
+        .accordion_container:first-child{
+            padding-left: var(--spacing-xs);
         }
-    }
-}
-
-#selection {
-    position: fixed;
-    font-size: 4rem;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#scroll-wrapper {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex: none;
-    overflow: auto;
-    scroll-snap-type: x mandatory;
-}
-
-#scroll-wrapper>div {
-    width: 100%;
-    flex: none;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-}
 
 
-#theses-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    font-size: 1.2rem;
-    padding-bottom: 5rem;
-    background-color: #fff
-}
+        .accordion_container_date{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+        }
 
-#graduates-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    font-size: 1.2rem;
-    padding-bottom: 5rem;
-    background-color: #fff;
-}
+        .accordion_container_downloads{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            gap: var(--spacing-xs);
+        }
 
-#spacer {
-    user-select: none;
-    pointer-events: none;
-}
-
-.row-wrapper {
-    width: 100%;
-    display: grid;
-    justify-content: start;
-    grid-template-columns: 5% 3fr 1fr 5%;
-}
-
-.row-wrapper>* {
-    padding-left: 1rem;
-}
-
-@media print {
-    .row-wrapper {
-        width: 70%;
+    .accordion:hover .accordion-content {
+        height: var(--contentMaxHeight);
     }
 
-}
+    /* ^ Accordion Inner Content -> opens with Hover */
+
+    .accordion-content {
+        /* height: auto; */
+        height: 0;
+        overflow: hidden;
+
+        /* Layout */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        transition: 750ms all ease;
+        padding-left: var(--spacing-xs);
+        padding-right: var(--spacing-xs);
+
+    }
+
+        /* ^ Accordion Thesis Information*/
+        .accordion-content_thesis {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            padding-left: var(--spacing-xs);
+            gap: var(--spacing-xs);
+        }
+
+            .accordion-content_thesis_title { 
+                width: 100%;
+                padding-bottom: var(--spacing-xs);
+                font-size: var(--font-lg);  
+            }
+
+            .accordion-content_thesis_info { 
+                width: calc((100% * 1/3) - var(--spacing-xs));
+                height: var(--contentMaxHeightInner);
+            }
+
+            .accordion-content_thesis_info_subtitle, 
+            .accordion-content_thesis_info_published, 
+            .accordion-content_thesis_info_advisors{
+            padding-bottom: var(--spacing-md);
+            }
+
+            .accordion-content_thesis_info_topics_tags{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: var(--spacing-xxs)
+            }
+
+
+            .accordion-content_thesis_abstract {
+                width: min-content;
+                min-width: calc((100%* 1 / 3) - var(--spacing-xs));
+                height: var(--contentMaxHeightInner);
+                display: flex;
+                column-gap: var(--spacing-xs);
+                flex-wrap: wrap;
+                flex-direction: column;
+            } 
+  
+
+
+        /* ^ Accordion Graduate CV */
+
+        .accordion-content_cv {
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: flex-start;
+            gap: var(--spacing-xs);
+
+        }
+
+            .accordion-content_cv_graduate{
+                text-align: right;
+                width: 100%;
+                padding-bottom: var(--spacing-xs);
+                font-size: var(--font-lg);
+            }
+            
+            .accordion-content_cv_info{
+                width: calc((100% * 1/3) - var(--spacing-xs));
+                height: var(--contentMaxHeightInner);
+                text-align: right;
+                order: 1;
+            }
+
+                .accordion-content_cv_info_degrees,
+                .accordion-content_cv_info_classes, 
+                .accordion-content_cv_info_projects{
+                    padding-bottom: var(--spacing-md);    
+                } 
+
+            .accordion-content_cv_bio {
+                width: min-content;
+                min-width: calc((100%* 1 / 3) - var(--spacing-xs));
+                height: var(--contentMaxHeightInner);
+
+                display: flex;
+                column-gap: var(--spacing-xs);
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+
+        /* ^ Accordion Links */
+
+        .accordion-content_links{
+            grid-area: 2 / 1 / 3 / 3;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: fit-content;
+            padding-bottom: var(--spacing-xs);
+
+            h3{
+                font-size: var(--font-lg);
+                padding: var(--spacing-xs);
+            }
+        }
