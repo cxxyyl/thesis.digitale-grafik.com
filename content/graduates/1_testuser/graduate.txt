@@ -30,21 +30,6 @@ Studies:
   graduation: 2025-01-01
   linkthesis:
     - page://DjmeYxmIgjBtre0V
-- 
-  selectstudies: Bachelor of Arts
-  graduation: 2026-01-01
-  linkthesis:
-    - page://bm6WhxSEp9yQtycK
-- 
-  selectstudies: Master of Arts
-  graduation: 2030-01-01
-  linkthesis:
-    - page://9WTrUDFsuuq49kQ4
-- 
-  selectstudies: PHD
-  graduation: 2031-01-01
-  linkthesis:
-    - page://5oUCbh48YNa8TQI4
 
 ----
 
@@ -74,7 +59,7 @@ Todograduate:
 
 ----
 
-Toggletodo: false
+Toggletodo: true
 
 ----
 

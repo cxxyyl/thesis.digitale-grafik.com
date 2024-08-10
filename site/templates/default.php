@@ -1,10 +1,6 @@
 <?php snippet('head')?>
 <?php snippet('searchbar') ?>
 
-<!-- <div id="selection">
-    <div>Thesis</div>
-    <div>Graduates</div>
-</div> -->
 
 <!-- Devlog -->
 <!-- 

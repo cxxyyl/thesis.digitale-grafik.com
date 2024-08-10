@@ -2,7 +2,7 @@ Title: Test Unlisted
 
 ----
 
-Uuid: 5oUCbh48YNa8TQI4
+Thesissubtitle: 
 
 ----
 
@@ -14,7 +14,39 @@ Thesistags:
 
 ----
 
+Selectdegree: 
+
+----
+
+Language: 
+
+----
+
+Semestercycle: 
+
+----
+
+Yearofpublishing: 
+
+----
+
+Advisor1: 
+
+----
+
+Advisor2: 
+
+----
+
+Advisor3: 
+
+----
+
 Thesispdf: 
+
+----
+
+Mirrorexternal: 
 
 ----
 
@@ -22,4 +54,24 @@ Mirrorexternalbroken: false
 
 ----
 
-Connectedgraduate: 
+Mirrorkdg: 
+
+----
+
+Repositorylink: 
+
+----
+
+Connectedgraduate: - page://WduS3Ts0hPVEzyh0
+
+----
+
+Todothesis: 
+
+----
+
+Toggletodo: false
+
+----
+
+Uuid: 5oUCbh48YNa8TQI4

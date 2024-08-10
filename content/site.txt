@@ -2,19 +2,6 @@ Title: Klasse Digitale Grafik Thesis
 
 ----
 
-Todo:
-
-Robert: 
-- email schreiben ob es okay ist, die webseite zu verlinken?
-
-
-Arthur:
-- https://www.youtube.com/watch?v=0zBXU7A2v7w
-
-- email an Artur geschrieben 8.5.2024
-
-----
-
 About: 
 
 ----
@@ -28,6 +15,19 @@ Ogdescription:
 ----
 
 Ogimage: 
+
+----
+
+Todo:
+
+Robert: 
+- email schreiben ob es okay ist, die webseite zu verlinken?
+
+
+Arthur:
+- https://www.youtube.com/watch?v=0zBXU7A2v7w
+
+- email an Artur geschrieben 8.5.2024
 
 ----
 

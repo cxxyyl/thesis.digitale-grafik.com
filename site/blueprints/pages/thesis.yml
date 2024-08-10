@@ -49,9 +49,9 @@ columns:
             type: radio
             default: false
             options: 
-              - BA
-              - MA
-              - PHD
+              BA: Bachelor
+              MA: Master
+              PHD: PHD
             width: 1/2
             help: Please select if you wrote a BA, MA or PHD thesis. 
 
