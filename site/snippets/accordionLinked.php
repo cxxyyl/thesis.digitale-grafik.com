@@ -47,16 +47,16 @@
 
                 <!-- Language the thesis is written in -->
                 <?php if ($item->language()->isNotEmpty()): ?>
-                <p class="button-primary "><?= $item->language()->category()?></p>
+                <p class="button-primary button-extraSpacing"><?= $item->language()->category()?></p>
                 <?php endif ?>
             
                 <!-- Links for downloading the Thesis and opening the original thesis website  -->
                 <div class="accordion_container_downloads">
 
                     <?php if ($item->reissue()->mirrorExternalBroken() === true ):?>
-                    <a class="button-primary" href="<?=$item->mirrorExternal()->url()?>">Open Website ↗</a>
+                    <a target="_blank" class="button-primary" href="<?=$item->mirrorExternal()->url()?>">Open Website ↗</a>
                     <?php else:?>
-                    <a class="button-primary" href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
+                    <a target="_blank" class="button-primary" href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
                     <?php endif ?>
 
                     <!-- This will not show up if there is no uploaded file -->
@@ -207,9 +207,23 @@
                 </div>    
             </section>
             <div class="accordion-content_links">
-                <h3 class="button-primary">Download Thesis ↓</h3>
-                <h3 class="button-primary">Open Website ↗</h3>
-                <h3 class="button-primary">Practical Work ↗</h3>
+
+                <!-- This will not show up if there is no uploaded file -->
+                <?php if ($item->thesispdf()->isNotEmpty()): ?>
+                <a href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
+                <?php endif ?>
+
+                <?php if ($item->reissue()->mirrorExternalBroken() === true ):?>
+                <a target="_blank" href="<?=$item->mirrorExternal()->url()?>">Open Website ↗</a>
+                <?php else:?>
+                <a target="_blank" href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
+                <?php endif ?>
+
+                <?php if ($item->repositoryLink()->isNotEmpty()): ?>
+                <a target="_blank" href="<?=$item->repositoryLink()->url()?>">Practical Work ↗</a>
+                <?php endif ?>
+                
+
 
             </div>
         </div>
