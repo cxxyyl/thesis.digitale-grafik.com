@@ -26,9 +26,9 @@
   --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
 
   /* Accordion Content Height */
-  --contentMaxHeight: 33rem;
-  --contentMaxHeightInner:calc(var(--contentMaxHeight) * 2/3);
-  /* --contentMaxHeightInner:10rem; */
+  --contentMaxHeight: 29rem;
+  --contentMaxHeightInner:calc(var(--contentMaxHeight) * 0.79);
+  /* --contentMaxHeightInner:23rem; */
 
 
 
@@ -47,8 +47,9 @@
   --radius-lg: 2rem;
 
   /* Font Sizes */
-  --font-md: 1rem;
-  --font-lg: 1.3rem;
+  --font-sm:.8vw;
+  --font-md: 1vw;
+  --font-lg: 1.3vw;
 
 }
 
@@ -56,11 +57,12 @@ h1,h2,h3,h4,h5,h6 {
     font-size: var(--font-md);
     text-decoration: none;
     font-weight: normal;
+    margin: 0;
 }
 
 
 p {
-    
+    font-size: var(--font-md);
 }
 
 li {
@@ -69,6 +71,7 @@ li {
 
 a{
     color: var(--color-primary);
+    cursor: pointer;
 }
 
 
@@ -89,6 +92,7 @@ nav {
 /* Custom Nav Styling */
 .nav {
     text-transform: uppercase;
+    font-size: var(--font-md);
 
     /* Layout */
     display: flex;
@@ -118,10 +122,6 @@ nav {
 }
 
 
-
-
-
-
 /* * Buttons */
 
 .button-primary {
@@ -133,10 +133,18 @@ nav {
     text-decoration: none;
     padding: var(--spacing-xxs);
     text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
 .button-secondary {
     color: var(--color-text-lght);
+    cursor: pointer;
+}
+
+.button-extraSpacing{
+padding-left: var(--spacing-xs);
+padding-right: var(--spacing-xs);
 }
 
 /* ^ Searchbar */
@@ -190,21 +198,26 @@ nav {
     border-bottom: .5px solid var(--color-text-lght);
 }
 
-
     /* ^  Accordion Table Rows */
 
     .accordion_container{
         width: 100%;
         display: grid;
-        grid-template-columns: 3% 11% 22% 38% 4.5% 21%;
+        grid-template-columns:3% 10% 22% 40% 3% 22%;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
+        align-items: center;
+
+        font-size: var(--font-md);
     }
 
         .accordion_container:first-child{
             padding-left: var(--spacing-xs);
         }
 
+        .accordion_container:last-child{
+            padding-right: var(--spacing-xs);
+        }
 
         .accordion_container_date{
             display: grid;
@@ -217,12 +230,13 @@ nav {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
-            justify-content: space-between;
+            justify-content: flex-end;
             gap: var(--spacing-xs);
         }
 
     .accordion:hover .accordion-content {
         height: var(--contentMaxHeight);
+        /* height: auto; */
     }
 
     /* ^ Accordion Inner Content -> opens with Hover */
@@ -247,12 +261,12 @@ nav {
             flex-direction: row;
             flex-wrap: wrap;
             align-content: flex-start;
-            padding-left: var(--spacing-xs);
             gap: var(--spacing-xs);
         }
 
             .accordion-content_thesis_title { 
                 width: 100%;
+                padding-top: var(--spacing-xs);
                 padding-bottom: var(--spacing-xs);
                 font-size: var(--font-lg);  
             }
@@ -268,11 +282,22 @@ nav {
             padding-bottom: var(--spacing-md);
             }
 
+            .accordion-content_thesis_info_topics > h5{
+                padding-bottom: var(--spacing-xxs);
+            }    
+
             .accordion-content_thesis_info_topics_tags{
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                gap: var(--spacing-xxs)
+                gap: var(--spacing-xxs);
+            
+                li{
+                    font-size: var(--font-sm);
+                    text-transform: none;
+                }
+
+            
             }
 
 
@@ -305,6 +330,7 @@ nav {
                 width: 100%;
                 padding-bottom: var(--spacing-xs);
                 font-size: var(--font-lg);
+                padding-top: var(--spacing-xs);
             }
             
             .accordion-content_cv_info{
@@ -341,8 +367,10 @@ nav {
             height: fit-content;
             padding-bottom: var(--spacing-xs);
 
-            h3{
+            a, h3{
                 font-size: var(--font-lg);
-                padding: var(--spacing-xs);
+    
+                text-decoration: underline;
+                text-transform: uppercase;
             }
         }
