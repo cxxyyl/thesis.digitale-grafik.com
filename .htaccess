@@ -65,3 +65,5 @@ Header set Content-Type "text/plain" "expr=-z %{CONTENT_TYPE}"
 Header set X-Content-Type-Options "nosniff"
 
 </IfModule>
+
+FcgidWrapper "/home/httpd/cgi-bin/php83-fcgi-starter.fcgi" .php

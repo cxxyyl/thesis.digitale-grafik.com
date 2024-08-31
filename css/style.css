@@ -1,3 +1,13 @@
+/* ! To Do */
+
+/* 
+– transition auf den einzelen textelementen innerhalb des akkordions ausschalten
+
+*/
+
+
+
+
 /* ? Foundation (Typography,
 /* * Atoms Single Elements (Buttons,...) */
 /* ^ Blocks & Elements (Footer,Nav,...)
@@ -16,11 +26,8 @@
   /* Color */
   --color-primary: #000000;
   --color-secondary: #FFFFFF;
-  --color-tertiary: #ededed;
-  --color-queriary: #b5b5b5;
+  --color-DevMode: rgb(121, 44, 255);
 
-  --color-text-lght: #000000;
-  --color-text-drk: #FFFFFF;
   
   /* Typography */
   --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
@@ -28,8 +35,6 @@
   /* Accordion Content Height */
   --contentMaxHeight: 29rem;
   --contentMaxHeightInner:calc(var(--contentMaxHeight) * 0.79);
-  /* --contentMaxHeightInner:23rem; */
-
 
 
   /* Spacing */
@@ -47,7 +52,7 @@
   --radius-lg: 2rem;
 
   /* Font Sizes */
-  --font-sm:.8vw;
+  --font-sm:.75vw;
   --font-md: 1vw;
   --font-lg: 1.3vw;
 
@@ -74,8 +79,6 @@ a{
     cursor: pointer;
 }
 
-
-
 /* ? Body Base Styling */
 body {
     font-family: var(--font-primary);
@@ -85,9 +88,9 @@ body {
 }
 
 /* Basic Nav Styling */
-nav {
+    /* nav {
 
-}
+    } */
 
 /* Custom Nav Styling */
 .nav {
@@ -100,7 +103,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-xs);
-    border-bottom: .5px var(--color-primary) solid;
+    border-bottom: 1px var(--color-primary) solid;
 
         a {
             color: var(--color-primary);
@@ -127,9 +130,9 @@ nav {
 .button-primary {
     width: fit-content;
     height: fit-content;
-    color: var(--color-text-lght);
+    color: var(--color-primary);
     border-radius: var(--radius-lg);
-    border: .5px solid;
+    border: 1px solid;
     text-decoration: none;
     padding: var(--spacing-xxs);
     text-transform: uppercase;
@@ -138,7 +141,7 @@ nav {
 }
 
 .button-secondary {
-    color: var(--color-text-lght);
+    color: var(--color-secondary);
     cursor: pointer;
 }
 
@@ -146,6 +149,8 @@ nav {
 padding-left: var(--spacing-xs);
 padding-right: var(--spacing-xs);
 }
+
+
 
 /* ^ Searchbar */
 
@@ -156,7 +161,7 @@ padding-right: var(--spacing-xs);
 .searchbar {
 
     padding: var(--spacing-xs);
-    border-bottom: .5px var(--color-primary) solid;
+    border-bottom: 1px var(--color-primary) solid;
 
     /* Layout */
     display: flex;
@@ -164,30 +169,94 @@ padding-right: var(--spacing-xs);
     justify-content: space-between;
     align-items: center;
 
-    input {
-        border-radius: 1rem;
-    }
-
     select {
         border-radius: 1rem;
     }
 }
 
-.searchbar_search-container {
+.searchbar__search-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--spacing-xs); 
+}
+
+.searchbar__tag-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--spacing-xs); 
+}
+
+
+
+.searchbar__input-slider{
+    width: 17.5rem;
+    display: flex;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    gap: var(--spacing-xs);
+    justify-content: space-between;
+
+    .slider-button{
+        display: flex;
+        align-items: center;
+
+        margin: -1px;
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+        font-size: var(--font-sm);
+        height: calc(100% + 2px);
+        padding: var(--spacing-xxs);
+        border: 1px solid var(--color-primary);
+        border-radius: var(--radius-lg);
+        user-select: none;
+
+        transition: color ease 300ms, background-color ease 300ms;
+
+        
+    }
+
+
+    input, input:focus-visible {
+        width: 100%;
+        margin-left: var(--spacing-xs);
+
+        outline: none;
+        border: none;
+        border-radius: var(--radius-lg);
+        font-size: var(--font-md);
+
+        transition: opacity 300ms ease;
+        
+    }
+
 }
 
 .tag {
-    background-color: var(--color-primary);
-    color: var(--color-text-drk);
-    border-radius: 1rem;
-    padding: var(--spacing-xxs);
+    width: fit-content;
+    height: fit-content;
+    white-space: nowrap;
+    cursor: pointer;
+
+    background-color: var(--color-secondary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    
+    font-size: var(--font-sm);
+
+    border: 1px solid;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xxs);    
 }
 
+.tag--inverted {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: none;
 
-
-
+}
 
 
 
@@ -195,13 +264,14 @@ padding-right: var(--spacing-xs);
 
 .accordion {
     width: 100%;
-    border-bottom: .5px solid var(--color-text-lght);
+    border-bottom: 1px solid var(--color-primary);
 }
 
     /* ^  Accordion Table Rows */
 
-    .accordion_container{
+    .accordion-container{
         width: 100%;
+        padding: var(--spacing-xs);
         display: grid;
         grid-template-columns:3% 10% 22% 40% 3% 22%;
         grid-column-gap: 0px;
@@ -211,22 +281,15 @@ padding-right: var(--spacing-xs);
         font-size: var(--font-md);
     }
 
-        .accordion_container:first-child{
-            padding-left: var(--spacing-xs);
-        }
 
-        .accordion_container:last-child{
-            padding-right: var(--spacing-xs);
-        }
-
-        .accordion_container_date{
+        .accordion-container__date{
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-column-gap: 0px;
             grid-row-gap: 0px;
         }
 
-        .accordion_container_downloads{
+        .accordion-container__downloads{
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -256,7 +319,7 @@ padding-right: var(--spacing-xs);
     }
 
         /* ^ Accordion Thesis Information*/
-        .accordion-content_thesis {
+        .accordion-content__thesis {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -264,29 +327,29 @@ padding-right: var(--spacing-xs);
             gap: var(--spacing-xs);
         }
 
-            .accordion-content_thesis_title { 
+            .accordion-content__thesis__title { 
                 width: 100%;
                 padding-top: var(--spacing-xs);
                 padding-bottom: var(--spacing-xs);
                 font-size: var(--font-lg);  
             }
 
-            .accordion-content_thesis_info { 
+            .accordion-content__thesis-info { 
                 width: calc((100% * 1/3) - var(--spacing-xs));
                 height: var(--contentMaxHeightInner);
             }
 
-            .accordion-content_thesis_info_subtitle, 
-            .accordion-content_thesis_info_published, 
-            .accordion-content_thesis_info_advisors{
+            .accordion-content__thesis-info__subtitle, 
+            .accordion-content__thesis-info__published, 
+            .accordion-content__thesis-info__advisors{
             padding-bottom: var(--spacing-md);
             }
 
-            .accordion-content_thesis_info_topics > h5{
+            .accordion-content__thesis-info__topics > h5{
                 padding-bottom: var(--spacing-xxs);
             }    
 
-            .accordion-content_thesis_info_topics_tags{
+            .accordion-content__thesis-info__topics__tags{
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -301,7 +364,7 @@ padding-right: var(--spacing-xs);
             }
 
 
-            .accordion-content_thesis_abstract {
+            .accordion-content__thesis-abstract {
                 width: min-content;
                 min-width: calc((100%* 1 / 3) - var(--spacing-xs));
                 height: var(--contentMaxHeightInner);
@@ -315,7 +378,7 @@ padding-right: var(--spacing-xs);
 
         /* ^ Accordion Graduate CV */
 
-        .accordion-content_cv {
+        .accordion-content__cv {
             display: flex;
             flex-direction: row-reverse;
             flex-wrap: wrap;
@@ -325,7 +388,7 @@ padding-right: var(--spacing-xs);
 
         }
 
-            .accordion-content_cv_graduate{
+            .accordion-content__cv__graduate{
                 text-align: right;
                 width: 100%;
                 padding-bottom: var(--spacing-xs);
@@ -333,20 +396,20 @@ padding-right: var(--spacing-xs);
                 padding-top: var(--spacing-xs);
             }
             
-            .accordion-content_cv_info{
+            .accordion-content_cv-info{
                 width: calc((100% * 1/3) - var(--spacing-xs));
                 height: var(--contentMaxHeightInner);
                 text-align: right;
                 order: 1;
             }
 
-                .accordion-content_cv_info_degrees,
-                .accordion-content_cv_info_classes, 
-                .accordion-content_cv_info_projects{
+                .accordion-content__cv-info__degrees,
+                .accordion-content__cv-info__classes, 
+                .accordion-content__cv-info__projects{
                     padding-bottom: var(--spacing-md);    
                 } 
 
-            .accordion-content_cv_bio {
+            .accordion-content__cv__bio {
                 width: min-content;
                 min-width: calc((100%* 1 / 3) - var(--spacing-xs));
                 height: var(--contentMaxHeightInner);
@@ -359,7 +422,7 @@ padding-right: var(--spacing-xs);
 
         /* ^ Accordion Links */
 
-        .accordion-content_links{
+        .accordion-content__links{
             grid-area: 2 / 1 / 3 / 3;
             display: flex;
             justify-content: space-between;

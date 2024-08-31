@@ -1,5 +1,5 @@
 <div class="searchbar">
-    <div class="">
+    <div class="searchbar__dropdowns">
         <select name="baMaDropdown" id="baMaDropdown">
             <option value="ba+ma">BA+MA</option>
             <option value="ba">BA</option>
@@ -14,11 +14,14 @@
 
     <div class="searchbar__search-container">
         <div class="searchbar__tag-container">
-            <button class="tag">X Feminism</button>
-            <button class="tag">X Internet</button>
-            <button class="tag">X Digital</button>
+            <button class="tag tag--inverted">X Feminism</button>
+            <button class="tag tag--inverted">X Internet</button>
+            <button class="tag tag--inverted">X Digital</button>
         </div>
         <!-- Search Box -->
-        <input type="text" id="search-box" placeholder="Search content...">
+        <div class="searchbar__input-slider">
+            <input type="text" id="search-box" placeholder="Type here...">
+            <div class="slider-button button-primary"><span class="slider-button--text">Search</span></div>
+        </div>
     </div>
 </div>
