@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Search Button with Input Field</title>
+    <style>
+        :root {
+
+        /* Color */
+        --color-primary: #000000;
+        --color-secondary: #FFFFFF;
+        --color-DevMode: rgb(0, 0, 255);
+
+
+        /* Typography */
+        --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
+
+        /* Accordion Content Height */
+        --contentMaxHeight: 29rem;
+        --contentMaxHeightInner:calc(var(--contentMaxHeight) * 0.79);
+
+
+        /* Spacing */
+        --spacing-none: 0;
+        --spacing-xxs: .25rem;
+        --spacing-xs: .5rem;
+        --spacing-sm: 1rem;
+        --spacing-md: 2rem;
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
+
+        /* Radius */
+        --radius-xs: .5rem;
+        --radius-sm: 1rem;
+        --radius-lg: 2rem;
+
+        /* Font Sizes */
+        --font-sm:.75vw;
+        --font-md: 1vw;
+        --font-lg: 1.3vw;
+
+        }
+
+        #search-box {
+            padding: var(--spacing-xxs);
+        }
+
+        .searchbar {
+
+            padding: var(--spacing-xs);
+            border-bottom: 1px var(--color-primary) solid;
+
+            /* Layout */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            select {
+                border-radius: 1rem;
+            }
+        }
+
+        .searchbar__search-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: var(--spacing-xs); 
+        }
+
+        .searchbar__tag-container{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: var(--spacing-xs); 
+        }
+
+
+
+        .searchbar__input-slider{
+            width: 17.5rem;
+            display: flex;
+            border: 1px solid var(--color-primary);
+            border-radius: var(--radius-sm);
+            gap: var(--spacing-xs);
+            justify-content: space-between;
+
+            .slider-button{
+                background-color: #FFFFFF;
+                font-size: var(--font-sm);
+                height: min-content;
+                padding: var(--spacing-xxs);
+                border-radius: var(--radius-sm);
+                border: 1px solid var(--color-primary);   
+            }
+
+
+            input, input:focus-visible {
+                width: 100%;
+                margin-left: var(--spacing-xs);
+
+                outline: none;
+                border: none;
+                border-radius: var(--radius-lg);
+                font-size: var(--font-md);
+
+                transition: opacity 300ms ease;
+                
+            }
+
+        }
+
+        .tag {
+            width: fit-content;
+            height: fit-content;
+            white-space: nowrap;
+            cursor: pointer;
+        
+            background-color: var(--color-secondary);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            
+            font-size: var(--font-sm);
+
+            border: 1px solid;
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-xxs);    
+        }
+
+        .tag--inverted {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            border: none;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="searchbar">
+        <div class="searchbar__dropdowns">
+            <select name="baMaDropdown" id="baMaDropdown">
+                <option value="ba+ma">BA+MA</option>
+                <option value="ba">BA</option>
+                <option value="ma">MA</option>
+            </select>
+            <select name="semesterDropdown" id="semesterDropdown">
+                <option value="SuSe2024">All Semesters</option>
+                <option value="SuSe2024">SuSe2024</option>
+                <option value="WiSe2023/24">WiSe2023/24</option>
+            </select>
+        </div>
+    
+        <div class="searchbar__search-container">
+            <div class="searchbar__tag-container">
+                <button class="tag tag--inverted">X Feminism</button>
+                <button class="tag tag--inverted">X Internet</button>
+                <button class="tag tag--inverted">X Digital</button>
+            </div>
+            <!-- Search Box -->
+            <div class="searchbar__input-slider">
+                <input type="text" id="search-box" placeholder="Type here...">
+                <div class="slider-button button-primary"><span class="slider-button--text">Search</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slider = document.querySelector(".searchbar__input-slider");
+            const button = document.querySelector('.slider-button');
+            const buttonText = document.querySelector('.slider-button--text');
+            const searchBox = document.querySelector("#search-box")
+
+            let isDragging = false; // checks is the button should be draggable at this moment
+           
+            const sliderWidth = slider.clientWidth;  // Width of slider
+            const sliderOffsetLeft = slider.offsetLeft; // Where (from left) does the slider element begin 
+            const buttonOffsetLeft = button.offsetLeft; // Where (from left) does the Button element begin 
+            const sliderRight = sliderOffsetLeft + sliderWidth; //Where (from left) does the slider element end
+            
+            const mappingFactor = button.offsetLeft - slider.offsetLeft; // calculate factor to scale from 0-1
+
+            let lastUpdatedPosition = 1;    // keeps count of how many px to the left the button element is at any point
+                                            // 1 is the state for the button beeing on the right -> search
+                                            // 0 is the state for the button beeing on the right -> DevMode
+
+
+
+            // general function to get the current position of the button and transform it to a scale from 0–1
+            function buttonPosition(){
+                // calculate the current position of the button
+                lastUpdatedPosition = (button.offsetLeft - slider.offsetLeft) / mappingFactor; 
+
+                // restrict the position factor to 0 – 1 -> cut off anything thats smaller or bigger
+                if(lastUpdatedPosition < 0) lastUpdatedPosition = 0 ;
+                if(lastUpdatedPosition > 1) lastUpdatedPosition = 1 ; 
+
+                return lastUpdatedPosition; // update lastUpdatedPosition
+            }; 
+
+
+            
+            // Eventlistener for what happens if the mouse is pressed
+            button.addEventListener('mousedown', function (event){
+
+                isDragging = true; // the button is now allowed to be dragged
+
+                button.style.position ='absolute';  // because we are changing the position of the button, position 
+                                                    // needs to be absolute. otherwise it the button won't move.
+
+                // check what the last state was -> Search oder DevMode
+                // because of the wonky way I  (cxxyyl) programmed this, a start-postion for the button needs
+                // to be set. Otherwise the button will jump. 
+                    if(lastUpdatedPosition === 1){
+                        button.style.left =`${buttonOffsetLeft}px`;
+                    };
+
+                    if(lastUpdatedPosition === 0){
+                        button.style.left =`${sliderOffsetLeft+1}px`;
+                    };
+
+                //reset easing
+                button.style.transition = 'all 0ms ease';
+
+                //disable the #search-box
+                searchBox.style.opacity = 0;  
+                searchBox.pointerEvents = 'none'; 
+
+            });
+
+            // Eventlistener for what happens if the mouse is moved
+            button.addEventListener('mousemove', function (event){
+                if(isDragging) { // we don't want the function to run all the time. so it's only allowd to run, if the button is allowed to be dragged.
+                    
+                    let cursorPosition = event.clientX; // buffer for the cursor position
+
+                        // restrict the range of the cursor movement to be only within the slider
+                        if(event.clientX > (sliderRight - button.clientWidth/2)) cursorPosition = (sliderRight - button.clientWidth/2 - 1); // right boundary
+                        if(event.clientX < sliderOffsetLeft + button.clientWidth/2) cursorPosition = (sliderOffsetLeft + button.clientWidth/2 +1); // left boundary
+                   
+                    // move the button with the cursor position (within the bounds of slider)
+                    const buttonDriver = cursorPosition - button.clientWidth/2; 
+                    button.style.left = `${buttonDriver}px`;
+                    
+                    //update lastUpdatedPosition while moving the button
+                    buttonPosition(); 
+                }; 
+            });
+
+
+
+            // Eventlistener for what happens if the mouse button is not clicked anymore
+            button.addEventListener('mouseup', function (event){
+                if(isDragging) {    
+                    isDragging = false;
+
+                    // enable easing for the button snapping into place
+                    button.style.transition = 'all 300ms ease';
+
+                    // Reappearing of the search box
+                    searchBox.style.opacity = 100;
+                    searchBox.pointerEvents = 'auto'; 
+
+
+                    // DevMode
+                    if(lastUpdatedPosition < .5){
+
+                        //change styling and text for DevMode
+                        button.classList.add(); 
+                        buttonText.innerHTML = "DevMode"
+                        buttonText.style.color = 'var(--color-secondary)';
+                        button.style.backgroundColor = 'var(--color-DevMode)';
+
+                        //reposition searchbox
+                        searchBox.style.marginLeft =`calc(${button.clientWidth}px + var(--spacing-xs))`;
+                        searchBox.style.width = `calc(${sliderWidth}px - ${button.clientWidth}px - var(--spacing-xs))`;
+
+                        //
+                        button.style.left = `${sliderOffsetLeft+1}px`; 
+                        lastUpdatedPosition = 0; 
+
+                        return lastUpdatedPosition; 
+                        
+                    };
+
+                    //Search 
+                    if(lastUpdatedPosition > .5){
+
+                         //change styling and text for Search
+                        buttonText.innerHTML = "Search"
+                        buttonText.style.color = 'var(--color-primary)';
+                        button.style.backgroundColor = 'var(--color-secondary)';
+
+                        // 
+                        searchBox.style.marginLeft = 'var(--spacing-xs)';
+                        searchBox.style.width = `calc(${sliderWidth}px - ${button.clientWidth}px - (3 * var(--spacing-xs)))`;
+
+                        button.style.left = `${buttonOffsetLeft}px`;
+                        lastUpdatedPosition = 1; 
+
+                        return lastUpdatedPosition; 
+                    }; 
+
+                
+                };  
+                
+            });
+            
+        });
+    </script>
+</body>
+</html>

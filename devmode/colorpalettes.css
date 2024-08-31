@@ -1,0 +1,28 @@
+:root {
+
+    /* Darkmode */
+    --color-dark-prime: #000000;
+    --color-dark-secondary: #ffffff;
+    --color-dark-tertiary: #000000;
+    --color-dark-queriary: #000000;
+    
+
+    /* Cozy Gray */
+    --color-cozy-prime: #000000;
+    --color-cozy-secondary: #ffffff;
+    --color-cozy-tertiary: #000000;
+    --color-cozy-queriary: #000000;
+
+    /* Solarized */
+    --color-cozy-prime: #000000;
+    --color-cozy-secondary: #ffffff;
+    --color-cozy-tertiary: #000000;
+    --color-cozy-queriary: #000000;
+
+    /* GamerMode */
+    --color-cozy-prime: #000000;
+    --color-cozy-secondary: #ffffff;
+    --color-cozy-tertiary: #000000;
+    --color-cozy-queriary: #000000;
+
+}
