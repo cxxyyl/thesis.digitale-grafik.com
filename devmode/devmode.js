@@ -79,6 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // enable easing for the button snapping into place
             button.style.transition = 'left 300ms ease, color ease 300ms, background-color ease 300ms';
+            button.style.cursor = 'grab'; 
+          
 
             if(lastUpdatedPosition < .5){
 
@@ -204,6 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
             buttonClicked = true; 
 
             button.style.transition = 'left 0ms ease, color ease 0ms, background-color ease 0ms'; //reset easing
+            button.style.cursor = 'grabbing'; 
 
             switchToAbsolute(); // switch the button style to position: absolute                           
             checkLastButtonState(); // check what the last stat of the button was DevMode <-> Search
@@ -281,7 +284,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
 });
-
 
 
 

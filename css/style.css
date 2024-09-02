@@ -2,8 +2,9 @@
 
 /* 
 – transition auf den einzelen textelementen innerhalb des akkordions ausschalten
-
+– little shake animation for tag--inverted
 */
+
 
 
 
@@ -27,6 +28,7 @@
   --color-primary: #000000;
   --color-secondary: #FFFFFF;
   --color-DevMode: rgb(121, 44, 255);
+  --color-search: #e6dcff; 
 
   
   /* Typography */
@@ -58,6 +60,7 @@
 
 }
 
+
 h1,h2,h3,h4,h5,h6 {
     font-size: var(--font-md);
     text-decoration: none;
@@ -79,6 +82,8 @@ a{
     cursor: pointer;
 }
 
+
+
 /* ? Body Base Styling */
 body {
     font-family: var(--font-primary);
@@ -87,10 +92,7 @@ body {
     margin: 0;
 }
 
-/* Basic Nav Styling */
-    /* nav {
 
-    } */
 
 /* Custom Nav Styling */
 .nav {
@@ -152,6 +154,16 @@ padding-right: var(--spacing-xs);
 
 
 
+
+/* * Highlight for Search */
+
+mark {
+    background-color: var(--color-search); 
+}
+
+
+
+
 /* ^ Searchbar */
 
 #search-box {
@@ -174,65 +186,65 @@ padding-right: var(--spacing-xs);
     }
 }
 
-.searchbar__search-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: var(--spacing-xs); 
-}
-
-.searchbar__tag-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: var(--spacing-xs); 
-}
-
-
-
-.searchbar__input-slider{
-    width: 17.5rem;
-    display: flex;
-    border: 1px solid var(--color-primary);
-    border-radius: var(--radius-sm);
-    gap: var(--spacing-xs);
-    justify-content: space-between;
-
-    .slider-button{
+    .searchbar__search-container {
         display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: var(--spacing-xs); 
+    }
+
+
+    .searchbar__tag-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         align-items: center;
+        gap: var(--spacing-xs); 
+    }
 
-        margin: -1px;
-        background-color: var(--color-secondary);
-        color: var(--color-primary);
-        font-size: var(--font-sm);
-        height: calc(100% + 2px);
-        padding: var(--spacing-xxs);
+
+    .searchbar__input-slider{
+        width: 17.5rem;
+        display: flex;
         border: 1px solid var(--color-primary);
-        border-radius: var(--radius-lg);
-        user-select: none;
-
-        transition: color ease 300ms, background-color ease 300ms;
-
-        
-    }
+        border-radius: var(--radius-sm);
+        gap: var(--spacing-xs);
+        justify-content: space-between;
 
 
-    input, input:focus-visible {
-        width: 100%;
-        margin-left: var(--spacing-xs);
+        .slider-button{
+            display: flex;
+            align-items: center;
 
-        outline: none;
-        border: none;
-        border-radius: var(--radius-lg);
-        font-size: var(--font-md);
+            margin: -1px;
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            font-size: var(--font-sm);
+            height: calc(100% + 2px);
+            padding: var(--spacing-xxs);
+            border: 1px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            user-select: none;
 
-        transition: opacity 300ms ease;
-        
-    }
+            transition: color ease 300ms, background-color ease 300ms;
 
+            cursor: grab;
+        }
+
+
+        input, input:focus-visible {
+            width: 100%;
+            margin-left: var(--spacing-xs);
+
+            outline: none;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: var(--font-md);
+
+            transition: opacity 300ms ease;    
+        }
 }
+
 
 .tag {
     width: fit-content;
@@ -251,12 +263,29 @@ padding-right: var(--spacing-xs);
     padding: var(--spacing-xxs);    
 }
 
-.tag--inverted {
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
-    border: none;
+    .tag--inverted {
+        background-color: var(--color-primary);
+        color: var(--color-secondary);
+        border: none;
 
-}
+
+    }
+
+    .tag--delete:hover{
+        /* Add a litttel shake animation on hover */
+        animation: deleteShake 750ms ease infinite;
+    }
+
+        @keyframes deleteShake {
+            0%, 75%, 100% {transform: rotate(0deg);}
+            25% {transform: rotate(-5deg);}
+            50% {transform: rotate(5deg);}
+        }
+
+
+    .tag--delete::before{
+        content: 'Ｘ '
+    }
 
 
 
@@ -267,7 +296,7 @@ padding-right: var(--spacing-xs);
     border-bottom: 1px solid var(--color-primary);
 }
 
-    /* ^  Accordion Table Rows */
+    /* ^ Accordion Table Rows */
 
     .accordion-container{
         width: 100%;
