@@ -119,7 +119,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 
                         <!-- Persued Degree -->
 <?php if($item->selectDegree()->isNotEmpty()): ?>
-                        <li><?= option('category-map')[$item->selectDegree()->value()] ?> Thesis</li>
+                        <li class="searchText"><?= option('category-map')[$item->selectDegree()->value()] ?> Thesis</li>
 <?php endif?>
 
                         <!-- Year of Publishing -->
@@ -149,11 +149,11 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                     <div class="accordion-content__thesis-info__topics">    
                         <h5>Topics</h5>
                
-                        <ul class="accordion-content__thesis-info__topics__tags">
+                        <div class="accordion-content__thesis-info__topics__tags">
 <?php foreach ($item->thesisTags()->split() as $tags): ?>
-                            <li class="searchText tag"><?= $tags ?></li>
+                            <button class="searchText tag"><?= $tags ?></button>
 <?php endforeach ?>
-                        </ul>
+                        </div>
 
                     </div>
 <?php endif ?>
@@ -162,7 +162,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                 <!-- Thesis Abstract / this will only show up, if there is an abstract -->
                 <div class="accordion-content__thesis-abstract searchText">
 <?php if ($item->thesisAbstract()->isNotEmpty()): ?>
-                    <?= $item->thesisAbstract()->kirbytext()?>
+                    <?= $item->thesisAbstract()->kt()?>
 <?php endif ?>
                 </div>
             </section>
@@ -199,7 +199,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                     </ul>
 
                     <!-- Part of following Classes at HFBK Hamburg -->
-                    <ul class="accordion-content__cv-info__classes">
+                    <ul class="accordion-content__cv-info__classes searchText">
 <?php if ($graduate->class()->isNotEmpty()): ?>
 <?php foreach ($graduate->class()->split() as $tags): ?>
                         <li>Klasse <?= $tags ?></li>
@@ -243,7 +243,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                         <!-- Socials -->
 <?php $entries = $graduate->socials()->toStructure(); foreach ($entries as $entry): ?>
                         <li>    
-                            <a target="_blank" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a>
+                            <a target="_blank searchText" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a>
                         </li>
 <?php endforeach ?>
                     </ul> 
@@ -251,7 +251,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                 
 
                 <!-- Graduate Bio -->
-                <div class="accordion-content__cv__bio">    
+                <div class="accordion-content__cv__bio searchText">    
 <?php if ($graduate->bio()->isNotEmpty()): ?>
                     <?= $graduate->bio()->kirbytext()?> 
 <?php endif ?>

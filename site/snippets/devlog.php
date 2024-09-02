@@ -3,11 +3,23 @@
 ✦ General To-Do ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 – "Write to CSS" with DevMode
+
+- Searchbar Tags
+    - JS clone tags to seachbar - on click  ✔️ 
+    - JS delete cloned tags - on klick ✔️
+    - JS tags "filter" contenet
+    - JS searchbar input generates tag on return
+    - comment / explain new js code
+
 – Colorthemes and Custom Commands for DevMode
 – Finish BAM 
 – Organize CSS / Additional Info and Interal Decoration
 
 - Should there be "easy" alternative classes next to BEM to engage with DevMode more easily?
+
+- write Search Guide 
+    - write guide ✔️
+    - finish asci art 
 
 
 
@@ -16,8 +28,25 @@
 <additonal asci art>
 ✦ Devlog & Thoughts ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024-AUG 31     Okay I think I am done for this little vacation with working on the this site. Well I'll code a bit more on my way back
+2024-AUG-31     Vacation over! Time to travel by ICE again – 7hours of time for this project. Somehow I did not reserve seats at I  
+cxxyyl          Ruhebereich, so  was wondering if it will be loud / hard to concentrate, but the trainride was quite peaceful today. Before 
+                leaving I finally gave Oliver an update on the project and we will probably meet this week, to talk a bit :)
+                    Today was fun tho, I did some ascii typedesign for one of the sections (search) but I did not finish it jet... but wow
+                I think what I am doing here is the most inefficient and "unprofitable" way to make a website – but I truly love it to do it thihs way.
+                Also the searchbar is a bit more complete now. Tags can be clicked/created/deleted! Now I need to finish the non-decorative features. 
+                So tags acutally need to filter                                                          and by typing+return something into the input
+                                             – quick thought – should it be an "and" (like normal) or an "or"
+                field a tag also should be created. 
+                    Okay, I think that's all for today. I'll be arriving at Hamburg HBF in 20 minutes. See you soon, Lohnarbeit calls (sadly)
+                
+            
+                                    - quick thought – write to website not to person who is reading it. 
+
+
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024-AUG-31     Okay I think I am done for this little vacation with working on the this site. Well I'll code a bit more on my way back
 cxxyyl          to Hamburg. Everyone is out of our little vacation home right now and I'm enjoying the view and the few hours of calm 
                 me-time I have now. But wow it's soooooooo hot. But back to what happend today!
                     Yesterday I managed to make the damn slider work, but I realized that it's still quite clunky and everything

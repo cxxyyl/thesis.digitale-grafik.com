@@ -14,9 +14,9 @@
 
     <div class="searchbar__search-container">
         <div class="searchbar__tag-container">
-            <button class="tag tag--inverted">X Feminism</button>
+            <!-- <button class="tag tag--inverted">X Feminism</button>
             <button class="tag tag--inverted">X Internet</button>
-            <button class="tag tag--inverted">X Digital</button>
+            <button class="tag tag--inverted">X Digital</button> -->
         </div>
         <!-- Search Box -->
         <div class="searchbar__input-slider">

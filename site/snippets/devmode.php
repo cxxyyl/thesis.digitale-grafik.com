@@ -21,7 +21,9 @@ solarized – adaptation of solarized theme (olive)
 gamermode – RGB gradients in everything -  font white
 
 highlightThesis
-highlightNames
+highlightAuthor
+
+
 
 Custom Commands
 
