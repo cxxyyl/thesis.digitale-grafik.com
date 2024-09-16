@@ -39,16 +39,16 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 
             <!-- Pursued Degree -->
 <?php if($item->selectDegree()->isNotEmpty()): ?>
-            <p class="accordion-container_degree"><?= $item->selectDegree()?></p>
+            <p data-search="<?= option('category-map') [$item->selectDegree()->value()]?>" class="accordion-container_degree filter searchText"><?= $item->selectDegree()?></p>
 <?php endif?>
 
             <!-- Semester of Publishing -->
             <div class="accordion-container__date">
 <?php if($item->yearOfPublishing()->isNotEmpty()): ?>
-                <p><?= $item->yearOfPublishing()?></p>
+                <p class="filter searchText"><?= $item->yearOfPublishing()?></p>
 <?php endif?>
 <?php if($item->semesterCycle()->isNotEmpty()): ?>
-                <p><?= $item->semesterCycle()?></p>
+                <p class="filter searchText"><?= $item->semesterCycle()?></p>
 <?php endif?>
             </div>
                 
@@ -61,7 +61,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
             
             <!-- Language the thesis is written in -->
 <?php if ($item->language()->isNotEmpty()): ?>
-            <p class="button-primary button-extraSpacing"><?= $item->language()->category()?></p>
+            <p data-search="<?=option('category-map')[$item->language()->category()->value()]?>" class="filter button-primary button-extraSpacing searchText"><?= $item->language()->category()?></p>
 <?php endif ?>
             
             <!-- Links for downloading the thesis and opening the original thesis website  -->
@@ -119,25 +119,25 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 
                         <!-- Persued Degree -->
 <?php if($item->selectDegree()->isNotEmpty()): ?>
-                        <li class="searchText"><?= option('category-map')[$item->selectDegree()->value()] ?> Thesis</li>
+                        <li data-search="<?= option('category-map') [$item->selectDegree()->value()]?>" class="searchText filter"><?= option('category-map')[$item->selectDegree()->value()]?> Thesis</li>
 <?php endif?>
 
                         <!-- Year of Publishing -->
-                        <li><?php if($item->yearOfPublishing()->isNotEmpty()):?><?= $item->semesterCycle()?><?php endif?> <?php if($item->semesterCycle()->isNotEmpty()): ?><?= $item->yearOfPublishing()?></p><?php endif?></li>
+                        <li><?php if($item->yearOfPublishing()->isNotEmpty()):?><span class="filter searchText"><?= $item->semesterCycle()?></span><?php endif?> <?php if($item->semesterCycle()->isNotEmpty()): ?><span class="filter searchText"><?= $item->yearOfPublishing()?></span><?php endif?></li>
                     </ul>
                     
                     <!-- Advisors -->
                     <ul class="accordion-content__thesis-info__advisors">
 <?php if ($item->advisor1()->isNotEmpty()): ?>
-                        <li class="searchText"><?= $item->advisor1()?></li>
+                        <li class="searchText filter"><?= $item->advisor1()?></li>
 <?php endif ?>
 
 <?php if ($item->advisor2()->isNotEmpty()): ?>
-                        <li class="searchText"><?= $item->advisor2()?></li>
+                        <li class="searchText filter"><?= $item->advisor2()?></li>
                         <?php endif ?>
 
 <?php if ($item->advisor3()->isNotEmpty()): ?>
-                        <li class="searchText"><?= $item->advisor3()?></li>
+                        <li class="searchText filter"><?= $item->advisor3()?></li>
 <?php endif ?>
                     </ul>
 
@@ -151,7 +151,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                
                         <div class="accordion-content__thesis-info__topics__tags">
 <?php foreach ($item->thesisTags()->split() as $tags): ?>
-                            <button class="searchText tag"><?= $tags ?></button>
+                            <button class="searchText tag filter"><?= $tags ?></button>
 <?php endforeach ?>
                         </div>
 
@@ -199,7 +199,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                     </ul>
 
                     <!-- Part of following Classes at HFBK Hamburg -->
-                    <ul class="accordion-content__cv-info__classes searchText">
+                    <ul class="accordion-content__cv-info__classes searchText filter">
 <?php if ($graduate->class()->isNotEmpty()): ?>
 <?php foreach ($graduate->class()->split() as $tags): ?>
                         <li>Klasse <?= $tags ?></li>
@@ -243,7 +243,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                         <!-- Socials -->
 <?php $entries = $graduate->socials()->toStructure(); foreach ($entries as $entry): ?>
                         <li>    
-                            <a target="_blank searchText" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a>
+                            <a target="_blank searchText filter" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a>
                         </li>
 <?php endforeach ?>
                     </ul> 

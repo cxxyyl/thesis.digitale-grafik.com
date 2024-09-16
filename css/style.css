@@ -161,8 +161,12 @@ mark {
     background-color: var(--color-search); 
 }
 
-
-
+/* * Cursor Options */
+.filter{
+    cursor: pointer;
+    transition: background-color 500ms ease;
+    width: fit-content; 
+}
 
 /* ^ Searchbar */
 
@@ -257,6 +261,7 @@ mark {
     color: var(--color-primary);
     
     font-size: var(--font-sm);
+    text-transform: uppercase;
 
     border: 1px solid;
     border-radius: var(--radius-sm);
@@ -264,9 +269,13 @@ mark {
 }
 
     .tag--inverted {
+        padding-left: var(--spacing-xs);
+        padding-right: var(--spacing-xs);
+        
         background-color: var(--color-primary);
         color: var(--color-secondary);
         border: none;
+
 
 
     }

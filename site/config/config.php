@@ -4,7 +4,9 @@ return [
 
     'category-map' => [
         'BA'       => 'Bachelor',
-        'MA'       => 'Master'
+        'MA'       => 'Master', 
+        'en'       => 'english', 
+        'de'       => 'german'
     ]
 
 ];

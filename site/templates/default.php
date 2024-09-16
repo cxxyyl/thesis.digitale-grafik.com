@@ -13,7 +13,6 @@
 
 
 
-
 <main id="content">
 
   <!-- 
@@ -108,14 +107,9 @@
 
 <?php snippet('accordion') ?>
 </main>
+
+<?php snippet('loadJSModules')?>
+
 <?php snippet('footer')?>
 
-
 <?php snippet('devlog')?>
-
-<!-- <script>
-    document.getElementById('scroll-wrapper').scrollLeft = document.getElementById('spacer').offsetLeft;
-</script> -->
-
-<script src="devmode/devmode.js" type="text/javascript"></script>
-

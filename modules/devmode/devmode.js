@@ -1,3 +1,8 @@
+// Javascript for DevMode
+// ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+
+
+
 // check if the page is loaded
 document.addEventListener("DOMContentLoaded", function () { 
 
@@ -57,7 +62,16 @@ document.addEventListener("DOMContentLoaded", function () {
             // button.style.height = `${slider.clientHeight + 2 }px t`; // get the hight of the slider and give it to the button
             button.style.height = `${slider.clientHeight + 2 }px`; // get the hight of the slider and give it to the button
         };
+        
+        function enableSearch() {
+           searchBox.classList.add("searchmode");
+           searchBox.classList.remove("devmode");
+        };
 
+        function disableSearch(){
+            searchBox.classList.remove("searchmode");
+            searchBox.classList.add("devmode");
+        }
     
         //hide the #search-box
         function hideSearchBox(){
@@ -234,9 +248,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 buttonStylings(); 
                 setButtonPosition();
                 setSearchboxPosition(); 
-        
-                if(lastUpdatedPosition < .5) lastUpdatedPosition = 0;   // set position state for DevMode
-                if(lastUpdatedPosition > .5) lastUpdatedPosition = 1;   // set position state for Search 
+          
+                // set position state for DevMode
+                if(lastUpdatedPosition < .5){
+                    lastUpdatedPosition = 0; 
+                    disableSearch();
+                }   
+
+                // set position state for Search 
+                if(lastUpdatedPosition > .5){
+                    lastUpdatedPosition = 1; 
+                    enableSearch();
+                }   
             };     
         });
 
@@ -250,9 +273,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 buttonStylings(); 
                 setButtonPosition();
                 setSearchboxPosition(); 
+
         
-                if(lastUpdatedPosition < .5) lastUpdatedPosition = 0;   // set position state for DevMode
-                if(lastUpdatedPosition > .5) lastUpdatedPosition = 1;   // set position state for Search 
+               // set position state for DevMode
+               if(lastUpdatedPosition < .5){
+                    lastUpdatedPosition = 0; 
+                    disableSearch();
+                }   
+
+                // set position state for Search 
+                if(lastUpdatedPosition > .5){
+                    lastUpdatedPosition = 1; 
+                    enableSearch();
+                }   
             };     
         }); 
 
