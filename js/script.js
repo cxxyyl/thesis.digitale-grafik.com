@@ -1,24 +1,190 @@
-/* Basics */
-/* JS Accordion Toggle */
-       
-       // Function to handle search
-       function searchContent() {
-        const searchText = document.getElementById('search-box').value.toLowerCase();
-           const searchResults = document.querySelectorAll('.search-result');        
-           
-           
-        searchResults.forEach(result => {
-            const content = result.textContent.toLowerCase();
-            if (content.includes(searchText)) {
-                result.style.display = 'block';
-            } else {
-                result.style.display = 'none';
+// check if the page is loaded, ony
+document.addEventListener("DOMContentLoaded", function () { 
+
+// _______________________________________________________________________________________________________________________________________ //
+
+
+
+    // 🔎 SearchMode 🔍
+    // ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+ 
+
+        // Variables
+        // ⎺⎺⎺⎺⎺⎺⎺⎺⎺
+
+        // Global variable to keep track of selected tags
+        let selectedTags = [];
+        
+
+
+
+        // Search Function
+        // ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+        // This is the main function of Search Mode. It does the following things:
+        // It checks all content that has the class searchText for either text that was written inside of the input field
+        // or a selected tag. If the search is a success it display the search result, otherwise the result is hidden. 
+
+        function filterContent() {
+
+            // Retrieve the text that was written into the input field.
+            const inputText = document.getElementById('search-box').value.toLowerCase();
+
+            // Get all Elementns with the class search-result. These are single rows that make up the table. 
+            const searchResults = document.querySelectorAll('.search-result');
+
+            // Retrieve all tags from the #filter-tags container.
+            const tagsInFilterContainer = document.querySelectorAll('#filter-tags .filter'); // append the tags
+            selectedTags = Array.from(tagsInFilterContainer).map(tag => tag.textContent.toLowerCase()); // convert each tag to text
+
+            // Iterate through each row of the table
+            searchResults.forEach(result => {
+
+                // Constrain the searched elements only to elements with the class searchtext
+                const searchTextElements = result.querySelectorAll('.searchText');
+                
+                // Check if any of the elements with the class searchText match text written into the input field.
+                const matchesSearchText = Array.from(searchTextElements).some(element => {
+                
+                    // Convert the text content of the element to lowercase for case-insensitive comparison
+                    const textContent = element.textContent.toLowerCase();
+
+                    // Retrieve the value of the 'data-search' attribute, if it exists, and convert it to lowercase
+                    const dataSearch = element.getAttribute('data-search') ? element.getAttribute('data-search').toLowerCase() : '';
+
+                    // Check if the searchText is included in either the text content or the data-search attribute value
+                    return dataSearch.includes(inputText) || textContent.includes(inputText);
+                });
+
+                // Get the content of the result and convert it to lowercase
+                const content = result.textContent.toLowerCase();
+
+                // Check if the result matches all selected tags
+                const matchesTags = Array.isArray(selectedTags) && (selectedTags.length === 0 || selectedTags.every(tag => content.includes(tag)));
+
+                // Show or hide the result based on matches
+                result.style.display = (matchesSearchText && matchesTags) ? 'block' : 'none';
+            });
+        }
+
+
+        // This is the event listener for when something is typed into the input field. 
+        // It triggers everytime when the input field detects a keystroke
+        document.getElementById('search-box').addEventListener('input', function() {
+            // Only filter content if the input field has the 'searchmode' class
+            if (this.classList.contains('searchmode')) {
+                filterContent(); // trigger search function
             }
         });
-    }
 
-    // Event listener for search input
-    document.getElementById('search-box').addEventListener('input', searchContent);
+
+
+
+        // Add and remove filter tags from the searchbar
+        // ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+    
+        function TagFromInput(tagText) {
+            // get the Element in which all the filter tags are
+            const tagContainer = document.querySelector('#filter-tags');
+
+            // Convert the tag text to lowercase
+            const lowercaseTagText = tagText.toLowerCase();
+
+            // Check if the tag already exists in the container
+            const existingTags = Array.from(tagContainer.querySelectorAll('.filter')).map(tag => tag.textContent.toLowerCase());
+
+            if (existingTags.includes(lowercaseTagText)) {
+                console.log(`Tag "${lowercaseTagText}" is already present in #filter-tags`);
+                return; // Exit if the tag already exists
+            }
+
+            // Create a new button element for the tag
+            const newFilterTag = document.createElement('button');
+            newFilterTag.textContent = tagText;
+            newFilterTag.classList.add('filter', 'tag', 'tag--inverted', 'tag--delete');
+
+            // Append the new tag button to the container
+            tagContainer.appendChild(newFilterTag);
+
+            // Reapply the filter to update results based on new tags
+            filterContent();
+        }
+
+
+        // Event listener for creating tags by pressing 'Enter' in the search box
+        document.querySelector('#search-box').addEventListener('keydown', function(event) {
+            if (this.classList.contains('searchmode') && event.key === 'Enter') {
+                event.preventDefault(); // Prevent default Enter key action
+                
+                // Get and trim the input value
+                const inputValue = this.value.trim();
+
+                if (inputValue !== '') {
+                    // Add the input value as a tag
+                    TagFromInput(inputValue);
+
+                    // Clear the input field
+                    this.value = '';
+                }
+            }
+        });
+
+
+            // Event listener for tag clicks
+        document.querySelectorAll('.filter').forEach(element => {
+            element.addEventListener('click', function() {
+                const tagContainer = document.querySelector('#filter-tags');
+                
+                // Check if the element has the data-search attribute
+                const tagText = this.hasAttribute('data-search') 
+                    ? this.getAttribute('data-search').toLowerCase() 
+                    : this.textContent.toLowerCase();
+
+                // Check if the tag is already in the #filter-tags container
+                const existingTags = Array.from(tagContainer.querySelectorAll('.filter')).map(tag => 
+                    tag.hasAttribute('data-search') 
+                        ? tag.getAttribute('data-search').toLowerCase() 
+                        : tag.textContent.toLowerCase()
+                );
+
+                if (existingTags.includes(tagText)) {
+                    console.log(`Tag "${tagText}" is already present in #filter-tags`);
+                    return; // Exit if the tag is already present
+                }
+
+                // Create and append a new button for the tag
+                const newFilterTag = document.createElement('button');
+                newFilterTag.textContent = this.hasAttribute('data-search') 
+                    ? this.getAttribute('data-search') 
+                    : this.textContent;
+                newFilterTag.classList.add('filter', 'tag', 'tag--inverted', 'tag--delete');
+                tagContainer.appendChild(newFilterTag);
+
+                // Reapply the filter to update results based on new tags
+                filterContent();
+            });
+        });
+
+
+    // Event listener for removing tags
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('tag--delete')) {
+            // Remove the clicked tag from the DOM
+            event.target.remove();
+
+            // Reapply the filter to update results after removing the tag
+            filterContent();
+        }
+    });
+
+  
+
+
+
+
+
+}); // end of DOMContentLoaded
+
+// _______________________________________________________________________________________________________________________________________ //
 
 
 
@@ -62,42 +228,3 @@
     // }
 
     // // Event listener for search input
-    // document.getElementById('search-box').addEventListener('input', searchContent);
-
-
-
-/* JS Add & Remove Tags */
-
-// Select all elements with the class 'tag searchText'
-document.querySelectorAll('.tag.searchText').forEach(function(element) {
-    element.addEventListener('click', function() {
-        // Select the target container where cloned elements will be added
-        const tagContainer = document.querySelector('.searchbar__tag-container');
-
-        // Clone the clicked element (use 'this' to refer to the clicked element)
-        const clonedElement = this.cloneNode(true);
-
-        // Update the class of the cloned element
-        clonedElement.classList.remove('searchText');
-        clonedElement.classList.add('tag--inverted');
-        clonedElement.classList.add('tag--delete');
-
-
-        // Append the modified cloned element to the target container
-        tagContainer.appendChild(clonedElement);
-
-        addedTags = document.querySelectorAll('.tag--delete'); 
-    });
-});
-
-
-document.addEventListener('click', function(event) {
-    // Check if the clicked element has the 'tag--delete' class
-    if (event.target.classList.contains('tag--delete')) {
-        // Remove the clicked element from the DOM
-        event.target.remove();
-    }
-});
-
-
-

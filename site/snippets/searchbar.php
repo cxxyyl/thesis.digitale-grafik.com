@@ -13,14 +13,15 @@
     </div>
 
     <div class="searchbar__search-container">
-        <div class="searchbar__tag-container">
-            <!-- <button class="tag tag--inverted">X Feminism</button>
-            <button class="tag tag--inverted">X Internet</button>
-            <button class="tag tag--inverted">X Digital</button> -->
-        </div>
+
+        <!-- Tags are added here by Javascript -->
+        <!-- <button class="tag tag--inverted">TagName</button> -->
+
+        <div id="filter-tags" class="searchbar__tag-container"></div>
+
         <!-- Search Box -->
         <div class="searchbar__input-slider">
-            <input type="text" id="search-box" placeholder="Type here...">
+            <input type="text" class="searchmode" id="search-box" placeholder="Type here...">
             <div class="slider-button button-primary"><span class="slider-button--text">Search</span></div>
         </div>
     </div>

@@ -30,6 +30,8 @@ Here the list for everything that you can search for on this site.
 
 ✢ Thesis – Title
 ✢ Thesis – Subtitle
+✢ Language
+✢ Year of Publishing
 ✢ Degree 
     ✤ For all Thesis Projects type "Bachelor Thesis" or "Master Thesis" or "PHD" Thesis
     ✤ Searching for all Graduates that did a Masters at KDG type "Master of Fine Arts" 
@@ -39,6 +41,14 @@ Here the list for everything that you can search for on this site.
 ✢ Graduate
 ✢ Socials – Looking for all the Arena or GitHub Accounts? Just type it into the Searchbar
 ✢ Bio
+
+
+
+how does the data-search attribute work
+– alternative search query for better search
+converts BA to Bachelor etc
+
+
 
  -->
 

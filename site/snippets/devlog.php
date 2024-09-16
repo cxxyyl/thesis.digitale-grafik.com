@@ -7,9 +7,17 @@
 - Searchbar Tags
     - JS clone tags to seachbar - on click  ✔️ 
     - JS delete cloned tags - on klick ✔️
-    - JS tags "filter" contenet
-    - JS searchbar input generates tag on return
+    - JS tags "filter" content ✔️
+    - JS searchbar input generates tag on return ✔️
     - comment / explain new js code
+
+– Tag Counter
+    - For every tag (excluding #filter-tags) count the numer of tags with the same name
+    - display the number of counted tags with ::after [number]
+
+– Make sort after year and BA/MA work
+    - Do we need it ? -> I can filter after year and BA MA anyway
+    - Is sorting really that useful?
 
 – Colorthemes and Custom Commands for DevMode
 – Finish BAM 
@@ -21,6 +29,7 @@
     - write guide ✔️
     - finish asci art 
 
+Add language to Download thesis
 
 
 
@@ -28,6 +37,29 @@
 <additonal asci art>
 ✦ Devlog & Thoughts ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024-SEP-19     It's somehow a fun fact to me, that most? or at least a big part of this website was made in transit. So guess who is on a train 
+cxxyyl          again. It's been around two weeks since I last worked on this website. To be honest, right now I'm really glad that I write 
+                this documentation because it also helps me now to catch up on my last thoughts and ideas – Otherwise it would be in some drive 
+                document or whereever. Anyhow ✧ Currently traveling to Venice via Munich by train. So lots of time :-)
+                    Meeting up with https://yulia-wagner.de/ and https://lsiemoneit.de/ later. 
+                Okay, had some troubles with the implemantation, but it works now. The filterContent function was mainly written with ChatGPT, but
+                I had to troubleshoot a lot in the end. The basic version of this function was written by OMDD, but I wanted to expand the
+                features, so it's works with tags and the searchbar can generate tags as well. Now I really have to understand, all the 
+                functions do (learning!) to write the documentation. 
+    
+                
+                To-Do: 
+                - JS tags filter contenet ✔️
+                - JS searchbar input generates tag on return ✔️
+                – Class filter -> click -> adds tag ✔️
+                - no duplicate tags possible ✔️
+                - Disable Search when in DevMode ✔️
+                - if there is data-seach use for tags instead of content
+                - comment / explain new js code
+
+                Trouble:Shooting
+                - language tag is giving no search results
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
 2024-AUG-31     Vacation over! Time to travel by ICE again – 7hours of time for this project. Somehow I did not reserve seats at I  
@@ -42,7 +74,7 @@ cxxyyl          Ruhebereich, so  was wondering if it will be loud / hard to conc
                     Okay, I think that's all for today. I'll be arriving at Hamburg HBF in 20 minutes. See you soon, Lohnarbeit calls (sadly)
                 
             
-                                    - quick thought – write to website not to person who is reading it. 
+                                    - quick thought – write to website not to person who is reading it – Mayfor for next project
 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
