@@ -39,7 +39,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 
             <!-- Pursued Degree -->
 <?php if($item->selectDegree()->isNotEmpty()): ?>
-            <p data-search="<?= option('category-map') [$item->selectDegree()->value()]?>" class="accordion-container_degree filter searchText"><?= $item->selectDegree()?></p>
+            <p data-search="<?= option('category-map') [$item->selectDegree()->value()]?>" class="accordion-container__degree filter searchText"><?= $item->selectDegree()?></p>
 <?php endif?>
 
             <!-- Semester of Publishing -->
@@ -243,7 +243,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                         <!-- Socials -->
 <?php $entries = $graduate->socials()->toStructure(); foreach ($entries as $entry): ?>
                         <li>    
-                            <a target="_blank searchText filter" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a>
+                            <a class="searchText filter" target="_blank" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a>
                         </li>
 <?php endforeach ?>
                     </ul> 
@@ -262,7 +262,10 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
             <!-- Links to: Download Thesis / Open Website / Practical Works -->
             <div class="accordion-content__links">
 <?php if ($item->thesispdf()->isNotEmpty()): ?>
-                <a href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
+                <div class="accordion-content__links__download-container">
+                    <a href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
+                    <p class="tag"><?= $item->language()->category()?></p>
+                </div>
 <?php endif ?>
 <?php if ($item->reissue()->mirrorExternalBroken() === true ):?>
                 <a target="_blank" href="<?=$item->mirrorExternal()->url()?>">Open Website ↗</a>

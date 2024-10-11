@@ -2,34 +2,37 @@
 
 ✦ General To-Do ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-– "Write to CSS" with DevMode
+
+
+
+
+– Finish BAM 
+– Organize CSS / Additional Info and Interal Decoration
+- write Search Guide 
+    - write guide ✔️
+    - finish asci art 
+– comment everything JS + CSS
+– table of contents
+
+
+
+
+
+
+– "Write to CSS" with DevMode  ✔️ 
 
 - Searchbar Tags
     - JS clone tags to seachbar - on click  ✔️ 
     - JS delete cloned tags - on klick ✔️
     - JS tags "filter" content ✔️
     - JS searchbar input generates tag on return ✔️
-    - comment / explain new js code
+ 
+– Tag Counter ✔️
+    - For every tag (excluding #filter-tags) count the numer of tags with the same name ✔️
+    - display the number of counted tags with ::after [number] ✔️
 
-– Tag Counter
-    - For every tag (excluding #filter-tags) count the numer of tags with the same name
-    - display the number of counted tags with ::after [number]
-
-– Make sort after year and BA/MA work
-    - Do we need it ? -> I can filter after year and BA MA anyway
-    - Is sorting really that useful?
-
-– Colorthemes and Custom Commands for DevMode
-– Finish BAM 
-– Organize CSS / Additional Info and Interal Decoration
-
-- Should there be "easy" alternative classes next to BEM to engage with DevMode more easily?
-
-- write Search Guide 
-    - write guide ✔️
-    - finish asci art 
-
-Add language to Download thesis
+– Colorthemes and Custom Commands for DevMode  ✔️ 
+- Add language to Download thesis ✔️
 
 
 
@@ -37,6 +40,42 @@ Add language to Download thesis
 <additonal asci art>
 ✦ Devlog & Thoughts ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024-OCT-11     ToDo make everything niiiiice
+cxxyyl          write entries
+                documentation for devMode
+
+
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024-OCT-10     changed fontsize form vw to rem with 16px basis
+cxxyyl          changed accordion-container form grid to flex
+                delay for hover transition on accordion container
+                socials not showing up in search fixed
+                added tag counter
+                tweaked keyframes for deleteShake form 5deg to 3deg
+                added write to css + cookies
+                added title scroll
+                finished devmode so far
+                finished all major features
+                push
+
+
+                Trouble Shooting: language tag is giving no search results ✔️ FIXED <3
+                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                    Solution: Okay so the function used the tags correctly but did not check the data-search.
+
+        
+                note: to self
+
+                    hints in <title>
+                        list of all hints + code
+                        -> randomize
+
+
+
+
+
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
 2024-SEP-19     It's somehow a fun fact to me, that most? or at least a big part of this website was made in transit. So guess who is on a train 
 cxxyyl          again. It's been around two weeks since I last worked on this website. To be honest, right now I'm really glad that I write 

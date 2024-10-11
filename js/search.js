@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
 
 
-
         // Search Function
         // ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
         // This is the main function of Search Mode. It does the following things:
@@ -25,56 +24,54 @@ document.addEventListener("DOMContentLoaded", function () {
         // or a selected tag. If the search is a success it display the search result, otherwise the result is hidden. 
 
         function filterContent() {
-
-            // Retrieve the text that was written into the input field.
+            // Get the search input text and convert it to lowercase for case-insensitive comparison
             const inputText = document.getElementById('search-box').value.toLowerCase();
 
-            // Get all Elementns with the class search-result. These are single rows that make up the table. 
+            // Select all elements with the class 'search-result' (these are the items we'll be filtering)
             const searchResults = document.querySelectorAll('.search-result');
 
-            // Retrieve all tags from the #filter-tags container.
-            const tagsInFilterContainer = document.querySelectorAll('#filter-tags .filter'); // append the tags
-            selectedTags = Array.from(tagsInFilterContainer).map(tag => tag.textContent.toLowerCase()); // convert each tag to text
+            // Get all tags from the filter container and convert them to an array of lowercase text
+            const selectedTags = Array.from(document.querySelectorAll('#filter-tags .filter'))
+                .map(tag => tag.textContent.toLowerCase());
 
-            // Iterate through each row of the table
+            // Loop through each search result element
             searchResults.forEach(result => {
-
-                // Constrain the searched elements only to elements with the class searchtext
+                // Find all elements with class 'searchText' within the current search result
                 const searchTextElements = result.querySelectorAll('.searchText');
                 
-                // Check if any of the elements with the class searchText match text written into the input field.
+                // Check if any of the searchText elements match the input text
                 const matchesSearchText = Array.from(searchTextElements).some(element => {
-                
-                    // Convert the text content of the element to lowercase for case-insensitive comparison
+                    // Get the visible text content of the element and convert to lowercase
                     const textContent = element.textContent.toLowerCase();
-
-                    // Retrieve the value of the 'data-search' attribute, if it exists, and convert it to lowercase
-                    const dataSearch = element.getAttribute('data-search') ? element.getAttribute('data-search').toLowerCase() : '';
-
-                    // Check if the searchText is included in either the text content or the data-search attribute value
-                    return dataSearch.includes(inputText) || textContent.includes(inputText);
+                    // Get the 'data-search' attribute value (if it exists) and convert to lowercase
+                    const dataSearch = (element.getAttribute('data-search') || '').toLowerCase();
+                    // Return true if either the text content or data-search includes the input text
+                    return textContent.includes(inputText) || dataSearch.includes(inputText);
                 });
 
-                // Get the content of the result and convert it to lowercase
-                const content = result.textContent.toLowerCase();
+                // Check if the search result matches all selected tags
+                const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => 
+                    Array.from(searchTextElements).some(element => 
+                        // Check if the tag is in either the text content or data-search attribute
+                        element.textContent.toLowerCase().includes(tag) || 
+                        (element.getAttribute('data-search') || '').toLowerCase().includes(tag)
+                    )
+                );
 
-                // Check if the result matches all selected tags
-                const matchesTags = Array.isArray(selectedTags) && (selectedTags.length === 0 || selectedTags.every(tag => content.includes(tag)));
-
-                // Show or hide the result based on matches
+                // Show the search result if it matches both the search text and all tags, otherwise hide it
                 result.style.display = (matchesSearchText && matchesTags) ? 'block' : 'none';
             });
         }
 
 
-        // This is the event listener for when something is typed into the input field. 
-        // It triggers everytime when the input field detects a keystroke
-        document.getElementById('search-box').addEventListener('input', function() {
-            // Only filter content if the input field has the 'searchmode' class
-            if (this.classList.contains('searchmode')) {
-                filterContent(); // trigger search function
-            }
-        });
+                // This is the event listener for when something is typed into the input field. 
+                // It triggers everytime when the input field detects a keystroke
+                document.getElementById('search-box').addEventListener('input', function() {
+                    // Only filter content if the input field has the 'searchmode' class
+                    if (this.classList.contains('searchmode')) {
+                        filterContent(); // trigger search function
+                    }
+                });
 
 
 
@@ -110,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+
         // Event listener for creating tags by pressing 'Enter' in the search box
         document.querySelector('#search-box').addEventListener('keydown', function(event) {
             if (this.classList.contains('searchmode') && event.key === 'Enter') {
@@ -129,7 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-            // Event listener for tag clicks
+
+        // Event listener for tag clicks
         document.querySelectorAll('.filter').forEach(element => {
             element.addEventListener('click', function() {
                 const tagContainer = document.querySelector('#filter-tags');
@@ -165,24 +164,112 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-    // Event listener for removing tags
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('tag--delete')) {
-            // Remove the clicked tag from the DOM
-            event.target.remove();
+        // Event listener for removing tags
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('tag--delete')) {
+                // Remove the clicked tag from the DOM
+                event.target.remove();
 
-            // Reapply the filter to update results after removing the tag
-            filterContent();
-        }
-    });
+                // Reapply the filter to update results after removing the tag
+                filterContent();
+            }
+        });
 
-  
+    
+
+        // 〠 Tag Counter 〠
+        // ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+                                                // ok wow I was looking for a cute symol for the tagcounter and found this 〠
+                                                //        Unicode-Symbol U+3020 – Postal Mark Face
+                                                //                  I am litterally in love. 
+                                                // https://en.wikipedia.org/wiki/Japanese_postal_mark
+                                                //              It was the offical post mascot form 1966–1996. I'm dying 
+                                            
+        // What should the code do:
+
+        // get every element with .searchText.tag.filter make a const tags
+        // compare:
+            // check for every tags of how many elements with the same content are prestent
+            // if there is at least one other element with the same content make a new variable 'otherTags' for the number of other elements
+            // write the css for the element use the ::after and write as the content [otherTags]
+            // else do nothing
+            function tagCounter() {
+                const tags = document.querySelectorAll('.searchText.tag.filter');
+                const tagCounts = {};
+            
+                // Count occurrences of each tag content
+                tags.forEach(tag => {
+                    const content = tag.textContent.trim();
+                    tagCounts[content] = (tagCounts[content] || 0) + 1;
+                });
+            
+                // Process each tag
+                tags.forEach(tag => {
+                    const content = tag.textContent.trim();
+                    if (tagCounts[content] > 1) {
+                        const otherTags = tagCounts[content] - 1;
+                        tag.setAttribute('data-other-tags', otherTags);
+                    } else {
+                        tag.removeAttribute('data-other-tags');
+                    }
+                });
+            }
+            
+            // Call the function when needed
+            tagCounter();
 
 
 
 
+        // Animated Title  
+
+            setTimeout(function () {
+                // Get the entire HTML structure of the document as a string
+                const savedText = document.documentElement.innerHTML;
+                
+                // Variables to manage the animation
+                const displayLength = 30; // First 30 characters
+                let currentIndex = 0;
+                
+                // Set up the FPS for the animation (3 fps)
+                const fps = 3;
+                const frameDuration = 1000 / fps;
+                
+                // Function to update the <title> with the scrolling text
+                function updateText() {
+                    let displayText;
+                    
+                    // Check if we still have characters to display
+                    if (currentIndex + displayLength <= savedText.length) {
+                        // Get the current substring of 30 characters
+                        displayText = savedText.slice(currentIndex, currentIndex + displayLength);
+                    } else {
+                        // Replace remaining characters with "thesis.digitalegrafik.com"
+                        displayText = "thesis.digitalegrafik.com";
+                    }
+                    
+                    // Update the <title> element with the current substring or replacement text
+                    document.title = displayText;
+                    // console.log(displayText);
+                    
+                    // Move the index forward
+                    currentIndex++;
+                    
+                    // Loop the animation until the end of the string
+                    if (currentIndex + displayLength <= savedText.length || displayText === "thesis.digitalegrafik.com") {
+                        setTimeout(updateText, frameDuration);
+                    }
+                }
+                
+                // Start the animation
+                updateText();
+            }, 60000);
+    
 
 }); // end of DOMContentLoaded
+
+
+
 
 // _______________________________________________________________________________________________________________________________________ //
 

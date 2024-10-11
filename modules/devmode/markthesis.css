@@ -1,0 +1,4 @@
+.accordion-container__thesis, .accordion-content__thesis__title, .accordion-content__thesis-info__subtitle{ 
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}

@@ -2,10 +2,9 @@
 
 /* 
 – transition auf den einzelen textelementen innerhalb des akkordions ausschalten
-– little shake animation for tag--inverted
+– little shake animation for tag--inverted ✔️
+
 */
-
-
 
 
 
@@ -27,8 +26,9 @@
   /* Color */
   --color-primary: #000000;
   --color-secondary: #FFFFFF;
-  --color-DevMode: rgb(121, 44, 255);
-  --color-search: #e6dcff; 
+
+  --color-DevMode: #792cff;
+  /* --color-search: #e6dcff;  */
 
   
   /* Typography */
@@ -54,12 +54,20 @@
   --radius-lg: 2rem;
 
   /* Font Sizes */
-  --font-sm:.75vw;
-  --font-md: 1vw;
-  --font-lg: 1.3vw;
+  --font-sm:.75rem;
+  --font-md: 1rem;
+  --font-lg: 1.5rem;
 
 }
 
+
+::selection{
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+
+    transition: background-color 750ms ease, color 750ms ease;
+
+}
 
 h1,h2,h3,h4,h5,h6 {
     font-size: var(--font-md);
@@ -87,9 +95,16 @@ a{
 /* ? Body Base Styling */
 body {
     font-family: var(--font-primary);
-    font-size: 1vw;
     padding: 0;
     margin: 0;
+    overflow-y: scroll;
+
+
+    /* Colors */
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+
+    transition: background-color 750ms ease, color 750ms ease;
 }
 
 
@@ -140,11 +155,13 @@ body {
     text-transform: uppercase;
     white-space: nowrap;
     cursor: pointer;
+    user-select: none;
 }
 
 .button-secondary {
     color: var(--color-secondary);
     cursor: pointer;
+    user-select: none;
 }
 
 .button-extraSpacing{
@@ -172,6 +189,9 @@ mark {
 
 #search-box {
     padding: var(--spacing-xxs);
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    font-family: var(--font-primary);
 }
 
 .searchbar {
@@ -182,7 +202,7 @@ mark {
     /* Layout */
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 
     select {
@@ -256,12 +276,17 @@ mark {
     white-space: nowrap;
     cursor: pointer;
 
+    user-select: none;
+
     background-color: var(--color-secondary);
     border-color: var(--color-primary);
     color: var(--color-primary);
+
+    transition: background-color 750ms ease, color 750ms ease;
     
     font-size: var(--font-sm);
     text-transform: uppercase;
+    font-family: var(--font-primary);
 
     border: 1px solid;
     border-radius: var(--radius-sm);
@@ -276,8 +301,7 @@ mark {
         color: var(--color-secondary);
         border: none;
 
-
-
+        transition: background-color 750ms ease, color 750ms ease;
     }
 
     .tag--delete:hover{
@@ -287,8 +311,8 @@ mark {
 
         @keyframes deleteShake {
             0%, 75%, 100% {transform: rotate(0deg);}
-            25% {transform: rotate(-5deg);}
-            50% {transform: rotate(5deg);}
+            25% {transform: rotate(-3deg);}
+            50% {transform: rotate(3deg);}
         }
 
 
@@ -307,27 +331,60 @@ mark {
 
     /* ^ Accordion Table Rows */
 
-    .accordion-container{
+
+    /* Grid Version */
+    /* Retired did not work that well with responsive window sizes */
+    /* .accordion-container{
         width: 100%;
         padding: var(--spacing-xs);
         display: grid;
         grid-template-columns:3% 10% 22% 40% 3% 22%;
-        grid-column-gap: 0px;
+        grid-column-gap: var(--spacing-xs);
         grid-row-gap: 0px;
         align-items: center;
 
         font-size: var(--font-md);
+    } */
+
+    /* Flex Version */
+    .accordion-container{
+        width: 100%;
+        padding: var(--spacing-xs);
+        display: flex;
+        gap: var(--spacing-xs);
+        align-items: center;
+        font-size: var(--font-md);
+        justify-content: flex-start;
+        flex-direction: row;
+
+        user-select: none;
     }
 
-
+    
+        .accordion-container__degree{
+        width: 3rem;
+        }
+  
         .accordion-container__date{
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-column-gap: 0px;
-            grid-row-gap: 0px;
+            width: 8rem;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            gap: var(--spacing-xxs);
+        }
+
+        .accordion-container__graduate{
+            width: 20%;
+        }
+
+        .accordion-container__thesis{
+            flex-grow: 1;
         }
 
         .accordion-container__downloads{
+            width: 21rem;
+            min-width: fit-content;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -350,10 +407,11 @@ mark {
         /* Layout */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        transition: 750ms all ease;
         padding-left: var(--spacing-xs);
         padding-right: var(--spacing-xs);
 
+        /* Animation */
+        transition: height 750ms ease 75ms;
     }
 
         /* ^ Accordion Thesis Information*/
@@ -385,6 +443,8 @@ mark {
 
             .accordion-content__thesis-info__topics > h5{
                 padding-bottom: var(--spacing-xxs);
+
+                user-select: none;
             }    
 
             .accordion-content__thesis-info__topics__tags{
@@ -393,12 +453,15 @@ mark {
                 flex-wrap: wrap;
                 gap: var(--spacing-xxs);
             
-                li{
-                    font-size: var(--font-sm);
-                    text-transform: none;
+                button::after{
+                    padding-left: var(--spacing-xxs);
+                    padding-right: calc(var(--spacing-xxs)*.5);
                 }
+            }
 
-            
+            /* Numbering for the countTags function over at search.js */
+            .searchText.tag.filter[data-other-tags]::after {
+                content: '[' attr(data-other-tags) ']';
             }
 
 
@@ -470,8 +533,17 @@ mark {
 
             a, h3{
                 font-size: var(--font-lg);
+
+                user-select: none;
     
                 text-decoration: underline;
                 text-transform: uppercase;
             }
+        }
+
+        .accordion-content__links__download-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
         }
