@@ -10,7 +10,7 @@ Thesisabstract:
 
 ----
 
-Thesistags: 
+Thesistags: Merchandise, capitalism
 
 ----
 
@@ -73,7 +73,5 @@ Todothesis:
 Toggletodo: false
 
 ----
-
-
 
 Uuid: Uf454W5HbvQt6zwx

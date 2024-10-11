@@ -1,0 +1,15 @@
+/* Solarized Theme */
+
+:root {
+    --color-primary: #6b86a1;
+    --color-secondary: #1a303f;
+    --color-DevMode: #e4b11c;
+}
+
+h2, h4, h5{color:#ffd989;}
+
+p, li{color:#fffdf0 !important;}
+
+a{color:#da6c62 !important;}
+
+.tag{color: #36be59 !important;}

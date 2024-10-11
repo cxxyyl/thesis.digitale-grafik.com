@@ -1,5 +1,5 @@
 <div class="searchbar">
-    <div class="searchbar__dropdowns">
+    <!-- <div class="searchbar__dropdowns">
         <select name="baMaDropdown" id="baMaDropdown">
             <option value="ba+ma">BA+MA</option>
             <option value="ba">BA</option>
@@ -10,7 +10,7 @@
             <option value="SuSe2024">SuSe2024</option>
             <option value="WiSe2023/24">WiSe2023/24</option>
         </select>
-    </div>
+    </div> -->
 
     <div class="searchbar__search-container">
 

@@ -1,0 +1,4 @@
+.accordion-container__graduate, .accordion-content__cv__graduate{ 
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}

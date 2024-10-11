@@ -36,8 +36,8 @@ tabs:
             # layout: table
             # columns: 
             #   linkedBA:
-            #     label: Linked BA Thesis
-            #     value: "{{ page.linkBA.toPage.Title }}"
+            #     label: Linked Thesis
+            #     value: "{{ page.studies.toStructure.selectStudies }}"
 
             #   linkedMA:
             #     label: Linked MA Thesis
