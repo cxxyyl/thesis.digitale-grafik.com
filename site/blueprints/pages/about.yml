@@ -1,0 +1,8 @@
+title: About & Imrint
+
+fields:
+  info:
+    label: Info
+    type: info
+    text: |
+      This can stay empty.

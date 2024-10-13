@@ -189,7 +189,7 @@ mark {
 
 #search-box {
     padding: var(--spacing-xxs);
-    background-color: var(--color-secondary);
+    background-color: transparent;
     color: var(--color-primary);
     font-family: var(--font-primary);
 }
@@ -547,3 +547,14 @@ mark {
             justify-content: flex-start;
             align-items: flex-start;
         }
+
+/* About Page */
+
+#about, #imprint{
+padding-top: var(--spacing-lg);
+
+
+    h1{font-size: var(--font-lg);}
+
+
+}
