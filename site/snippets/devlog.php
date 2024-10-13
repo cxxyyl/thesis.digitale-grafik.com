@@ -1,79 +1,86 @@
 <!-- 
 
-✦ General To-Do ✦
-‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 
+  ███▀▀▀▀▀▀        
+  ███      
+  ▀▀▀▀▀▄▄
+        ███
+  ▄▄▄▄▄▄███ ▄    DevLog
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 
-– Finish BAM 
-– Organize CSS / Additional Info and Interal Decoration
-- write Search Guide 
-    - write guide ✔️
-    - finish asci art 
-– comment everything JS + CSS
-– table of contents
-
-
-
-
-
-
-– "Write to CSS" with DevMode  ✔️ 
-
-- Searchbar Tags
-    - JS clone tags to seachbar - on click  ✔️ 
-    - JS delete cloned tags - on klick ✔️
-    - JS tags "filter" content ✔️
-    - JS searchbar input generates tag on return ✔️
- 
-– Tag Counter ✔️
-    - For every tag (excluding #filter-tags) count the numer of tags with the same name ✔️
-    - display the number of counted tags with ::after [number] ✔️
-
-– Colorthemes and Custom Commands for DevMode  ✔️ 
-- Add language to Download thesis ✔️
-
-
-
-
-<additonal asci art>
+______________
 ✦ Devlog & Thoughts ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
+
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024-OCT-11     ToDo make everything niiiiice
-cxxyyl          write entries
-                documentation for devMode
+2024-OCT-14     - finish documentation for searchmode.js, devmode.js and titlescroll
+cxxyyl          - add OG desctiption and title
+                - write christoph and konrad
+                - clean up CSS
 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024-OCT-10     changed fontsize form vw to rem with 16px basis
-cxxyyl          changed accordion-container form grid to flex
-                delay for hover transition on accordion container
-                socials not showing up in search fixed
-                added tag counter
-                tweaked keyframes for deleteShake form 5deg to 3deg
-                added write to css + cookies
-                added title scroll
-                finished devmode so far
-                finished all major features
-                push
+2024-OCT-13     We are nearing completion. Today and tomorrow will be mostly documentation days. For a little treat I was in a cafe close by for
+cxxyyl          for writing. I finished the texts for SearchMode DevMode and <body></body>, did some more decoration and decided on the final 
+                order of everything. I also tweaked the cozygray theme a bit. I sent all the texts to my partner for proofreading, for which I
+                am sooooo greatful. Time to push everything to git and I'm done for today. 
+                
+                Really looking forward to tomorrow – I'll work in our new classroom for the first time. Stoked to see everyone agin. 
+                
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024-OCT-12     I nearly forgot that I was supposed to meet up with a friend I haven't seen for a long time. Had a looooong sleep so im restored, 
+cxxyyl          but now I'm kind of running out of time. Finished the introduction at least. 
+
+
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024-OCT-11     I hate leaf blowers so much. Why do people have to start cleaning the courtyard with leaf blowers at 7:30. I slept for like two
+cxxyyl          hours. Fuck everything. Still thriving on finishing all the features, but mood bad. Napped a bit and wrote some documentation
+                as well es a large chunk of the introduction. 
+
+
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024-OCT-10     It's been some time again. I thought I would be able to work on this "more" during vacation. But there was so much happening
+cxxyyl          that I just had no time at all. I talked a bit about this Project with https://yulia-wagner.de/ and ttps://lsiemoneit.de/ about
+                this project and coded like 5 line of code during this last (super nice and long) trip, but to be honest this was my first 
+                vacation in like three years so it's fine. I planned to use the time travelling from Vienna to Hamburg by train, but there was 
+                this big flood in eastern Austria and the surrounding are. With this train travel was pretty unsheduled and my original train
+                connection was canceled, so I had to take like six different trains and the whole trip back was like 18 hours. I was not in 
+                the mood to do anything hahaha.
+                    After beeing back home for some time and dealing with Lohnarbeit, I finally have the time to finish this. The semester
+                starts next week and this needs to be done. I plan to finish up everything over the next few days. This is going to be a grind.
+                
+                Today I cozied up at home with a lot of tea and wow today was really productive. I changed a lot of smaller things like changing
+                from vw to rem with a 16px basis for the fontsize. The elements in the accordion-container were not really good at beeing
+                responsive to resizing the window. I'm using Arc and the layout was struggeling with the sidebar opening and closing. The rows
+                are are now flex instead of grid and it works a lot better. But there is no mobile version yet. To be honest im not sure what
+                the usecase of mobile would be for this specific site. There was also the issue of the rows beeing very jumpy when hovering
+                over them. The transition now has a delay, which solves this issue completely. Some of the content like the socials was not
+                searchable yet, a few other elements did not have .filter and some other minor things like changing animations etc. 
+                    Besides all the small stuff I also managed to complete a lot of the big features. I was able to finish devmode! It had
+                no actual functionality until now. Today I managed to write all the js for the quick commands, the CSS ingestion via #search-box
+                set the cookies saving and loading the ingested CSS, using session storage for saivng stuff between changing to the about and back, 
+                as well as setting the colors for all the themes. I also coded up the tag counter – it's the number after the tags that shows
+                how many other tags with the same name are there. Finally I added a little <title></title> scroll animation for fun. 
+                
+                With that thesis.digitale-grafik.com is feature complete ╰(*´︶`*)╯. 
+
+                It's four in the morning now, time to push this sucker to github and say goodnight. 
 
 
                 Trouble Shooting: language tag is giving no search results ✔️ FIXED <3
                 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                     Solution: Okay so the function used the tags correctly but did not check the data-search.
-
         
+
+
                 note: to self
 
                     hints in <title>
                         list of all hints + code
                         -> randomize
-
-
-
 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
@@ -84,7 +91,7 @@ cxxyyl          again. It's been around two weeks since I last worked on this we
                     Meeting up with https://yulia-wagner.de/ and https://lsiemoneit.de/ later. 
                 Okay, had some troubles with the implemantation, but it works now. The filterContent function was mainly written with ChatGPT, but
                 I had to troubleshoot a lot in the end. The basic version of this function was written by OMDD, but I wanted to expand the
-                features, so it's works with tags and the searchbar can generate tags as well. Now I really have to understand, all the 
+                features, so it works with tags and the searchbar can generate tags as well. Now I really have to understand, all the 
                 functions do (learning!) to write the documentation. 
     
                 
@@ -110,7 +117,7 @@ cxxyyl          Ruhebereich, so  was wondering if it will be loud / hard to conc
                 So tags acutally need to filter                                                          and by typing+return something into the input
                                              – quick thought – should it be an "and" (like normal) or an "or"
                 field a tag also should be created. 
-                    Okay, I think that's all for today. I'll be arriving at Hamburg HBF in 20 minutes. See you soon, Lohnarbeit calls (sadly)
+                    Okay, I think that's all for today. I'll be arriving at Hamburg HBF in 20 minutes. See you soon, Lohnarbeit calls (sadly).
                 
             
                                     - quick thought – write to website not to person who is reading it – Mayfor for next project
@@ -317,6 +324,56 @@ cxxyyl          It's crazy how badly i remember things and how hard it is for me
                 what they would want / need from this archive – and if this is even a thing that is wanted or needed. 
 
 -->
+
+
+
+
+
+
+<!-- 
+__________
+✦ General To-Do's ✦
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+
+
+– Finish BAM 
+– Organize CSS / Additional Info and Interal Decoration
+- write Search Guide 
+    - finish asci art 
+– comment everything JS + CSS
+– table of contents
+- github readme
+- session storage across site ✔️ 
+
+
+
+
+
+
+– "Write to CSS" with DevMode  ✔️ 
+
+- Searchbar Tags
+    - JS clone tags to seachbar - on click  ✔️ 
+    - JS delete cloned tags - on klick ✔️
+    - JS tags "filter" content ✔️
+    - JS searchbar input generates tag on return ✔️
+ 
+– Tag Counter ✔️
+    - For every tag (excluding #filter-tags) count the numer of tags with the same name ✔️
+    - display the number of counted tags with ::after [number] ✔️
+
+– Colorthemes and Custom Commands for DevMode  ✔️ 
+- Add language to Download thesis ✔️
+
+
+
+
+<additonal asci art>
+ -->
+
+
+
+
 
 <!-- Naming Convention for Classes-->
 

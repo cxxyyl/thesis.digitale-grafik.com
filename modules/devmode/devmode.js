@@ -1,10 +1,54 @@
 // Javascript for DevMode
 // ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
 
+
+// save css across pageload
+
+window.addEventListener('load', function() {
+  
+    const savedCSS = getCookie('devModeCSS');
+    const activeTheme = sessionStorage.getItem('activeTheme');
+
+
+    // Function to get a cookie by name
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        }
+        return null;
+    }
+
+    // Load the saved CSS from the cookie, if it exists
+   
+    if (savedCSS) {
+        const styleElement = document.createElement('style');
+        styleElement.className = 'devModeCSS';
+        styleElement.textContent = savedCSS;
+        document.head.appendChild(styleElement);
+    }
+
+    if (activeTheme) {
+        const linkElement = document.createElement('link');
+        linkElement.className = 'themeCSS';
+        linkElement.rel = 'stylesheet';
+        linkElement.href = activeTheme;
+        document.head.appendChild(linkElement);
+        }
+    
+});
+
 // switch form devMode and back to searchMode
 
 // check if the page is loaded
 document.addEventListener("DOMContentLoaded", function () { 
+
+//check if we are on the index page
+
+if(document.getElementById("search-box")){
 
 
 // _______________________________________________________________________________________________________________________________________ //
@@ -316,181 +360,211 @@ document.addEventListener("DOMContentLoaded", function () {
     }); 
     
 
-// Write CSS
 
 
-// Function to set a cookie
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Expires in 'days'
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + encodeURIComponent(value) + ";" + expires + ";path=/";
-}
+// _______________________________________________________________________________________________________________________________________ //
 
-// Function to get a cookie by name
-function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+
+
+
+
+
+    // Write CSS
+
+
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Expires in 'days'
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + encodeURIComponent(value) + ";" + expires + ";path=/";
     }
-    return null;
-}
 
-// Check if a <style> element with the id 'devModeCSS' already exists
-let styleElement = document.getElementById('devModeCSS');
-
-// If not, create the <style> element and add it to the head
-if (!styleElement) {
-    styleElement = document.createElement('style');
-    styleElement.id = 'devModeCSS'; // Assign an id to the style element
-    document.head.appendChild(styleElement);
-}
-
-// Load the saved CSS from the cookie, if it exists
-const savedCSS = getCookie('devModeCSS');
-if (savedCSS) {
-    styleElement.textContent = savedCSS; // Load the CSS into the style element
-}
+    // Function to get a cookie by name
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        }
+        return null;
+    }
 
 
+    // Check if a <style> element with the id 'devModeCSS' already exists
+    let styleElement = document.getElementById('devModeCSS');
+
+    // If not, create the <style> element and add it to the head
+    if (!styleElement) {
+        styleElement = document.createElement('style');
+        styleElement.id = 'devModeCSS'; // Assign an id to the style element
+        document.head.appendChild(styleElement);
+    }
+
+    // Load the saved CSS from the cookie, if it exists
+    const savedCSS = getCookie('devModeCSS');
+    if (savedCSS) {
+        styleElement.textContent = savedCSS; // Load the CSS into the style element
+    }
 
 
 
 
 
-document.getElementById('search-box').addEventListener('keydown', function (event) {
-    // Check if Enter key is pressed and the input has the 'devmode' class
-    if (event.key === 'Enter' && this.classList.contains('devmode')) {
+    // Handle Commands & handleCSS
+
+    document.getElementById('search-box').addEventListener('keydown', function (event) {
+        // Check if Enter key is pressed and the input has the 'devmode' class
+        if (event.key === 'Enter' && this.classList.contains('devmode')) {
+            
+            // Normalize input
+            const command = this.value.trim().toLowerCase(); 
+            
+            // Handle quick commands or CSS input
+            if (!handleQuickCommands(command)) {
+                processCSSInput(this.value);
+            }
+
+            // Clear the input field after applying the CSS
+            this.value = '';
+        }
+    });
+
+    // Function to handle quick commands
+    function handleQuickCommands(command) {
         
-        // Normalize input
-        const command = this.value.trim().toLowerCase(); 
-        
-        // Handle quick commands or CSS input
-        if (!handleQuickCommands(command)) {
-            processCSSInput(this.value);
+        if (command === "darkmode") {
+            removeThemeCSS(); // Remove any existing stylesheets before adding new ones
+            // Add darkmode stylesheets
+            addStylesheetThemes("./modules/devmode/darkmode.css");
+            addStylesheetThemes("../modules/devmode/darkmode.css");
+            return true; // Command was handled
+        } else if (command === "cozygray") {
+            removeThemeCSS(); // Remove any existing stylesheets before adding new ones
+            // Add cozy gray stylesheets
+            addStylesheetThemes("./modules/devmode/cozygray.css");
+            addStylesheetThemes("../modules/devmode/cozygray.css");
+            return true; // Command was handled
+        } else if (command === "solarized") {
+            removeThemeCSS(); // Remove any existing stylesheets before adding new ones
+            // Add solarized stylesheets
+            addStylesheetThemes("./modules/devmode/solarized.css");
+            addStylesheetThemes("../modules/devmode/solarized.css");
+            return true; // Command was handled
+        } else if (command === "lightmode") {
+            // Remove all additional CSS links
+            removeThemeCSS();
+            return true; // Command was handled
+        } else if (command === "markthesis"){
+            addStylesheetHighlights("./modules/devmode/markthesis.css");
+            addStylesheetHighlights("../modules/devmode/markthesis.css");
+            return true;
+        } else if (command === "markauthor"){
+            addStylesheetHighlights("./modules/devmode/markauthor.css");
+            addStylesheetHighlights("../modules/devmode/markauthor.css");
+            return true;
+        }else if (command === "nocss"){
+            noCSS();
+            return true;
+        }else if (command === "resetmark"){
+            removeMarkCSS();
+            return true;
+        }else if (command === "resetall"){
+            removeThemeCSS();
+            removeMarkCSS();
+            removeDevModeCSS();
+            deleteDevModeCSSCookie();
+            return true;
+        }
+        return false; // Command was not handled
+    }
+
+
+    // Function to process CSS input
+    function processCSSInput(cssInput) {
+        const devModeCSS = cssInput;
+
+        // Append new CSS to the existing <style> element
+        styleElement.textContent += devModeCSS;
+
+        // Save the updated CSS to a cookie (expires in 365 days)
+        setCookie('devModeCSS', styleElement.textContent, 365);
+    }
+
+
+    // Function to add a stylesheet for a theme link to the <head>
+    function addStylesheetThemes(href) {
+        const linkElement = document.createElement('link');
+        linkElement.className = 'themeCSS';
+        linkElement.rel = 'stylesheet';
+        linkElement.href = href;
+        document.head.appendChild(linkElement);
+
+        // Save the active theme href in session storage
+        sessionStorage.setItem('activeTheme', href);
+    }
+
+    // Function to add a stylesheet for a highlight link to the <head>
+    function addStylesheetHighlights(href) {
+        const linkElement = document.createElement('link');
+        linkElement.className = 'markCSS';
+        linkElement.rel = 'stylesheet';
+        linkElement.href = href;
+        document.head.appendChild(linkElement);
+    }
+
+    // Function to delete all css
+    function noCSS() {
+        const allCSS = document.querySelectorAll("link");
+        allCSS.forEach(link => link.remove());
+        removeDevModeCSS();
+    }
+
+
+    // resets
+
+    // Function to remove all <link> elements with the class 'themeCSS'
+    function removeThemeCSS() {
+        const additionalCSSLinks = document.querySelectorAll('link.themeCSS');
+        additionalCSSLinks.forEach(link => link.remove());
+
+        sessionStorage.removeItem('activeTheme');
+    }
+
+    function removeMarkCSS() {
+        const additionalCSSLinks = document.querySelectorAll('link.markCSS');
+        additionalCSSLinks.forEach(link => link.remove());
+    }
+
+    function removeDevModeCSS() {
+        const additionalCSSLinks = document.getElementById('devModeCSS');
+        additionalCSSLinks.remove();
+
         }
 
-        // Clear the input field after applying the CSS
-        this.value = '';
-    }
-});
-
-// Function to handle quick commands
-function handleQuickCommands(command) {
-    
-    if (command === "darkmode") {
-        removeThemeCSS(); // Remove any existing stylesheets before adding new ones
-        // Add darkmode stylesheets
-        addStylesheetThemes("./modules/devmode/darkmode.css");
-        addStylesheetThemes("../modules/devmode/darkmode.css");
-        return true; // Command was handled
-    } else if (command === "cozygray") {
-        removeThemeCSS(); // Remove any existing stylesheets before adding new ones
-        // Add cozy gray stylesheets
-        addStylesheetThemes("./modules/devmode/cozygray.css");
-        addStylesheetThemes("../modules/devmode/darkmode.css");
-        return true; // Command was handled
-    } else if (command === "solarized") {
-        removeThemeCSS(); // Remove any existing stylesheets before adding new ones
-        // Add solarized stylesheets
-        addStylesheetThemes("./modules/devmode/solarized.css");
-        addStylesheetThemes("../modules/devmode/solarized.css");
-        return true; // Command was handled
-    } else if (command === "lightmode") {
-        // Remove all additional CSS links
-        removeAdditionalCSS();
-        return true; // Command was handled
-    } else if (command === "markthesis"){
-        addStylesheetHighlights("./modules/devmode/markthesis.css");
-        addStylesheetHighlights("../modules/devmode/markthesis.css");
-        return true;
-    } else if (command === "markauthor"){
-        addStylesheetHighlights("./modules/devmode/markauthor.css");
-        addStylesheetHighlights("../modules/devmode/markauthor.css");
-        return true;
-    }else if (command === "resetmark"){
-        removeMarkCSS();
-        return true;
-    }else if (command === "resetall"){
-        removeThemeCSS();
-        removeMarkCSS();
-        removeDevModeCSS();
-        deleteDevModeCSSCookie();
-        return true;
-    }
-    
-
-    return false; // Command was not handled
-}
-
-// Function to process CSS input
-function processCSSInput(cssInput) {
-    const devModeCSS = cssInput;
-
-    // Append new CSS to the existing <style> element
-    styleElement.textContent += devModeCSS;
-
-    // Save the updated CSS to a cookie (expires in 365 days)
-    setCookie('devModeCSS', styleElement.textContent, 365);
-}
-
-
-
-
-// Function to add a stylesheet for a theme link to the <head>
-function addStylesheetThemes(href) {
-    const linkElement = document.createElement('link');
-    linkElement.className = 'themeCSS';
-    linkElement.rel = 'stylesheet';
-    linkElement.href = href;
-    document.head.appendChild(linkElement);
-}
-
-// Function to add a stylesheet for a highlight link to the <head>
-function addStylesheetHighlights(href) {
-    const linkElement = document.createElement('link');
-    linkElement.className = 'markCSS';
-    linkElement.rel = 'stylesheet';
-    linkElement.href = href;
-    document.head.appendChild(linkElement);
-}
-
-
-
-
-// resets
-
-// Function to remove all <link> elements with the class 'themeCSS'
-function removeThemeCSS() {
-    const additionalCSSLinks = document.querySelectorAll('link.themeCSS');
-    additionalCSSLinks.forEach(link => link.remove());
-}
-
-function removeMarkCSS() {
-const additionalCSSLinks = document.querySelectorAll('link.markCSS');
-additionalCSSLinks.forEach(link => link.remove());
-}
-
-function removeDevModeCSS() {
-    const additionalCSSLinks = document.getElementById('devModeCSS');
-    additionalCSSLinks.remove();
+    // Function to delete the 'devModeCSS' cookie
+    function deleteDevModeCSSCookie() {
+        document.cookie = 'devModeCSS=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
     }
 
-// Function to delete the 'devModeCSS' cookie
-function deleteDevModeCSSCookie() {
-    document.cookie = 'devModeCSS=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
-}
 
+} // end of check if we are on index
 
-
-
+// _______________________________________________________________________________________________________________________________________ //
 
 
 
 });
+
+
+
+
+
+
+
+
 
 
 

@@ -32,16 +32,6 @@ tabs:
             parent: site.find("graduates")
             template: graduate
             sortBy: title asc
-
-            # layout: table
-            # columns: 
-            #   linkedBA:
-            #     label: Linked Thesis
-            #     value: "{{ page.studies.toStructure.selectStudies }}"
-
-            #   linkedMA:
-            #     label: Linked MA Thesis
-            #     value: "{{ page.LinkMA.toPage.Title }}"
           
       right:
         width: 1/3

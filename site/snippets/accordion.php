@@ -1,15 +1,13 @@
 <?php  foreach ($site->grandchildren()->listed() as $item):?> 
-<?php  $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): ?>     
-<article data-info="<?= $item->title()->slug()?>" class="search-result accordion" >
-    
+<?php  $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): ?>
 
 <!--
 
-✶     ̴   ̴   ̴   ̴   ̴   ̴    ✶
-   ̴ ℹ   ✶   ℹ    ✶   ℹ  ̴
- ̴  ✶  Article Info  ✶     ̴
-   ̴ ℹ   ✶   ℹ    ✶   ℹ  ̴
-✶     ̴   ̴   ̴   ̴   ̴   ̴    ✶
+✶    ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ✶
+   ̴ ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ  ̴
+ ̴   ✶                      Article Info                      ✶    ̴
+   ̴ ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ  ̴
+✶    ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ✶
 
 Title ------ <?= $item->title()?>
 
@@ -27,8 +25,9 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 <?php if($item->yearOfPublishing()->isNotEmpty()): ?>
  – <?= $item->yearOfPublishing()?><?php endif?>
 
+ -->   
 
--->
+<article data-info="<?= $item->title()->slug()?>" class="search-result accordion">
     <div class="accordion_row"> <!-- Wrapper for every row -->
         <div class="accordion-container"> <!-- Everything inside of the visible row -->
             
@@ -80,9 +79,8 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 
 
 
-
-        <div class="accordion-content"> <!-- Container for accordion that opens on hover -->
-
+        <!-- Container for accordion that opens on hover -->
+        <div class="accordion-content"> 
         <!--Layout – Accordion
         ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
 
@@ -93,28 +91,27 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
          -->
 
 
-            <section class="accordion-content__thesis"> <!-- Section for all info about the thesis -->
-            
-        <!-- Layout – Accordion Thesis
-        ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
-            ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+            <!-- Section for all info about the thesis -->
+            <section class="accordion-content__thesis"> 
+            <!-- Layout – Accordion Thesis
+            ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+                ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
 
 
 
-            ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
-        ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
-         -->
+                ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+            ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+            -->
 
                 <!-- Thesis Title -->
-                <h2 class="accordion-content__thesis__title searchText"><?= $item->title()?></h2>
-               
+                <h2 class="accordion-content__thesis__title searchText"><?= $item->title()?></h2>  
+                
                 <div class="accordion-content__thesis-info">
 
                     <!-- Thesis Subtitle // this will only show up, if there is a subtitle -->
 <?php if ($item->thesisSubtitle()->isNotEmpty()): ?>
                     <h5 class="searchText accordion-content__thesis-info__subtitle"><?= $item->thesisSubtitle()?></h5>
 <?php endif ?>
-
                     <ul class="accordion-content__thesis-info__published">
 
                         <!-- Persued Degree -->
@@ -131,46 +128,50 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 <?php if ($item->advisor1()->isNotEmpty()): ?>
                         <li class="searchText filter"><?= $item->advisor1()?></li>
 <?php endif ?>
-
 <?php if ($item->advisor2()->isNotEmpty()): ?>
                         <li class="searchText filter"><?= $item->advisor2()?></li>
-                        <?php endif ?>
-
+<?php endif ?>
 <?php if ($item->advisor3()->isNotEmpty()): ?>
                         <li class="searchText filter"><?= $item->advisor3()?></li>
 <?php endif ?>
                     </ul>
 
-
-                    <!-- Topics - The tags are searchable -->
-
+                    <!-- 
+                    Topics - The tags are searchable and clickable.
+                    By clicking on a tag it will appear as a filter
+                    on the top, next to the searchbar.
+                    -->
 <?php if ($item->thesisTags()->isNotEmpty()): ?>
-                    <!-- hier muss noch die funktion rein, die anzeigt wie viele tags insgesamt verwendet werden. also die funktion tagname(3) -->
                     <div class="accordion-content__thesis-info__topics">    
                         <h5>Topics</h5>
-               
                         <div class="accordion-content__thesis-info__topics__tags">
 <?php foreach ($item->thesisTags()->split() as $tags): ?>
                             <button class="searchText tag filter"><?= $tags ?></button>
 <?php endforeach ?>
                         </div>
-
                     </div>
 <?php endif ?>
                 </div>
                 
-                <!-- Thesis Abstract / this will only show up, if there is an abstract -->
+
+                <!-- 
+                Thesis Abstract / this will only show up, if there is an abstract 
+               
+                Sadly I could not figure out how to format the output from 
+                kirbytextin a neat way, which is really irritating (￣ヘ￣). Maybe 
+                I'll find a solution for this at some point. 
+                -->
                 <div class="accordion-content__thesis-abstract searchText">
 <?php if ($item->thesisAbstract()->isNotEmpty()): ?>
-                    <?= $item->thesisAbstract()->kt()?>
+                    <?= $item->thesisAbstract()->kirbytext()?>
 <?php endif ?>
                 </div>
             </section>
 
 
 
-
-            <section class="accordion-content__cv"> <!-- Section for the Graduate CV-->
+            <!-- Section for the Graduate CV-->
+            <section class="accordion-content__cv"> 
 
             <!-- Accordion Graduate CV
             ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
@@ -182,18 +183,16 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
             ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
             -->
                 <?php $graduate = $item->connectedGraduate()->toPage() ?>    
-
                 <!-- Graduate -->
 <?php if ($graduate->name()->isNotEmpty()): ?>
                 <h2 class="accordion-content__cv__graduate searchText"><?= $graduate->name()?> <?= $graduate->surname()?></h2>
 <?php endif ?>
-
                 <div class="accordion-content__cv__info">
 
                     <!-- Degrees pursured at HFBK Hamburg -->
                     <ul class="accordion-content_cv-info_degrees">
 <?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure();foreach ($gradProjects as $gradProject): ?>
-                        <li><?= $gradProject->selectStudies()?>, <?= $gradProject->graduation()->toDate('Y')?></li>
+                        <li class="searchText"><?= $gradProject->selectStudies()?>, <?= $gradProject->graduation()->toDate('Y')?></li>
 <?php endforeach ?>
 <?php endif ?>
                     </ul>
@@ -208,43 +207,30 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                     </ul>
                         
                     <div class="accordion-content__cv-info__projects">
-
                         <!-- Link to other Thesis Projects -->
                         <h5>Thesis Projects at KDG:</h5>
                        
                         <!-- All connected projects -->
-                        <!-- hier muss noch ein Hook rein -> wie springe ich zum entsprechenden Eintrag -->
                         <ul>
 <?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure(); foreach ($gradProjects as $gradProject): ?>
-                            <li><?= $gradProject->linkThesis()->toPage()->title()?></li>
+                            <li class="filter"><?= $gradProject->linkThesis()->toPage()->title()?></li>
 <?php endforeach ?><?php endif ?>
                         </ul>
                     </div>
 
-
                     <!-- All socials and other links -->
-
                     <ul class="accordion-content__cv-info__socials">
-
-                        <!-- Website -->
-                        <li>
-<?php if ($graduate->website()->isNotEmpty()): ?>
-                            <a target="_blank" href="<?= $graduate->website()->toUrl()?>">Website</a>
+<?php if ($graduate->website()->isNotEmpty()): ?> 
+                        <!-- Website -->                        
+                        <li><a target="_blank" href="<?= $graduate->website()->toUrl()?>">Website</a></li>
 <?php endif ?>
-                        </li>
-                       
+<?php if ($graduate->email()->isNotEmpty()): ?>                         
                         <!-- Mail -->
-                        <li>
-<?php if ($graduate->email()->isNotEmpty()): ?>
-                            <a href="mailto:<?= Str::encode($graduate->email()) ?>">Mail</a>
+                        <li><a href="mailto:<?= Str::encode($graduate->email()) ?>">Mail</a></li>
 <?php endif ?> 
-                        </li>
-
                         <!-- Socials -->
 <?php $entries = $graduate->socials()->toStructure(); foreach ($entries as $entry): ?>
-                        <li>    
-                            <a class="searchText filter" target="_blank" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a>
-                        </li>
+                        <li><a class="searchText filter" target="_blank" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a></li>
 <?php endforeach ?>
                     </ul> 
                 </div> 
@@ -255,7 +241,6 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 <?php if ($graduate->bio()->isNotEmpty()): ?>
                     <?= $graduate->bio()->kirbytext()?> 
 <?php endif ?>
-
                 </div>    
             </section>
 
@@ -264,7 +249,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 <?php if ($item->thesispdf()->isNotEmpty()): ?>
                 <div class="accordion-content__links__download-container">
                     <a href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
-                    <p class="tag"><?= $item->language()->category()?></p>
+                    <button class="tag"><?= $item->language()->category()?></button>
                 </div>
 <?php endif ?>
 <?php if ($item->reissue()->mirrorExternalBroken() === true ):?>
@@ -276,7 +261,6 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                 <a target="_blank" href="<?=$item->repositoryLink()->url()?>">Practical Work ↗</a>
 <?php endif ?>
             </div>
-
         </div>
     </div>    
 </article>
