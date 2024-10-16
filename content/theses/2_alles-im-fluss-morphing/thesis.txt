@@ -46,15 +46,15 @@ Thesispdf:
 
 ----
 
-Mirrorexternal: 
+Mirrorexternal: https://github.com/Klasse-Digitale-Grafik
 
 ----
 
-Mirrorexternalbroken: false
+Mirrorexternalbroken: true
 
 ----
 
-Mirrorkdg: 
+Mirrorkdg: https://github.com/Klasse-Digitale-Grafik
 
 ----
 

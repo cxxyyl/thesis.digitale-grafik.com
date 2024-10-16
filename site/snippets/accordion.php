@@ -66,12 +66,19 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
             <!-- Links for downloading the thesis and opening the original thesis website  -->
             <div class="accordion-container__downloads">
 <?php if ($item->reissue()->mirrorExternalBroken() === true ):?>
+<?php if ($item->mirrorExternal()->isNotEmpty()): ?> 
+                <!-- Link to Website-->
                 <a target="_blank" class="button-primary" href="<?=$item->mirrorExternal()->url()?>">Open Website ↗</a>
+<?php endif ?>
 <?php else:?>
+<?php if ($item->mirrorKDG()->isNotEmpty()): ?> 
+                <!-- Link to Website-->
                 <a target="_blank" class="button-primary" href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
 <?php endif ?>
+<?php endif ?>
 <?php if ($item->thesispdf()->isNotEmpty()): ?>
-            <!-- Download Link for Thesis -->
+
+                <!-- Download Link for Thesis -->
                 <a class="button-primary" href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
 <?php endif ?>
             </div>
@@ -253,16 +260,23 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                 </div>
 <?php endif ?>
 <?php if ($item->reissue()->mirrorExternalBroken() === true ):?>
+<?php if ($item->mirrorExternal()->isNotEmpty()): ?> 
+                <!-- Link to Website-->
                 <a target="_blank" href="<?=$item->mirrorExternal()->url()?>">Open Website ↗</a>
+<?php endif ?>
 <?php else:?>
-                <a target="_blank" href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
+<?php if ($item->mirrorKDG()->isNotEmpty()): ?> 
+                <!-- Link to Website-->
+                <a target="_blank"  href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
+<?php endif ?>
 <?php endif ?>
 <?php if ($item->repositoryLink()->isNotEmpty()): ?>
+                <!-- Link To HFBK Repository -->
                 <a target="_blank" href="<?=$item->repositoryLink()->url()?>">Practical Work ↗</a>
 <?php endif ?>
             </div>
         </div>
     </div>    
 </article>
- <?php endif ?>
- <?php endforeach?>
+<?php endif ?>
+<?php endforeach?>

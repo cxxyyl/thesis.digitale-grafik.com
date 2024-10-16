@@ -50,7 +50,7 @@ Mirrorexternal:
 
 ----
 
-Mirrorexternalbroken: true
+Mirrorexternalbroken: false
 
 ----
 

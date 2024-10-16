@@ -54,7 +54,7 @@ Mirrorexternalbroken: false
 
 ----
 
-Mirrorkdg: 
+Mirrorkdg: https://github.com/Klasse-Digitale-Grafik
 
 ----
 
