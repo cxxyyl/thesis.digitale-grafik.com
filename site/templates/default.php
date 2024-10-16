@@ -50,7 +50,6 @@
 
 
 
-
 <!-- 
     _______________________________________
     ✦ List of all Klasse Digitale Grafik Thesis Projects ✦
