@@ -611,14 +611,17 @@ ____________________
                 /* Thesis abstract */
                 .accordion-content__thesis-abstract {
                     /* Layout */
-                    width: min-content;
-                    min-width: calc((100%* 1 / 3) - var(--spacing-xs));
+                    width: 66%;
                     height: var(--contentMaxHeightInner);
 
-                    display: flex;
-                    column-gap: var(--spacing-xs);
-                    flex-wrap: wrap;
-                    flex-direction: column;
+                    column-count: 2; /* Number of columns */
+                    column-gap: var(--spacing-xs); /* Space between columns */
+                    overflow: hidden; /* Prevent content from overflowing the container */ 
+
+                    p{
+                        /* Layout */
+                        height: 200%;
+                    }
                 } 
   
 
@@ -665,14 +668,22 @@ ____________________
 
             .accordion-content__cv__bio {
                 /* Layout */
-                width: min-content;
-                min-width: calc((100%* 1 / 3) - var(--spacing-xs));
+                width: 60%;
                 height: var(--contentMaxHeightInner);
 
-                display: flex;
-                column-gap: var(--spacing-xs);
-                flex-wrap: wrap;
-                flex-direction: column;
+                column-count: 2; /* Number of columns */
+                column-gap: var(--spacing-xs); /* Space between columns */
+                overflow: hidden; /* Prevent content from overflowing the container */
+                direction: rtl;  /* Right-to-left direction for the columns */
+
+                /* Typography */
+                text-align: left;
+
+
+                p{
+                    /* Layout */
+                    height: 200%;
+                }
             }
 
         /* ^ Accordion Links */
