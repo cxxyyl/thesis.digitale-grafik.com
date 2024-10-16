@@ -1,18 +1,30 @@
-/* ! To Do */
+/*
 
-/* 
-– transition auf den einzelen textelementen innerhalb des akkordions ausschalten
-– little shake animation for tag--inverted ✔️
+Welcome to the CSS of this website 
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+Here you will find the syling for the base version of 
+this website, as well as SearchMode and DevMode.
 
 */
 
 
 
-/* ? Foundation (Typography,
+/* ? Foundation (Variables, Typography, Resets etc.) */
 /* * Atoms Single Elements (Buttons,...) */
 /* ^ Blocks & Elements (Footer,Nav,...)
 
+
+
+
+/* 
+_________
+✦ Foundations ✦
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+*/
+
+
 /* ? Browser Reset */
+
 * {
     padding: 0;
     margin: 0;
@@ -20,24 +32,24 @@
     max-width: 100%;
 }
 
+
 /* ? CSS Variables */
 :root {
 
-  /* Color */
+  /* Colors */
   --color-primary: #000000;
   --color-secondary: #FFFFFF;
 
   --color-DevMode: #792cff;
-  /* --color-search: #e6dcff;  */
+  /* --color-search: #e6dcff;  not used right now  */
 
-  
+
   /* Typography */
   --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
 
-  /* Accordion Content Height */
+  /* Defines how tall the the inner part of the accordion is */
   --contentMaxHeight: 29rem;
   --contentMaxHeightInner:calc(var(--contentMaxHeight) * 0.79);
-
 
   /* Spacing */
   --spacing-none: 0;
@@ -61,32 +73,46 @@
 }
 
 
+/* ? Selection Styling */
 ::selection{
+    /* Color */
     background-color: var(--color-primary);
     color: var(--color-secondary);
 
+    /* Animation */
     transition: background-color 750ms ease, color 750ms ease;
 
 }
 
+
+
+/* ? Typography */
 h1,h2,h3,h4,h5,h6 {
+    /* Layout */
+    margin: 0;
+
+    /* Typography */
     font-size: var(--font-md);
     text-decoration: none;
     font-weight: normal;
-    margin: 0;
+
 }
 
-
 p {
+    /* Typography */
     font-size: var(--font-md);
 }
 
 li {
+    /* Typography */
     list-style: none;
 }
 
 a{
+    /* Color */
     color: var(--color-primary);
+
+    /* Interaction */
     cursor: pointer;
 }
 
@@ -94,249 +120,357 @@ a{
 
 /* ? Body Base Styling */
 body {
-    font-family: var(--font-primary);
+    /* Layout */
     padding: 0;
     margin: 0;
+
+    /* Interaction */
     overflow-y: scroll;
 
-
-    /* Colors */
+    /* Color */
     color: var(--color-primary);
     background-color: var(--color-secondary);
 
+    /* Typography */
+    font-family: var(--font-primary);
+
+    /* Animation */
     transition: background-color 750ms ease, color 750ms ease;
 }
 
 
 
-/* Custom Nav Styling */
-.nav {
-    text-transform: uppercase;
-    font-size: var(--font-md);
 
-    /* Layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-xs);
-    border-bottom: 1px var(--color-primary) solid;
 
-        a {
-            color: var(--color-primary);
-            text-decoration: none;
-        }
 
-    ul {
 
-        li {
-            list-style: none;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--color-primary);
-    }
-    }
+/* 
+____________________
+✦ Single reusable Elements ✦
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
-}
+*/
+
 
 
 /* * Buttons */
 
 .button-primary {
+    /* Layout */
     width: fit-content;
     height: fit-content;
-    color: var(--color-primary);
-    border-radius: var(--radius-lg);
-    border: 1px solid;
-    text-decoration: none;
     padding: var(--spacing-xxs);
-    text-transform: uppercase;
-    white-space: nowrap;
+    border-radius: var(--radius-lg);
+
+    /* Interaction */
     cursor: pointer;
     user-select: none;
+
+    /* Color */
+    color: var(--color-primary);
+    border: 1px solid;
+
+    /* Typography */
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .button-secondary {
-    color: var(--color-secondary);
+    /* Interaction */
     cursor: pointer;
     user-select: none;
+
+    /* Color */
+    color: var(--color-secondary);
 }
 
 .button-extraSpacing{
-padding-left: var(--spacing-xs);
-padding-right: var(--spacing-xs);
+    /* Layout */
+    padding-left: var(--spacing-xs);
+    padding-right: var(--spacing-xs);
 }
 
 
+/* * Tags */
 
+.tag {
+    /* Layout */
+    width: fit-content;
+    height: fit-content;
+    padding: var(--spacing-xxs);
+    border-radius: var(--radius-sm);
+    border-color: var(--color-primary);
 
-/* * Highlight for Search */
+    /* Interaction */
+    cursor: pointer;
+    user-select: none;
 
-mark {
-    background-color: var(--color-search); 
+    /* Color */
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: 1px solid;
+   
+    /* Typography */
+    font-size: var(--font-sm);
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    /* Animation */
+    transition: background-color 750ms ease, color 750ms ease;
 }
+
+.tag--inverted {
+    /* Layout */
+    padding-left: var(--spacing-xs);
+    padding-right: var(--spacing-xs);
+    
+    /* Color */
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: none;
+
+    /* Animation */
+    transition: background-color 750ms ease, color 750ms ease;
+}
+
+.tag--delete:hover{
+    /* Add a litttel shake animation on hover */
+    animation: deleteShake 750ms ease infinite;
+}
+    /* Animation Frames for .tag--delete */
+    @keyframes deleteShake {
+        0%, 75%, 100% {transform: rotate(0deg);}
+        25% {transform: rotate(-3deg);}
+        50% {transform: rotate(3deg);}
+    }
+
+.tag--delete::before{
+    content: 'Ｘ '
+}
+
+
 
 /* * Cursor Options */
 .filter{
-    cursor: pointer;
-    transition: background-color 500ms ease;
+    /* Layout */
     width: fit-content; 
+
+    /* Interaction */
+    cursor: pointer;
+    
+    /* Animation */
+    transition: background-color 500ms ease;
 }
 
-/* ^ Searchbar */
 
-#search-box {
-    padding: var(--spacing-xxs);
-    background-color: transparent;
-    color: var(--color-primary);
-    font-family: var(--font-primary);
-}
 
-.searchbar {
 
+
+
+/* 
+____________________
+✦ Compound Elements & Blocks ✦
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+*/
+
+
+
+/* ^ Nav*/
+.nav {
+    /* Layout */
     padding: var(--spacing-xs);
     border-bottom: 1px var(--color-primary) solid;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+    /* Typography */
+    text-transform: uppercase;
+    font-size: var(--font-md);
+
+
+        /* Nested Elements inside Nav */
+        a {
+            /* Color */
+            color: var(--color-primary);
+
+            /* Typography */
+            text-decoration: none;
+        }
+
+        ul {
+
+            li {
+                /* Typography */
+                list-style: none;
+            }
+            
+            a {
+                /* Color */
+                color: var(--color-primary);
+
+                /* Typography */
+                text-decoration: none;
+            }
+        }
+}
+
+/* ^ Searchbar */
+/* Home to all the Tags that are generated, the search input field with the dragable element */
+
+.searchbar {
     /* Layout */
+    padding: var(--spacing-xs);
+  
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
 
-    select {
+    /* Color */
+    border-bottom: 1px var(--color-primary) solid;
+
+    /* Styling for Filter dropdown – this does not exist anymore ... RIP 🪦 */
+    /* select {
         border-radius: 1rem;
-    }
+    } */
 }
 
-    .searchbar__search-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: var(--spacing-xs); 
-    }
-
-
-    .searchbar__tag-container{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        gap: var(--spacing-xs); 
-    }
-
-
-    .searchbar__input-slider{
-        width: 17.5rem;
-        display: flex;
-        border: 1px solid var(--color-primary);
-        border-radius: var(--radius-sm);
-        gap: var(--spacing-xs);
-        justify-content: space-between;
-
-
-        .slider-button{
-            display: flex;
-            align-items: center;
-
-            margin: -1px;
-            background-color: var(--color-secondary);
-            color: var(--color-primary);
-            font-size: var(--font-sm);
-            height: calc(100% + 2px);
-            padding: var(--spacing-xxs);
-            border: 1px solid var(--color-primary);
-            border-radius: var(--radius-lg);
-            user-select: none;
-
-            transition: color ease 300ms, background-color ease 300ms;
-
-            cursor: grab;
-        }
-
-
-        input, input:focus-visible {
-            width: 100%;
-            margin-left: var(--spacing-xs);
-
-            outline: none;
-            border: none;
-            border-radius: var(--radius-lg);
-            font-size: var(--font-md);
-
-            transition: opacity 300ms ease;    
-        }
+.searchbar__search-container {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--spacing-xs); 
 }
 
+/* This is where the generated tags are placed */
+.searchbar__tag-container{
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--spacing-xs); 
+}
 
-.tag {
-    width: fit-content;
-    height: fit-content;
-    white-space: nowrap;
-    cursor: pointer;
+/* Input field for typing in text  */
+#search-box {
+    /* Layout */
+    padding: var(--spacing-xxs);
 
-    user-select: none;
-
-    background-color: var(--color-secondary);
-    border-color: var(--color-primary);
+    /* Color */
+    background-color: transparent;
     color: var(--color-primary);
 
-    transition: background-color 750ms ease, color 750ms ease;
-    
-    font-size: var(--font-sm);
-    text-transform: uppercase;
+    /* Typography */
     font-family: var(--font-primary);
-
-    border: 1px solid;
-    border-radius: var(--radius-sm);
-    padding: var(--spacing-xxs);    
 }
 
-    .tag--inverted {
-        padding-left: var(--spacing-xs);
-        padding-right: var(--spacing-xs);
+/* Styling for the draggable Element of the Slider */
+.searchbar__input-slider{
+    /* Layout */
+    width: 17.5rem;
+    border-radius: var(--radius-sm);
+
+    display: flex;
+    gap: var(--spacing-xs);
+    justify-content: space-between;
+
+    /* Color */
+    border: 1px solid var(--color-primary);
+  
+
+    .slider-button{
+        /* Layout */
+        height: calc(100% + 2px);
+        padding: var(--spacing-xxs);
+        margin: -1px;
+        border-radius: var(--radius-lg);
+
+        display: flex;
+        align-items: center;
+
+        /* Interaction */
+        user-select: none;
+        cursor: grab;        
+
+        /* Color */
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+        border: 1px solid var(--color-primary);
         
-        background-color: var(--color-primary);
-        color: var(--color-secondary);
+        /* Typography */
+        font-size: var(--font-sm);
+
+        /* Animation */
+        transition: color ease 300ms, background-color ease 300ms;        
+    }
+
+    /* Additional styling for the input element */
+    input, input:focus-visible {
+        /* Layout */
+        width: 100%;
+        margin-left: var(--spacing-xs);
+
+        /* Color */
+        outline: none;
         border: none;
+        border-radius: var(--radius-lg);
 
-        transition: background-color 750ms ease, color 750ms ease;
+        /* Typography */
+        font-size: var(--font-md);
+
+        /* Animation */
+        transition: opacity 300ms ease;    
     }
-
-    .tag--delete:hover{
-        /* Add a litttel shake animation on hover */
-        animation: deleteShake 750ms ease infinite;
-    }
-
-        @keyframes deleteShake {
-            0%, 75%, 100% {transform: rotate(0deg);}
-            25% {transform: rotate(-3deg);}
-            50% {transform: rotate(3deg);}
-        }
-
-
-    .tag--delete::before{
-        content: 'Ｘ '
-    }
-
+}
 
 
 /* ^ Accordion */
+/* Here is all the content of this website. This contains the rows and the content inside of of them */
 
+/* This is the wrapper, that holds everything */
 .accordion {
+    /* Layout */
     width: 100%;
+
+    /* Color */
     border-bottom: 1px solid var(--color-primary);
 }
 
     /* ^ Accordion Table Rows */
+    /* These are the single rows you see in the Table */
 
+    /* Flex Version */
+    .accordion-container{
+        /* Layout */
+        width: 100%;
+        padding: var(--spacing-xs);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--spacing-xs);
+        
+        /* Interaction */
+        user-select: none;
+
+        /* Typography */
+        font-size: var(--font-md);
+    }
 
     /* Grid Version */
     /* Retired did not work that well with responsive window sizes */
     /* .accordion-container{
         width: 100%;
         padding: var(--spacing-xs);
+
         display: grid;
         grid-template-columns:3% 10% 22% 40% 3% 22%;
         grid-column-gap: var(--spacing-xs);
@@ -346,27 +480,17 @@ mark {
         font-size: var(--font-md);
     } */
 
-    /* Flex Version */
-    .accordion-container{
-        width: 100%;
-        padding: var(--spacing-xs);
-        display: flex;
-        gap: var(--spacing-xs);
-        align-items: center;
-        font-size: var(--font-md);
-        justify-content: flex-start;
-        flex-direction: row;
+        /* ^ Single Elements inside the Rwo */
 
-        user-select: none;
-    }
-
-    
         .accordion-container__degree{
-        width: 3rem;
+            /* Layout */
+            width: 3rem;
         }
   
         .accordion-container__date{
+            /* Layout */
             width: 8rem;
+
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -375,16 +499,20 @@ mark {
         }
 
         .accordion-container__graduate{
+            /* Layout */
             width: 20%;
         }
 
         .accordion-container__thesis{
+            /* Layout */
             flex-grow: 1;
         }
 
         .accordion-container__downloads{
+            /* Layout */
             width: 21rem;
             min-width: fit-content;
+            
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -393,124 +521,150 @@ mark {
         }
 
     .accordion:hover .accordion-content {
+        /* Layout */
         height: var(--contentMaxHeight);
-        /* height: auto; */
     }
 
-    /* ^ Accordion Inner Content -> opens with Hover */
+
+
+    /* ^ Accordion Inner Content -> opens on Hover */
 
     .accordion-content {
-        /* height: auto; */
+        /* Layout */
         height: 0;
         overflow: hidden;
 
-        /* Layout */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         padding-left: var(--spacing-xs);
         padding-right: var(--spacing-xs);
 
         /* Animation */
-        transition: height 750ms ease 75ms;
+        transition: height 750ms ease 120ms; /* This is the transition + delay for the opening on hover */
     }
 
         /* ^ Accordion Thesis Information*/
+        /* This is the left block of content */
         .accordion-content__thesis {
+            /* Layout */
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             align-content: flex-start;
             gap: var(--spacing-xs);
         }
-
+            /* Thesis Title */
             .accordion-content__thesis__title { 
+                /* Layout */
                 width: 100%;
                 padding-top: var(--spacing-xs);
                 padding-bottom: var(--spacing-xs);
+
+                /* Typography */
                 font-size: var(--font-lg);  
             }
 
+            /* Inner Block for all additional content */
             .accordion-content__thesis-info { 
+                /* Layout */
                 width: calc((100% * 1/3) - var(--spacing-xs));
                 height: var(--contentMaxHeightInner);
             }
 
-            .accordion-content__thesis-info__subtitle, 
-            .accordion-content__thesis-info__published, 
-            .accordion-content__thesis-info__advisors{
-            padding-bottom: var(--spacing-md);
-            }
 
-            .accordion-content__thesis-info__topics > h5{
-                padding-bottom: var(--spacing-xxs);
-
-                user-select: none;
-            }    
-
-            .accordion-content__thesis-info__topics__tags{
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: var(--spacing-xxs);
-            
-                button::after{
-                    padding-left: var(--spacing-xxs);
-                    padding-right: calc(var(--spacing-xxs)*.5);
+                .accordion-content__thesis-info__subtitle, 
+                .accordion-content__thesis-info__published, 
+                .accordion-content__thesis-info__advisors{
+                    /* Layout */
+                    padding-bottom: var(--spacing-md);
                 }
-            }
 
-            /* Numbering for the countTags function over at search.js */
-            .searchText.tag.filter[data-other-tags]::after {
-                content: '[' attr(data-other-tags) ']';
-            }
+                /* Headline for Topics */
+                .accordion-content__thesis-info__topics > h5{
+                    /* Layout */
+                    padding-bottom: var(--spacing-xxs);
 
+                    /* Interaction */
+                    user-select: none;
+                }    
 
-            .accordion-content__thesis-abstract {
-                width: min-content;
-                min-width: calc((100%* 1 / 3) - var(--spacing-xs));
-                height: var(--contentMaxHeightInner);
-                display: flex;
-                column-gap: var(--spacing-xs);
-                flex-wrap: wrap;
-                flex-direction: column;
-            } 
+                /* Container the Tags exist in  */
+                .accordion-content__thesis-info__topics__tags{
+                    /* Layout */
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: var(--spacing-xxs);
+                
+                    /* this is extra padding for the generated number [n] inside the tags */
+                    button::after{
+                        padding-left: var(--spacing-xxs);
+                        padding-right: calc(var(--spacing-xxs)*.5);
+                    }
+                }
+
+                /* Numbering for the countTags function over at search.js */
+                .searchText.tag.filter[data-other-tags]::after {
+                    content: '[' attr(data-other-tags) ']';
+                }
+
+                /* Thesis abstract */
+                .accordion-content__thesis-abstract {
+                    /* Layout */
+                    width: min-content;
+                    min-width: calc((100%* 1 / 3) - var(--spacing-xs));
+                    height: var(--contentMaxHeightInner);
+
+                    display: flex;
+                    column-gap: var(--spacing-xs);
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                } 
   
 
 
         /* ^ Accordion Graduate CV */
-
+        /* This is the right block of content */
         .accordion-content__cv {
+            /* Layout */
             display: flex;
             flex-direction: row-reverse;
             flex-wrap: wrap;
             align-content: flex-start;
             justify-content: flex-start;
             gap: var(--spacing-xs);
-
         }
 
             .accordion-content__cv__graduate{
-                text-align: right;
+                /* Layout */
                 width: 100%;
                 padding-bottom: var(--spacing-xs);
-                font-size: var(--font-lg);
                 padding-top: var(--spacing-xs);
+
+                /* Typography */
+                text-align: right;
+                font-size: var(--font-lg);
             }
             
             .accordion-content_cv-info{
+                /* Layout */
                 width: calc((100% * 1/3) - var(--spacing-xs));
                 height: var(--contentMaxHeightInner);
-                text-align: right;
                 order: 1;
+
+                /* Typography */
+                text-align: right;
             }
 
                 .accordion-content__cv-info__degrees,
                 .accordion-content__cv-info__classes, 
                 .accordion-content__cv-info__projects{
+                    /* Layout */
                     padding-bottom: var(--spacing-md);    
                 } 
 
             .accordion-content__cv__bio {
+                /* Layout */
                 width: min-content;
                 min-width: calc((100%* 1 / 3) - var(--spacing-xs));
                 height: var(--contentMaxHeightInner);
@@ -522,21 +676,25 @@ mark {
             }
 
         /* ^ Accordion Links */
-
+        /* Links on the bottom of the accordion */
         .accordion-content__links{
-            grid-area: 2 / 1 / 3 / 3;
-            display: flex;
-            justify-content: space-between;
+            /* Layout */
             width: 100%;
             height: fit-content;
             padding-bottom: var(--spacing-xs);
 
-            a, h3{
-                font-size: var(--font-lg);
+            grid-area: 2 / 1 / 3 / 3;
+            display: flex;
+            justify-content: space-between;
+        
 
+            a, h3{
+                /* Interaction */
                 user-select: none;
-    
-                text-decoration: underline;
+                
+                /* Typography */
+                font-size: var(--font-lg);
+                text-decoration: none;
                 text-transform: uppercase;
             }
         }
@@ -548,13 +706,23 @@ mark {
             align-items: flex-start;
         }
 
-/* About Page */
 
+
+
+
+
+
+
+
+/* ^ About Page */
 #about, #imprint{
-padding-top: var(--spacing-lg);
+    /* Layout */
+    padding-top: var(--spacing-lg);
 
-
-    h1{font-size: var(--font-lg);}
+        h1{
+            /* Typography */
+            font-size: var(--font-lg);
+        }
 
 
 }

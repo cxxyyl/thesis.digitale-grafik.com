@@ -2,9 +2,80 @@ title: Thesis
 
 tabs:
 
+  # Rauskommentieren wenn fertig
+  ck: 
+    label: Übersicht für Christoph und Konrad
+
+    sections:
+
+      thesesCK:
+        type: pages
+        label: Overview of all Theses
+        parent: site.find("theses")
+        template: thesis
+        
+        layout: table
+        columns: 
+          graduate: 
+            label: Linked Graduate
+            value: "{{ page.connectedGraduate.toPage.Title }}"
+          toDo: 
+            label: ToDo's
+            value: "{{ page.toDoThesis}}"
+
+      graduatesCK:
+        label: Overview of all Graduates
+        type: pages
+        parent: site.find("graduates")
+        template: graduate
+        sortBy: title asc
+        
+        layout: table
+        columns: 
+          toDo: 
+            label: ToDo's
+            value: "{{ page.toDoGraduate }}"
+
+      infoCK: 
+        type: fields
+        fields: 
+          headline1CK: 
+            type: headline
+            numberd: false
+            label: How To
+
+          howto1CK: 
+            label: Tipps for using thesis.digitale
+            type: info
+            text: | 
+              Howdy! 
+        
+              Here you'll find a short guide on how to use this backend. On the left side, you can see two table overviews of all the Theses and Graduates.
+
+              1. Make your Graduate Profile
+              It's best to start by adding your graduate profile first. At the top right corner of the "Overview of all Graduates" table, you can click the +Add button to create your Profile Page. Use "Name Surname" as the page title.
+              <br>
+              2. Fill out your Graduate Profile
+              Complete all sections in the "Personal Information" and "Contact & Social" sections. For now, you won't be able to connect your thesis in the "Connect Thesis" section.
+              <br>
+              3. Once you're finished, publish your Graduate Profile by switching its status to "Published".
+              <br>
+              4. Make your Thesis Page
+              After creating your Graduate Profile, proceed to create the Thesis Page. Again, at the top right corner of the "Overview of all Graduates" table, click the +Add button to add your Thesis Page. Use the main title of your thesis as the page title.
+              <br>
+              5. Fill out the Thesis Page
+              Complete the Thesis Info section. Upload your written thesis as a PDF file in the File Upload Section. Link to your Thesis Website in the Mirror section. If you published your practical work on https://projekte.hfbk.net/, you can also link to it. Lastly, connect your Graduate Profile.
+              <br>
+              6. Once you're finished, publish your Thesis Project by switching its status to "Published".
+              <br>
+              7. Connect your Graduate Profile with your Thesis Project(s)
+              While on your Thesis Project Page, you can click the linked Profile to connect your Graduate Profile. This will redirect you back to your Graduate Profile. Alternatively, you can navigate back to your Graduate Profile through the main menu.
+            
+              With this, you are done!
+
+
   content: 
     label: Theses & Graduates
-
     
     columns: 
       left:
@@ -25,19 +96,19 @@ tabs:
               degree: 
                 label: Degree
                 value: "{{ page.selectDegree }}"
-
+  
           graduates:
             label: Overview of all Graduates
             type: pages
             parent: site.find("graduates")
             template: graduate
             sortBy: title asc
-          
+ 
       right:
         width: 1/3
         sections: 
         
-          Info: 
+          info: 
             type: fields
             fields: 
               headline1: 
@@ -92,7 +163,7 @@ tabs:
             type: textarea
             counter: true
             size: large
-            spellcheck: true
+            # spellcheck: true
            
   housekeeping: 
     label: Housekeeping
@@ -126,25 +197,4 @@ tabs:
             size: medium
             width: 1/2
 
-    # FAVICON
-
-          # headline3: 
-          #   type: headline
-          #   label: Favicon
-          #   numberd: false
-          
-          # favIcon:
-          #   label: Favicon
-          #   type: files
-          #   max: 1
-          #   multriple: false
-          #   size: medium
-          #   width: 1/2
-          
-
-        
-
-
-
-
-
+  
