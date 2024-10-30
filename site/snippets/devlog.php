@@ -14,26 +14,22 @@ ______________
 ✦ Devlog & Thoughts ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
-
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024-OCT-16     - some minor fixes
-cxxyyl          – css clean up
-                – talked to christoph
-
-                
-                have to add one more thing to kirby -> did it
-
-
+2024-OCT-30     Today I found another Bug with the display of the columns. Turns out that my last fix was still kinda hacky. But I found the right
+cxxyyl          solution today. autoheight and column-fill:auto was the right solution. I also forgot to add hypenation and indenting. And I swear
+                the link issue was really haunting me... I spent like half an hour searching for the problem until I realised I forgot a ->toBool()
+                for the toggle that switches between the thesis website and the mirrored version
 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024-OCT-14     
+2024-OCT-16     Okay so the website was basically done, but I found some bugs – mainly the columns were not doing what I wanted them to do. There
+cxxyyl          were also some issues with the links displaying correctly. I also talked to Christoph about some organisational things, and I endend
+                up adding one more tab to the Kirby Backend just for Chistoph and Konrad – now with ToDo Lists inside of Tables
+
+
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024-OCT-14     It's the final stretch! I cleaned up all the css and finally finished the documentation for SearchMode and DevMode <3 
 cxxyyl          
-                
-                - clean up CSS
-                - finish documentation for searchmode.js, devmode.js and titlescroll
-                - add OG desctiption and title
-                - write christoph and konrad
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
 2024-OCT-13     We are nearing completion. Today and tomorrow will be mostly documentation days. For a little treat I was in a cafe close by for
@@ -350,18 +346,20 @@ __________
 
 
 – Finish BAM 
-– Organize CSS / Additional Info and Interal Decoration
+
 - write Search Guide 
-    - finish asci art 
-– comment everything JS + CSS
-– table of contents
+
+– comment everything JS
+
 - github readme
+
+
+– Organize CSS / Additional Info and Interal Decoration  ✔️ 
+
+- add OG desctiption and title
+- finish asci art ✔️ 
+– table of contents ✔️ 
 - session storage across site ✔️ 
-
-
-
-
-
 
 – "Write to CSS" with DevMode  ✔️ 
 

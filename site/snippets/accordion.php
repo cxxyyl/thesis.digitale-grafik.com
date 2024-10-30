@@ -1,6 +1,7 @@
 <?php  foreach ($site->grandchildren()->listed() as $item):?> 
 <?php  $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): ?>
 
+<article data-info="<?= $item->title()->slug()?>" class="search-result accordion">
 <!--
 
 ✶    ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ✶
@@ -25,9 +26,8 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 <?php if($item->yearOfPublishing()->isNotEmpty()): ?>
  – <?= $item->yearOfPublishing()?><?php endif?>
 
- -->   
+ --> 
 
-<article data-info="<?= $item->title()->slug()?>" class="search-result accordion">
     <div class="accordion_row"> <!-- Wrapper for every row -->
         <div class="accordion-container"> <!-- Everything inside of the visible row -->
             
@@ -65,14 +65,15 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
             
             <!-- Links for downloading the thesis and opening the original thesis website  -->
             <div class="accordion-container__downloads">
-<?php if ($item->reissue()->mirrorExternalBroken() === true ):?>
+
+<?php if ($item->mirrorExternalBroken()->toBool() === true ):?>
 <?php if ($item->mirrorExternal()->isNotEmpty()): ?> 
-                <!-- Link to Website-->
+                <!-- Link to original Website-->
                 <a target="_blank" class="button-primary" href="<?=$item->mirrorExternal()->url()?>">Open Website ↗</a>
 <?php endif ?>
 <?php else:?>
 <?php if ($item->mirrorKDG()->isNotEmpty()): ?> 
-                <!-- Link to Website-->
+                <!-- Link to KDG Archive Website-->
                 <a target="_blank" class="button-primary" href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
 <?php endif ?>
 <?php endif ?>
@@ -259,14 +260,14 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                     <button class="tag"><?= $item->language()->category()?></button>
                 </div>
 <?php endif ?>
-<?php if ($item->reissue()->mirrorExternalBroken() === true ):?>
-<?php if ($item->mirrorExternal()->isNotEmpty()): ?> 
-                <!-- Link to Website-->
+<?php if ($item->mirrorExternalBroken()->toBool() === true ):?>
+<?php if ($item->mirrorExternal()->isNotEmpty()): ?>
+                <!-- Link to original Website-->
                 <a target="_blank" href="<?=$item->mirrorExternal()->url()?>">Open Website ↗</a>
 <?php endif ?>
 <?php else:?>
 <?php if ($item->mirrorKDG()->isNotEmpty()): ?> 
-                <!-- Link to Website-->
+                <!-- Link to KDG Archive Website-->
                 <a target="_blank"  href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
 <?php endif ?>
 <?php endif ?>

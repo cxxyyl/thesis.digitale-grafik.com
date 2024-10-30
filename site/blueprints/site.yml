@@ -94,8 +94,8 @@ tabs:
                 label: Linked Graduate
                 value: "{{ page.connectedGraduate.toPage.Title }}"
               degree: 
-                label: Degree
-                value: "{{ page.selectDegree }}"
+                label: Year
+                value: "{{ page.yearOfPublishing }}"
   
           graduates:
             label: Overview of all Graduates

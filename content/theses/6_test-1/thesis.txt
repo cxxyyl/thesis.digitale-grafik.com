@@ -1,0 +1,83 @@
+Title: Test 1
+
+----
+
+Thesissubtitle: Link external
+
+----
+
+Thesisabstract:
+
+Mirror External -> Link
+
+Online
+
+Mirror Archive -> Empty
+
+----
+
+Thesistags: 
+
+----
+
+Selectdegree: BA
+
+----
+
+Language: en
+
+----
+
+Semestercycle: 
+
+----
+
+Yearofpublishing: 
+
+----
+
+Advisor1: 
+
+----
+
+Advisor2: 
+
+----
+
+Advisor3: 
+
+----
+
+Thesispdf: 
+
+----
+
+Mirrorexternal: https://conversational-investigations.netlify.app/
+
+----
+
+Mirrorexternalbroken: true
+
+----
+
+Mirrorkdg: 
+
+----
+
+Repositorylink: 
+
+----
+
+Connectedgraduate: - page://WduS3Ts0hPVEzyh0
+
+----
+
+Todothesis: 
+
+----
+
+Toggletodo: false
+
+----
+
+Uuid: OakyLOkoRTBhbsK5
