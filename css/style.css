@@ -48,7 +48,7 @@ _________
   --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
 
   /* Defines how tall the the inner part of the accordion is */
-  --contentMaxHeight: 29rem;
+  --contentMaxHeight: 32rem;
   --contentMaxHeightInner:calc(var(--contentMaxHeight) * 0.79);
 
   /* Spacing */
@@ -101,6 +101,7 @@ h1,h2,h3,h4,h5,h6 {
 p {
     /* Typography */
     font-size: var(--font-md);
+    hyphens: auto; /* Hypenation when there is a linebreak */
 }
 
 li {
@@ -616,11 +617,21 @@ ____________________
 
                     column-count: 2; /* Number of columns */
                     column-gap: var(--spacing-xs); /* Space between columns */
+                    column-fill: auto; /* Fills the column with text until it's full!  */
                     overflow: hidden; /* Prevent content from overflowing the container */ 
 
                     p{
                         /* Layout */
-                        height: 200%;
+                        height: min-content;
+                       
+                    }
+
+                    p:not(:first-child)::before{
+                        /* Layout */
+                        display:inline-block; 
+                        width:var(--spacing-md); 
+
+                        content: "";
                     }
                 } 
   
@@ -678,7 +689,6 @@ ____________________
 
                 /* Typography */
                 text-align: left;
-
 
                 p{
                     /* Layout */
