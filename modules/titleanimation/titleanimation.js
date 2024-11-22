@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () { 
-       
+    
     // Animated Title  
     setTimeout(function () {
         // Get the entire HTML structure of the document as a string
         const savedText = document.documentElement.innerHTML;
+
+
         
         // Variables to manage the animation
         const displayLength = 30; // First 30 characters

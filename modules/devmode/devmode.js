@@ -2,7 +2,12 @@
 // ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
 
 
-// save css across pageload
+// INFO: 
+// For adding additional themes and or quick commands check the handleQuickCommands() function or go to line 438.
+
+
+
+// save css across pageload with session storage
 
 window.addEventListener('load', function() {
   
@@ -47,7 +52,6 @@ window.addEventListener('load', function() {
 document.addEventListener("DOMContentLoaded", function () { 
 
 //check if we are on the index page
-
 if(document.getElementById("search-box")){
 
 
@@ -68,7 +72,6 @@ if(document.getElementById("search-box")){
 
     // 2) Set Up all the important variables
     // ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
-
         let isDragging = false; // checks is the button should be draggable at this moment
         let buttonClicked = false; // checks if the button was at least once interfacted with
 
@@ -256,7 +259,6 @@ if(document.getElementById("search-box")){
     // 4) Mouse related event listener
     // ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
 
-
         // Eventlistener for what happens if the mouse is pressed
         button.addEventListener('mousedown', function(){
 
@@ -368,7 +370,6 @@ if(document.getElementById("search-box")){
 
 
 
-
     // Write CSS
 
 
@@ -433,6 +434,7 @@ if(document.getElementById("search-box")){
     });
 
     // Function to handle quick commands
+    // If other quick commands should be added, add them here
     function handleQuickCommands(command) {
         
         if (command === "darkmode") {
@@ -441,43 +443,60 @@ if(document.getElementById("search-box")){
             addStylesheetThemes("./modules/devmode/darkmode.css");
             addStylesheetThemes("../modules/devmode/darkmode.css");
             return true; // Command was handled
-        } else if (command === "cozygray") {
+        } 
+
+        if (command === "cozygray") {
             removeThemeCSS(); // Remove any existing stylesheets before adding new ones
             // Add cozy gray stylesheets
             addStylesheetThemes("./modules/devmode/cozygray.css");
             addStylesheetThemes("../modules/devmode/cozygray.css");
             return true; // Command was handled
-        } else if (command === "solarized") {
+        } 
+
+        if (command === "solarized") {
             removeThemeCSS(); // Remove any existing stylesheets before adding new ones
             // Add solarized stylesheets
             addStylesheetThemes("./modules/devmode/solarized.css");
             addStylesheetThemes("../modules/devmode/solarized.css");
             return true; // Command was handled
-        } else if (command === "lightmode") {
+        }
+
+        if (command === "lightmode") {
             // Remove all additional CSS links
             removeThemeCSS();
             return true; // Command was handled
-        } else if (command === "markthesis"){
+        }
+
+        if (command === "markthesis"){
             addStylesheetHighlights("./modules/devmode/markthesis.css");
             addStylesheetHighlights("../modules/devmode/markthesis.css");
             return true;
-        } else if (command === "markauthor"){
+        }
+
+        if (command === "markauthor"){
             addStylesheetHighlights("./modules/devmode/markauthor.css");
             addStylesheetHighlights("../modules/devmode/markauthor.css");
             return true;
-        }else if (command === "nocss"){
+        }
+
+        if (command === "nocss"){
             noCSS();
             return true;
-        }else if (command === "resetmark"){
+        }
+
+        if (command === "resetmark"){
             removeMarkCSS();
             return true;
-        }else if (command === "resetall"){
+        }
+
+        if (command === "resetall"){
             removeThemeCSS();
             removeMarkCSS();
             removeDevModeCSS();
             deleteDevModeCSSCookie();
             return true;
         }
+
         return false; // Command was not handled
     }
 

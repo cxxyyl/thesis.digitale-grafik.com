@@ -1,40 +1,20 @@
 <!-- 
 
-                                                                                                                          (
-    Hey!      Glad you're here!                                                                                 (
-    ‾‾‾      Welcome to ȶɦɛ ƈ օ ɖ ɛ <3                                                               )                    )             (
-                                                                                                            )           (o)    )
-                                                                                                    (      (o)    )     ,|,            )
-                                                                                                    (o)     ,|,          |~\    (      (o)
-                                                                                                    ,|,     |~\    (     \ |   (o)     ,|,
-                                                                                                    \~|     \ |   (o)    |`\   ,|,     |~\
-                                                                                                    |`\     |`\@@@,|,@@@@\ |@@@\~|     \ |
-                                                                                                    \ | o@@@\ |@@@\~|@@@@|`\@@@|`\@@@o |`\
-                                                                                                    o|`\@@@@@|`\@@@|`\@@@@\ |@@@\ |@@@@@\ |o
-                                                                                                o@@\ |@@@@@\ |@@@\ |@@@@@@@@@@|`\@@@@@|`\@@o
-                                                                                                @@@@|`\@@@@@@@@@@@|`\@@@@@@@@@@\ |@@@@@\ |@@@@
-                                                                                                p@@@@@@@@@@@@@@@@@\ |@@@@@@@@@@|`\@@@@@@@@@@@q
-                                                                                                @@o@@@@@@@@@@@@@@@|`\@@@@@@@@@@@@@@@@@@@@@@o@@
-                                                                                                @:@@@o@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@::@
-                                                                                                ::@@::@@o@@@@@@@@@@@@@@@@@@@@@@@@@@@@o@@:@@::@
-                                                                                                ::@@::@@@@::oo@@@@oo@@@@@ooo@@@@@o:::@@@::::::
-                                                                                                %::::::@::::::@@@@:::@@@:::::@@@@:::::@@:::::%
-                                                                                                %%::::::::::::@@::::::@:::::::@@::::::::::::%%
-                                                                                                ::%%%::::::::::@::::::::::::::@::::::::::%%%::
-                                                                                                .#::%::%%%%%%:::::::::::::::::::::::::%%%%%::%::#.
-                                                                                            .###::::::%%:::%:%%%%%%%%%%%%%%%%%%%%%:%:::%%:::::###.
-                                                                                            .#####::::::%:::::%%::::::%%%%:::::%%::::%::::::::::#####.
-                                                                                        .######`:::::::::::%:::::::%:::::::::%::::%:::::::::'######.
-                                                                                        .#########``::::::::::::::::::::::::::::::::::::''#########.
-                                                                                        `.#############```::::::::::::::::::::::::'''#############.'
-                                                                                            `.######################################################.'
-  ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦                         ` .###########,._.,,,. #######<_\##################. '
-  ✦ Version 1.0 – the birthday of this website is on Okt. xx, 2024  ✧                            ` .#######,;:      `,/____,__`\_____,_________,_____
-  ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦                              `  .###;;;`.   _,;>-,------,,--------,----------'       by: Catalyst
-                                                                                                        `  `,;' ~~~ ,'\######_/'#######  .  '              https://asciiart.website/index.php?art=events/birthday
-                                                                                                        ''~`''''    -  .'/;  -    '      
+                                                                                                                          
+    Hey!      Glad you're here!                                                                      
+    ‾‾‾      Welcome to ȶɦɛ ƈ օ ɖ ɛ <3                   
+    
 
-                                                                                                                                   
+
+
+
+    
+
+  ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ 
+  ✦ Version 1.0 – the birthday of this website is on Okt. 15, 2024  ✧
+  ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦
+  
+  
                                                                                                                                    
 
 
@@ -61,7 +41,7 @@
    
     cxxyyl – www.cxxyyl.xyz 
         with additional help for the design 
-        as well as coding from OMDD
+        as well as coding from OMDD www.are.na/omdd
     
 
 
@@ -80,7 +60,7 @@
 
     Big Thanks to: 
     ✦ Christoph & Konrad for all the consultations, feedback and for actually filling a lot of the backend!
-    ✦ Polina for loving websites and beeing a great frind!
+    ✦ Polina for loving websites and beeing a great friend!
 
 
 
@@ -174,7 +154,7 @@
     code (Thank you Moritz Ebeling, Christoph Knoth, Jana Reddemann, the Internet and myself) my view of what a 
     website is changed a lot over the years. I come from 3D so in the beginning I was super interested in 3D on Web, 
     but with coding more I really started to become invested in the form of "writing" this document or text called 
-    website. In general I would say this view and project is also related to the poetic web and the "open-sourceness"  
+    website. In general I would say this view and project is also related to the poetic web and the "open-sourceness" 
     of code as a practice. Other students from KDG who deal with these topics are as far as I know Polina Lobanova 
     and Kim Kleinert. 
         In that regard things are happening here in the code side of things, rather than only in the graphic part.

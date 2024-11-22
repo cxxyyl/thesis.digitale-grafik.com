@@ -129,7 +129,7 @@ if(document.getElementById("search-box")){
             }
         });
 
-
+        
 
         // Event listener for tag clicks
         document.querySelectorAll('.filter').forEach(element => {

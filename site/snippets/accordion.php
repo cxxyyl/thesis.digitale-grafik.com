@@ -198,7 +198,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
                 <div class="accordion-content__cv__info">
 
                     <!-- Degrees pursured at HFBK Hamburg -->
-                    <ul class="accordion-content_cv-info_degrees">
+                    <ul class="accordion-content__cv-info__degrees">
 <?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure();foreach ($gradProjects as $gradProject): ?>
                         <li class="searchText"><?= $gradProject->selectStudies()?>, <?= $gradProject->graduation()->toDate('Y')?></li>
 <?php endforeach ?>

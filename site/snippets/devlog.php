@@ -13,9 +13,14 @@
 ______________
 ✦ Devlog & Thoughts ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024–NOV–2024   This week I got sick and was really rotting in bed, to gt health. I think I watched the content there is and now I am a bit
+cxxyyl          motivated to to somthing other – so it's thesis.digitale-grafik time. This will probably be one of the last times I touch 
+                this site for some time. I finised some more little bits in the backend, documentation and fixed issues with the css. There 
+                were some more problems with the columns I wanted to fix. 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024-OCT-30     Today I found another Bug with the display of the columns. Turns out that my last fix was still kinda hacky. But I found the right
+2024-OCT-30     Today I found another bug with the display of the columns. Turns out that my last fix was still kinda hacky. But I found the right
 cxxyyl          solution today. autoheight and column-fill:auto was the right solution. I also forgot to add hypenation and indenting. And I swear
                 the link issue was really haunting me... I spent like half an hour searching for the problem until I realised I forgot a ->toBool()
                 for the toggle that switches between the thesis website and the mirrored version
@@ -344,17 +349,14 @@ __________
 ✦ General To-Do's ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
+- write Search Guide  ✔️
 
-– Finish BAM 
+– comment everything JS ✔️
 
-- write Search Guide 
-
-– comment everything JS
-
-- github readme
+- github readme ✔️
 
 
-– Organize CSS / Additional Info and Interal Decoration  ✔️ 
+– Organize CSS / Additional Info and Interal Decoration ✔️
 
 - add OG desctiption and title
 - finish asci art ✔️ 
@@ -376,30 +378,5 @@ __________
 – Colorthemes and Custom Commands for DevMode  ✔️ 
 - Add language to Download thesis ✔️
 
-
-
-
-<additonal asci art>
  -->
-
-
-
-
-
-<!-- Naming Convention for Classes-->
-
-
-<!-- 
-
-Naming conventions
-
-BEM 
-
-css clean nesting aber damit html multiclassing vs nesting
-
-kurz begründen warum wir was genommen haben
-
-https://en.bem.info/methodology/naming-convention/
-
--->
 
