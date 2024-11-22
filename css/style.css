@@ -5,6 +5,9 @@ Welcome to the CSS of this website
 Here you will find the syling for the base version of 
 this website, as well as SearchMode and DevMode.
 
+OMDD and I decedied to go with the BEM naming convention to minimize errors with both
+of us working on it. https://en.bem.info/methodology/naming-convention/
+
 */
 
 
@@ -255,9 +258,6 @@ ____________________
 
 /* * Cursor Options */
 .filter{
-    /* Layout */
-    width: fit-content; 
-
     /* Interaction */
     cursor: pointer;
     
@@ -614,7 +614,6 @@ ____________________
                     /* Layout */
                     width: 66%;
                     height: var(--contentMaxHeightInner);
-
                     column-count: 2; /* Number of columns */
                     column-gap: var(--spacing-xs); /* Space between columns */
                     column-fill: auto; /* Fills the column with text until it's full!  */
@@ -660,11 +659,10 @@ ____________________
                 font-size: var(--font-lg);
             }
             
-            .accordion-content_cv-info{
+            .accordion-content__cv__info{
                 /* Layout */
                 width: calc((100% * 1/3) - var(--spacing-xs));
                 height: var(--contentMaxHeightInner);
-                order: 1;
 
                 /* Typography */
                 text-align: right;
@@ -674,8 +672,10 @@ ____________________
                 .accordion-content__cv-info__classes, 
                 .accordion-content__cv-info__projects{
                     /* Layout */
-                    padding-bottom: var(--spacing-md);    
+                    padding-bottom: var(--spacing-md);
                 } 
+
+
 
             .accordion-content__cv__bio {
                 /* Layout */
@@ -684,15 +684,29 @@ ____________________
 
                 column-count: 2; /* Number of columns */
                 column-gap: var(--spacing-xs); /* Space between columns */
+                column-fill: auto; /* Fills the column with text until it's full!  */
                 overflow: hidden; /* Prevent content from overflowing the container */
                 direction: rtl;  /* Right-to-left direction for the columns */
+
+
+
+
 
                 /* Typography */
                 text-align: left;
 
                 p{
                     /* Layout */
-                    height: 200%;
+                    height: min-content;
+                   
+                }
+
+                p:not(:first-child)::before{
+                    /* Layout */
+                    display:inline-block; 
+                    width:var(--spacing-md); 
+
+                    content: "";
                 }
             }
 
@@ -728,7 +742,13 @@ ____________________
         }
 
 
-
+    /* Switch columns off, if the Website is to narrow */
+       @media screen and (width < 1200px) {
+        .accordion-content__thesis-abstract,
+        .accordion-content__cv__bio{
+            column-count: 1;
+        }
+       }
 
 
 

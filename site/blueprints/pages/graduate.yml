@@ -39,7 +39,7 @@ columns:
               - link
               - email
             counter: true
-            maxlength: 500
+            maxlength: 600
             size: medium
             counter: true 
             help: Write a few sentences about yourself. Your interests, what you do or where you studied. You can also add links to other websites or projects in the field.   
