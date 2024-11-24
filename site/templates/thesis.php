@@ -1,122 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<?php snippet('creditsmini')?>
+
+
 <?php snippet('head')?>
 
-<a href="<?= $site->url() ?>">Return</a>
-<!-- Thesis Info -->
-<h1>Thesis</h1>
+<!-- Visit the main page for full documentation -->
+<a class="standalone__return" href="<?= $site->url() ?>">Return</a>
 
-    <h2>INFO</h2>
+<main class="standalone">
+	<article class="standalone__thesis">
+		<section>
+<?php if ($page->title()->isNotEmpty()): ?>
+			<h1><?= $page->title()?></h2>
+<?php endif ?>
+<?php if ($page->thesisSubtitle()->isNotEmpty()): ?>
+			<h2><?= $page->thesisSubtitle()?></h2>
+<?php endif ?>
+<?php $graduate = $page->connectedGraduate()->toPage() ?>
+			<h3>Author: <?=$graduate->name()?> <?=$graduate->surname()?></h3>
+<?php if($page->selectDegree()->isNotEmpty()): ?>
+			<p>Degree: <?= option('category-map')[$page->selectDegree()->value()] ?> Thesis</p>
+<?php endif?>
+<?php if($page->semesterCycle()->isNotEmpty() && $page->yearOfPublishing()->isNotEmpty()): ?>
+			<p>Published: <?= $page->semesterCycle()?> – <?= $page->yearOfPublishing()?></p>
+<?php endif?>
+<?php if ($page->language()->isNotEmpty()): ?>
+			<p>Language: <?= option('category-map')[$page->language()->category()->value()] ?></p>
+<?php endif ?>
 
-        <?php if ($page->title()->isNotEmpty()): ?>
-            <div><?= $page->title()?></div>
-        <?php endif ?>
+			<h3>Abstract:</h3>
+<?php if ($page->thesisAbstract()->isNotEmpty()): ?>
+				<div class="text-wrapper">
+					<?= $page->thesisAbstract()->kirbytext()?>
+				</div>
+<?php endif ?>
 
-        <?php if ($page->thesisSubtitle()->isNotEmpty()): ?>
-            <div><?= $page->thesisSubtitle()?></div>
-        <?php endif ?>
+			<h3>Tags:</h3>
+<?php if ($page->thesisTags()->isNotEmpty()): ?>  
+				<p><?php foreach ($page->thesisTags()->split() as $tags): ?><?= $tags ?>, <?php endforeach ?></p>
+<?php endif ?>
 
-        <?php if ($page->thesisAbstract()->isNotEmpty()): ?>
-            <div><?= $page->thesisAbstract()->kirbytext()?></div>
-        <?php endif ?>
+			<h3>Advisors:</h3>
+				<ul>
+<?php if ($page->advisor1()->isNotEmpty()): ?>
+					<li><?= $page->advisor1()?></li>
+<?php endif ?>
+<?php if ($page->advisor2()->isNotEmpty()): ?>
+					<li><?= $page->advisor2()?></li>
+<?php endif ?>
+<?php if ($page->advisor3()->isNotEmpty()): ?>
+					<li><?= $page->advisor3()?></li>
+<?php endif ?>
+				</ul>
+		</section>
 
-        <?php if ($page->thesisTags()->isNotEmpty()): ?>
-            <div>
-                <?php foreach ($page->thesisTags()->split() as $tags): ?>
-                <div><?= $tags ?></div>
-                <?php endforeach ?>
-            </div>
-        <?php endif ?>
+		<section>
+			<h3>Files</h3>
+<?php if ($page->thesispdf()->isNotEmpty()): ?>
+<?php $download = $page->thesispdf()->toFile() ?>
+				<a href="<?= $download->url() ?>">Download Thesis PDF</a>
+<?php endif ?>
+		</section>
 
-        <?php if ($page->selectBM()->isNotEmpty()): ?>
-            <div><?= $page->selectBM()?></div>
-        <?php endif ?>
-
-        <?php if ($page->semesterCycle()->isNotEmpty()): ?>
-            <div><?= $page->semesterCycle()?></div>
-        <?php endif ?>
-
-        <?php if ($page->yearOfPublishing()->isNotEmpty()): ?>
-            <div><?= $page->yearOfPublishing()->toDate("Y") ?></div>
-        <?php endif ?>
-
-        <?php if ($page->language()->isNotEmpty()): ?>
-            <div><?= $page->language()?></div>
-        <?php endif ?>
-
-
-        <!-- Advisors -->
-        
-        <?php if ($page->advisor1()->isNotEmpty()): ?>
-            <div><?= $page->advisor1()?></div>
-        <?php endif ?>
-
-        <?php if ($page->advisor2()->isNotEmpty()): ?>
-            <div><?= $page->advisor2()?></div>
-        <?php endif ?>
-
-        <?php if ($page->advisor3()->isNotEmpty()): ?>
-            <div><?= $page->advisor3()?></div>
-        <?php endif ?>
-
-
-    <h2>FILE</h2>
-
-        <?php if ($page->thesispdf()->isNotEmpty()): ?>
-            <?php $download = $page->thesispdf()->toFile() ?>
-                <a href="<?= $download->url() ?>">Download Thesis PDF</a>
-        <?php endif ?>
-
-        
-    <h2>Mirror</h2>
-
-        <?php if ($page->mirrorExternal()->isNotEmpty()): ?>
-            <a href="<?= $page->mirrorExternal()->toUrl()?>"> Mirror OG</a>
-        <?php endif ?>
-
-        <?php if ($page->mirrorKDG()->isNotEmpty()): ?>
-            <a href=" <?= $page->mirrorKDG()->toUrl()?>"> Mirror KDG</a>
-        <?php endif ?>
+		<section>
+			<h3>Thesis Website Archive</h3>
+				<ul>
+<?php if ($page->mirrorExternal()->isNotEmpty()): ?>
+					<li><a href="<?= $page->mirrorExternal()->toUrl()?>"> Mirror Original: <?= $page->mirrorExternal()->toUrl()?></a></li>
+<?php endif ?>
+<?php if ($page->mirrorKDG()->isNotEmpty()): ?>
+					<li><a href="<?= $page->mirrorKDG()->toUrl()?>"> Mirror KDG: <?= $page->mirrorKDG()->toUrl()?></a></li>
+<?php endif ?>
+				</ul>
+		</section>
+	</article>
 
 
-<h1>Graduate</h1>
+	<article class="standalone__graduate">
+		<section>
+			<h1>About the Author</h1>
+			<h3>Bio:</h3>
+<?php if ($graduate->bio()->isNotEmpty()): ?>
+<?= $graduate->bio()->kirbytext()?> 
+<?php endif ?>   
+			<h3>Classes:</h3>
+<?php if ($graduate->class()->isNotEmpty()): ?>
+				<ul>
+<?php foreach ($graduate->class()->split() as $tags): ?>
+					<li><?= $tags ?></li>
+<?php endforeach ?>
+				</ul>
+<?php endif ?>
+			<h3>Degrees at HFBK Hamburg: </h3>
+				<ul>
+<?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure();foreach ($gradProjects as $gradProject): ?>
+					<li class="searchText"><?= $gradProject->selectStudies()?>, <?= $gradProject->graduation()->toDate('Y')?></li>
+<?php endforeach ?>
+<?php endif ?>
+				</ul>
+			</section>
+					
+			<section>
+				<h3>Contact:</h3>
+					<ul>
+<?php if ($graduate->website()->isNotEmpty()): ?>
+						<li><a target="_blank" href=" <?= $graduate->website()->toUrl()?>"><?= $graduate->website()?></a></li>
+<?php endif ?>
+<?php if ($graduate->email()->isNotEmpty()): ?>
+						<li><a href="mailto:<?= Str::encode($graduate->email()) ?>"><?= Str::encode($graduate->email()) ?></a></li>
+<?php endif ?>
+					</ul>
+			</section>                
+			
+			<section>
+				<h3>Projects:</h3>
+					<ul>
+<?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure(); foreach ($gradProjects as $gradProject): ?>
+						<li><a href="<?= $gradProject->linkThesis()->toPage()->url()?>"><?= $gradProject->linkThesis()->toPage()->title()?></a></li>
+<?php endforeach ?><?php endif ?>
+					</ul>
+			</section>
+	
+			<section>
+				<h3><a href="<?= $graduate->url()?>">To Author Page</a></h3>
+			</section>
+	</article>
+</main>
 
-    <h2>Info</h2>
 
-        <?php $graduate = $page->connectedGraduate()->toPage() ?>
-
-        <?php if ($graduate->name()->isNotEmpty()): ?>
-            <div> <?= $graduate->name()?> <?= $graduate->surname()?></div>
-        <?php endif ?>
-
-        <?php if ($graduate->bio()->isNotEmpty()): ?>
-            <?= $graduate->bio()->kirbytext()?> 
-        <?php endif ?>
-        
-        <?php if ($graduate->class()->isNotEmpty()): ?>
-            <div>
-                <?php foreach ($graduate->class()->split() as $tags): ?>
-                    <div><?= $tags ?></div>
-                <?php endforeach ?>
-            </div>
-        <?php endif ?>
-
-        <?php if ($graduate->degree()->isNotEmpty()): ?>
-            <div> <?= $graduate->degree()?></div>
-        <?php endif ?>
-
-        <?php if ($graduate->graduation()->isNotEmpty()): ?>
-            <div><?= $graduate->graduation()->toDate("Y") ?></div>
-        <?php endif ?>
-                            
-    <h2>Contact</h2>
-
-        <?php if ($graduate->website()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $graduate->website()->toUrl()?>">Website</a>
-        <?php endif ?>
-
-        <?php if ($graduate->email()->isNotEmpty()): ?>
-            <a href="mailto:<?= Str::encode($graduate->email()) ?>">
-            <?= Str::encode($graduate->email()) ?>
-            </a>
-        <?php endif ?>
 
 <?php snippet('footer')?>
+
+</html>

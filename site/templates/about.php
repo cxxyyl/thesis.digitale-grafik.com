@@ -1,12 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<?php snippet('creditsmini')?>
+
+
 <?php snippet('head') ?>
+<?php snippet('nav') ?>
 
-
-<section id="about">
+<main class="about-imprint">
+    <section class="about">
 <?= $site->about()->kirbytext()?>
-</section>
+    </section>
 
 
-<section id="imprint">
+    <section class="imprint">
 <?= $site->imprint()->kirbytext()?>
-</section>
+    </section>
+</main>
+
 <?php snippet('footer') ?>
+
+</html>
+
+

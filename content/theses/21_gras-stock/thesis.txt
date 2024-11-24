@@ -1,0 +1,81 @@
+Title: Gras Stock
+
+----
+
+Thesissubtitle: 
+
+----
+
+Thesisabstract: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et e
+
+----
+
+Thesistags: 
+
+----
+
+Selectdegree: BA
+
+----
+
+Language: de
+
+----
+
+Semestercycle: WiSe
+
+----
+
+Yearofpublishing: 2019
+
+----
+
+Advisor1: ASDSD
+
+----
+
+Advisor2: FRFRFR
+
+----
+
+Advisor3: RERS SDFEefe
+
+----
+
+Thesispdf: 
+
+----
+
+Mirrorexternal: https://github.com/Klasse-Digitale-Grafik
+
+----
+
+Mirrorexternalbroken: false
+
+----
+
+Mirrorkdg: https://conversational-investigations.netlify.app/
+
+----
+
+Repositorylink: 
+
+----
+
+Connectedgraduate: - page://htx4oE1ucjHFGIIK
+
+----
+
+Todothesis: 
+
+----
+
+Toggletodo: false
+
+----
+
+Selectbm: MA
+
+----
+
+Uuid: VT9Zab5yEyIDFSPs

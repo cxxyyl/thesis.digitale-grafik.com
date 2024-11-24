@@ -1,8 +1,8 @@
 // check if the page is loaded, ony
 document.addEventListener("DOMContentLoaded", function () { 
+    
 //check if we are on the index page
-
-if(document.getElementById("search-box")){
+if(document.getElementById("search-box") ){
 
 
 // _______________________________________________________________________________________________________________________________________ //
@@ -198,15 +198,16 @@ if(document.getElementById("search-box")){
             // else do nothing
             function tagCounter() {
                 const tags = document.querySelectorAll('.searchText.tag.filter');
+                const mobileTags = document.querySelectorAll('.tag-mobile');
                 const tagCounts = {};
             
-                // Count occurrences of each tag content
+                // Count the total number for each tag
                 tags.forEach(tag => {
                     const content = tag.textContent.trim();
                     tagCounts[content] = (tagCounts[content] || 0) + 1;
                 });
             
-                // Process each tag
+                // Process each tag for "desktop" and give them the amount as data attribute
                 tags.forEach(tag => {
                     const content = tag.textContent.trim();
                     if (tagCounts[content] > 1) {
@@ -216,6 +217,18 @@ if(document.getElementById("search-box")){
                         tag.removeAttribute('data-other-tags');
                     }
                 });
+
+                // Same as "desktop" but writes the amount to tags-mobile
+                mobileTags.forEach(tag=>{
+                    const content = tag.textContent.trim();
+                    if (tagCounts[content] > 1) {
+                        const otherTags = tagCounts[content] - 1;
+                        tag.setAttribute('data-other-tags', otherTags);
+                    } else {
+                        tag.removeAttribute('data-other-tags');
+                    }
+                });
+
             }
             
             // Call the function when needed
@@ -224,6 +237,7 @@ if(document.getElementById("search-box")){
     
 } // end of check for index
 }); // end of DOMContentLoaded
+
 
 
 

@@ -20,6 +20,9 @@
         selecting this feature no longer needed. 
 
 
+
+
+
                                 ☗ Rest In Peace dear Filter View ☗
                                 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                                 You were once so full of promice, 
@@ -28,7 +31,7 @@
                                 away from us before you could even
                                 fully delevop into a full feature. 
                                 I am mourning you, for you have 
-                                be replaced by a simple search. 
+                                been replaced by a simple search. 
                                 May you find yourself used and
                                 enjoyed on other sites and tables.
 
@@ -37,6 +40,9 @@
                                 ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘ ⚘
 
                                 
+                                
+
+
         <div class="searchbar__dropdowns">
             <select name="baMaDropdown" id="baMaDropdown">
                 <option value="ba+ma">BA+MA</option>

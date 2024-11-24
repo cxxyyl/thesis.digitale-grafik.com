@@ -30,6 +30,11 @@ Studies:
   graduation: 2025-01-01
   linkthesis:
     - page://DjmeYxmIgjBtre0V
+- 
+  selectstudies: PHD
+  graduation: 2024-01-01
+  linkthesis:
+    - page://3YDVce69JnT6PkXW
 
 ----
 
