@@ -39,39 +39,40 @@ _________
 /* ? CSS Variables */
 :root {
 
-  /* Colors */
-  --color-primary: #000000;
-  --color-secondary: #FFFFFF;
+    /* Colors */
+    --color-primary: #000000;
+    --color-secondary: #FFFFFF;
 
-  --color-DevMode: #792cff;
-  /* --color-search: #e6dcff;  not used right now  */
+    --color-DevMode: #792cff;
+    /* --color-search: #e6dcff;  not used right now  */
 
 
-  /* Typography */
-  --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
+    /* Typography */
+    --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
 
-  /* Defines how tall the the inner part of the accordion is */
-  --contentMaxHeight: 32rem;
-  --contentMaxHeightInner:calc(var(--contentMaxHeight) * 0.79);
+    /* Defines how tall the the inner part of the accordion is */
+    --contentMaxHeight: 32rem;
+    --contentMaxHeightInner:calc(var(--contentMaxHeight) * 0.79);
 
-  /* Spacing */
-  --spacing-none: 0;
-  --spacing-xxs: .25rem;
-  --spacing-xs: .5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 3rem;
-  --spacing-xl: 4rem;
+    /* Spacing */
+    --spacing-none: 0;
+    --spacing-xxs: .25rem;
+    --spacing-xs: .5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
 
-  /* Radius */
-  --radius-xs: .5rem;
-  --radius-sm: 1rem;
-  --radius-lg: 2rem;
+    /* Radius */
+    --radius-xs: .5rem;
+    --radius-sm: 1rem;
+    --radius-lg: 2rem;
 
-  /* Font Sizes */
-  --font-sm:.75rem;
-  --font-md: 1rem;
-  --font-lg: 1.5rem;
+    /* Font Sizes */
+    --font-sm:.75rem;
+    --font-md: 1rem;
+    --font-lg: 1.5rem;
+
 
 }
 
@@ -83,7 +84,7 @@ _________
     color: var(--color-secondary);
 
     /* Animation */
-    transition: background-color 750ms ease, color 750ms ease;
+    transition: background-color 750ms ease;
 
 }
 
@@ -139,7 +140,7 @@ body {
     font-family: var(--font-primary);
 
     /* Animation */
-    transition: background-color 750ms ease, color 750ms ease;
+    transition: background-color 750ms ease; 
 }
 
 
@@ -178,6 +179,11 @@ ____________________
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
+
+    /* Animation */
+    transition: background-color 750ms ease;
+
+
 }
 
 .button-secondary {
@@ -187,6 +193,9 @@ ____________________
 
     /* Color */
     color: var(--color-secondary);
+
+    /* Animation */
+    transition: background-color 750ms ease;
 }
 
 .button-extraSpacing{
@@ -222,7 +231,7 @@ ____________________
     white-space: nowrap;
 
     /* Animation */
-    transition: background-color 750ms ease, color 750ms ease;
+    transition: background-color 750ms ease
 }
 
 .tag--inverted {
@@ -236,7 +245,8 @@ ____________________
     border: none;
 
     /* Animation */
-    transition: background-color 750ms ease, color 750ms ease;
+    transition: background-color 750ms ease;
+
 }
 
 .tag--delete:hover{
@@ -262,7 +272,7 @@ ____________________
     cursor: pointer;
     
     /* Animation */
-    transition: background-color 500ms ease;
+    transition: background-color 750ms ease;
 }
 
 
@@ -370,6 +380,10 @@ ____________________
 
     /* Typography */
     font-family: var(--font-primary);
+}
+
+#search-box::placeholder{
+    color: var(--color-primary)
 }
 
 /* Styling for the draggable Element of the Slider */
@@ -524,6 +538,7 @@ ____________________
     .accordion:hover .accordion-content {
         /* Layout */
         height: var(--contentMaxHeight);
+        transition: height 750ms ease 200ms; /* This is the transition + delay for the opening on hover */
     }
 
 
@@ -541,7 +556,7 @@ ____________________
         padding-right: var(--spacing-xs);
 
         /* Animation */
-        transition: height 750ms ease 120ms; /* This is the transition + delay for the opening on hover */
+        transition: height 750ms ease 400ms; /* This is the transition + delay for the opening on hover */
     }
 
         /* ^ Accordion Thesis Information*/
@@ -622,7 +637,6 @@ ____________________
                     p{
                         /* Layout */
                         height: min-content;
-                       
                     }
 
                     p:not(:first-child)::before{
@@ -686,18 +700,15 @@ ____________________
                 column-gap: var(--spacing-xs); /* Space between columns */
                 column-fill: auto; /* Fills the column with text until it's full!  */
                 overflow: hidden; /* Prevent content from overflowing the container */
-                direction: rtl;  /* Right-to-left direction for the columns */
-
-
-
-
-
+               
                 /* Typography */
                 text-align: left;
+                direction: rtl; /* Okay this is a bit hacky! First rtl for column orientation */
 
                 p{
                     /* Layout */
                     height: min-content;
+                    direction: ltr; /* and then ltr for correct punctuation */
                    
                 }
 
@@ -752,18 +763,198 @@ ____________________
 
 
 
-
-
-
 /* ^ About Page */
-#about, #imprint{
+.about-imprint{
     /* Layout */
+    padding: var(--spacing-xs);
     padding-top: var(--spacing-lg);
+}
+
+
+.about-imprint h1{
+    /* Typography */
+    padding-top: var(--spacing-md);
+    font-size: var(--font-lg);
+}
+
+
+
+/* ^ Hidden Standalone Pages for Thesis and Graduate */
+
+.standalone{
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.standalone__return{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: var(--spacing-sm);
+}
+
+.standalone__thesis-wrapper{
+    h1{
+        padding-left: var(--spacing-sm);
+        padding-top: var(--spacing-sm);
+
+        font-size: var(--font-lg);
+    }
+}
+
+.standalone__thesis,
+.standalone__graduate{
+    /* Layout */
+    width: 45vw;
+    padding: var(--spacing-sm);
+}
+
+.standalone__thesis,
+.standalone__graduate{
+    padding-bottom:var(--spacing-md);
+
+    h1{
+        font-size: var(--font-lg);
+        padding: 0px;
+    }
+    h2{
+        padding-bottom: var(--radius-xs);
+    }
+    h3{
+        padding-top: var(--spacing-xs);
+    }
+
+    .text-wrapper p:not(:first-child)::before{
+        /* Layout */
+        display:inline-block; 
+        width:var(--spacing-md); 
+
+        content: "";
+    }
+  
+}
+
+
+/* 
+_______________
+✦ For Portrait Mode ✦
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+*/
+
+
+#all-tags{display: none;}
+
+@media screen and (width < 850px){
+
+    .searchbar{
+        /* Layout */
+        display: none;
+    }
+
+    nav{
+        /* Layout */
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+
+        /* Color */
+        background-color: var(--color-secondary);
+    }
+
+    main{
+        display: none;
+    }
+
+
+    #all-tags{
+        /* Layout */
+        position: absolute ;
+        top: 36px;
+        width: 100%;
+        padding-bottom: var(--spacing-xs);
+       
+        display: flex !important;
+        flex-direction: column;
+        gap: var(--radius-xs);
 
         h1{
+            /* Layout */
+            width: 100%;
+            padding: var(--spacing-xxs);
+
+            /* Color */
+            border-bottom: 1px solid var(--color-primary);
+            background-color: var(--color-secondary);
+        }
+        
+        .all-tags__researched{
+            /* Layout */
+            position: sticky;
+            top: 36px;
+
             /* Typography */
             font-size: var(--font-lg);
         }
+    
+        .all-tags__desktop{
+                        /* Layout */
+            position: sticky;
+            top: 72px;
+            height: 36px;
+            align-content: center;
 
+            /* Color */
+            border-top: 1px solid var(--color-primary);
+
+            /* Typography */
+            font-size: var(--font-md);
+        }
+
+        .all-tags__spacer{
+            /* Layout */
+            height: 100vh;
+        }
+
+
+        .tag-mobile{
+            /* Layout */
+            width: fit-content;
+            height: fit-content;
+            margin-left: var(--spacing-xxs);
+            padding: var(--spacing-xxs);
+            border-radius: var(--radius-lg);
+        
+            /* Interaction */
+            cursor: pointer;
+            user-select: none;
+
+            /* Color */
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+
+            /* Typograohy */
+            font-size: var(--font-sm);
+            font-family: var(--font-primary);
+            text-align: left;
+            text-transform: uppercase;
+            white-space: nowrap;
+
+            /* Animation */
+            transition: background-color 750ms ease;
+        }
+
+        .tag-mobile[data-other-tags]::after {
+            /* Layout */
+            padding-left: var(--spacing-xxs);
+
+            /* Content */
+            content: '[' attr(data-other-tags) ']';
+        }
+    }
 
 }
+

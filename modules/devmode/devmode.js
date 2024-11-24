@@ -494,6 +494,7 @@ if(document.getElementById("search-box")){
             removeMarkCSS();
             removeDevModeCSS();
             deleteDevModeCSSCookie();
+            window.location.reload();
             return true;
         }
 

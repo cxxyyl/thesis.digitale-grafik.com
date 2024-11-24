@@ -13,11 +13,28 @@
 ______________
 ✦ Devlog & Thoughts ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024–NOV–2024   This week I got sick and was really rotting in bed, to gt health. I think I watched the content there is and now I am a bit
-cxxyyl          motivated to to somthing other – so it's thesis.digitale-grafik time. This will probably be one of the last times I touch 
-                this site for some time. I finised some more little bits in the backend, documentation and fixed issues with the css. There 
-                were some more problems with the columns I wanted to fix. 
+2024–NOV–24
+cxxyyl
+
+
+
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024–NOV–23     M o b i l e ? 
+cxxyyl          I guess so... needed some distraction from cleaning the flat today – so I guess there is a mobile (not really) version of the
+                website now. There some new css and js in SearchMode to make it work. Only thing thats left is the brithchart. Also Im still not
+                so shure what to do with the title.
+                    Ok, so more stuff happened? There is now a super hidden secondary system which only shows up by entering the direct link to
+                a specfic subpage or navigating there through the CMS. Those being /theses/... or /graduates/... It's nice to have just in
+                case, but the main reason was to print a summary of a project + studen or student + all Projects.
+
+
+
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024–NOV–22   This week I got sick and was really rotting in bed, to get back to health asap. It felt like I watched the content there is 
+cxxyyl          and now I am a bit motivated to to somthing other – so it's thesis.digitale-grafik time. I finished some more little bits in the 
+                backend, documentation and fixed issues with the css. There were some more problems with the columns I wanted to fix. 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
 2024-OCT-30     Today I found another bug with the display of the columns. Turns out that my last fix was still kinda hacky. But I found the right

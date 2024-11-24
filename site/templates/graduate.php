@@ -1,90 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<?php snippet('creditsmini')?>
+
+
 <?php snippet('head')?>
 
-<a href="<?= $site->url() ?>">Return</a>
+<!-- Visit the main page for full documentation -->
+<a class="standalone__return" href="<?= $site->url() ?>">Return</a>
 
-<h1>Graduate</h1>
+<main class="standalone">
+	<div class="standalone__thesis-wrapper">
+		<h1>Projects</h1>
+<?php if ($page->studies()->isNotEmpty()): ?><?php $gradProjects = $page->studies()->toStructure(); foreach ($gradProjects as $gradProject): ?>
+<?php $connectedProject = $gradProject->linkThesis()->toPage() ?>
+		<article class="standalone__thesis">
+			<section>
+<?php if ($connectedProject->title()->isNotEmpty()): ?>
+				<h1><a href="<?= $connectedProject->url()?>"><?= $connectedProject->title()?></a></h1>
+<?php endif ?>
+<?php if ($connectedProject->thesisSubtitle()->isNotEmpty()): ?>
+				<h2><?= $connectedProject->thesisSubtitle()?></h2>
+<?php endif ?>
 
-    <h2>Info</h2>
+<?php if($connectedProject->selectDegree()->isNotEmpty()): ?>
+				<p>Degree: <?= option('category-map')[$connectedProject->selectDegree()->value()] ?></p>
+<?php endif?>
+<?php if($connectedProject->semesterCycle()->isNotEmpty() && $connectedProject->yearOfPublishing()->isNotEmpty()): ?>
+				<p>Published: <?= $connectedProject->semesterCycle()?> – <?= $connectedProject->yearOfPublishing()?></p>
+<?php endif?>
+<?php if ($connectedProject->language()->isNotEmpty()): ?>
+				<p>Language: <?= option('category-map')[$connectedProject->language()->category()->value()] ?></p>
+<?php endif ?>
+				<h3>Abstract:</h3>
+<?php if ($connectedProject->thesisAbstract()->isNotEmpty()): ?>
+					<div class="text-wrapper"><?= $connectedProject->thesisAbstract()->kirbytext()?></div>
+<?php endif ?>
 
-        <?php if ($page->name()->isNotEmpty()): ?>
-            <div> <?= $page->name()?> <?= $page->surname()?></div>
-        <?php endif ?>
+				<h3>Tags:</h3><?php if ($connectedProject->thesisTags()->isNotEmpty()): ?>  
+				<p><?php foreach ($connectedProject->thesisTags()->split() as $tags): ?><?= $tags ?>, <?php endforeach ?></p>
+<?php endif ?>
 
-        <?php if ($page->bio()->isNotEmpty()): ?>
-            <?= $page->bio()->kirbytext()?> 
-        <?php endif ?>
+				<h3>Advisors:</h3>
+					<ul>
+<?php if ($connectedProject->advisor1()->isNotEmpty()): ?>
+						<li><?= $connectedProject->advisor1()?></li>
+<?php endif ?>
+<?php if ($connectedProject->advisor2()->isNotEmpty()): ?>
+						<li><?= $connectedProject->advisor2()?></li>
+<?php endif ?>
+<?php if ($connectedProject->advisor3()->isNotEmpty()): ?>
+						<li><?= $connectedProject->advisor3()?></li>
+<?php endif ?>
+					</ul>
+			</section>
 
-        <?php if($image = $page->gradImage()->toFile()): ?>
-            <img src="<?= $image->url() ?>" alt="<?= $image->alt() ?>">
-        <?php endif ?>
-        
-        <?php if ($page->class()->isNotEmpty()): ?>
-            <div>
-                <?php foreach ($page->class()->split() as $tags): ?>
-                    <div><?= $tags ?></div>
-                <?php endforeach ?>
-            </div>
-        <?php endif ?>
+			<section>
+				<h3>Files</h3>
+<?php if ($connectedProject->thesispdf()->isNotEmpty()): ?>
+<?php $download = $connectedProject->thesispdf()->toFile() ?>
+					<a href="<?= $download->url() ?>">Download Thesis PDF</a>
+<?php endif ?>
+			</section>
 
-        <?php if ($page->degree()->isNotEmpty()): ?>
-            <div> <?= $page->degree()?></div>
-        <?php endif ?>
+			<section>
+				<h3>Thesis Website Archive</h3>
+					<ul>
+<?php if ($connectedProject->mirrorExternal()->isNotEmpty()): ?>
+						<li><a href="<?= $connectedProject->mirrorExternal()->toUrl()?>">Mirror Original: <?= $connectedProject->mirrorExternal()->toUrl()?></a></li>
+<?php endif ?>
+<?php if ($connectedProject->mirrorKDG()->isNotEmpty()): ?>
+						<li><a href=" <?= $connectedProject->mirrorKDG()->toUrl()?>"> Mirror KDG: <?= $connectedProject->mirrorKDG()->toUrl()?> </a></li>
+<?php endif ?>
+					</ul>
+			</section>
+		</article>
+<?php endforeach?>
+<?php endif ?>
+	</div>
 
-        <?php if ($page->graduation()->isNotEmpty()): ?>
-            <div><?= $page->graduation()->toDate("Y") ?></div>
-        <?php endif ?>
-                            
-    <h2>Contact</h2>
 
-        <?php if ($page->website()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $page->website()->toUrl()?>">Website</a>
-        <?php endif ?>
 
-        <?php if ($page->email()->isNotEmpty()): ?>
-            <a href="mailto:<?= Str::encode($page->email()) ?>">
-            <?= Str::encode($page->email()) ?>
-            </a>
-        <?php endif ?>
+<article class="standalone__graduate">
+    <section>
+		<h1>About the Author</h1>
+<?php if ($page->name()->isNotEmpty()): ?>
+		<h3>Author: <?= $page->name()?> <?= $page->surname()?></h3>
+<?php endif ?>
+		<h3>Bio:</h3>
+<?php if ($page->bio()->isNotEmpty()): ?>
+<?= $page->bio()->kirbytext()?> 
+<?php endif ?>   
+		<h3>Classes:</h3>
+<?php if ($page->class()->isNotEmpty()): ?>
+			<ul>
+<?php foreach ($page->class()->split() as $tags): ?>
+	    		<li><?= $tags ?></li>
+<?php endforeach ?>
+			</ul>
+<?php endif ?>
+		<h3>Degrees at HFBK Hamburg: </h3>
+			<ul>
+<?php if ($page->studies()->isNotEmpty()): ?><?php $gradProjects = $page->studies()->toStructure();foreach ($gradProjects as $gradProject): ?>
+	   			<li class="searchText"><?= $gradProject->selectStudies()?>, <?= $gradProject->graduation()->toDate('Y')?></li>
+<?php endforeach ?>
+<?php endif ?>
+			</ul>
+    </section>
+	
+    <section>
+		<h3>Contact:</h3>
+		<ul>
+<?php if ($page->website()->isNotEmpty()): ?>
+			<li><a target="_blank" href=" <?= $page->website()->toUrl()?>"><?= $page->website()?></a></li>
+<?php endif ?>
+<?php if ($page->email()->isNotEmpty()): ?>
+			<li><a href="mailto:<?= Str::encode($page->email()) ?>"><?= Str::encode($page->email()) ?></a></li>
+<?php endif ?>
+		</ul>
+    </section>                
+</main>
 
-    <h2>Socials</h2>
-        
-        <?php if ($page->instagram()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $page->instagram()->toUrl()?>">Instagram</a>
-        <?php endif ?>
-
-        <?php if ($page->arena()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $page->arena()->toUrl()?>">Arena</a>
-        <?php endif ?>
-
-        <?php if ($page->git()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $page->git()->toUrl()?>">Github</a>
-        <?php endif ?>
-
-        <?php if ($page->social1name()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $page->social1link()->toUrl()?>"><?=$page->social1name() ?></a>
-        <?php endif ?>
-
-        <?php if ($page->social2name()->isNotEmpty()): ?>
-                <a target="_blank" href=" <?= $page->social2link()->toUrl()?>"><?=$page->social2name() ?></a>
-        <?php endif ?>
-
-<h1>Projects</h1>
-    
-    <?php if ($page->linkBA()->isNotEmpty()): ?>    
-        <?php $thesisBA = $page->linkBA()->toPage() ?>
-
-        <?php if ($thesisBA->thesisTitle()->isNotEmpty()): ?>
-        <a href="<?= $thesisBA->url() ?>"><?= $thesisBA->thesisTitle()?></a>
-        <?php endif ?>
-
-    <?php endif ?>
-    
-    <?php if ($page->linkMA()->isNotEmpty()): ?> 
-        <?php $thesisMA = $page->linkMA()->toPage() ?>
-
-        <?php if ($thesisMA->thesisTitle()->isNotEmpty()): ?>
-            <a href="<?= $thesisMA->url() ?>"><?= $thesisMA->thesisTitle()?></a>
-        <?php endif ?>
-    <?php endif ?>
 
 <?php snippet('footer')?>
+
+</html>

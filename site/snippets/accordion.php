@@ -1,7 +1,7 @@
-<?php  foreach ($site->grandchildren()->listed() as $item):?> 
-<?php  $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): ?>
+<?php foreach ($site->grandchildren()->listed() as $item):?> 
+<?php $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): ?>
 
-<article data-info="<?= $item->title()->slug()?>" class="search-result accordion">
+<article id="<?= $item->title()->slug()?>" class="search-result accordion">
 <!--
 
 ✶    ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ✶
@@ -25,6 +25,15 @@ Degree ----- <?= $item->selectDegree()?><?php endif?>
 Published -- <?= $item->semesterCycle()?><?php endif?>
 <?php if($item->yearOfPublishing()->isNotEmpty()): ?>
  – <?= $item->yearOfPublishing()?><?php endif?>
+
+
+Direct Link to Subpage for Printing Options
+<?= $item->url()?>
+
+
+Summary of all Projects
+<?= $item->connectedGraduate()->toPage()->url()?>
+
 
  --> 
 
@@ -60,7 +69,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
             
             <!-- Language the thesis is written in -->
 <?php if ($item->language()->isNotEmpty()): ?>
-            <p data-search="<?=option('category-map')[$item->language()->category()->value()]?>" class="filter button-primary button-extraSpacing searchText"><?= $item->language()->category()?></p>
+            <p data-search="<?=option('category-map')[$item->language()->category()->value()]?>" class="accordion-container__language filter button-primary button-extraSpacing searchText"><?= $item->language()->category()?></p>
 <?php endif ?>
             
             <!-- Links for downloading the thesis and opening the original thesis website  -->
@@ -80,7 +89,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
 <?php if ($item->thesispdf()->isNotEmpty()): ?>
 
                 <!-- Download Link for Thesis -->
-                <a class="button-primary" href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
+                <a target="_blank" class="button-primary" href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
 <?php endif ?>
             </div>
         </div>
@@ -256,7 +265,7 @@ Published -- <?= $item->semesterCycle()?><?php endif?>
             <div class="accordion-content__links">
 <?php if ($item->thesispdf()->isNotEmpty()): ?>
                 <div class="accordion-content__links__download-container">
-                    <a href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
+                    <a target="_blank" href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
                     <button class="tag"><?= $item->language()->category()?></button>
                 </div>
 <?php endif ?>

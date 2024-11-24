@@ -1,23 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<?php snippet('credits')?>
+
+
 <?php snippet('head')?>
 
+<?php snippet('intro')?>
 
-<?php snippet('searchbar')?>
+
+<?php snippet('nav') ?>
+
+
+
 <?php snippet('searchmode')?>
-
-
-
-
-
-
-
 <?php snippet('devmode')?>
+<?php snippet('searchbar')?>
 
 
 
 
-
-
-
+<?php snippet('mobiletags') ?>
 
 
 
@@ -70,13 +73,13 @@
 
 
 <?php snippet('accordion') ?>
+
 </main>
 
+<?php snippet('birthchart') ?>
+
 <?php snippet('footer')?>
-
-
-
-
+</html>
 
 
 
