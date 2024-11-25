@@ -2,8 +2,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>thesis.digitale-grafik.com</title>
+    <meta name="description" content="<?php if ($site->ogDescription()->isNotEmpty()):?> <?= $site->ogDescription()?> <?php endif ?>">
 
-    <!-- add OG Data -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="<?= $site->title()?>" />
+    <meta property="og:type" content="Website" />
+    <meta property="og:url" content="https://thesis.digitale-grafik.com" />
+    <meta property="og:description" content="<?php if ($site->ogDescription()->isNotEmpty()):?> <?= $site->ogDescription()?> <?php endif ?>">
+    <meta property="og:image" content="<?php if ($site->ogImage()->isNotEmpty()): ?> <?= $site->ogImage()->toFile()->url()?> <?php endif ?>" />
 
 
     <!-- 
