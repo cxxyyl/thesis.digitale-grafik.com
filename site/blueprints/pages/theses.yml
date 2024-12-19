@@ -38,6 +38,7 @@ sections:
     label: Thesis Online
     type: pages
     status: listed
+    sortBy: yearOfPublishing desc
 	
 	
 

@@ -22,11 +22,11 @@ Language: de
 
 ----
 
-Semestercycle: 
+Semestercycle: SuSe
 
 ----
 
-Yearofpublishing: 
+Yearofpublishing: 2021
 
 ----
 

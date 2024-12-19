@@ -67,10 +67,10 @@
 				<h3>Thesis Website Archive</h3>
 					<ul>
 <?php if ($connectedProject->mirrorExternal()->isNotEmpty()): ?>
-						<li><a href="<?= $connectedProject->mirrorExternal()->toUrl()?>">Mirror Original: <?= $connectedProject->mirrorExternal()->toUrl()?></a></li>
+						<li><a href="<?= $connectedProject->mirrorExternal()->toUrl()?>">Thesis Website: <?= $connectedProject->mirrorExternal()->toUrl()?></a></li>
 <?php endif ?>
 <?php if ($connectedProject->mirrorKDG()->isNotEmpty()): ?>
-						<li><a href=" <?= $connectedProject->mirrorKDG()->toUrl()?>"> Mirror KDG: <?= $connectedProject->mirrorKDG()->toUrl()?> </a></li>
+						<li><a href=" <?= $connectedProject->mirrorKDG()->toUrl()?>"> Website Archive Version: <?= $connectedProject->mirrorKDG()->toUrl()?> </a></li>
 <?php endif ?>
 					</ul>
 			</section>

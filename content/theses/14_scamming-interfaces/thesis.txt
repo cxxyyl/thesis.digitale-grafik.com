@@ -1,4 +1,4 @@
-Title: Building Bridges, Framing Mysteries
+Title: Scamming Interfaces
 
 ----
 
@@ -10,7 +10,7 @@ Thesisabstract:
 
 ----
 
-Thesistags: 
+Thesistags: Scamming
 
 ----
 
@@ -18,7 +18,7 @@ Selectdegree: MA
 
 ----
 
-Language: en
+Language: de
 
 ----
 
@@ -26,7 +26,7 @@ Semestercycle: WiSe
 
 ----
 
-Yearofpublishing: 2021/22
+Yearofpublishing: 2020
 
 ----
 
@@ -42,11 +42,11 @@ Advisor3:
 
 ----
 
-Thesispdf: 
+Thesispdf: - file://iTqiqNMx2GG7nnMM
 
 ----
 
-Mirrorexternal: 
+Mirrorexternal: https://www.scam.me
 
 ----
 
@@ -54,7 +54,7 @@ Mirrorexternalbroken: false
 
 ----
 
-Mirrorkdg: 
+Mirrorkdg: https://scamming-interfaces.digitale-grafik.com
 
 ----
 
@@ -62,7 +62,7 @@ Repositorylink:
 
 ----
 
-Connectedgraduate: - page://5MXS7YSseGhQydVD
+Connectedgraduate: - page://U2x1o75NeQlhTuKH
 
 ----
 
@@ -74,8 +74,8 @@ Toggletodo: false
 
 ----
 
-Selectbm: MA
+Uuid: saUoAEIu9ZUPk4Nc
 
 ----
 
-Uuid: DjmeYxmIgjBtre0V
+Selectbm: MA

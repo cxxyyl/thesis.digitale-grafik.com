@@ -1,0 +1,81 @@
+Title: A Fictional Thesis about Fictional Things Copy Copy
+
+----
+
+Thesissubtitle: 
+
+----
+
+Thesisabstract:
+
+Please write short abstract for your thesis. The abstract should summerize your written thesis. You can also mention relevant topics, keywords or authors that were related in your research. In theory the abstract is important on this website, as it is one of the pieces of information that feed the search option on thesis.digitale. The Abstract should not be longer than 1000 characters with spaces.
+
+Please use tags to make the topics you wrote on more accessible. Thesis.digitale uses these tags to interconnect all the different thesis projects as well as make them searchable. You can look at all the tags other graduates have already used in their projects. Please check if there are already tags describing your project, if not feel free to add your own tags as well. Please keep in mind that the tags are not way to specific so they could apply to other thesis projects as well.
+
+----
+
+Thesistags: machine learning, extended reality, feminism, cyber feminism, open source plattforms, web comments
+
+----
+
+Selectdegree: BA
+
+----
+
+Language: en
+
+----
+
+Semestercycle: WiSe
+
+----
+
+Yearofpublishing: 2025
+
+----
+
+Advisor1: Christoph Knoth
+
+----
+
+Advisor2: Konrad Renner
+
+----
+
+Advisor3: 
+
+----
+
+Thesispdf: - file://D6W8YO3pKyQeZudH
+
+----
+
+Mirrorexternal: https://conversational-investigations.netlify.app/
+
+----
+
+Mirrorexternalbroken: true
+
+----
+
+Mirrorkdg: 
+
+----
+
+Repositorylink: https://projekte.hfbk.net/
+
+----
+
+Connectedgraduate: - page://g7ox7cxRGpbDETF0
+
+----
+
+Todothesis: 
+
+----
+
+Toggletodo: false
+
+----
+
+Uuid: KXDJM4El1Db8OwyD

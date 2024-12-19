@@ -1,7 +1,20 @@
-<?php foreach ($site->grandchildren()->listed() as $item):?> 
-<?php $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): ?>
+<?php foreach ($site->grandchildren()->published()->sortBy('yearOfPublishing', 'desc', 'semesterCycle', 'desc') as $item):?> 
+<?php 
+    $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): 
 
-<article id="<?= $item->title()->slug()?>" class="search-result accordion">
+    // Make 20XX/YY from 20XX
+    $yearOfPublishing = (int) $item->yearOfPublishing()->value(); // Convert to an integer
+    $nextYear = $yearOfPublishing + 1; // Add 1 to the year
+    $newYear = $yearOfPublishing . '/' . substr($nextYear, -2); // Format as "2025/26"
+
+    // Check if SuSe or WiSe
+    $semesterCycle = $item->semesterCycle()->value(); // Get the value of semesterCycle
+      $isWs = $semesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs to true or false
+
+?>
+
+
+<article id="<?php if ($item->title()->isNotEmpty()):?><?= $item->title()->slug()?><?php endif?>" class="search-result accordion">
 <!--
 
 ✶    ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ✶
@@ -10,7 +23,8 @@
    ̴ ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ   ✶   ℹ  ̴
 ✶    ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ̴   ✶
 
-Title ------ <?= $item->title()?>
+<?php if ($item->title()->isNotEmpty()):?>
+Title ------ <?= $item->title()?><?php endif ?>
 
 <?php if ($item->thesisSubtitle()->isNotEmpty()): ?>
 Subtitle --- <?= $item->thesisSubtitle()?><?php endif ?>
@@ -23,13 +37,11 @@ Degree ----- <?= $item->selectDegree()?><?php endif?>
 
 <?php if($item->semesterCycle()->isNotEmpty()): ?>
 Published -- <?= $item->semesterCycle()?><?php endif?>
-<?php if($item->yearOfPublishing()->isNotEmpty()): ?>
- – <?= $item->yearOfPublishing()?><?php endif?>
+ – <?php if($item->yearOfPublishing()->isNotEmpty()): ?><?php if($isWs === true): ?><?= $newYear ?><?php else: ?><?= $item->yearOfPublishing() ?><?php endif; ?><?php endif; ?>
 
 
 Direct Link to Subpage for Printing Options
 <?= $item->url()?>
-
 
 Summary of all Projects
 <?= $item->connectedGraduate()->toPage()->url()?>
@@ -53,43 +65,45 @@ Summary of all Projects
             <!-- Semester of Publishing -->
             <div class="accordion-container__date">
 <?php if($item->yearOfPublishing()->isNotEmpty()): ?>
+<?php if($isWs === true): ?>
+                <p class="filter searchText"><?= $newYear?></p>
+<?php else: ?>
                 <p class="filter searchText"><?= $item->yearOfPublishing()?></p>
-<?php endif?>
+<?php endif ?>
+<?php endif ?>
 <?php if($item->semesterCycle()->isNotEmpty()): ?>
                 <p class="filter searchText"><?= $item->semesterCycle()?></p>
 <?php endif?>
             </div>
-                
-            <!-- Thesis Author -->
-<?php $graduate = $item->connectedGraduate()->toPage() ?>
-            <h4 class="accordion-container__graduate"><?=$graduate->name()?> <?=$graduate->surname()?></h4>
+
+            <!-- Language the thesis is written in -->
+<?php if ($item->language()->isNotEmpty()): ?>
+            <h4 data-search="<?=option('category-map')[$item->language()->category()->value()]?>" class="accordion-container__language"><?= $item->language()->category()?></h4>
+<?php endif ?>
             
             <!-- Thesis Title -->
             <h4 class="accordion-container__thesis"><?= $item->title()?></h4>
             
-            <!-- Language the thesis is written in -->
-<?php if ($item->language()->isNotEmpty()): ?>
-            <p data-search="<?=option('category-map')[$item->language()->category()->value()]?>" class="accordion-container__language filter button-primary button-extraSpacing searchText"><?= $item->language()->category()?></p>
-<?php endif ?>
+             <!-- Thesis Author -->
+<?php $graduate = $item->connectedGraduate()->toPage() ?>
+            <h4 class="accordion-container__graduate"><?=$graduate->name()?> <?=$graduate->surname()?></h4>
             
             <!-- Links for downloading the thesis and opening the original thesis website  -->
             <div class="accordion-container__downloads">
 
-<?php if ($item->mirrorExternalBroken()->toBool() === true ):?>
-<?php if ($item->mirrorExternal()->isNotEmpty()): ?> 
-                <!-- Link to original Website-->
-                <a target="_blank" class="button-primary" href="<?=$item->mirrorExternal()->url()?>">Open Website ↗</a>
-<?php endif ?>
+                <!-- Website Status-->
+<?php if ($item->mirrorExternal()->isNotEmpty() || $item->mirrorKDG()->isNotEmpty()): ?> 
+                
+                <h4 class="status-online">Website</h4>
 <?php else:?>
-<?php if ($item->mirrorKDG()->isNotEmpty()): ?> 
-                <!-- Link to KDG Archive Website-->
-                <a target="_blank" class="button-primary" href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
+                <h4 class="status-offline">Website</h4>
 <?php endif ?>
-<?php endif ?>
-<?php if ($item->thesispdf()->isNotEmpty()): ?>
 
-                <!-- Download Link for Thesis -->
-                <a target="_blank" class="button-primary" href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
+                <!-- Thesis Status -->
+<?php if ($item->thesispdf()->isNotEmpty()): ?>
+                <h4 class="status-online">Thesis</h4>
+<?php else: ?>
+                <h4 class="status-offline">Thesis</h4>
 <?php endif ?>
             </div>
         </div>
@@ -137,7 +151,12 @@ Summary of all Projects
 <?php endif?>
 
                         <!-- Year of Publishing -->
-                        <li><?php if($item->yearOfPublishing()->isNotEmpty()):?><span class="filter searchText"><?= $item->semesterCycle()?></span><?php endif?> <?php if($item->semesterCycle()->isNotEmpty()): ?><span class="filter searchText"><?= $item->yearOfPublishing()?></span><?php endif?></li>
+                        <li>
+                            <?php if($item->semesterCycle()->isNotEmpty()):?>
+                                <span class="filter searchText"><?= $item->semesterCycle()?></span>
+                            <?php endif?> 
+                            <?php if($item->yearOfPublishing()->isNotEmpty()):?><?php if($isWs === true):?><span class="filter searchText"><?= $newYear?></span><?php else:?><span class="filter searchText"><?= $item->yearOfPublishing()?></span><?php endif?><?php endif?>
+                        </li>
                     </ul>
                     
                     <!-- Advisors -->

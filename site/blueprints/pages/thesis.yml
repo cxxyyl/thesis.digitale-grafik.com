@@ -53,7 +53,8 @@ columns:
               MA: Master
               PHD: PHD
             width: 1/2
-            help: Please select if you wrote a BA, MA or PHD thesis. 
+            help: Please select if you wrote a BA, MA or PHD thesis.
+            required: true
 
           language: 
             label: Language the thesis is written in
@@ -64,6 +65,7 @@ columns:
               en: English
             width: 1/2
             help: Please select if wou wrote your thesis in German or English. 
+            required: true
                             
           semesterCycle:
             label: Summersemester / Wintersemester
@@ -72,7 +74,8 @@ columns:
               - SuSe 
               - WiSe
             width: 1/2
-            help: Please select the semester you registerd you thesis. 
+            help: The Semester that you should put in is the Semester in which you graduated, not the one you registerd your thesis.
+            required: true
 
 
           yearOfPublishing:
@@ -80,7 +83,9 @@ columns:
             type: text
             icon: calendar
             width: 1/2
-            help: If you selected SuSe (Summer Semester) the year format should be 20XX. If you selected WiSe (Winter Semester) the year format should be 20XX/XX eg. 2024/25. 
+            help: If you selected SuSe (Summer Semester) the Date should be 20XX. If you selected WiSe (Winter Semester) enter the Year the Semester started – e.g. for WiSe 2024/25 you would only enter 2024. 
+            required: true
+          
 
       advisors:
         type: fields
@@ -125,6 +130,7 @@ columns:
             type: files
             max: 1
             multiple: false
+            required: true
 
       thesisLinks: 
         type: fields
@@ -137,7 +143,7 @@ columns:
 
           mirrorExternal:
             type: url
-            label: MIRROR EXTERNAL — Link to Thesis Website on your own hosting service. 
+            label: External Domain — Link to Thesis Website on your own hosting service. 
             width: 1/2
 
           mirrorExternalBroken:
@@ -150,7 +156,7 @@ columns:
           
           mirrorKDG:
             type: url
-            label: MIRROR ARCHIVE — Link to Thesis Website Archive. 
+            label: Archive or KDG Hosted — Link to Thesis Website Archive or Website hosted on the KDG Server. 
 
           headline6: 
             type: headline
@@ -181,6 +187,7 @@ columns:
             image:
               cover: false
             multiple: false
+            required: true
         
       
       toDo:

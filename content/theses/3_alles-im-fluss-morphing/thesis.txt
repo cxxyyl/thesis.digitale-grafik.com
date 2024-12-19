@@ -26,7 +26,7 @@ Semestercycle: WiSe
 
 ----
 
-Yearofpublishing: 2020/21
+Yearofpublishing: 2020
 
 ----
 
@@ -42,7 +42,7 @@ Advisor3:
 
 ----
 
-Thesispdf: 
+Thesispdf: - file://nhnF4djRFkSKqN8K
 
 ----
 

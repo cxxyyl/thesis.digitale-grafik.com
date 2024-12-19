@@ -15,6 +15,7 @@ tabs:
             label: Overview of all Theses
             parent: site.find("theses")
             template: thesis
+            sortBy: yearOfPublishing desc
             
             layout: table
             columns: 

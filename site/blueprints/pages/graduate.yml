@@ -48,6 +48,7 @@ columns:
           class: 
             label: Part of the following Classes
             type: tags
+            required: true
             help: If you are in multiple classes, please select / add all of them. If you're only in Klasse Digitale Grafik you only add "Digitale Grafik"
             options:
               - Digitale Grafik
@@ -91,6 +92,7 @@ columns:
               selectStudies:
                 label: Select Degree
                 type: radio
+                required: true
                 options:
                   Bachelor of Fine Arts: Fine Arts or Design — Bachelor of Fine Arts
                   Master of Fine Arts: Fine Arts or Design — Master of Fine Arts
@@ -104,6 +106,7 @@ columns:
                 type: date
                 calendar: false
                 display: YYYY
+                required: true
 
               headline4: 
                 type: headline
@@ -114,6 +117,7 @@ columns:
               linkThesis:
                 label: Connect Thesis
                 type: pages
+                required: true
                 query: site.find('theses').childrenAndDrafts()
                 help: Select your Thesis here
                 icon: book

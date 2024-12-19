@@ -26,6 +26,17 @@ _________
 */
 
 
+/* ? Dev View */
+/* *{background-color: chartreuse;} */
+/* * > *{background-color:coral ;} */
+/* * > * > *{background-color: cornflowerblue;} */
+/* * > * > * > *{background-color: darkkhaki;} */
+/* * > * > * > * > *{background-color: darkorchid;} */
+/* * > * > * > * > * > *{background-color: orangered ;} */
+/* * > * > * > * > * > * > *{background-color: thistle ;} */
+/* * > * > * > * > * > * > * > *{background-color: peru ;} */
+
+
 /* ? Browser Reset */
 
 * {
@@ -44,6 +55,7 @@ _________
     --color-secondary: #FFFFFF;
 
     --color-DevMode: #792cff;
+    --color-online: springgreen;
     /* --color-search: #e6dcff;  not used right now  */
 
 
@@ -51,7 +63,7 @@ _________
     --font-primary: 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif;
 
     /* Defines how tall the the inner part of the accordion is */
-    --contentMaxHeight: 32rem;
+    --contentMaxHeight: 33rem;
     --contentMaxHeightInner:calc(var(--contentMaxHeight) * 0.79);
 
     /* Spacing */
@@ -106,6 +118,10 @@ p {
     /* Typography */
     font-size: var(--font-md);
     hyphens: auto; /* Hypenation when there is a linebreak */
+
+    hyphenate-limit-chars: 7 2 3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 li {
@@ -265,7 +281,6 @@ ____________________
 }
 
 
-
 /* * Cursor Options */
 .filter{
     /* Interaction */
@@ -277,7 +292,35 @@ ____________________
 
 
 
+/* Staus circlies */
 
+.status-online::before{
+    content: " ";
+
+    /* Layout */
+    margin-right: 2px;
+    padding: 6px;
+    border-radius: var(--radius-lg);
+
+    display: inline-block;
+
+    /* Color */
+    background-color: var(--color-online);
+}
+
+.status-offline::before{
+    content: " ";
+
+    /* Layout */
+    margin-right: 2px;
+    padding: 6px;
+    border-radius: var(--radius-lg);
+
+    display: inline-block;
+
+    /* Color */
+    border: 1px solid var(--color-primary);
+}
 
 
 /* 
@@ -456,8 +499,8 @@ ____________________
 
     /* Color */
     border-bottom: 1px solid var(--color-primary);
-}
 
+}
     /* ^ Accordion Table Rows */
     /* These are the single rows you see in the Table */
 
@@ -465,6 +508,7 @@ ____________________
     .accordion-container{
         /* Layout */
         width: 100%;
+        height: var(--spacing-lg);
         padding: var(--spacing-xs);
 
         display: flex;
@@ -472,13 +516,28 @@ ____________________
         align-items: center;
         justify-content: flex-start;
         gap: var(--spacing-xs);
+
+        /* Color */
+        opacity: 1;
         
         /* Interaction */
         user-select: none;
 
         /* Typography */
         font-size: var(--font-md);
+
+        /* Animation */
+        transition: opacity 750ms ease 200ms; /* This is the transition + delay for the opening on hover */
+
     }
+
+    .accordion:hover .accordion-container{
+        transform: translateY(100%);
+        opacity: 0;
+        transition: transform 1000ms ease 200ms, opacity 500ms ease 200ms; /* This is the transition + delay for the opening on hover */ 
+
+    }
+
 
     /* Grid Version */
     /* Retired did not work that well with responsive window sizes */
@@ -501,7 +560,7 @@ ____________________
             /* Layout */
             width: 3rem;
         }
-  
+
         .accordion-container__date{
             /* Layout */
             width: 8rem;
@@ -511,6 +570,11 @@ ____________________
             flex-wrap: nowrap;
             justify-content: flex-start;
             gap: var(--spacing-xxs);
+        }
+
+        .accordion-container__language{
+            text-transform: uppercase;
+            padding-right: var(--spacing-md);
         }
 
         .accordion-container__graduate{
@@ -525,7 +589,7 @@ ____________________
 
         .accordion-container__downloads{
             /* Layout */
-            width: 21rem;
+            width: 14rem;
             min-width: fit-content;
             
             display: flex;
@@ -533,18 +597,40 @@ ____________________
             flex-wrap: nowrap;
             justify-content: flex-end;
             gap: var(--spacing-xs);
+
+            /* Typoprgaphy */
+            /* text-transform: uppercase; */
+
+            h4{
+                padding-left: var(--spacing-md);
+            }
         }
 
-    .accordion:hover .accordion-content {
-        /* Layout */
-        height: var(--contentMaxHeight);
-        transition: height 750ms ease 200ms; /* This is the transition + delay for the opening on hover */
-    }
 
+        .accordion_row{
+            height: var(--spacing-lg);
+            transition: height 750ms ease 200ms /* This is the transition + delay for the opening on hover */
+
+        }
+
+
+        .accordion:hover .accordion_row{
+
+            /* Layout */
+            height: var(--contentMaxHeight);
+            transition: height 750ms ease 200ms /* This is the transition + delay for the opening on hover */
+        }
+
+        .accordion:hover .accordion-content {
+
+            /* Layout */
+            height: var(--contentMaxHeight);
+            transform: translateY(calc(-1 * var(--spacing-lg)));
+            transition: height 750ms ease 200ms, transform 750ms ease 200ms /* This is the transition + delay for the opening on hover */
+        }
 
 
     /* ^ Accordion Inner Content -> opens on Hover */
-
     .accordion-content {
         /* Layout */
         height: 0;
@@ -554,9 +640,12 @@ ____________________
         grid-template-columns: repeat(2, 1fr);
         padding-left: var(--spacing-xs);
         padding-right: var(--spacing-xs);
+        
+        /* Color */
+        background-color: var(--color-secondary);
 
         /* Animation */
-        transition: height 750ms ease 400ms; /* This is the transition + delay for the opening on hover */
+        transition: height 750ms ease 200ms, transform 750ms ease 200ms; /* This is the transition + delay for the opening on hover */
     }
 
         /* ^ Accordion Thesis Information*/
@@ -584,7 +673,7 @@ ____________________
             .accordion-content__thesis-info { 
                 /* Layout */
                 width: calc((100% * 1/3) - var(--spacing-xs));
-                height: var(--contentMaxHeightInner);
+                /* height: var(--contentMaxHeightInner); */
             }
 
 
@@ -627,7 +716,7 @@ ____________________
                 /* Thesis abstract */
                 .accordion-content__thesis-abstract {
                     /* Layout */
-                    width: 66%;
+                    width: 65%;
                     height: var(--contentMaxHeightInner);
                     column-count: 2; /* Number of columns */
                     column-gap: var(--spacing-xs); /* Space between columns */
@@ -693,7 +782,7 @@ ____________________
 
             .accordion-content__cv__bio {
                 /* Layout */
-                width: 60%;
+                width: 65%;
                 height: var(--contentMaxHeightInner);
 
                 column-count: 2; /* Number of columns */
