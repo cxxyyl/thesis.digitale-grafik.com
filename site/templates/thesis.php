@@ -68,10 +68,10 @@
 			<h3>Thesis Website Archive</h3>
 				<ul>
 <?php if ($page->mirrorExternal()->isNotEmpty()): ?>
-					<li><a href="<?= $page->mirrorExternal()->toUrl()?>"> Mirror Original: <?= $page->mirrorExternal()->toUrl()?></a></li>
+					<li><a href="<?= $page->mirrorExternal()->toUrl()?>"> Thesis Website: <?= $page->mirrorExternal()->toUrl()?></a></li>
 <?php endif ?>
 <?php if ($page->mirrorKDG()->isNotEmpty()): ?>
-					<li><a href="<?= $page->mirrorKDG()->toUrl()?>"> Mirror KDG: <?= $page->mirrorKDG()->toUrl()?></a></li>
+					<li><a href="<?= $page->mirrorKDG()->toUrl()?>"> Website Archive Version: <?= $page->mirrorKDG()->toUrl()?></a></li>
 <?php endif ?>
 				</ul>
 		</section>
