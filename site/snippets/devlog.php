@@ -13,49 +13,44 @@
 ______________
 ✦ Devlog & Thoughts ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024–DEZ–20     I made some additional layout changes for .accordion-content. Looks basically the same but now I changed the abstract and bio over 
-cxxyyl          to flex-grow. With that I had to add another wrapper, which clutters the code a bit more – overall it's an improvemnt tho! Now the 
-                way the website handels screenwitdh changes is way better. 
-                    The hidden print views are now also improved with some dedicated @media print css. Had to update the publication year in this view 
-                as well. Well it be like that sometimes. 
-                    Also there are now guardrails for publishing a thesis again. So no more empty fields! 
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024–DEC–20     I made some additional layout changes for .accordion-content. Looks basically the same, but now I changed the abstract and bio over 
+cxxyyl          to flex-grow. With that, I had to add another wrapper, which clutters the code a bit more – overall it's an improvement tho! Now the 
+                way the website handles screen width changes is way better. 
+                    The hidden print views are now also improved with some dedicated @media print CSS. Had to update the publication year in this view 
+                as well. Well, it be like that sometimes. 
+                    Also, there are now guardrails for publishing a thesis again, so no more empty fields! 
 
-                Issue: overflow-y does not work for @media < 1500px & <1200px ?? – ask christoph
-
-⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024–DEZ—19     Okay so version 1.1 will be online today. I made some changes to the rows. The buttons are gone and now it's a online signifier.
-cxxyyl          Title and Name also sitched places. And on hover the whole row disappers below the accordion content. The rows not sorted manually
-                anymore but descending by year – with that I had to update everything regarding the publication year, because the the dates needed 
-                to be handeled in a drifferent way.
+                Issue: overflow-y does not work for @media < 1500px & <1200px ?? – ask Christoph
 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024–DEZ—12     Presentation time! Today I showed the 'final' website in class. Got some feedback about the rows. I will have to think about that. 
-cxxyyl          The design was done such a long time ago that I did't question anything anymore
+2024–DEC–19     Okay, so version 1.1 will be online today. I made some changes to the rows. The buttons are gone, and now it's an online signifier.
+cxxyyl          Title and Name also switched places. And on hover, the whole row disappears below the accordion content. The rows are not sorted 
+                manually anymore but descending by year – with that, I had to update everything regarding the publication year because the dates 
+                needed to be handled in a different way.
 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024–NOV–24     Ok so I think it's done? Had to think about never ready hahahah. But yeah think thats it. Added the birthchart, finished the 
-cxxyyl          animated title and indented some code. Ah I also split the credits into the main credits on the home/main-page and cleaned
-                everything else up. 
-                   
+2024–DEC–12     Presentation time! Today I showed the 'final' website in class. Got some feedback about the rows. I will have to think about that. 
+cxxyyl          The design was done such a long time ago that I didn't question anything anymore.
+
+
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024–NOV–24     Ok, so I think it's done? Had to think about never ready hahahah. But yeah, think that's it. Added the birthchart, finished the 
+cxxyyl          animated title, and indented some code. Ah, I also split the credits into the main credits on the home/main-page and cleaned
+                everything else up.
 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
 2024–NOV–23     M o b i l e ? 
 cxxyyl          I guess so... needed some distraction from cleaning the flat today – so I guess there is a mobile (not really) version of the
-                website now. There some new css and js in SearchMode to make it work. Only thing thats left is the brithchart. Also Im still not
-                so shure what to do with the title.
+                website now. There is some new CSS and JS in SearchMode to make it work. The only thing that's left is the birthchart. Also, I'm 
+                still not so sure what to do with the title.
                     Ok, so more stuff happened? There is now a super hidden secondary system which only shows up by entering the direct link to
-                a specfic subpage or navigating there through the CMS. Those being /theses/... or /graduates/... It's nice to have just in
-                case, but the main reason was to print a summary of a project + studen or student + all Projects.
+                a specific subpage or navigating there through the CMS. Those being /theses/... or /graduates/... It's nice to have just in
+                case, but the main reason was to print a summary of a project + student or student + all Projects.
 
-
-⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024–NOV–22   This week I got sick and was really rotting in bed, to get back to health asap. It felt like I watched the content there is 
-cxxyyl          and now I am a bit motivated to to somthing other – so it's thesis.digitale-grafik time. I finished some more little bits in the 
-                backend, documentation and fixed issues with the css. There were some more problems with the columns I wanted to fix. 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
 2024-OCT-30     Today I found another bug with the display of the columns. Turns out that my last fix was still kinda hacky. But I found the right

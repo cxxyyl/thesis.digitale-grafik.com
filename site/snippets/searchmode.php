@@ -28,18 +28,16 @@
 
 
    Here is a POWER GUIDE for the search function – you can find it over at /modules/searchmode.js
-            ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
-   You can find all searchable elements by looking for class "searchText". In case new / other elements schould be searchable add this class and it should work!
-   We decided, that only all elements inside of the accordion should be searchable. All Elements, which are displayed inside of the row are also present inside of
-   the accordion (the thing that opens while hovering over a row) – so there sould be no doublettes. The only exeption is the language tag.
-   Should new elements be added as filters, add the class filter to it, and it should be displayed as a clickable element, that is able to generate a search tag.
+             ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
+   You can find all searchable elements by looking for the class "searchText." If new/other elements should be searchable, add this class, and it should work! 
+   We decided that only elements inside the accordion should be searchable. All elements displayed inside the row are also present inside the accordion (the thing that opens while hovering over a row) – so there should be no duplicates. The only exception is the language tag. 
+   Should new elements be added as filters, add the class "filter" to them, and they will be displayed as clickable elements that are able to generate a search tag.
 
-   The searchfunction works for fulltext search, single keywords as well filter tags. 
+   The search function works for full-text search, single keywords, and filter tags.
 
-   By typing into the searchbar all entries will be hidden, that don't match the search query. In case you press enter on your seach query, the query will be
-   converted into a filter tag. You can also add multiple tags, but this will yield no results at some point.
+   By typing into the search bar, all entries that don't match the search query will be hidden. In case you press enter on your search query, the query will be converted into a filter tag. You can also add multiple tags, but this may yield no results at some point.
 
-   Some of the elements are also klickable and generate a tag in addition to beeing searchable, keep an eye out for when the cursor changes to pointer. 
+   Some of the elements are also clickable and generate a tag in addition to being searchable. Keep an eye out for when the cursor changes to a pointer.
 
 
 
