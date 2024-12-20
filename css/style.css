@@ -988,6 +988,7 @@ ____________________
 @media print {
     *{text-decoration: none;}
     .standalone__return{display: none;}
+    #author-page{display: none;}
 
 }
 

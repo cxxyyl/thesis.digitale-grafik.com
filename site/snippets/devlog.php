@@ -13,15 +13,27 @@
 ______________
 ✦ Devlog & Thoughts ✦
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+2024–DEZ–20     I made some additional layout changes for .accordion-content. Looks basically the same but now I changed the abstract and bio over 
+cxxyyl          to flex-grow. With that I had to add another wrapper, which clutters the code a bit more – overall it's an improvemnt tho! Now the 
+                way the website handels screenwitdh changes is way better. 
+                    The hidden print views are now also improved with some dedicated @media print css. Had to update the publication year in this view 
+                as well. Well it be like that sometimes. 
+                    Also there are now guardrails for publishing a thesis again. So no more empty fields! 
+
+                Issue: overflow-y does not work for @media < 1500px & <1200px ?? – ask christoph
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2024–DEZ—19     Okay so version 1.1 is will be online today. I made some changes to the rows. the buttons are gone and now it's a online 
-cxxyyl          signifier. Title and Name also sitched sides. And on hover the whole row disappers below the accordion content. 
-                    There is also automatic sorting now, that was an issue before. 
+2024–DEZ—19     Okay so version 1.1 will be online today. I made some changes to the rows. The buttons are gone and now it's a online signifier.
+cxxyyl          Title and Name also sitched places. And on hover the whole row disappers below the accordion content. The rows not sorted manually
+                anymore but descending by year – with that I had to update everything regarding the publication year, because the the dates needed 
+                to be handeled in a drifferent way.
+
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
 2024–DEZ—12     Presentation time! Today I showed the 'final' website in class. Got some feedback about the rows. I will have to think about that. 
 cxxyyl          The design was done such a long time ago that I did't question anything anymore
+
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
 2024–NOV–24     Ok so I think it's done? Had to think about never ready hahahah. But yeah think thats it. Added the birthchart, finished the 
