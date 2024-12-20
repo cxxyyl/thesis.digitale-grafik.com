@@ -149,7 +149,7 @@ columns:
 
           mirrorExternalBroken:
             type: toggle
-            label: Is the website on the extrernal hosting still online?
+            label: External hosting is Online?
             width: 1/2
             text: 
               - "offline"
