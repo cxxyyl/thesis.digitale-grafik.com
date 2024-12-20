@@ -878,9 +878,9 @@ ____________________
              min-width: calc((40%) - var(--spacing-xs));
              max-width: calc((40%) - var(--spacing-xs));
         }
-       }
+    }
 
-       @media screen and (width < 1200px) {
+    @media screen and (width < 1200px) {
         .accordion-content__thesis-abstract,
         .accordion-content__cv__bio{
             column-count: 1;
@@ -892,9 +892,9 @@ ____________________
             /* Layout */
             min-width: calc((50%) - var(--spacing-xs));
             max-width: calc((50%) - var(--spacing-xs));
-       }
+        }
+    }   
 
- 
 
 
 
@@ -1112,5 +1112,4 @@ _______________
         }
     }
 
-}
 }

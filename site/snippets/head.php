@@ -30,8 +30,8 @@
     -->
 
 
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+
 
     <!-- All relevant scripts are loaded at </body> -->
 
