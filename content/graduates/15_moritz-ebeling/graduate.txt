@@ -1,0 +1,70 @@
+Title: Moritz Ebeling
+
+----
+
+Name: Moritz
+
+----
+
+Surname: Ebeling
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Studies: 
+
+----
+
+Website: 
+
+----
+
+Email: email@moritzebeling.com
+
+----
+
+Socials: 
+
+----
+
+Todograduate:
+
+- Bio
+- Website?
+- Socials ?
+- Thesis
+
+----
+
+Toggletodo: false
+
+----
+
+Degree: MFA
+
+----
+
+Graduation: 2024-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: 0wIrj19jecxZNF56

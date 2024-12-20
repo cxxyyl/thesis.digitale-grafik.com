@@ -1,0 +1,77 @@
+Title: Cleo Miao
+
+----
+
+Name: Cleo
+
+----
+
+Surname: Miao
+
+----
+
+Bio: cleo miao a creative technologist, music producer, designer, and artist. Her work dances on the edge of virtuality and physicality, exploring themes of intimacy, gaming, simulations, and digital poetics through playfulness and absurdity. She is deeply interested in network culture and alternative infrastructures for creative communities.
+
+----
+
+Class: Klasse Digitale Grafik
+
+----
+
+Studies:
+
+- 
+  selectstudies: Master of Fine Arts
+  graduation: 2022-01-01
+  linkthesis: [ ]
+
+----
+
+Website: https://cleomiao.info/
+
+----
+
+Email: yuekaim@gmail.com
+
+----
+
+Socials:
+
+- 
+  socialname: Instagram
+  sociallink: https://www.instagram.com/10_r3n/
+- 
+  socialname: Soundcloud
+  sociallink: https://soundcloud.com/10r3n
+
+----
+
+Todograduate: Thesis
+
+----
+
+Toggletodo: false
+
+----
+
+Gradimage: 
+
+----
+
+Degree: MA
+
+----
+
+Graduation: 2022-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Uuid: 0Och56q9tCQak61s

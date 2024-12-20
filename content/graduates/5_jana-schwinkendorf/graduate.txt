@@ -1,0 +1,70 @@
+Title: Jana Schwinkendorf
+
+----
+
+Name: Jana
+
+----
+
+Surname: Schwinkendorf
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Studies: 
+
+----
+
+Website: 
+
+----
+
+Email: 
+
+----
+
+Socials: 
+
+----
+
+Todograduate:
+
+- Bio
+- Mail ?
+- Website?
+- Socials ?
+
+----
+
+Toggletodo: false
+
+----
+
+Degree: MFA, BFA
+
+----
+
+Graduation: 2022-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: - page://9WTrUDFsuuq49kQ4
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: b38Cf0CgavAmGI2C

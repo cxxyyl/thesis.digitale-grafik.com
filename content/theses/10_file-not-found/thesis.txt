@@ -1,0 +1,85 @@
+Title: File not found.
+
+----
+
+Thesissubtitle: 
+
+----
+
+Thesisabstract: The thesis examines the challenges and methods of preserving websites and digital content in an age of ephemeral media. While the internet is often perceived as having an infinite memory, digital content regularly disappears or becomes inaccessible. Through analysis of various archiving approaches - from simple screenshots to sophisticated preservation tools - the work demonstrates that no single method perfectly captures websites in their original form and context. The thesis explores how "Networks of Care" emerge to counter this loss, while examining how algorithmic systems and commercial platforms can create "dark archives" where content becomes effectively invisible. It argues for open, accessible archiving systems that allow multiple interpretations of preserved content, rather than closed commercial platforms that limit access and reuse. The work emphasizes that digital archives are never neutral but shape our understanding of digital history and culture.
+
+----
+
+Thesistags: digital preservation, screenshots, web archiving, wayback machine, digital culture, digital heritage, cultural artifacts, ephemerality
+
+----
+
+Selectdegree: MA
+
+----
+
+Language: de
+
+----
+
+Semestercycle: SuSe
+
+----
+
+Yearofpublishing: 2021
+
+----
+
+Advisor1: Christoph Knoth
+
+----
+
+Advisor2: Dr. Bettina Uppenkamp
+
+----
+
+Advisor3: Konrad Renner
+
+----
+
+Thesispdf: - file://MvLdU76CFRT6iA4W
+
+----
+
+Mirrorexternal: https://trych.dev/file-not-found/v1.0/
+
+----
+
+Mirrorexternalbroken: true
+
+----
+
+Mirrorkdg: https://web.archive.org/web/20210425200115/https://trych.dev/file-not-found/v1.0/
+
+----
+
+Repositorylink: https://projekte.hfbk.net/project/fc81287f-20b0-4520-9c9d-2855b2b8af21
+
+----
+
+Connectedgraduate: - page://lEqO9fQikAO0xVsp
+
+----
+
+Todothesis:
+
+✅
+
+- von Timo überarbeitet
+
+----
+
+Toggletodo: false
+
+----
+
+Selectbm: MA
+
+----
+
+Uuid: x5BWcU4tOwopfeV9

@@ -1,0 +1,80 @@
+Title: Miriam Humm
+
+----
+
+Name: Miriam
+
+----
+
+Surname: Humm
+
+----
+
+Bio: Running an independent design practice based in Berlin. Working in various collaborative constellations within the cultural realm.
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Studies:
+
+- 
+  selectstudies: Master of Fine Arts
+  graduation: 2023-01-01
+  linkthesis:
+    - page://6V7cVYHvrxs04yXz
+
+----
+
+Website: http://miriamhumm.com/
+
+----
+
+Email: mail@miriamhumm.de
+
+----
+
+Socials:
+
+- 
+  socialname: Instagram
+  sociallink: https://www.instagram.com/miam_iam/
+- 
+  socialname: are.na
+  sociallink: https://www.are.na/miriam-humm
+
+----
+
+Todograduate:
+
+✅ Done ✅
+
+----
+
+Toggletodo: false
+
+----
+
+Degree: MFA
+
+----
+
+Graduation: 2022-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: NTVFKeWOSWsXRKTo

@@ -1,0 +1,75 @@
+Title: Julius Kühn
+
+----
+
+Name: Julius
+
+----
+
+Surname: Kühn
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Studies:
+
+- 
+  selectstudies: Bachelor of Fine Arts
+  graduation: 2021-01-01
+  linkthesis:
+    - page://HlAO0GVqKlY5nb2n
+
+----
+
+Website: https://juliuskuehn.com
+
+----
+
+Email: mail@juliuskuehn.com
+
+----
+
+Socials:
+
+- 
+  socialname: Instagram
+  sociallink: https://www.instagram.com/julius0rg
+
+----
+
+Todograduate: - Bio
+
+----
+
+Toggletodo: false
+
+----
+
+Degree: BFA
+
+----
+
+Graduation: 2021-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: - page://HlAO0GVqKlY5nb2n
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: qM8aHaYorVuEEiDF

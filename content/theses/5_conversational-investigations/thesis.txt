@@ -2,15 +2,15 @@ Title: Conversational Investigations
 
 ----
 
-Thesissubtitle: 
+Thesissubtitle: In search of virtual agency
 
 ----
 
-Thesisabstract: 
+Thesisabstract: This thesis investigates the autonomy and virtual agency of generative artificial intelligence (AI) from a 2022 perspective. The first part of the thesis offers a historical overview, focusing on the Western, particularly America-centric, development of AI. The second part presents a series of experiments with text-to-image AI, aiming to capture this technology in its early stages. Through these explorations, the thesis examines AI's materiality and potential for collaborative interaction, offering a timely analysis of its evolving role in society.
 
 ----
 
-Thesistags: AI
+Thesistags: training data bias, echo chamber, text-to-image, black box, latent space, artificial intelligence
 
 ----
 
@@ -30,11 +30,11 @@ Yearofpublishing: 2022
 
 ----
 
-Advisor1: 
+Advisor1: Konrad Renner
 
 ----
 
-Advisor2: Konrad Renner
+Advisor2: Dr. Hanne Loreck
 
 ----
 
@@ -42,15 +42,15 @@ Advisor3:
 
 ----
 
-Thesispdf: 
+Thesispdf: - file://H3UCS34HVWAGNVNs
 
 ----
 
-Mirrorexternal: 
+Mirrorexternal: https://conversational-investigations.netlify.app
 
 ----
 
-Mirrorexternalbroken: false
+Mirrorexternalbroken: true
 
 ----
 
@@ -58,7 +58,7 @@ Mirrorkdg:
 
 ----
 
-Repositorylink: 
+Repositorylink: https://www.youtube.com/watch?v=0zBXU7A2v7w
 
 ----
 
@@ -66,7 +66,14 @@ Connectedgraduate: - page://1Sq9tgTge6U8npIM
 
 ----
 
-Todothesis: 
+Todothesis:
+
+✅
+
+- Abstract written by ChatGPT and Christoph
+- Tags
+
+practical work here:
 
 ----
 

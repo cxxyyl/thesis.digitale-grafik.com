@@ -42,7 +42,8 @@ columns:
             help: Please use tags to make the topics you wrote on more accessible. Thesis.digitale uses these tags to interconnect all the different thesis projects as well as make them searchable. You can look at all the tags other graduates have already used in their projects. Please check if there are already tags describing your project, if not feel free to add your own tags as well. Please keep in mind that the tags are not way to specific so they could apply to other thesis projects as well. 
             options: 
               type: query
-              query: page.siblings.pluck("thesisTags", ",", true)
+              # query: page.siblings.pluck("thesisTags", ",", true)
+              query: site.grandchildren.pluck("thesisTags", ",", true)
 
           selectDegree:
             label: Select Degree

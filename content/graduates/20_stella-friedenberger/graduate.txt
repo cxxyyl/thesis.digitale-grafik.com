@@ -1,0 +1,76 @@
+Title: Stella Friedenberger
+
+----
+
+Name: Stella
+
+----
+
+Surname: Friedenberger
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Studies:
+
+- 
+  selectstudies: Master of Fine Arts
+  graduation: 2021-01-01
+  linkthesis:
+    - page://AFvMlyLD24Zw1413
+
+----
+
+Website: https://stellafriedenberger.com/
+
+----
+
+Email: 
+
+----
+
+Socials: 
+
+----
+
+Todograduate:
+
+- Bio
+- Mail ?
+- Website?
+- Socials ?
+
+----
+
+Toggletodo: false
+
+----
+
+Degree: MFA
+
+----
+
+Graduation: 2021-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: - page://AFvMlyLD24Zw1413
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: Ichc7LTZydjR5YxX

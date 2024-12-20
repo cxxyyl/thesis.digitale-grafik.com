@@ -1,0 +1,81 @@
+Title: Linking Nodes
+
+----
+
+Thesissubtitle: Systems of Hypertextual Knowledge Transfer on a Way Towards a World Brain. A Trail of Thoughts.
+
+----
+
+Thesisabstract:
+
+This work on Linking Nodes explores the evolutionary development of knowledge storage and transmission, ranging from oral traditions to digital networks. It examines cultural and technological milestones such as Paul Otlet’s Universal Bibliography, the concept of hypertext systems, and modern challenges like the persistence of links on the web. 
+
+Key questions address the influence of storage media on societal structures, the dynamics of collaborative knowledge networks, and cultural memory. The goal is to bridge historical knowledge models with contemporary digital practices and propose innovative approaches to managing information in the digital age.
+
+----
+
+Thesistags: hypertext, links, web development, information technology, digital networks, cultural memory, knowledge storage
+
+----
+
+Selectdegree: MA
+
+----
+
+Language: en
+
+----
+
+Semestercycle: WiSe
+
+----
+
+Yearofpublishing: 2022
+
+----
+
+Advisor1: 
+
+----
+
+Advisor2: 
+
+----
+
+Advisor3: 
+
+----
+
+Thesispdf: - file://7WEB48rVl2W6ScCH
+
+----
+
+Mirrorexternal: https://linking-nodes.net/
+
+----
+
+Mirrorexternalbroken: true
+
+----
+
+Mirrorkdg: 
+
+----
+
+Repositorylink: 
+
+----
+
+Connectedgraduate: - page://NTVFKeWOSWsXRKTo
+
+----
+
+Todothesis: 
+
+----
+
+Toggletodo: false
+
+----
+
+Uuid: 6V7cVYHvrxs04yXz

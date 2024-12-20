@@ -1,0 +1,80 @@
+Title: Robert Burtzik
+
+----
+
+Name: Robert
+
+----
+
+Surname: Burtzik
+
+----
+
+Bio: 
+
+----
+
+Class: Klasse Digitale Grafik
+
+----
+
+Studies:
+
+- 
+  selectstudies: Master of Fine Arts
+  graduation: 2021-01-01
+  linkthesis:
+    - page://saUoAEIu9ZUPk4Nc
+
+----
+
+Website: https://www.robertburtzik.com
+
+----
+
+Email: btxzumq@me.com
+
+----
+
+Socials:
+
+- 
+  socialname: ""
+  sociallink: ""
+
+----
+
+Todograduate:
+
+- Bio
+
+- Website?
+- Socials ?
+
+----
+
+Toggletodo: false
+
+----
+
+Gradimage: 
+
+----
+
+Degree: MA
+
+----
+
+Graduation: 2021-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Uuid: U2x1o75NeQlhTuKH

@@ -1,0 +1,80 @@
+Title: Timo Rychert
+
+----
+
+Name: Timo
+
+----
+
+Surname: Rychert
+
+----
+
+Bio: Timo is a coder and graphic designer whose practice centers around web design and digital tools. After working in animation and motion design in Iceland and Canada, he settled in Hamburg, and completed his BA at HAW Hamburg and MFA at HFBK, studying in Klasse Grafik and Klasse Digitale Grafik. He currently teaches at HAW Hamburg and gives lectures and workshops at other universities. As part of (link: https://open-close.studio text: Open-Close.Studio), he explores contemporary and experimental approaches to web design.
+
+----
+
+Class: Digitale Grafik, Grafik
+
+----
+
+Studies:
+
+- 
+  selectstudies: Master of Fine Arts
+  graduation: 2021-01-01
+  linkthesis:
+    - page://x5BWcU4tOwopfeV9
+
+----
+
+Website: https://timorychert.com
+
+----
+
+Email: mail@timorychert.com
+
+----
+
+Socials:
+
+- 
+  socialname: GitHub
+  sociallink: https://github.com/trych
+- 
+  socialname: Instagram
+  sociallink: https://www.instagram.com/timorychert/
+
+----
+
+Todograduate:
+
+✅ Fertig
+
+----
+
+Toggletodo: true
+
+----
+
+Degree: MFA
+
+----
+
+Graduation: 2021-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: - page://x5BWcU4tOwopfeV9
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: lEqO9fQikAO0xVsp

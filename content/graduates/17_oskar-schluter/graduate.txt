@@ -1,0 +1,76 @@
+Title: Oskar Schlüter
+
+----
+
+Name: Oskar
+
+----
+
+Surname: Schlüter
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Studies:
+
+- 
+  selectstudies: Bachelor of Fine Arts
+  graduation: 2021-01-01
+  linkthesis:
+    - page://Uf454W5HbvQt6zwx
+
+----
+
+Website: 
+
+----
+
+Email: 
+
+----
+
+Socials: 
+
+----
+
+Todograduate:
+
+- Bio
+- Mail ?
+- Website?
+- Socials ?
+
+----
+
+Toggletodo: false
+
+----
+
+Degree: BFA
+
+----
+
+Graduation: 2021-01-01
+
+----
+
+Linkba: - page://Uf454W5HbvQt6zwx
+
+----
+
+Linkma: 
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: z8imBNEklfhzgWTp

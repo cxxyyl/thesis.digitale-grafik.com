@@ -6,11 +6,11 @@ Thesissubtitle:
 
 ----
 
-Thesisabstract: 
+Thesisabstract: The thesis Scamming Interfaces aims to shed light on the history, current, and future strategies of scams, fraud, and deception. It explores how scammers use recent political, economic, and social events, often exploiting stereotypes to make their narratives appear credible. These scams, especially targeting politically unstable regions, frequently present alternative reports that lack verifiable facts. They often take the form of emails, blending elements of comedy and magical realism, making it difficult for recipients to assess their authenticity. By leveraging Eurocentric perspectives and colonial histories, scammers create a sense of solidarity and promise, constructing alternative realities that enhance the effectiveness of their schemes.
 
 ----
 
-Thesistags: Scamming
+Thesistags: scamming, law scam, fraud, faked romance, alien encounters, blackmail, scam baiting
 
 ----
 
@@ -30,19 +30,19 @@ Yearofpublishing: 2020
 
 ----
 
-Advisor1: 
+Advisor1: Konrad Renner
 
 ----
 
-Advisor2: 
+Advisor2: Christoph Knoth
 
 ----
 
-Advisor3: 
+Advisor3: Dr. Friedrich von Borries
 
 ----
 
-Thesispdf: - file://iTqiqNMx2GG7nnMM
+Thesispdf: 
 
 ----
 
@@ -66,7 +66,13 @@ Connectedgraduate: - page://U2x1o75NeQlhTuKH
 
 ----
 
-Todothesis: 
+Todothesis:
+
+✅
+
+- pdf fehlt, mail an Robert schreiben
+
+- Abstract ist von Christoph + chatgpt
 
 ----
 

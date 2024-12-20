@@ -1,0 +1,56 @@
+Title: Akseli Manner
+
+----
+
+Name: Akseli
+
+----
+
+Surname: Manner
+
+----
+
+Bio: To be filled soon!
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Studies:
+
+- 
+  selectstudies: Master of Fine Arts
+  graduation: 2025-01-01
+  linkthesis:
+    - page://n5fsdk5yULqzoq2y
+
+----
+
+Website: https://akseli.digitale-grafik.com/
+
+----
+
+Email: akseli.manner@gmail.com
+
+----
+
+Socials:
+
+- 
+  socialname: Instagram
+  sociallink: >
+    https://www.instagram.com/manner________laatta/
+
+----
+
+Todograduate: 
+
+----
+
+Toggletodo: false
+
+----
+
+Uuid: prSXnyoBqpvjLLJ8

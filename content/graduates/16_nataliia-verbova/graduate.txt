@@ -1,0 +1,71 @@
+Title: Nataliia Verbova
+
+----
+
+Name: Nataliia
+
+----
+
+Surname: Verbova
+
+----
+
+Bio: 
+
+----
+
+Class: Digitale Grafik
+
+----
+
+Studies: 
+
+----
+
+Website: 
+
+----
+
+Email: 
+
+----
+
+Socials: 
+
+----
+
+Todograduate:
+
+- Bio
+- Mail ?
+- Website?
+- Socials ?
+- Thesis
+
+----
+
+Toggletodo: false
+
+----
+
+Degree: BFA
+
+----
+
+Graduation: 2023-01-01
+
+----
+
+Linkba: 
+
+----
+
+Linkma: 
+
+----
+
+Gradimage: 
+
+----
+
+Uuid: M5KrcfBIJ6sTGWHu

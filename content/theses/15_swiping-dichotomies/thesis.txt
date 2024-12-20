@@ -1,0 +1,77 @@
+Title: Swiping Dichotomies
+
+----
+
+Thesissubtitle: Losing Agency to a Digital Gesture and How to Gain it Back
+
+----
+
+Thesisabstract: Also to be filled soon!
+
+----
+
+Thesistags: UI, dating apps
+
+----
+
+Selectdegree: MA
+
+----
+
+Language: en
+
+----
+
+Semestercycle: WiSe
+
+----
+
+Yearofpublishing: 2024
+
+----
+
+Advisor1: Christoph Knoth
+
+----
+
+Advisor2: Konrad renner
+
+----
+
+Advisor3: Ute Kalender
+
+----
+
+Thesispdf: 
+
+----
+
+Mirrorexternal: 
+
+----
+
+Mirrorexternalbroken: false
+
+----
+
+Mirrorkdg: https://swiping-dichotomies.digitale-grafik.com/
+
+----
+
+Repositorylink: 
+
+----
+
+Connectedgraduate: - page://prSXnyoBqpvjLLJ8
+
+----
+
+Todothesis: 
+
+----
+
+Toggletodo: true
+
+----
+
+Uuid: n5fsdk5yULqzoq2y
