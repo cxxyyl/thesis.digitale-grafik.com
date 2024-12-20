@@ -27,14 +27,18 @@ _________
 
 
 /* ? Dev View */
-/* *{background-color: chartreuse;} */
-/* * > *{background-color:coral ;} */
-/* * > * > *{background-color: cornflowerblue;} */
-/* * > * > * > *{background-color: darkkhaki;} */
-/* * > * > * > * > *{background-color: darkorchid;} */
-/* * > * > * > * > * > *{background-color: orangered ;} */
-/* * > * > * > * > * > * > *{background-color: thistle ;} */
-/* * > * > * > * > * > * > * > *{background-color: peru ;} */
+/* *{background-color: chartreuse;}
+* > *{background-color:coral ;}
+* > * > *{background-color: cornflowerblue;}
+* > * > * > *{background-color: darkkhaki;}
+* > * > * > * > *{background-color: darkorchid;}
+* > * > * > * > * > *{background-color: orangered ;}
+* > * > * > * > * > * > *{background-color: thistle ;}
+* > * > * > * > * > * > * > *{background-color: peru ;}
+* > * > * > * > * > * > * > * > *{background-color: green ;}
+* > * > * > * > * > * > * > * > * > *{background-color: palevioletred ;}
+* > * > * > * > * > * > * > * > * > * > *{background-color: palevioletred ;}
+* > * > * > * > * > * > * > * > * > * > * > *{background-color: yellow ;} */
 
 
 /* ? Browser Reset */
@@ -247,8 +251,9 @@ ____________________
     white-space: nowrap;
 
     /* Animation */
-    transition: background-color 750ms ease
+    transition: background-color 750ms ease;
 }
+
 
 .tag--inverted {
     /* Layout */
@@ -313,8 +318,9 @@ ____________________
 
     /* Layout */
     margin-right: 2px;
-    padding: 6px;
+    padding: 5px;
     border-radius: var(--radius-lg);
+
 
     display: inline-block;
 
@@ -634,12 +640,14 @@ ____________________
     .accordion-content {
         /* Layout */
         height: 0;
+        
         overflow: hidden;
 
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         padding-left: var(--spacing-xs);
         padding-right: var(--spacing-xs);
+        column-gap: var(--spacing-md);
         
         /* Color */
         background-color: var(--color-secondary);
@@ -650,14 +658,11 @@ ____________________
 
         /* ^ Accordion Thesis Information*/
         /* This is the left block of content */
-        .accordion-content__thesis {
-            /* Layout */
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-content: flex-start;
-            gap: var(--spacing-xs);
-        }
+      
+
+        /* .accordion-content__thesis {
+        } */
+
             /* Thesis Title */
             .accordion-content__thesis__title { 
                 /* Layout */
@@ -669,87 +674,91 @@ ____________________
                 font-size: var(--font-lg);  
             }
 
-            /* Inner Block for all additional content */
-            .accordion-content__thesis-info { 
+            .accordion-content__thesis-info--wrapper{
                 /* Layout */
-                width: calc((100% * 1/3) - var(--spacing-xs));
-                /* height: var(--contentMaxHeightInner); */
+                display: flex;
+                padding-top: var(--spacing-xs);
+                gap: var(--spacing-xs); 
+                width: 100%;
             }
 
-
-                .accordion-content__thesis-info__subtitle, 
-                .accordion-content__thesis-info__published, 
-                .accordion-content__thesis-info__advisors{
+                /* Inner Block for all additional content */
+                .accordion-content__thesis-info { 
                     /* Layout */
-                    padding-bottom: var(--spacing-md);
+                    min-width: calc((100% / 3) - var(--spacing-xs));
+                    max-width: calc((100% / 3) - var(--spacing-xs));
+
+                    /* Animation */
+                    transition: min-width 1.5s ease, max-width 1.5s ease;
                 }
 
-                /* Headline for Topics */
-                .accordion-content__thesis-info__topics > h5{
-                    /* Layout */
-                    padding-bottom: var(--spacing-xxs);
 
-                    /* Interaction */
-                    user-select: none;
-                }    
-
-                /* Container the Tags exist in  */
-                .accordion-content__thesis-info__topics__tags{
-                    /* Layout */
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    gap: var(--spacing-xxs);
-                
-                    /* this is extra padding for the generated number [n] inside the tags */
-                    button::after{
-                        padding-left: var(--spacing-xxs);
-                        padding-right: calc(var(--spacing-xxs)*.5);
-                    }
-                }
-
-                /* Numbering for the countTags function over at search.js */
-                .searchText.tag.filter[data-other-tags]::after {
-                    content: '[' attr(data-other-tags) ']';
-                }
-
-                /* Thesis abstract */
-                .accordion-content__thesis-abstract {
-                    /* Layout */
-                    width: 65%;
-                    height: var(--contentMaxHeightInner);
-                    column-count: 2; /* Number of columns */
-                    column-gap: var(--spacing-xs); /* Space between columns */
-                    column-fill: auto; /* Fills the column with text until it's full!  */
-                    overflow: hidden; /* Prevent content from overflowing the container */ 
-
-                    p{
+                    .accordion-content__thesis-info__subtitle, 
+                    .accordion-content__thesis-info__published, 
+                    .accordion-content__thesis-info__advisors{
                         /* Layout */
-                        height: min-content;
+                        padding-bottom: var(--spacing-md);
                     }
 
-                    p:not(:first-child)::before{
+                    /* Headline for Topics */
+                    .accordion-content__thesis-info__topics > h5{
                         /* Layout */
-                        display:inline-block; 
-                        width:var(--spacing-md); 
+                        padding-bottom: var(--spacing-xxs);
 
-                        content: "";
+                        /* Interaction */
+                        user-select: none;
+                    }    
+
+                    /* Container the Tags exist in  */
+                    .accordion-content__thesis-info__topics__tags{
+                        /* Layout */
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: var(--spacing-xxs);
+
+                        /* this is extra padding for the generated number [n] inside the tags */
+                        button::after{
+                            padding-left: var(--spacing-xxs);
+                            padding-right: calc(var(--spacing-xxs)*.5);
+                        }
                     }
-                } 
-  
+
+                    /* Numbering for the countTags function over at search.js */
+                    .searchText.tag.filter[data-other-tags]::after {
+                        content: '[' attr(data-other-tags) ']';
+                    }
+
+                    /* Thesis abstract */
+                    .accordion-content__thesis-abstract {
+                        /* Layout */
+                        flex-grow: 1;
+                        height: var(--contentMaxHeightInner);
+                        column-count: 2; /* Number of columns */
+                        column-gap: var(--spacing-xs); /* Space between columns */
+                        column-fill: auto; /* Fills the column with text until it's full!  */
+                        overflow: hidden; /* Prevent content from overflowing the container */ 
+      
+
+                        p{
+                            /* Layout */
+                            height: min-content;
+                        }
+
+                        p:not(:first-child)::before{
+                            /* Layout */
+                            display:inline-block; 
+                            width:var(--spacing-md); 
+
+                            content: "";
+                        }
+                    } 
+    
 
 
         /* ^ Accordion Graduate CV */
         /* This is the right block of content */
-        .accordion-content__cv {
-            /* Layout */
-            display: flex;
-            flex-direction: row-reverse;
-            flex-wrap: wrap;
-            align-content: flex-start;
-            justify-content: flex-start;
-            gap: var(--spacing-xs);
-        }
+        /* .accordion-content__cv {} */
 
             .accordion-content__cv__graduate{
                 /* Layout */
@@ -762,13 +771,25 @@ ____________________
                 font-size: var(--font-lg);
             }
             
+            .accordion-content__cv__info--wrapper{
+                display: flex;
+                flex-direction: row-reverse;
+                flex-wrap: nowrap;
+
+                padding-top: var(--spacing-xs);
+
+                gap: var(--spacing-xs);
+            }
             .accordion-content__cv__info{
                 /* Layout */
-                width: calc((100% * 1/3) - var(--spacing-xs));
-                height: var(--contentMaxHeightInner);
+                min-width: calc((100% * 1/3) - var(--spacing-xs));
+                max-width: calc((100% * 1/3) - var(--spacing-xs));
 
                 /* Typography */
                 text-align: right;
+
+                /* Animation */
+                transition: min-width 1.5s ease, max-width 1.5s ease;
             }
 
                 .accordion-content__cv-info__degrees,
@@ -782,13 +803,13 @@ ____________________
 
             .accordion-content__cv__bio {
                 /* Layout */
-                width: 65%;
+               flex-grow: 1;
                 height: var(--contentMaxHeightInner);
 
                 column-count: 2; /* Number of columns */
                 column-gap: var(--spacing-xs); /* Space between columns */
                 column-fill: auto; /* Fills the column with text until it's full!  */
-                overflow: hidden; /* Prevent content from overflowing the container */
+                overflow-y: hidden; /* Prevent content from overflowing the container */
                
                 /* Typography */
                 text-align: left;
@@ -841,14 +862,40 @@ ____________________
             align-items: flex-start;
         }
 
-
+    /* Breakpoints for different screen sizes */
     /* Switch columns off, if the Website is to narrow */
+    @media screen and (width < 1500px) {
+        .accordion-content__thesis-abstract,
+        .accordion-content__cv__bio{
+            column-count: 1;
+            overflow-y: scroll !important;
+
+        }
+
+        .accordion-content__thesis-info, 
+        .accordion-content__cv__info{
+             /* Layout */
+             min-width: calc((40%) - var(--spacing-xs));
+             max-width: calc((40%) - var(--spacing-xs));
+        }
+       }
+
        @media screen and (width < 1200px) {
         .accordion-content__thesis-abstract,
         .accordion-content__cv__bio{
             column-count: 1;
+            overflow-y: scroll !important;
         }
+
+        .accordion-content__thesis-info, 
+        .accordion-content__cv__info {
+            /* Layout */
+            min-width: calc((50%) - var(--spacing-xs));
+            max-width: calc((50%) - var(--spacing-xs));
        }
+
+ 
+
 
 
 
@@ -884,6 +931,8 @@ ____________________
     padding: var(--spacing-sm);
 }
 
+
+
 .standalone__thesis-wrapper{
     h1{
         padding-left: var(--spacing-sm);
@@ -900,6 +949,10 @@ ____________________
     padding: var(--spacing-sm);
 }
 
+#author-page{
+    padding-top: var(--spacing-lg);
+}
+
 .standalone__thesis,
 .standalone__graduate{
     padding-bottom:var(--spacing-md);
@@ -912,8 +965,15 @@ ____________________
         padding-bottom: var(--radius-xs);
     }
     h3{
+        font-weight: 600;
+        font-size: var(--font-md);
         padding-top: var(--spacing-xs);
     }
+
+    #aboutAuthor{
+        padding-bottom: var(--spacing-sm);;
+    }
+
 
     .text-wrapper p:not(:first-child)::before{
         /* Layout */
@@ -923,6 +983,12 @@ ____________________
         content: "";
     }
   
+}
+
+@media print {
+    *{text-decoration: none;}
+    .standalone__return{display: none;}
+
 }
 
 
@@ -1046,4 +1112,4 @@ _______________
     }
 
 }
-
+}
