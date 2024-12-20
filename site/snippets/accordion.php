@@ -92,12 +92,20 @@ Summary of all Projects
             <div class="accordion-container__downloads">
 
                 <!-- Website Status-->
-<?php if ($item->mirrorExternal()->isNotEmpty() || $item->mirrorKDG()->isNotEmpty()): ?> 
+<!-- 
                 
+
+
+-->
+
+<?php if ($item->mirrorExternalBroken()->toBool() === true && $item->mirrorExternal()->isNotEmpty()):?>
                 <h4 class="status-online">Website</h4>
-<?php else:?>
+<?php elseif ($item->mirrorExternalBroken()->toBool() === false && $item->mirrorKDG()->isNotEmpty()):?>
+                <h4 class="status-online">Website</h4>
+<?php else: ?>
                 <h4 class="status-offline">Website</h4>
 <?php endif ?>
+
 
                 <!-- Thesis Status -->
 <?php if ($item->thesispdf()->isNotEmpty()): ?>
@@ -105,6 +113,8 @@ Summary of all Projects
 <?php else: ?>
                 <h4 class="status-offline">Thesis</h4>
 <?php endif ?>
+
+
             </div>
         </div>
 
