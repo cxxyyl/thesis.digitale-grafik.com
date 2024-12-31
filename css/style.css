@@ -340,7 +340,7 @@ ____________________
 /* ^ Nav*/
 .nav {
     /* Layout */
-    padding: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
     border-bottom: 1px var(--color-primary) solid;
 
     display: flex;
@@ -384,7 +384,7 @@ ____________________
 
 .searchbar {
     /* Layout */
-    padding: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
   
     display: flex;
     flex-direction: row;
@@ -515,7 +515,7 @@ ____________________
         /* Layout */
         width: 100%;
         height: var(--spacing-lg);
-        padding: var(--spacing-xs);
+        padding: var(--spacing-xs) var(--spacing-sm) ;
 
         display: flex;
         flex-direction: row;
@@ -645,8 +645,8 @@ ____________________
 
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        padding-left: var(--spacing-xs);
-        padding-right: var(--spacing-xs);
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
         column-gap: var(--spacing-md);
         
         /* Color */

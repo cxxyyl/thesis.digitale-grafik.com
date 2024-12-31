@@ -131,7 +131,7 @@ columns:
             type: files
             max: 1
             multiple: false
-            required: true
+            required: false
 
       thesisLinks: 
         type: fields
