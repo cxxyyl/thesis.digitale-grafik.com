@@ -33,10 +33,24 @@
                                                   If you should know how to solve these issues, please let me know ♥                                
       
 
+  
 
-
+                                – Feb, 26. 2025
+                                ✿ A note from from future cxxyyl ✿
+                                In general I had a lot of thoughts about the visibility 
+                                and conceald-ness code in the browser. To a certain degree 
+                                we are not abale to show everything how it's in our 
+                                development environments. Comments and explaining can be
+                                of help, but still. Just read a really nice text on
+                                this topic by Helen J. Burgess. It's called 
+                                “Invisible" Code and the Mystique of Web Writing and is 
+                                in the Book "From A to <A>" by Bredley Dilger and Jeff Rice. 
+                                I can really really really recomend this text, a very
+                                nice read!
+                                    thesis.digitale-grafik.com/shadowlibrary/from_a_to_a.pdf
                       
-                                                  
+                                            
+                                
     ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ 
     ✦ ✦ ✦ Here is an example – let's have a look at the accordion-container ✦ ✦ ✦
     ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
