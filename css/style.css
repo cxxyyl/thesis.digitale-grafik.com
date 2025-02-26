@@ -41,6 +41,14 @@ _________
 * > * > * > * > * > * > * > * > * > * > * > *{background-color: yellow ;} */
 
 
+/* For Exhibition Only */
+/* a{
+    pointer-events: none !important;
+} */
+
+
+
+
 /* ? Browser Reset */
 
 * {
@@ -123,7 +131,7 @@ p {
     font-size: var(--font-md);
     hyphens: auto; /* Hypenation when there is a linebreak */
 
-    hyphenate-limit-chars: 7 2 3;
+    hyphenate-limit-chars: 7 4 4;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
@@ -697,7 +705,7 @@ ____________________
                     .accordion-content__thesis-info__published, 
                     .accordion-content__thesis-info__advisors{
                         /* Layout */
-                        padding-bottom: var(--spacing-md);
+                        padding-bottom: var(--spacing-sm);
                     }
 
                     /* Headline for Topics */
@@ -796,7 +804,7 @@ ____________________
                 .accordion-content__cv-info__classes, 
                 .accordion-content__cv-info__projects{
                     /* Layout */
-                    padding-bottom: var(--spacing-md);
+                    padding-bottom: var(--spacing-sm);
                 } 
 
 
@@ -868,7 +876,7 @@ ____________________
         .accordion-content__thesis-abstract,
         .accordion-content__cv__bio{
             column-count: 1;
-            overflow-y: scroll !important;
+            /* overflow-y: scroll !important; */
 
         }
 
@@ -884,7 +892,7 @@ ____________________
         .accordion-content__thesis-abstract,
         .accordion-content__cv__bio{
             column-count: 1;
-            overflow-y: scroll !important;
+            /* overflow-y: scroll !important; */
         }
 
         .accordion-content__thesis-info, 
