@@ -23,7 +23,8 @@ Studies:
 - 
   selectstudies: Master of Fine Arts
   graduation: 2022-01-01
-  linkthesis: [ ]
+  linkthesis:
+    - page://3q67wTgU3jsSIh5P
 
 ----
 

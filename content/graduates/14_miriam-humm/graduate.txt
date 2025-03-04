@@ -10,7 +10,7 @@ Surname: Humm
 
 ----
 
-Bio: Running an independent design practice based in Berlin. Working in various collaborative constellations within the cultural realm.
+Bio: Miriam Humm runs an independent design practice in Berlin, collaborating in cultural contexts. She graduated with an M.F.A. from Klasse Digitale Grafik, HFBK Hamburg, with Erasmus at EKA GD MA, Tallinn. Her B.A. in Communication Design from Burg Giebichenstein Halle focused on typography, editorial, and information design, with a semester at KASK Ghent majoring in publishing and visual identity. She recently returned to her alma maters, leading a typography workshop at HFBK and teaching experimental offset print for a semester at BURG. In 2025, she joins Akademie Schloss Solitude as a fellow.
 
 ----
 
@@ -28,7 +28,7 @@ Studies:
 
 ----
 
-Website: http://miriamhumm.com/
+Website: https://www.miriamhumm.com/
 
 ----
 

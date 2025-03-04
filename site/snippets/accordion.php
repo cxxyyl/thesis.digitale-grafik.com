@@ -208,9 +208,11 @@ Summary of all Projects
                 I'll find a solution for this at some point. 
                 -->
                     <div class="accordion-content__thesis-abstract searchText">
+                       <div class="scrollwrapper">
     <?php if ($item->thesisAbstract()->isNotEmpty()): ?>
-                        <?= $item->thesisAbstract()->kirbytext()?>
+                            <?= $item->thesisAbstract()->kirbytext()?>
     <?php endif ?>
+                       </div>
                     </div>
                 </div>
             </section>

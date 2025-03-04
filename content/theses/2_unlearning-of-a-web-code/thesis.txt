@@ -56,7 +56,7 @@ Mirrorexternal: https://fernandabraunsantos.com/unlearning-of-a-webcode/
 
 ----
 
-Mirrorexternalbroken: true
+Mirrorexternalbroken: false
 
 ----
 

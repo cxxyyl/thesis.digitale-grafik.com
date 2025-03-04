@@ -22,11 +22,11 @@ Language: en
 
 ----
 
-Semestercycle: WiSe
+Semestercycle: SuSe
 
 ----
 
-Yearofpublishing: 2023
+Yearofpublishing: 2024
 
 ----
 

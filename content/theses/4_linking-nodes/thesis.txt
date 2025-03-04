@@ -6,11 +6,7 @@ Thesissubtitle: Systems of Hypertextual Knowledge Transfer on a Way Towards a Wo
 
 ----
 
-Thesisabstract:
-
-This work on Linking Nodes explores the evolutionary development of knowledge storage and transmission, ranging from oral traditions to digital networks. It examines cultural and technological milestones such as Paul Otlet’s Universal Bibliography, the concept of hypertext systems, and modern challenges like the persistence of links on the web. 
-
-Key questions address the influence of storage media on societal structures, the dynamics of collaborative knowledge networks, and cultural memory. The goal is to bridge historical knowledge models with contemporary digital practices and propose innovative approaches to managing information in the digital age.
+Thesisabstract: *Linking Nodes* explores modes of hypertextual knowledge transfer throughout human history, focusing on interlinked text systems from the 1960s to the Web of today. It juxtaposes them with the ideas of a *World Brain* (Wells, 1937), the *Memex* (Bush, 1945), and *Xanadu* (Nelson, 1966), exploring their visions for a thoughtfully designed global knowledge network. By analyzing early hypertext environments such as *FRESS* (Brown, 1968), *Intermedia* (Brown, 1985), and *HyperCard* (Apple, 1986), it reflects on their approaches to indexing, archiving, and accessibility. Revisiting technological solutions for citation, like *transclusion*, node granularity and linking mechanisms, such as multidirectional *backlinks* and *fat links*, it highlights the innovations of past systems and explores how their principles could inform future implementations.
 
 ----
 
@@ -34,19 +30,19 @@ Yearofpublishing: 2022
 
 ----
 
-Advisor1: 
+Advisor1: Astrid Mania
 
 ----
 
-Advisor2: 
+Advisor2: Christoph Knoth
 
 ----
 
-Advisor3: 
+Advisor3: Konrad Renner
 
 ----
 
-Thesispdf: - file://7WEB48rVl2W6ScCH
+Thesispdf: - file://KeqIxtLb9vHhtIxu
 
 ----
 
@@ -62,7 +58,7 @@ Mirrorkdg:
 
 ----
 
-Repositorylink: 
+Repositorylink: https://projekte.hfbk.net/project/ac616288-b4ea-4351-8f9a-1aad612eb884
 
 ----
 

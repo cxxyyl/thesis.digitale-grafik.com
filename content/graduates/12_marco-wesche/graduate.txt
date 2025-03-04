@@ -18,19 +18,32 @@ Class: Digitale Grafik
 
 ----
 
-Studies: 
+Studies:
+
+- 
+  selectstudies: Master of Fine Arts
+  graduation: 2022-01-01
+  linkthesis:
+    - page://CzPMTSZrZoAuPY6K
 
 ----
 
-Website: 
+Website: https://marcowesche.com/
 
 ----
 
-Email: 
+Email: hello@marcowesche.com
 
 ----
 
-Socials: 
+Socials:
+
+- 
+  socialname: Instagram
+  sociallink: https://www.instagram.com/marcowesche_/
+- 
+  socialname: Are.na
+  sociallink: https://www.are.na/marco-wesche
 
 ----
 

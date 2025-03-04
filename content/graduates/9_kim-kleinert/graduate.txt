@@ -10,7 +10,13 @@ Surname: Kleinert
 
 ----
 
-Bio: 
+Bio:
+
+Kim Kleinert is a graphic designer and developer currently thinking about materiality and communality of the web. 
+
+She likes to engage with subversive methods of publishing and their on and offline infrastructures. 
+
+After finishing her BFA with Klasse Digitale Grafik (Hamburg, DE) in 2024, Kim is studying "Experimental Publishing" a Masters Program at Piet Zwart Institute (Rotterdam, NL). She also occasionally works as a developer and organizes workshops.
 
 ----
 
@@ -18,29 +24,36 @@ Class: Digitale Grafik
 
 ----
 
-Studies: 
+Studies:
+
+- 
+  selectstudies: Bachelor of Fine Arts
+  graduation: 2024-01-01
+  linkthesis:
+    - page://w16S54oFXqijqW6y
 
 ----
 
-Website: 
+Website: https://kimkleinert.com
 
 ----
 
-Email: 
+Email: mail@kimkleinert.com
 
 ----
 
-Socials: 
+Socials:
+
+- 
+  socialname: Instagram
+  sociallink: https://www.instagram.com/prettyboykim/
+- 
+  socialname: Are.na
+  sociallink: https://www.are.na/kim-kleinert/channels
 
 ----
 
-Todograduate:
-
-- Bio
-- Mail ?
-- Website?
-- Socials ?
-- Thesis
+Todograduate: 
 
 ----
 
