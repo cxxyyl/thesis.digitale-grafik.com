@@ -875,9 +875,13 @@ ____________________
     @media screen and (width < 1500px) {
         .accordion-content__thesis-abstract,
         .accordion-content__cv__bio{
-            column-count: 1;
-            /* overflow-y: scroll !important; */
+            column-count: 1 !important;
+            overflow-y: scroll;
+            /* background-color: cornflowerblue; */
 
+            .scrollwrapper{
+                overflow-y: auto;
+            }
         }
 
         .accordion-content__thesis-info, 
@@ -891,8 +895,13 @@ ____________________
     @media screen and (width < 1200px) {
         .accordion-content__thesis-abstract,
         .accordion-content__cv__bio{
-            column-count: 1;
-            /* overflow-y: scroll !important; */
+            column-count: 1 !important;
+            overflow-y: scroll;
+            /* background-color: crimson; */
+
+            .scrollwrapper{
+                overflow-y: auto;
+            }
         }
 
         .accordion-content__thesis-info, 
