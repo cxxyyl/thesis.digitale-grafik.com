@@ -2,11 +2,11 @@
 
 ## ToDo
 - change Admin Panel / site.yml
-    - Delete How To
-    - Delete Thesis & Graduates Tab
-    - Rename CK Tab
-    - Reorganize CK Tab
-        - can you display users in this tab? instead of graduates
+    - ☑️ Delete How To
+    - ☑️ Delete Thesis & Graduates Tab
+    - ☑️ Rename CK Tab
+    - ☑️ Reorganize and Rename CK to Admin Tab
+        - can you display users in this tab? instead of graduates -> NO
 
 - Update Graduate Panel
 - ☑️ Copy Tooltips
