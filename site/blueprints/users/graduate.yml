@@ -196,27 +196,4 @@ columns:
                 label: Profile Link
                 type: url
 
-
-          headline4:
-            label: To Do's
-            type: headline
-
-          toDoGraduate: 
-            label: Whats left to do?
-            type: textarea
-            counter: true
-            size: medium
-            buttons: false
-            spellcheck: true
-            when: 
-              toggleToDo: false
-
-          toggleToDo: 
-            label: Hide ToDo List
-            type: toggle
-            text: 
-            - 'No'
-            - 'Yes'
-
-
                 
