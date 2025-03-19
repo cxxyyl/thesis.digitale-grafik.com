@@ -1,0 +1,7 @@
+title: Graduate
+
+sections:
+  filtered:
+    type: pages
+    headline: "Graduate"
+    query: site.index.filterBy('author', user.id)
