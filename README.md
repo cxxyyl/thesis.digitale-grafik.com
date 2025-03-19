@@ -1,3 +1,17 @@
+# Current Version
+-> Version 1.2 – Graduate Profiles
+   Version 1.1 – UI Update
+   Version 1.0 – Base Version / Lauch
+
+## About Version 1.2
+- Managing of Graduate Profiles
+- Custom LogIn for every Graduate
+- You can only see the pages you have made yourself
+- No more need for graduates Page as this is now bundeld into the users
+
+
+
+
 # Welcome
 
 Hey welcome to this project! This is the official™ Klasse Digitale Grafik archive for all thesis projects – for now at least. 
