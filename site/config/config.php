@@ -9,6 +9,6 @@ return [
         'en'       => 'english', 
         'de'       => 'german'
     ]
-
 ];
+
 ?>
