@@ -6,5 +6,23 @@ sections:
     headline: "Graduate"
     query: site.childrenAndDrafts().filterBy('authorID', user.id)
     
+  theses:
+    type: pages
+    label: Overview of all Theses
+    parent: site.find("theses")
+    query: site.find("theses").childrenAndDrafts().filterBy('authorID', user.id)
+    template: thesis
 
- 
+    layout: table
+    columns: 
+      #Original Version
+      graduate: 
+        label: Linked Graduate
+        value: "{{ page.connectedGraduate.toPage.Title }}"
+      # Graduate View Version
+      graduateUser: 
+        label: Linked Graduate View
+        value: "{{ page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}"
+      degree: 
+        label: Year
+        value: "{{ page.yearOfPublishing }}" 

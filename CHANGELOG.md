@@ -10,11 +10,12 @@
 
 - Update Graduate Panel
 - Copy Tooltips
-    - Update tooltips
+    - Update Tooltips
 - Show Demothesis
     - Cannot change contents oder change status. Is this posible?
 
 - Update Blueprint connections between Thesis and Graduate (User)
+    - ☑️ added in-between step so the website does not break -> but it works!
 
 - Update all Graduate Profiles and Thesis
     - Add Graduate Page Content to Graduate (User)

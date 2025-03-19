@@ -18,14 +18,18 @@ tabs:
             sortBy: yearOfPublishing desc
             
             layout: table
-            columns: 
+            columns:
+
+            # Need to delete the "{{ page.connectedGraduate.toPage.Title }} once all Accounts are migrated
               graduate: 
                 label: Linked Graduate
-                value: "{{ page.connectedGraduate.toPage.Title }}"
+                value: "{{ page.connectedGraduate.toPage.Title }} / {{ page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}"
+             
               degree: 
                 label: Year
                 value: "{{ page.yearOfPublishing }}"
   
+  #  This needs to be changed to show all Users
           graduates:
             label: Overview of all Graduates
             type: pages
