@@ -9,9 +9,12 @@
         - can you display users in this tab? instead of graduates
 
 - Update Graduate Panel
-- Copy Tooltips
+- ☑️ Copy Tooltips
     - Update Tooltips
-- Show Demothesis
+- ☑️ Update Table Views
+- Finalize Querys, once everything is done
+
+- Show a Demothesis
     - Cannot change contents oder change status. Is this posible?
 
 - Update Blueprint connections between Thesis and Graduate (User)
