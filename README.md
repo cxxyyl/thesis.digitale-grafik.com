@@ -1,6 +1,6 @@
 # Welcome
 
-Hey welcome to this project! This is the official™️ Klass Digitale Grafik archive for all thesis projects – for now at least. 
+Hey welcome to this project! This is the official™ Klasse Digitale Grafik archive for all thesis projects – for now at least. 
 **[You can visit the website here](https://thesis.digitale-grafik.com/)**
 
 ## About
