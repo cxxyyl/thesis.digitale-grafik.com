@@ -1,0 +1,15 @@
+{
+    "name": "cxxyyl/graduate-view",
+    "description": "A Kirby CMS plugin that dynamically loads site blueprints based on user roles.",
+    "type": "kirby-plugin",
+    "autoload": {
+      "psr-4": {
+        "cxxyyl\\graduateView\\": "src/"
+      }
+    },
+    "extra": {
+      "kirby": {
+        "namespace": "cxxyyl/graduate-view"
+      }
+    }
+  }
