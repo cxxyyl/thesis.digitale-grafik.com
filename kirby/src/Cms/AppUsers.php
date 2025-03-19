@@ -72,7 +72,7 @@ trait AppUsers
 	 *
 	 * @return $this
 	 */
-	protected function setUser(User|string $user = null): static
+	protected function setUser(User|string|null $user = null): static
 	{
 		$this->user = $user;
 		return $this;
@@ -83,12 +83,10 @@ trait AppUsers
 	 *
 	 * @return $this
 	 */
-	protected function setUsers(array $users = null): static
+	protected function setUsers(array|null $users = null): static
 	{
 		if ($users !== null) {
-			$this->users = Users::factory($users, [
-				'kirby' => $this
-			]);
+			$this->users = Users::factory($users);
 		}
 
 		return $this;
@@ -128,7 +126,6 @@ trait AppUsers
 	{
 		return $this->users ??= Users::load(
 			$this->root('accounts'),
-			['kirby' => $this]
 		);
 	}
 }

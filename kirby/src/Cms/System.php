@@ -163,6 +163,24 @@ class System
 	}
 
 	/**
+	 * Returns an array with relevant system information
+	 * used for debugging
+	 * @since 4.3.0
+	 */
+	public function info(): array
+	{
+		return [
+			'kirby'     => $this->app->version(),
+			'php'       => phpversion(),
+			'server'    => $this->serverSoftware(),
+			'license'   => $this->license()->label(),
+			'languages' => $this->app->languages()->values(
+				fn ($lang) => $lang->code()
+			)
+		];
+	}
+
+	/**
 	 * Create the most important folders
 	 * if they don't exist yet
 	 *
@@ -346,7 +364,7 @@ class System
 	{
 		return
 			version_compare(PHP_VERSION, '8.1.0', '>=') === true &&
-			version_compare(PHP_VERSION, '8.4.0', '<')  === true;
+			version_compare(PHP_VERSION, '8.5.0', '<')  === true;
 	}
 
 	/**
@@ -367,7 +385,7 @@ class System
 	 * @throws \Kirby\Exception\Exception
 	 * @throws \Kirby\Exception\InvalidArgumentException
 	 */
-	public function register(string $license = null, string $email = null): bool
+	public function register(string|null $license = null, string|null $email = null): bool
 	{
 		$license = new License(
 			code: $license,
@@ -380,31 +398,21 @@ class System
 	}
 
 	/**
-	 * Check for a valid server environment
+	 * Returns the detected server software
 	 */
-	public function server(): bool
+	public function serverSoftware(): string
 	{
-		return $this->serverSoftware() !== null;
+		return $this->app->environment()->get('SERVER_SOFTWARE', '–');
 	}
 
 	/**
-	 * Returns the detected server software
+	 * Returns the short version of the detected server software
+	 * @since 4.6.0
 	 */
-	public function serverSoftware(): string|null
+	public function serverSoftwareShort(): string
 	{
-		$servers = $this->app->option('servers', [
-			'apache',
-			'caddy',
-			'litespeed',
-			'nginx',
-			'php'
-		]);
-
-		$software = $this->app->environment()->get('SERVER_SOFTWARE', '');
-
-		preg_match('!(' . implode('|', A::wrap($servers)) . ')!i', $software, $matches);
-
-		return $matches[0] ?? null;
+		$software = $this->serverSoftware();
+		return strtok($software, ' ');
 	}
 
 	/**
@@ -421,14 +429,13 @@ class System
 	public function status(): array
 	{
 		return [
-			'accounts'  => $this->accounts(),
-			'content'   => $this->content(),
-			'curl'      => $this->curl(),
-			'sessions'  => $this->sessions(),
-			'mbstring'  => $this->mbstring(),
-			'media'     => $this->media(),
-			'php'       => $this->php(),
-			'server'    => $this->server(),
+			'accounts' => $this->accounts(),
+			'content'  => $this->content(),
+			'curl'     => $this->curl(),
+			'sessions' => $this->sessions(),
+			'mbstring' => $this->mbstring(),
+			'media'    => $this->media(),
+			'php'      => $this->php()
 		];
 	}
 

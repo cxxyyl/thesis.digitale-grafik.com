@@ -155,74 +155,19 @@ class File extends ModelWithContent
 	 * Returns an array with all blueprints that are available for the file
 	 * by comparing files sections and files fields of the parent model
 	 */
-	public function blueprints(string $inSection = null): array
+	public function blueprints(string|null $inSection = null): array
 	{
+		// get cached results for the current file model
+		// (except when collecting for a specific section)
 		if ($inSection === null && $this->blueprints !== null) {
 			return $this->blueprints; // @codeCoverageIgnore
 		}
 
 		// always include the current template as option
-		$template  = $this->template() ?? 'default';
-		$templates = [$template];
-		$parent    = $this->parent();
-
-		// what file templates/blueprints should be considered is
-		// defined bythe parent's blueprint: which templates it allows
-		// in files sections as well as files fields
-		$blueprint = $parent->blueprint();
-
-		$fromFields = function ($fields) use (&$fromFields, $parent) {
-			$templates = [];
-
-			foreach ($fields as $field) {
-				// files or textare field
-				if (
-					$field['type'] === 'files' ||
-					$field['type'] === 'textarea'
-				) {
-					$uploads = $field['uploads'] ?? null;
-
-					// only if the `uploads` parent is the actual parent
-					if ($target = $uploads['parent'] ?? null) {
-						if ($parent->id() !== $target) {
-							continue;
-						}
-					}
-
-					$templates[] = $uploads['template'] ?? 'default';
-					continue;
-				}
-
-				// structure field
-				if ($field['type'] === 'structure') {
-					$fields    = $fromFields($field['fields']);
-					$templates = array_merge($templates, $fields);
-					continue;
-				}
-			}
-
-			return $templates;
-		};
-
-		// collect all allowed templates…
-		foreach ($blueprint->sections() as $section) {
-			// if collecting for a specific section, skip all others
-			if ($inSection !== null && $section->name() !== $inSection) {
-				continue;
-			}
-
-			//  …from files sections
-			if ($section->type() === 'files') {
-				$templates[] = $section->template() ?? 'default';
-				continue;
-			}
-
-			//  …from fields
-			if ($section->type() === 'fields') {
-				$fields    = $fromFields($section->fields());
-				$templates = array_merge($templates, $fields);
-			}
-		}
+		$templates = [
+			$this->template() ?? 'default',
+			...$this->parent()->blueprint()->acceptedFileTemplates($inSection)
+		];
 
 		// make sure every template is only included once
 		$templates = array_unique(array_filter($templates));
@@ -282,7 +227,7 @@ class File extends ModelWithContent
 	 */
 	public function contentFileData(
 		array $data,
-		string $languageCode = null
+		string|null $languageCode = null
 	): array {
 		// only add the template in, if the $data array
 		// doesn't explicitly unsets it
@@ -393,13 +338,12 @@ class File extends ModelWithContent
 			return false;
 		}
 
-		static $accessible = [];
+		static $accessible   = [];
+		$role                = $this->kirby()->user()?->role()->id() ?? '__none__';
+		$template            = $this->template() ?? '__none__';
+		$accessible[$role] ??= [];
 
-		if ($template = $this->template()) {
-			return $accessible[$template] ??= $this->permissions()->can('access');
-		}
-
-		return $accessible['__none__'] ??= $this->permissions()->can('access');
+		return $accessible[$role][$template] ??= $this->permissions()->can('access');
 	}
 
 	/**
@@ -418,13 +362,12 @@ class File extends ModelWithContent
 			return false;
 		}
 
-		static $listable = [];
+		static $listable   = [];
+		$role              = $this->kirby()->user()?->role()->id() ?? '__none__';
+		$template          = $this->template() ?? '__none__';
+		$listable[$role] ??= [];
 
-		if ($template = $this->template()) {
-			return $listable[$template] ??= $this->permissions()->can('list');
-		}
-
-		return $listable['__none__'] ??= $this->permissions()->can('list');
+		return $listable[$role][$template] ??= $this->permissions()->can('list');
 	}
 
 	/**
@@ -434,13 +377,12 @@ class File extends ModelWithContent
 	 */
 	public function isReadable(): bool
 	{
-		static $readable = [];
+		static $readable   = [];
+		$role              = $this->kirby()->user()?->role()->id() ?? '__none__';
+		$template          = $this->template() ?? '__none__';
+		$readable[$role] ??= [];
 
-		if ($template = $this->template()) {
-			return $readable[$template] ??= $this->permissions()->can('read');
-		}
-
-		return $readable['__none__'] ??= $this->permissions()->can('read');
+		return $readable[$role][$template] ??= $this->permissions()->can('read');
 	}
 
 	/**
@@ -501,7 +443,7 @@ class File extends ModelWithContent
 	 * Timestamp of the last modification
 	 * of the content file
 	 */
-	protected function modifiedContent(string $languageCode = null): int
+	protected function modifiedContent(string|null $languageCode = null): int
 	{
 		return $this->storage()->modified('published', $languageCode) ?? 0;
 	}
@@ -606,7 +548,7 @@ class File extends ModelWithContent
 	 *
 	 * @return $this
 	 */
-	protected function setBlueprint(array $blueprint = null): static
+	protected function setBlueprint(array|null $blueprint = null): static
 	{
 		if ($blueprint !== null) {
 			$blueprint['model'] = $this;
@@ -679,7 +621,7 @@ class File extends ModelWithContent
 	 * Page URL and the filename as a more stable
 	 * alternative for the media URLs.
 	 */
-	public function previewUrl(): string
+	public function previewUrl(): string|null
 	{
 		$parent = $this->parent();
 		$url    = Url::to($this->id());

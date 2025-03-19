@@ -29,14 +29,20 @@ class Helpers
 	 * ```
 	 */
 	public static $deprecations = [
+		// The internal `$model->contentFile*()` methods have been deprecated
+		'model-content-file' => true,
+
+		// Passing an `info` array inside the `extends` array
+		// has been deprecated. Pass the individual entries (e.g. root, version)
+		// directly as named arguments.
+		// TODO: switch to true in v6
+		'plugin-extends-root' => false,
+
 		// Passing a single space as value to `Xml::attr()` has been
 		// deprecated. In a future version, passing a single space won't
 		// render an empty value anymore but a single space.
 		// To render an empty value, please pass an empty string.
 		'xml-attr-single-space' => true,
-
-		// The internal `$model->contentFile*()` methods have been deprecated
-		'model-content-file' => true,
 	];
 
 	/**
@@ -110,6 +116,9 @@ class Helpers
 	) {
 		$override = null;
 
+		/**
+		 * @psalm-suppress UndefinedVariable
+		 */
 		$handler = set_error_handler(function () use (&$override, &$handler, $condition, $fallback) {
 			// check if suppress condition is met
 			$suppress = $condition(...func_get_args());
@@ -135,9 +144,14 @@ class Helpers
 			return true;
 		});
 
-		$result = $action();
-
-		restore_error_handler();
+		try {
+			$result = $action();
+		} finally {
+			// always restore the error handler, even if the
+			// action or the standard error handler threw an
+			// exception; this avoids modifying global state
+			restore_error_handler();
+		}
 
 		return $override ?? $result;
 	}

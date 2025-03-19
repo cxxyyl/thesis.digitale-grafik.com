@@ -105,7 +105,7 @@ class Sessions
 	 * @param string $token Session token, either including or without the key
 	 * @param string|null $mode Optional transmission mode override
 	 */
-	public function get(string $token, string $mode = null): Session
+	public function get(string $token, string|null $mode = null): Session
 	{
 		return $this->cache[$token] ??= new Session(
 			$this,
@@ -218,7 +218,7 @@ class Sessions
 	 * @internal
 	 * @param \Kirby\Session\Session $session Session instance to push to the cache
 	 */
-	public function updateCache(Session $session)
+	public function updateCache(Session $session): void
 	{
 		$this->cache[$session->token()] = $session;
 	}

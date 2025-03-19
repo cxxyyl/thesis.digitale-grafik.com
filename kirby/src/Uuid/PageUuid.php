@@ -23,7 +23,7 @@ class PageUuid extends ModelUuid
 	/**
 	 * @var \Kirby\Cms\Page|null
 	 */
-	public Identifiable|null $model;
+	public Identifiable|null $model = null;
 
 	/**
 	 * Looks up UUID in cache and resolves
@@ -53,5 +53,26 @@ class PageUuid extends ModelUuid
 			yield $page;
 			yield from static::index($page);
 		}
+	}
+
+	/**
+	 * Returns permalink url
+	 */
+	public function url(): string
+	{
+		// make sure UUID is cached because the permalink
+		// route only looks up UUIDs from cache
+		if ($this->isCached() === false) {
+			$this->populate();
+		}
+
+		$kirby = App::instance();
+		$url   = $kirby->url();
+
+		if ($language = $kirby->language('current')) {
+			$url .= '/' . $language->code();
+		}
+
+		return $url . '/@/' . static::TYPE . '/' . $this->id();
 	}
 }

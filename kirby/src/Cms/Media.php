@@ -27,7 +27,7 @@ class Media
 	 * and to copy it to the media folder.
 	 */
 	public static function link(
-		Page|Site|User $model = null,
+		Page|Site|User|null $model,
 		string $hash,
 		string $filename
 	): Response|false {
@@ -57,7 +57,12 @@ class Media
 		}
 
 		// try to generate a thumb for the file
-		return static::thumb($model, $hash, $filename);
+		try {
+			return static::thumb($model, $hash, $filename);
+		} catch (NotFoundException) {
+			// render the error page if there is no job for this filename
+			return false;
+		}
 	}
 
 	/**

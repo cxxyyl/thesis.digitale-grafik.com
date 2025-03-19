@@ -561,7 +561,7 @@ class Parser
      *
      * @throws ParseException When indentation problem are detected
      */
-    private function getNextEmbedBlock(int $indentation = null, bool $inSequence = false): string
+    private function getNextEmbedBlock(?int $indentation = null, bool $inSequence = false): string
     {
         $oldLineIndentation = $this->getCurrentLineIndentation();
 
@@ -638,12 +638,12 @@ class Parser
             }
 
             if ($this->isCurrentLineBlank()) {
-                $data[] = substr($this->currentLine, $newIndent);
+                $data[] = substr($this->currentLine, $newIndent ?? 0);
                 continue;
             }
 
             if ($indent >= $newIndent) {
-                $data[] = substr($this->currentLine, $newIndent);
+                $data[] = substr($this->currentLine, $newIndent ?? 0);
             } elseif ($this->isCurrentLineComment()) {
                 $data[] = $this->currentLine;
             } elseif (0 == $indent) {
@@ -1043,7 +1043,7 @@ class Parser
      *
      * @internal
      */
-    public static function preg_match(string $pattern, string $subject, array &$matches = null, int $flags = 0, int $offset = 0): int
+    public static function preg_match(string $pattern, string $subject, ?array &$matches = null, int $flags = 0, int $offset = 0): int
     {
         if (false === $ret = preg_match($pattern, $subject, $matches, $flags, $offset)) {
             throw new ParseException(preg_last_error_msg());
@@ -1158,7 +1158,7 @@ class Parser
     private function lexUnquotedString(int &$cursor): string
     {
         $offset = $cursor;
-        $cursor += strcspn($this->currentLine, '[]{},: ', $cursor);
+        $cursor += strcspn($this->currentLine, '[]{},:', $cursor);
 
         if ($cursor === $offset) {
             throw new ParseException('Malformed unquoted YAML string.');
@@ -1167,17 +1167,17 @@ class Parser
         return substr($this->currentLine, $offset, $cursor - $offset);
     }
 
-    private function lexInlineMapping(int &$cursor = 0): string
+    private function lexInlineMapping(int &$cursor = 0, bool $consumeUntilEol = true): string
     {
-        return $this->lexInlineStructure($cursor, '}');
+        return $this->lexInlineStructure($cursor, '}', $consumeUntilEol);
     }
 
-    private function lexInlineSequence(int &$cursor = 0): string
+    private function lexInlineSequence(int &$cursor = 0, bool $consumeUntilEol = true): string
     {
-        return $this->lexInlineStructure($cursor, ']');
+        return $this->lexInlineStructure($cursor, ']', $consumeUntilEol);
     }
 
-    private function lexInlineStructure(int &$cursor, string $closingTag): string
+    private function lexInlineStructure(int &$cursor, string $closingTag, bool $consumeUntilEol = true): string
     {
         $value = $this->currentLine[$cursor];
         ++$cursor;
@@ -1197,14 +1197,18 @@ class Parser
                         ++$cursor;
                         break;
                     case '{':
-                        $value .= $this->lexInlineMapping($cursor);
+                        $value .= $this->lexInlineMapping($cursor, false);
                         break;
                     case '[':
-                        $value .= $this->lexInlineSequence($cursor);
+                        $value .= $this->lexInlineSequence($cursor, false);
                         break;
                     case $closingTag:
                         $value .= $this->currentLine[$cursor];
                         ++$cursor;
+
+                        if ($consumeUntilEol && isset($this->currentLine[$cursor]) && ($whitespaces = strspn($this->currentLine, ' ', $cursor) + $cursor) < strlen($this->currentLine) && '#' !== $this->currentLine[$whitespaces]) {
+                            throw new ParseException(sprintf('Unexpected token "%s".', trim(substr($this->currentLine, $cursor))));
+                        }
 
                         return $value;
                     case '#':

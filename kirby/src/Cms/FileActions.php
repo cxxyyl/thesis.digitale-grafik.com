@@ -47,7 +47,9 @@ trait FileActions
 		string|null $extension = null
 	): static {
 		if ($sanitize === true) {
-			$name = F::safeName($name);
+			// sanitize the basename part only
+			// as the extension isn't included in $name
+			$name = F::safeBasename($name, false);
 		}
 
 		// if no extension is passed, make sure to maintain current one
@@ -100,6 +102,11 @@ trait FileActions
 	 */
 	public function changeSort(int $sort): static
 	{
+		// skip if the sort number stays the same
+		if ($this->sort()->value() === $sort) {
+			return $this;
+		}
+
 		return $this->commit(
 			'changeSort',
 			['file' => $this, 'position' => $sort],
@@ -132,10 +139,9 @@ trait FileActions
 
 			$file = $file->update(['template' => $template]);
 
-			// rename and/or resize the file if configured by new blueprint
+			// resize the file if configured by new blueprint
 			$create = $file->blueprint()->create();
-			$file = $file->changeExtension($file, $create['format'] ?? null);
-			$file->manipulate($create);
+			$file   = $file->manipulate($create);
 
 			return $file;
 		});
@@ -178,6 +184,7 @@ trait FileActions
 
 	/**
 	 * Copy the file to the given page
+	 * @internal
 	 */
 	public function copy(Page $page): static
 	{
@@ -229,9 +236,25 @@ trait FileActions
 		// gather content
 		$content = $props['content'] ?? [];
 
-		// make sure that a UUID gets generated and
-		// added to content right away
-		if (Uuids::enabled() === true) {
+		// make sure that a UUID gets generated
+		// and added to content right away
+		if (
+			Uuids::enabled() === true &&
+			empty($content['uuid']) === true
+		) {
+			// sets the current uuid if it is the exact same file
+			if ($file->exists() === true) {
+				$existing = $file->parent()->file($file->filename());
+
+				if (
+					$file->sha1() === $upload->sha1() &&
+					$file->template() === $existing->template()
+				) {
+					// use existing content data if it is the exact same file
+					$content = $existing->content()->toArray();
+				}
+			}
+
 			$content['uuid'] ??= Uuid::generate();
 		}
 
@@ -245,7 +268,6 @@ trait FileActions
 		// we need to already rename it so that the correct file rules
 		// are applied
 		$create = $file->blueprint()->create();
-		$file = $file->changeExtension($file, $create['format'] ?? null);
 
 		// run the hook
 		$arguments = compact('file', 'upload');
@@ -315,7 +337,14 @@ trait FileActions
 		// generate image file and overwrite it in place
 		$this->kirby()->thumb($this->root(), $this->root(), $options);
 
-		return $this->clone([]);
+		$file = $this->clone();
+
+		// change the file extension if format option configured
+		if ($format = $options['format'] ?? null) {
+			$file = $file->changeExtension($file, $format);
+		}
+
+		return $file;
 	}
 
 	/**
@@ -363,7 +392,6 @@ trait FileActions
 
 			// apply the resizing/crop options from the blueprint
 			$create = $file->blueprint()->create();
-			$file   = $file->changeExtension($file, $create['format'] ?? null);
 			$file   = $file->manipulate($create);
 
 			// return a fresh clone
@@ -376,8 +404,8 @@ trait FileActions
 	 * @internal
 	 */
 	public function save(
-		array $data = null,
-		string $languageCode = null,
+		array|null $data = null,
+		string|null $languageCode = null,
 		bool $overwrite = false
 	): static {
 		$file = parent::save($data, $languageCode, $overwrite);
@@ -416,8 +444,8 @@ trait FileActions
 	 * @throws \Kirby\Exception\InvalidArgumentException If the input array contains invalid values
 	 */
 	public function update(
-		array $input = null,
-		string $languageCode = null,
+		array|null $input = null,
+		string|null $languageCode = null,
 		bool $validate = false
 	): static {
 		// delete all public media versions when focus field gets changed

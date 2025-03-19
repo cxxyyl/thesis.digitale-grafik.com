@@ -103,12 +103,31 @@ abstract class Model
 			return null;
 		}
 
+		// switched off from blueprint,
+		// only if not overwritten by $settings
+		$blueprint = $this->model->blueprint()->image();
+
+		if ($blueprint === false) {
+			if (empty($settings) === true) {
+				return null;
+			}
+
+			$blueprint = null;
+		}
+
+		// convert string blueprint settings to proper array
+		if (is_string($blueprint) === true) {
+			$blueprint = ['query' => $blueprint];
+		}
+
 		// skip image thumbnail if option
 		// is explicitly set to show the icon
 		if ($settings === 'icon') {
 			$settings = ['query' => false];
-		} elseif (is_string($settings) === true) {
-			// convert string settings to proper array
+		}
+
+		// convert string settings to proper array
+		if (is_string($settings) === true) {
 			$settings = ['query' => $settings];
 		}
 
@@ -116,7 +135,7 @@ abstract class Model
 		$settings = array_merge(
 			$this->imageDefaults(),
 			$settings ?? [],
-			$this->model->blueprint()->image() ?? [],
+			$blueprint ?? [],
 		);
 
 		if ($image = $this->imageSource($settings['query'] ?? null)) {
@@ -323,7 +342,7 @@ abstract class Model
 			'link'     => $this->url(true),
 			'sortable' => true,
 			'text'     => $this->model->toSafeString($params['text'] ?? false),
-			'uuid'     => $this->model->uuid()?->toString() ?? $this->model->id(),
+			'uuid'     => $this->model->uuid()?->toString()
 		];
 	}
 

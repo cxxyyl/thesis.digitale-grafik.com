@@ -59,8 +59,8 @@ class File
 	 * @throws \Kirby\Exception\InvalidArgumentException When the model does not use the `Kirby\Filesystem\IsFile` trait
 	 */
 	public function __construct(
-		array|string $props = null,
-		string $url = null
+		array|string|null $props = null,
+		string|null $url = null
 	) {
 		// Legacy support for old constructor of
 		// the `Kirby\Image\Image` class
@@ -276,6 +276,15 @@ class File
 
 		if (is_array($rules['mime'] ?? null) === true) {
 			$mime = $this->mime();
+
+			// the MIME type could not be determined, but matching
+			// to it was requested explicitly
+			if ($mime === null) {
+				throw new Exception([
+					'key'  => 'file.mime.missing',
+					'data' => ['filename' => $this->filename()]
+				]);
+			}
 
 			// determine if any pattern matches the MIME type;
 			// once any pattern matches, `$carry` is `true` and the rest is skipped

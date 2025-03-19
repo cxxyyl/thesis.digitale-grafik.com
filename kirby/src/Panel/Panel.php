@@ -35,7 +35,7 @@ class Panel
 	/**
 	 * Normalize a panel area
 	 */
-	public static function area(string $id, array|string $area): array
+	public static function area(string $id, array $area): array
 	{
 		$area['id']                = $id;
 		$area['label']           ??= $id;
@@ -235,7 +235,7 @@ class Panel
 		if ($result === null || $result === false) {
 			$result = new NotFoundException('The data could not be found');
 
-		// interpret strings as errors
+			// interpret strings as errors
 		} elseif (is_string($result) === true) {
 			$result = new Exception($result);
 		}

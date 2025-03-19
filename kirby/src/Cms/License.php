@@ -22,7 +22,7 @@ use Throwable;
  */
 class License
 {
-	protected const HISTORY = [
+	public const HISTORY = [
 		'3' => '2019-02-05',
 		'4' => '2023-11-28'
 	];
@@ -42,16 +42,19 @@ class License
 		protected string|null $date = null,
 		protected string|null $signature = null,
 	) {
-		// normalize the email address
-		$this->email = $this->email === null ? null : $this->normalizeEmail($this->email);
+		// normalize arguments
+		$this->code  = $this->code !== null ? trim($this->code) : null;
+		$this->email = $this->email !== null ? $this->normalizeEmail($this->email) : null;
 	}
 
 	/**
 	 * Returns the activation date if available
 	 */
-	public function activation(string|IntlDateFormatter|null $format = null): int|string|null
-	{
-		return $this->activation !== null ? Str::date(strtotime($this->activation), $format) : null;
+	public function activation(
+		string|IntlDateFormatter|null $format = null,
+		string|null $handler = null
+	): int|string|null {
+		return $this->activation !== null ? Str::date(strtotime($this->activation), $format, $handler) : null;
 	}
 
 	/**
@@ -85,9 +88,11 @@ class License
 	/**
 	 * Returns the purchase date if available
 	 */
-	public function date(string|IntlDateFormatter|null $format = null): int|string|null
-	{
-		return $this->date !== null ? Str::date(strtotime($this->date), $format) : null;
+	public function date(
+		string|IntlDateFormatter|null $format = null,
+		string|null $handler = null
+	): int|string|null {
+		return $this->date !== null ? Str::date(strtotime($this->date), $format, $handler) : null;
 	}
 
 	/**
@@ -355,14 +360,16 @@ class License
 	/**
 	 * Returns the renewal date
 	 */
-	public function renewal(string|IntlDateFormatter|null $format = null): int|string|null
-	{
+	public function renewal(
+		string|IntlDateFormatter|null $format = null,
+		string|null $handler = null
+	): int|string|null {
 		if ($this->activation === null) {
 			return null;
 		}
 
 		$time = strtotime('+3 years', $this->activation());
-		return Str::date($time, $format);
+		return Str::date($time, $format, $handler);
 	}
 
 	/**
@@ -391,7 +398,7 @@ class License
 	 */
 	public function save(): bool
 	{
-		if ($this->status() !== LicenseStatus::Active) {
+		if ($this->status()->activatable() !== true) {
 			throw new InvalidArgumentException([
 				'key' => 'license.verification'
 			]);

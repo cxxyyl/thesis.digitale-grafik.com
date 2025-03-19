@@ -61,19 +61,19 @@ class Pages extends Collection
 		if ($object instanceof self) {
 			$this->data = array_merge($this->data, $object->data);
 
-		// add a page by id
+			// add a page by id
 		} elseif (
 			is_string($object) === true &&
 			$page = $site->find($object)
 		) {
 			$this->__set($page->id(), $page);
 
-		// add a page object
+			// add a page object
 		} elseif ($object instanceof Page) {
 			$this->__set($object->id(), $object);
 
-		// give a useful error message on invalid input;
-		// silently ignore "empty" values for compatibility with existing setups
+			// give a useful error message on invalid input;
+			// silently ignore "empty" values for compatibility with existing setups
 		} elseif (in_array($object, [null, false, true], true) !== true) {
 			throw new InvalidArgumentException('You must pass a Pages or Page object or an ID of an existing page to the Pages collection');
 		}
@@ -142,12 +142,11 @@ class Pages extends Collection
 	 */
 	public static function factory(
 		array $pages,
-		Page|Site $model = null,
-		bool $draft = null
+		Page|Site|null $model = null,
+		bool|null $draft = null
 	): static {
 		$model  ??= App::instance()->site();
 		$children = new static([], $model);
-		$kirby    = $model->kirby();
 
 		if ($model instanceof Page) {
 			$parent = $model;
@@ -158,7 +157,6 @@ class Pages extends Collection
 		}
 
 		foreach ($pages as $props) {
-			$props['kirby']   = $kirby;
 			$props['parent']  = $parent;
 			$props['site']    = $site;
 			$props['isDraft'] = $draft ?? $props['isDraft'] ?? $props['draft'] ?? false;
@@ -250,7 +248,7 @@ class Pages extends Collection
 	 */
 	protected function findByKeyRecursive(
 		string $id,
-		string $startAt = null,
+		string|null $startAt = null,
 		bool $multiLang = false
 	) {
 		$path       = explode('/', $id);
@@ -445,9 +443,10 @@ class Pages extends Collection
 			$templates = [$templates];
 		}
 
-		return $this->filter(function ($page) use ($templates) {
-			return !in_array($page->intendedTemplate()->name(), $templates);
-		});
+		return $this->filter(
+			fn ($page) =>
+				!in_array($page->intendedTemplate()->name(), $templates)
+		);
 	}
 
 	/**
@@ -480,9 +479,10 @@ class Pages extends Collection
 			$templates = [$templates];
 		}
 
-		return $this->filter(function ($page) use ($templates) {
-			return in_array($page->intendedTemplate()->name(), $templates);
-		});
+		return $this->filter(
+			fn ($page) =>
+				in_array($page->intendedTemplate()->name(), $templates)
+		);
 	}
 
 	/**

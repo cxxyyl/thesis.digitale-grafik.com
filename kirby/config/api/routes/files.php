@@ -1,14 +1,22 @@
 <?php
 
 // routing pattern to match all models with files
-$filePattern = '(account/|pages/[^/]+/|site/|users/[^/]+/|)files/(:any)';
+$filePattern   = '(account/|pages/[^/]+/|site/|users/[^/]+/|)files/(:any)';
 $parentPattern = '(account|pages/[^/]+|site|users/[^/]+)/files';
 
 /**
  * Files Routes
  */
 return [
-
+	[
+		'pattern' => $filePattern . '/fields/(:any)/(:all?)',
+		'method'  => 'ALL',
+		'action'  => function (string $parent, string $filename, string $fieldName, string|null $path = null) {
+			if ($file = $this->file($parent, $filename)) {
+				return $this->fieldApi($file, $fieldName, $path);
+			}
+		}
+	],
 	[
 		'pattern' => $filePattern . '/sections/(:any)',
 		'method'  => 'GET',
@@ -17,11 +25,11 @@ return [
 		}
 	],
 	[
-		'pattern' => $filePattern . '/fields/(:any)/(:all?)',
+		'pattern' => $filePattern . '/sections/(:any)/(:all?)',
 		'method'  => 'ALL',
-		'action'  => function (string $parent, string $filename, string $fieldName, string $path = null) {
+		'action'  => function (string $parent, string $filename, string $sectionName, string|null $path = null) {
 			if ($file = $this->file($parent, $filename)) {
-				return $this->fieldApi($file, $fieldName, $path);
+				return $this->sectionApi($file, $sectionName, $path);
 			}
 		}
 	],
@@ -39,17 +47,15 @@ return [
 			// move_uploaded_file() not working with unit test
 			// @codeCoverageIgnoreStart
 			return $this->upload(function ($source, $filename) use ($path) {
-				$props = [
+				// move the source file from the temp dir
+				return $this->parent($path)->createFile([
 					'content' => [
 						'sort' => $this->requestBody('sort')
 					],
 					'source'   => $source,
 					'template' => $this->requestBody('template'),
 					'filename' => $filename
-				];
-
-				// move the source file from the temp dir
-				return $this->parent($path)->createFile($props, true);
+				], true);
 			});
 			// @codeCoverageIgnoreEnd
 		}

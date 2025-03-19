@@ -3,6 +3,7 @@
 use Kirby\Cms\App;
 use Kirby\Cms\Find;
 use Kirby\Cms\PageRules;
+use Kirby\Cms\Url;
 use Kirby\Exception\Exception;
 use Kirby\Exception\InvalidArgumentException;
 use Kirby\Exception\PermissionException;
@@ -10,6 +11,7 @@ use Kirby\Panel\ChangesDialog;
 use Kirby\Panel\Field;
 use Kirby\Panel\PageCreateDialog;
 use Kirby\Panel\Panel;
+use Kirby\Toolkit\Escape;
 use Kirby\Toolkit\I18n;
 use Kirby\Toolkit\Str;
 use Kirby\Uuid\Uuids;
@@ -193,11 +195,22 @@ return [
 	'page.changeTitle' => [
 		'pattern' => 'pages/(:any)/changeTitle',
 		'load' => function (string $id) {
-			$request = App::instance()->request();
+			$kirby   = App::instance();
+			$request = $kirby->request();
 
 			$page        = Find::page($id);
 			$permissions = $page->permissions();
 			$select      = $request->get('select', 'title');
+
+			// build the path prefix
+			$path = match ($kirby->multilang()) {
+				true  => Str::after($kirby->site()->url(), $kirby->url()) . '/',
+				false => '/'
+			};
+
+			if ($parent = $page->parent()) {
+				$path .= $parent->uri() . '/';
+			}
 
 			return [
 				'component' => 'k-form-dialog',
@@ -211,7 +224,7 @@ return [
 						'slug' => Field::slug([
 							'required'  => true,
 							'preselect' => $select === 'slug',
-							'path'      => $page->parent() ? '/' . $page->parent()->uri() . '/' : '/',
+							'path'      => $path,
 							'disabled'  => $permissions->can('changeSlug') === false,
 							'wizard'    => [
 								'text'  => I18n::translate('page.changeSlug.fromTitle'),
@@ -419,7 +432,7 @@ return [
 				];
 			}
 
-			$slugAppendix  = Str::slug(I18n::translate('page.duplicate.appendix'));
+			$slugAppendix  = Url::slug(I18n::translate('page.duplicate.appendix'));
 			$titleAppendix = I18n::translate('page.duplicate.appendix');
 
 			// if the item to be duplicated already exists

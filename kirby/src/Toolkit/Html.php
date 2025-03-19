@@ -20,7 +20,7 @@ class Html extends Xml
 	/**
 	 * An internal store for an HTML entities translation table
 	 */
-	public static array|null $entities;
+	public static array|null $entities = null;
 
 	/**
 	 * List of HTML tags that can be used inline
@@ -405,7 +405,7 @@ class Html extends Xml
 		string $name,
 		array|string|null $content = '',
 		array $attr = [],
-		string $indent = null,
+		string|null $indent = null,
 		int $level = 0
 	): string {
 		// treat an explicit `null` value as an empty tag

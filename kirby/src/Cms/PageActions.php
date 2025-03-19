@@ -153,7 +153,7 @@ trait PageActions
 		string|null $languageCode = null
 	): static {
 		// always sanitize the slug
-		$slug = Str::slug($slug);
+		$slug = Url::slug($slug);
 
 		// in multi-language installations the slug for the non-default
 		// languages is stored in the text file. The changeSlugForLanguage
@@ -282,10 +282,16 @@ trait PageActions
 			return $this;
 		}
 
-		$arguments = ['page' => $this, 'status' => 'listed', 'position' => $num];
-		$page = $this->commit('changeStatus', $arguments, function ($page, $status, $position) {
-			return $page->publish()->changeNum($position);
-		});
+		$page = $this->commit(
+			'changeStatus',
+			[
+				'page'     => $this,
+				'status'   => 'listed',
+				'position' => $num
+			],
+			fn ($page, $status, $position) =>
+				$page->publish()->changeNum($position)
+		);
 
 		if ($this->blueprint()->num() === 'default') {
 			$page->resortSiblingsAfterListing($num);
@@ -303,10 +309,15 @@ trait PageActions
 			return $this;
 		}
 
-		$arguments = ['page' => $this, 'status' => 'unlisted', 'position' => null];
-		$page = $this->commit('changeStatus', $arguments, function ($page) {
-			return $page->publish()->changeNum(null);
-		});
+		$page = $this->commit(
+			'changeStatus',
+			[
+				'page'     => $this,
+				'status'   => 'unlisted',
+				'position' => null
+			],
+			fn ($page) => $page->publish()->changeNum(null)
+		);
 
 		$this->resortSiblingsAfterUnlisting();
 
@@ -355,7 +366,19 @@ trait PageActions
 		string $title,
 		string|null $languageCode = null
 	): static {
+		// if the `$languageCode` argument is not set and is not the default language
+		// the `$languageCode` argument is sent as the current language
+		if (
+			$languageCode === null &&
+			$language = $this->kirby()->language()
+		) {
+			if ($language->isDefault() === false) {
+				$languageCode = $language->code();
+			}
+		}
+
 		$arguments = ['page' => $this, 'title' => $title, 'languageCode' => $languageCode];
+
 		return $this->commit('changeTitle', $arguments, function ($page, $title, $languageCode) {
 			$page = $page->save(['title' => $title], $languageCode);
 
@@ -408,6 +431,8 @@ trait PageActions
 	 * Copies the page to a new parent
 	 *
 	 * @throws \Kirby\Exception\DuplicateException If the page already exists
+	 *
+	 * @internal
 	 */
 	public function copy(array $options = []): static
 	{
@@ -420,7 +445,7 @@ trait PageActions
 		$files       = $options['files']     ?? false;
 
 		// clean up the slug
-		$slug = Str::slug($slug);
+		$slug = Url::slug($slug);
 
 		if ($parentModel->findPageOrDraft($slug)) {
 			throw new DuplicateException([
@@ -472,7 +497,7 @@ trait PageActions
 	public static function create(array $props): Page
 	{
 		// clean up the slug
-		$props['slug']      = Str::slug($props['slug'] ?? $props['content']['title'] ?? null);
+		$props['slug']      = Url::slug($props['slug'] ?? $props['content']['title'] ?? null);
 		$props['template']  = $props['model'] = strtolower($props['template'] ?? 'default');
 		$props['isDraft'] ??= $props['draft'] ?? true;
 
@@ -553,7 +578,7 @@ trait PageActions
 	 * Create the sorting number for the page
 	 * depending on the blueprint settings
 	 */
-	public function createNum(int $num = null): int
+	public function createNum(int|null $num = null): int
 	{
 		$mode = $this->blueprint()->num();
 
@@ -662,7 +687,7 @@ trait PageActions
 	public function duplicate(string|null $slug = null, array $options = []): static
 	{
 		// create the slug for the duplicate
-		$slug = Str::slug($slug ?? $this->slug() . '-' . Str::slug(I18n::translate('page.duplicate.appendix')));
+		$slug = Url::slug($slug ?? $this->slug() . '-' . Url::slug(I18n::translate('page.duplicate.appendix')));
 
 		$arguments = [
 			'originalPage' => $this,
@@ -739,6 +764,7 @@ trait PageActions
 	/**
 	 * @return $this|static
 	 * @throws \Kirby\Exception\LogicException If the folder cannot be moved
+	 * @internal
 	 */
 	public function publish(): static
 	{
@@ -801,7 +827,7 @@ trait PageActions
 	/**
 	 * @throws \Kirby\Exception\LogicException If the page is not included in the siblings collection
 	 */
-	protected function resortSiblingsAfterListing(int $position = null): bool
+	protected function resortSiblingsAfterListing(int|null $position = null): bool
 	{
 		// get all siblings including the current page
 		$siblings = $this
@@ -890,6 +916,7 @@ trait PageActions
 	/**
 	 * Convert a page from listed or
 	 * unlisted to draft.
+	 * @internal
 	 *
 	 * @return $this|static
 	 * @throws \Kirby\Exception\LogicException If the folder cannot be moved

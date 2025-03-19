@@ -99,7 +99,7 @@ trait AppPlugins
 	 */
 	public function extend(
 		array $extensions,
-		Plugin $plugin = null
+		Plugin|null $plugin = null
 	): array {
 		foreach ($this->extensions as $type => $registered) {
 			if (isset($extensions[$type]) === true) {
@@ -382,7 +382,7 @@ trait AppPlugins
 	 */
 	protected function extendOptions(
 		array $options,
-		Plugin $plugin = null
+		Plugin|null $plugin = null
 	): array {
 		if ($plugin !== null) {
 			$options = [$plugin->prefix() => $options];
@@ -428,7 +428,7 @@ trait AppPlugins
 	 */
 	protected function extendPermissions(
 		array $permissions,
-		Plugin $plugin = null
+		Plugin|null $plugin = null
 	): array {
 		if ($plugin !== null) {
 			$permissions = [$plugin->prefix() => $permissions];
@@ -583,7 +583,7 @@ trait AppPlugins
 	 *
 	 * @internal
 	 */
-	public function extensions(string $type = null): array
+	public function extensions(string|null $type = null): array
 	{
 		if ($type === null) {
 			return $this->extensions;
@@ -659,6 +659,11 @@ trait AppPlugins
 	 */
 	protected function extensionsFromSystem(): void
 	{
+		// Always start with fresh fields and sections
+		// from the core and add plugins on top of that
+		FormField::$types = [];
+		Section::$types   = [];
+
 		// mixins
 		FormField::$mixins = $this->core->fieldMixins();
 		Section::$mixins   = $this->core->sectionMixins();
@@ -674,8 +679,8 @@ trait AppPlugins
 		$this->extendCacheTypes($this->core->cacheTypes());
 		$this->extendComponents($this->core->components());
 		$this->extendBlueprints($this->core->blueprints());
-		$this->extendFields($this->core->fields());
 		$this->extendFieldMethods($this->core->fieldMethods());
+		$this->extendFields($this->core->fields());
 		$this->extendSections($this->core->sections());
 		$this->extendSnippets($this->core->snippets());
 		$this->extendTags($this->core->kirbyTags());
@@ -708,17 +713,25 @@ trait AppPlugins
 	 */
 	public static function plugin(
 		string $name,
-		array $extends = null
-	): PLugin|null {
+		array|null $extends = null,
+		array $info = [],
+		string|null $root = null,
+		string|null $version = null
+	): Plugin|null {
 		if ($extends === null) {
 			return static::$plugins[$name] ?? null;
 		}
 
-		// get the correct root for the plugin
-		$extends['root'] = $extends['root'] ?? dirname(debug_backtrace()[0]['file']);
+		$plugin = new Plugin(
+			name:    $name,
+			extends: $extends,
+			info:    $info,
+			// TODO: Remove fallback to $extends in v7
+			root:    $root ?? $extends['root'] ?? dirname(debug_backtrace()[0]['file']),
+			version: $version
+		);
 
-		$plugin = new Plugin($name, $extends);
-		$name   = $plugin->name();
+		$name = $plugin->name();
 
 		if (isset(static::$plugins[$name]) === true) {
 			throw new DuplicateException('The plugin "' . $name . '" has already been registered');
@@ -734,7 +747,7 @@ trait AppPlugins
 	 * @internal
 	 * @param array|null $plugins Can be used to overwrite the plugins registry
 	 */
-	public function plugins(array $plugins = null): array
+	public function plugins(array|null $plugins = null): array
 	{
 		// overwrite the existing plugins registry
 		if ($plugins !== null) {
@@ -787,7 +800,11 @@ trait AppPlugins
 				// register as anonymous plugin (without actual extensions)
 				// to be picked up by the Panel\Document class when
 				// rendering the Panel view
-				static::plugin('plugins/' . $dirname, ['root' => $dir]);
+				static::plugin(
+					name: 'plugins/' . $dirname,
+					extends: [],
+					root: $dir
+				);
 			} else {
 				continue;
 			}

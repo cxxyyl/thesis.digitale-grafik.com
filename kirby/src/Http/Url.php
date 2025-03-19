@@ -186,7 +186,7 @@ class Url
 		$uri->slash = false;
 
 		$url = $base ? $uri->base() : $uri->toString();
-		$url = str_replace('www.', '', $url);
+		$url = str_replace('www.', '', $url ?? '');
 
 		return Str::short($url, $length, $rep);
 	}
@@ -220,7 +220,7 @@ class Url
 	 */
 	public static function to(
 		string|null $path = null,
-		array $options = null
+		array|null $options = null
 	): string {
 		// make sure $path is string
 		$path ??= '';

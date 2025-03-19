@@ -11,7 +11,6 @@ use Kirby\Http\Cookie;
 use Kirby\Http\Url;
 use Kirby\Toolkit\Str;
 use Kirby\Toolkit\SymmetricCrypto;
-use Throwable;
 
 /**
  * @package   Kirby Session
@@ -150,7 +149,7 @@ class Session
 	 * @param string|null $mode Optional new transmission mode
 	 * @return string Transmission mode
 	 */
-	public function mode(string $mode = null): string
+	public function mode(string|null $mode = null): string
 	{
 		if ($mode !== null) {
 			// only allow this if this is a new session, otherwise the change
@@ -215,7 +214,7 @@ class Session
 	 * @param int|null $duration Optional new duration in seconds to set
 	 * @return int Number of seconds
 	 */
-	public function duration(int $duration = null): int
+	public function duration(int|null $duration = null): int
 	{
 		if ($duration !== null) {
 			// verify that the duration is at least 1 second
@@ -661,6 +660,7 @@ class Session
 		// skip if we don't have the key (only the case for moved sessions)
 		$hmac = Str::before($data, "\n");
 		$data = trim(Str::after($data, "\n"));
+
 		if (
 			$this->tokenKey !== null &&
 			hash_equals(hash_hmac('sha256', $data, $this->tokenKey), $hmac) !== true
@@ -675,16 +675,15 @@ class Session
 		}
 
 		// decode the serialized data
-		try {
-			$data = unserialize($data);
-		} catch (Throwable $e) {
+		$data = @unserialize($data);
+
+		if ($data === false) {
 			throw new LogicException([
 				'key'       => 'session.invalid',
 				'data'      => ['token' => $this->token()],
 				'fallback'  => 'Session "' . $this->token() . '" is invalid',
 				'translate' => false,
-				'httpCode'  => 500,
-				'previous'  => $e
+				'httpCode'  => 500
 			]);
 		}
 

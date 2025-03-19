@@ -30,6 +30,7 @@ use Kirby\Toolkit\A;
 use Kirby\Toolkit\Config;
 use Kirby\Toolkit\Controller;
 use Kirby\Toolkit\LazyValue;
+use Kirby\Toolkit\Locale;
 use Kirby\Toolkit\Str;
 use Kirby\Uuid\Uuid;
 use Throwable;
@@ -170,7 +171,7 @@ class App
 			'roots'     => $this->roots(),
 			'site'      => $this->site(),
 			'urls'      => $this->urls(),
-			'version'   => $this->version(),
+			'version'   => static::version(),
 		];
 	}
 
@@ -255,7 +256,7 @@ class App
 		foreach ($this->options as $key => $value) {
 			// detect option keys with the `vendor.plugin.option` format
 			if (preg_match('/^([a-z0-9-]+\.[a-z0-9-]+)\.(.*)$/i', $key, $matches) === 1) {
-				list(, $plugin, $option) = $matches;
+				[, $plugin, $option] = $matches;
 
 				// verify that it's really a plugin option
 				if (isset(static::$plugins[str_replace('.', '/', $plugin)]) !== true) {
@@ -284,7 +285,7 @@ class App
 	 *
 	 * @return $this
 	 */
-	protected function bakeRoots(array $roots = null): static
+	protected function bakeRoots(array|null $roots = null): static
 	{
 		$roots = array_merge($this->core->roots(), (array)$roots);
 		$this->roots = Ingredients::bake($roots);
@@ -296,7 +297,7 @@ class App
 	 *
 	 * @return $this
 	 */
-	protected function bakeUrls(array $urls = null): static
+	protected function bakeUrls(array|null $urls = null): static
 	{
 		$urls = array_merge($this->core->urls(), (array)$urls);
 		$this->urls = Ingredients::bake($urls);
@@ -330,7 +331,7 @@ class App
 	/**
 	 * Calls any Kirby route
 	 */
-	public function call(string $path = null, string $method = null): mixed
+	public function call(string|null $path = null, string|null $method = null): mixed
 	{
 		$path   ??= $this->path();
 		$method ??= $this->request()->method();
@@ -437,8 +438,6 @@ class App
 	/**
 	 * Calls a page controller by name
 	 * and with the given arguments
-	 *
-	 * @internal
 	 */
 	public function controller(
 		string $name,
@@ -541,6 +540,14 @@ class App
 	}
 
 	/**
+	 * Returns the current language, if set by `static::setCurrentLanguage`
+	 */
+	public function currentLanguage(): Language|null
+	{
+		return $this->language ??= $this->defaultLanguage();
+	}
+
+	/**
 	 * Returns the default language object
 	 */
 	public function defaultLanguage(): Language|null
@@ -625,7 +632,7 @@ class App
 			return Uuid::for($path, $parent?->files())->model();
 		}
 
-		$parent   = $parent ?? $this->site();
+		$parent ??= $this->site();
 		$id       = dirname($path);
 		$filename = basename($path);
 
@@ -657,7 +664,7 @@ class App
 	 * specified by the path
 	 *
 	 * Example:
-	 * <?= App::image('some/page/myimage.jpg') ?>
+	 * <?= $kirby->image('some/page/myimage.jpg') ?>
 	 *
 	 * @todo merge with App::file()
 	 */
@@ -690,7 +697,7 @@ class App
 	 * @psalm-return ($lazy is false ? static : static|null)
 	 */
 	public static function instance(
-		self $instance = null,
+		self|null $instance = null,
 		bool $lazy = false
 	): static|null {
 		if ($instance !== null) {
@@ -775,7 +782,7 @@ class App
 		if ($input instanceof Page) {
 			try {
 				$html = $input->render();
-			} catch (ErrorPageException $e) {
+			} catch (ErrorPageException|NotFoundException $e) {
 				return $this->io($e);
 			}
 
@@ -833,9 +840,9 @@ class App
 			}
 		}
 
-		$data['kirby']  = $data['kirby']  ?? $this;
-		$data['site']   = $data['site']   ?? $data['kirby']->site();
-		$data['parent'] = $data['parent'] ?? $data['site']->page();
+		$data['kirby']  ??= $this;
+		$data['site']   ??= $data['kirby']->site();
+		$data['parent'] ??= $data['site']->page();
 
 		return (new KirbyTag($type, $value, $attr, $data, $this->options))->render();
 	}
@@ -845,7 +852,7 @@ class App
 	 *
 	 * @internal
 	 */
-	public function kirbytags(string $text = null, array $data = []): string
+	public function kirbytags(string|null $text = null, array $data = []): string
 	{
 		$data['kirby']  ??= $this;
 		$data['site']   ??= $data['kirby']->site();
@@ -865,7 +872,7 @@ class App
 	 *
 	 * @internal
 	 */
-	public function kirbytext(string $text = null, array $options = []): string
+	public function kirbytext(string|null $text = null, array $options = []): string
 	{
 		$text = $this->apply('kirbytext:before', compact('text'), 'text');
 		$text = $this->kirbytags($text, $options);
@@ -881,27 +888,20 @@ class App
 	}
 
 	/**
-	 * Returns the current language
+	 * Returns the language by code or shortcut (`default`, `current`).
+	 * Passing `null` is an alias for passing `current`
 	 */
-	public function language(string $code = null): Language|null
+	public function language(string|null $code = null): Language|null
 	{
 		if ($this->multilang() === false) {
 			return null;
 		}
 
-		if ($code === 'default') {
-			return $this->defaultLanguage();
-		}
-
-		// if requesting a non-default language,
-		// find it but don't cache it
-		if ($code !== null) {
-			return $this->languages()->find($code);
-		}
-
-		// otherwise return language set by `AppTranslation::setCurrentLanguage`
-		// or default language
-		return $this->language ??= $this->defaultLanguage();
+		return match ($code ?? 'current') {
+			'default' => $this->defaultLanguage(),
+			'current' => $this->currentLanguage(),
+			default   => $this->languages()->find($code)
+		};
 	}
 
 	/**
@@ -909,7 +909,7 @@ class App
 	 *
 	 * @internal
 	 */
-	public function languageCode(string $languageCode = null): string|null
+	public function languageCode(string|null $languageCode = null): string|null
 	{
 		return $this->language($languageCode)?->code();
 	}
@@ -952,7 +952,7 @@ class App
 	 *
 	 * @internal
 	 */
-	public function markdown(string $text = null, array $options = null): string
+	public function markdown(string|null $text = null, array|null $options = null): string
 	{
 		// merge global options with local options
 		$options = array_merge(
@@ -1143,7 +1143,7 @@ class App
 			return null;
 		}
 
-		$parent = $parent ?? $this->site();
+		$parent ??= $this->site();
 
 		if ($page = $parent->find($id)) {
 			/**
@@ -1181,8 +1181,8 @@ class App
 	 * current request
 	 */
 	public function render(
-		string $path = null,
-		string $method = null
+		string|null $path = null,
+		string|null $method = null
 	): Response|null {
 		if (($_ENV['KIRBY_RENDER'] ?? true) === false) {
 			return null;
@@ -1214,7 +1214,7 @@ class App
 	 * @internal
 	 * @throws \Kirby\Exception\NotFoundException if the home page cannot be found
 	 */
-	public function resolve(string $path = null, string $language = null): mixed
+	public function resolve(string|null $path = null, string|null $language = null): mixed
 	{
 		// set the current translation
 		$this->setCurrentTranslation($language);
@@ -1413,11 +1413,35 @@ class App
 	}
 
 	/**
+	 * Load and set the current language if it exists
+	 * Otherwise fall back to the default language
+	 *
+	 * @internal
+	 */
+	public function setCurrentLanguage(
+		string|null $languageCode = null
+	): Language|null {
+		if ($this->multilang() === false) {
+			Locale::set($this->option('locale', 'en_US.utf-8'));
+			return $this->language = null;
+		}
+
+		$this->language = $this->language($languageCode) ?? $this->defaultLanguage();
+
+		Locale::set($this->language->locale());
+
+		// add language slug rules to Str class
+		Str::$language = $this->language->rules();
+
+		return $this->language;
+	}
+
+	/**
 	 * Create your own set of languages
 	 *
 	 * @return $this
 	 */
-	protected function setLanguages(array $languages = null): static
+	protected function setLanguages(array|null $languages = null): static
 	{
 		if ($languages !== null) {
 			$objects = [];
@@ -1438,7 +1462,7 @@ class App
 	 *
 	 * @return $this
 	 */
-	protected function setPath(string $path = null): static
+	protected function setPath(string|null $path = null): static
 	{
 		$this->path = $path !== null ? trim($path, '/') : null;
 		return $this;
@@ -1449,7 +1473,7 @@ class App
 	 *
 	 * @return $this
 	 */
-	protected function setRequest(array $request = null): static
+	protected function setRequest(array|null $request = null): static
 	{
 		if ($request !== null) {
 			$this->request = new Request($request);
@@ -1463,12 +1487,10 @@ class App
 	 *
 	 * @return $this
 	 */
-	protected function setRoles(array $roles = null): static
+	protected function setRoles(array|null $roles = null): static
 	{
 		if ($roles !== null) {
-			$this->roles = Roles::factory($roles, [
-				'kirby' => $this
-			]);
+			$this->roles = Roles::factory($roles);
 		}
 
 		return $this;
@@ -1479,12 +1501,10 @@ class App
 	 *
 	 * @return $this
 	 */
-	protected function setSite(Site|array $site = null): static
+	protected function setSite(Site|array|null $site = null): static
 	{
 		if (is_array($site) === true) {
-			$site = new Site($site + [
-				'kirby' => $this
-			]);
+			$site = new Site($site);
 		}
 
 		$this->site = $site;
@@ -1499,7 +1519,6 @@ class App
 		return $this->site ??= new Site([
 			'errorPageId' => $this->options['error'] ?? 'error',
 			'homePageId'  => $this->options['home']  ?? 'home',
-			'kirby'       => $this,
 			'url'         => $this->url('index'),
 		]);
 	}
@@ -1509,7 +1528,7 @@ class App
 	 *
 	 * @internal
 	 */
-	public function smartypants(string $text = null): string
+	public function smartypants(string|null $text = null): string
 	{
 		$options = $this->option('smartypants', []);
 
