@@ -4,4 +4,7 @@ sections:
   filtered:
     type: pages
     headline: "Graduate"
-    query: site.index.filterBy('author', user.id)
+    query: site.childrenAndDrafts().filterBy('authorID', user.id)
+    
+
+ 
