@@ -1,0 +1,15 @@
+{
+    "name": "cxxyyl/write-user-id",
+    "description": "Writes the specific User ID of the Account that made the Page",
+    "type": "kirby-plugin",
+    "autoload": {
+      "psr-4": {
+        "cxxyyl\\wirteUserId\\": "src/"
+      }
+    },
+    "extra": {
+      "kirby": {
+        "namespace": "cxxyyl/write-user-id"
+      }
+    }
+  }
