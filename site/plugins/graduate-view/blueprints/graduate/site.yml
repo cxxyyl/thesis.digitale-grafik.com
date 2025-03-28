@@ -19,29 +19,6 @@ sections:
         value: "{{ page.yearOfPublishing }}" 
 
 
-
-  # While still using the theses folder, this is the way to filer for the right thesis. 
-  theses2:
-    type: pages
-    label: "Your Theses"
-    parent: site.find("theses")
-    query: site.find("theses").childrenAndDrafts().filterBy('authorID', user.id)
-    template: thesis
-
-    layout: table
-    columns: 
-      #Original Version
-      graduate: 
-        label: Linked Graduate
-        value: "{{ page.connectedGraduate.toPage.Title }}"
-      # Graduate View Version
-      graduateUser: 
-        label: Linked Graduate View
-        value: "{{ page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}"
-      degree: 
-        label: Year
-        value: "{{ page.yearOfPublishing }}" 
-
   info: 
     type: fields
     fields: 
