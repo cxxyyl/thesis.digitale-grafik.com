@@ -150,7 +150,7 @@ columns:
                 label: Connect Thesis
                 type: pages
                 required: true
-                query: site.index(true).filterBy('Template', 'thesis')
+                query: site.childrenAndDrafts().filterBy('authorID', user.id)
                 help: Select your Thesis here
                 icon: book
                 image:
