@@ -16,8 +16,8 @@ tabs:
         columns:
           title: false
           graduate: 
-            label: Linked Graduate
-            value: "{ page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}"
+            label: Page Author
+            value: "{{ page.authorID.toUser.name }}"
           tags: 
             label: Tags
             value: "{{ page.thesisTags }}"
@@ -54,8 +54,8 @@ tabs:
           title: false
     
           graduate: 
-            label: Linked Graduate
-            value: "{ page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}"
+            label: Page Author
+            value: "{{ page.authorID.toUser.name }}"
           tags: 
             label: Tags
             value: "{{ page.thesisTags }}"
