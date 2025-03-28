@@ -48,18 +48,6 @@ columns:
             label: Personal Information
             numbered: false
 
-          firstName:
-            label: Name
-            type: text
-            required: true
-            width: 1/2
-
-          surname:
-            label: Surname
-            type: text
-            required: true
-            width: 1/2
-
           bio:
             label: Short Bio
             type: textarea
@@ -149,7 +137,7 @@ columns:
               linkThesis:
                 label: Connect Thesis
                 type: pages
-                required: true
+                required: false
                 query: site.childrenAndDrafts().filterBy('authorID', user.id)
                 help: Select your Thesis here
                 icon: book

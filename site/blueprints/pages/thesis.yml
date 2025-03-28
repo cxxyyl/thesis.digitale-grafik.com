@@ -187,6 +187,22 @@ columns:
       #       icon: user
       #       multiple: false
    
+      toDo:
+        type: fields
+        fields:
+
+          headline7:
+            label: To Do's
+            type: headline
+
+          toDoThesis: 
+            label: Whats left to do?
+            type: textarea
+            counter: true
+            size: medium
+            buttons: false
+            spellcheck: true
+
 
 
             
