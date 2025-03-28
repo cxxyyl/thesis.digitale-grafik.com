@@ -6,8 +6,8 @@
 ## About Version 1.2
 - Managing of Graduate Profiles
 - Custom LogIn for every Graduate
-- You can only see the pages you have made yourself
-- No more need for graduates Page as this is now bundeld into the users
+- You can only see the pages you have made yourself.
+- No more need for graduates page as this is now bundeld into the users
 
 
 
