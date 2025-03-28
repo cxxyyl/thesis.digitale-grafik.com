@@ -25,3 +25,9 @@
 - Delete Graduates
 
 - Update Connections to frontend
+
+
+
+
+## ToDo's Christoph
+- durch alle daten gehen und nochma korrigieren
