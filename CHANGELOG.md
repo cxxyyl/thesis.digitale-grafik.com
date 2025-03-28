@@ -12,9 +12,9 @@
 - ☑️ Copy Tooltips
     - Update Tooltips
 - ☑️ Update Table Views
-- Finalize Querys, once everything is done
+- ☑️ Finalize Querys, once everything is done
 
-- Update Blueprint connections between Thesis and Graduate (User)
+- ☑️ Update Blueprint connections between Thesis and Graduate (User)
     - ☑️ added in-between step so the website does not break -> but it works!
 
 - Update all Graduate Profiles and Thesis
@@ -26,8 +26,26 @@
 
 - Update Connections to frontend
 
+## No more Thesis or Graduate Selection
+- Graduate and all Theses (Pages) are linked by Author ID
+
+### How to Display in Frontend
+
+For current thesis
+- Display all Thesis Content
+    - rewrite config to rename BA / MA etc 
+- Display Graduate Bio etc. 
+    - Check page AuthorID -> Go to User
+    - Display user Info
+- Display other Theses
+    - check index for all pages that have the same AuthorID
+    - display Degree and year for found thesis 
+        - ! check years -> WS+1 / SS+0
+    - display names of thesis
 
 
-
-## ToDo's Christoph
-- durch alle daten gehen und nochma korrigieren
+## ToDo's Christoph & Stephan
+- für alle Konten emails abgleichen und ein Passwort generieren
+- durch alle daten gehen und nochmal korrigieren
+- AuthorID in jede Thesis einfügen
+- Alle Graudate Profile aktualisieren
