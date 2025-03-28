@@ -150,7 +150,7 @@ columns:
                 label: Connect Thesis
                 type: pages
                 required: true
-                query: site.find('theses').childrenAndDrafts()
+                query: site.index(true).filterBy('Template', 'thesis')
                 help: Select your Thesis here
                 icon: book
                 image:
@@ -169,14 +169,14 @@ columns:
             type: headline
             label: Contact & Socials
             numbered: false
-            help: This is the Section for all your Contact Information and Social Media Links. If you have your own website you can link it here. If people should be able to contact you via Email enter you Email adress here. It will be encrypted so website scrapers won't be easily able to scrape your Email. The last field called "Social" is a structure field. You can add multiple entries into it by clicking on the +add Button in the top right corner. Enter what ever you want to share. are.na, github, instagram, or some obscure forum.
+            help: This is the Section for all your Contact Information and Social Media Links. If you have your own website you can link it here. If people should be able to contact you via Email enter you Email adress here. The Email you are using for the thesis.digitale log-in will not be shown anywhere. The Email you put in the Email field will be encrypted so website scrapers won't be easily able to scrape it. The last field called "Social" is a structure field. You can add multiple entries into it by clicking on the +add Button in the top right corner. Enter what ever you want to share. are.na, github, instagram, or some obscure forum.
           
           website:
             label: Link to Website
             type: url
             icon: heart-filled
 
-          email: 
+          socialsEmail: 
             label: Email
             type: email
             icon: email
