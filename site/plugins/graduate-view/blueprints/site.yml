@@ -17,7 +17,7 @@ tabs:
           title: false
           graduate: 
             label: Linked Graduate
-            value: "{{ page.connectedGraduate.toPage.Title }} / { page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}"
+            value: "{ page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}"
           tags: 
             label: Tags
             value: "{{ page.thesisTags }}"
@@ -44,7 +44,6 @@ tabs:
       listed:
         type: pages
         label: All Listed Theses
-        parent: site.find("theses")
         template: thesis
         status: listed
         # sortBy: yearOfPublishing desc
@@ -56,7 +55,7 @@ tabs:
     
           graduate: 
             label: Linked Graduate
-            value: "{{ page.connectedGraduate.toPage.Title }} / { page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}""
+            value: "{ page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}"
           tags: 
             label: Tags
             value: "{{ page.thesisTags }}"
