@@ -43,7 +43,7 @@ columns:
             options: 
               type: query
               # query: page.siblings.pluck("thesisTags", ",", true)
-              query: site.grandchildren.pluck("thesisTags", ",", true)
+              query: site.grandchildren.pluck("thesisTags", ",", true) # probably have tho change this
 
           selectDegree:
             label: Select Degree
@@ -179,19 +179,6 @@ columns:
             numbered: false
             help: This section connects your Thesis Project to your Graduate Profile. Once you filled out and published your Graduate Profile you will able to select it by clicking on the "Graduate Profile" field. Please keep in mind that only published and unlisted pages are showing up. If your Graduate Profile is still a draft, it will not show up. Once the connection is made you will be able to go to you Graduate Profile by clicking on this field.
 
-# If the switch to graduate-view works, this can go
-          connectedGraduate:
-            label: Graduate Profile
-            type: pages
-            query: site.find('graduates').childrenAndDrafts()
-            help: Select your name here
-            icon: user
-            image:
-              cover: false
-            multiple: false
-            required: true
-
-# If the switch to graduate-view works, this can stay.
           connectedGraduateUser:
             label: Graduate User Profile
             type: users
@@ -199,32 +186,7 @@ columns:
             help: Select your name here
             icon: user
             multiple: false
-
-      
-      toDo:
-        type: fields
-        fields:
-
-          headline7:
-            label: To Do's
-            type: headline
-
-          toDoThesis: 
-            label: Whats left to do?
-            type: textarea
-            counter: true
-            size: medium
-            buttons: false
-            spellcheck: true
-            when: 
-              toggleToDo: false
-
-          toggleToDo: 
-            label: Hide ToDo List
-            type: toggle
-            text: 
-            - 'No'
-            - 'Yes'
+   
 
 
             
