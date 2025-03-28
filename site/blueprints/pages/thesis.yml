@@ -43,7 +43,7 @@ columns:
             options: 
               type: query
               # query: page.siblings.pluck("thesisTags", ",", true)
-              query: site.grandchildren.pluck("thesisTags", ",", true) # probably have tho change this
+              query: site.index(true).pluck("thesisTags", ",", true) # probably have tho change this
 
           selectDegree:
             label: Select Degree
