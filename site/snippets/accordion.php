@@ -1,4 +1,4 @@
-<?php foreach ($site->grandchildren()->published()->sortBy('yearOfPublishing', 'desc', 'semesterCycle', 'desc') as $item):?> 
+<?php foreach ($site->children()->published()->sortBy('yearOfPublishing', 'desc', 'semesterCycle', 'desc') as $item):?> 
 <?php 
     $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): 
 
@@ -9,8 +9,10 @@
 
     // Check if SuSe or WiSe
     $semesterCycle = $item->semesterCycle()->value(); // Get the value of semesterCycle
-      $isWs = $semesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs to true or false
+    $isWs = $semesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs to true or false
 
+    // Connected Graduate
+    $graduate = $item->authorID()->toUser();
 ?>
 
 
@@ -29,25 +31,20 @@ Title ------ <?= $item->title()?><?php endif ?>
 <?php if ($item->thesisSubtitle()->isNotEmpty()): ?>
 Subtitle --- <?= $item->thesisSubtitle()?><?php endif ?>
 
-<?php $graduate = $item->connectedGraduate()->toPage() ?>
-By --------- <?=$graduate->name()?> <?=$graduate->surname()?>
+<?php if ($graduate->name()->isNotEmpty()):?>
+By --------- <?=$graduate->name()?><?php endif ?>
 
 <?php if($item->selectDegree()->isNotEmpty()): ?>
-Degree ----- <?= $item->selectDegree()?><?php endif?>
+Degree ----- <?= option('category-map-short')[$item->selectDegree()->value()] ?><?php endif?>
 
 <?php if($item->semesterCycle()->isNotEmpty()): ?>
-Published -- <?= $item->semesterCycle()?><?php endif?>
- – <?php if($item->yearOfPublishing()->isNotEmpty()): ?><?php if($isWs === true): ?><?= $newYear ?><?php else: ?><?= $item->yearOfPublishing() ?><?php endif; ?><?php endif; ?>
+Published -- <?= $item->semesterCycle()?><?php endif?> – <?php if($item->yearOfPublishing()->isNotEmpty()): ?><?php if($isWs === true): ?><?= $newYear ?><?php else: ?><?= $item->yearOfPublishing() ?><?php endif; ?><?php endif; ?>
 
 
 Direct Link to Subpage for Printing Options
 <?= $item->url()?>
 
-Summary of all Projects
-<?= $item->connectedGraduate()->toPage()->url()?>
-
-
- --> 
+--> 
 
     <div class="accordion_row"> <!-- Wrapper for every row -->
         <div class="accordion-container"> <!-- Everything inside of the visible row -->
@@ -59,7 +56,7 @@ Summary of all Projects
 
             <!-- Pursued Degree -->
 <?php if($item->selectDegree()->isNotEmpty()): ?>
-            <p data-search="<?= option('category-map') [$item->selectDegree()->value()]?>" class="accordion-container__degree filter searchText"><?= $item->selectDegree()?></p>
+            <p data-search="<?= $item->selectDegree()?>" class="accordion-container__degree filter searchText"><?= option('category-map-short') [$item->selectDegree()->value()]?></p>
 <?php endif?>
 
             <!-- Semester of Publishing -->
@@ -85,8 +82,8 @@ Summary of all Projects
             <h4 class="accordion-container__thesis"><?= $item->title()?></h4>
             
              <!-- Thesis Author -->
-<?php $graduate = $item->connectedGraduate()->toPage() ?>
-            <h4 class="accordion-container__graduate"><?=$graduate->name()?> <?=$graduate->surname()?></h4>
+
+            <h4 class="accordion-container__graduate"><?=$graduate->name()?></h4>
             
             <!-- Links for downloading the thesis and opening the original thesis website  -->
             <div class="accordion-container__downloads">
@@ -230,28 +227,38 @@ Summary of all Projects
 
                                                         ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
             ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
-            -->
-                <?php $graduate = $item->connectedGraduate()->toPage() ?>    
+            --> 
                 <!-- Graduate -->
-<?php if ($graduate->name()->isNotEmpty()): ?>
-                <h2 class="accordion-content__cv__graduate searchText"><?= $graduate->name()?> <?= $graduate->surname()?></h2>
+<?php if ($graduate->name()): ?>
+                <h2 class="accordion-content__cv__graduate searchText"><?= $graduate->name()?></h2>
 <?php endif ?>
                 <div class="accordion-content__cv__info--wrapper">
                     <div class="accordion-content__cv__info">
 
                         <!-- Degrees pursured at HFBK Hamburg -->
                         <ul class="accordion-content__cv-info__degrees">
-    <?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure();foreach ($gradProjects as $gradProject): ?>
-                            <li class="searchText"><?= $gradProject->selectStudies()?>, <?= $gradProject->graduation()->toDate('Y')?></li>
-    <?php endforeach ?>
-    <?php endif ?>
+
+                    
+<?php foreach ($site->children()->published()->filterBy('authorID', $graduate) as $gradProject):?>
+<?php 
+// Make 20XX/YY from 20XX
+$gradPublished = (int) $gradProject->yearOfPublishing()->value(); // Convert to an integer
+$gradNextYear = $gradPublished + 1; // Add 1 to the year
+// Check if SuSe or WiSe
+$GradSemesterCycle = $gradProject->semesterCycle()->value(); // Get the value of semesterCycle
+$GradIsWs = $GradSemesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs to true or false
+?>
+<?php if ($gradProject->selectDegree()->isNotEmpty() && $gradProject->yearOfPublishing()->isNotEmpty()): ?>
+			                <li class="searchText"><?= $gradProject->selectDegree()->value()?>, <?php if($GradIsWs === true): ?><?= $gradNextYear ?><?php else: ?><?= $gradProject->yearOfPublishing()?><?php endif ?></li>
+<?php endif ?> 
+<?php endforeach?>
                         </ul>
 
                         <!-- Part of following Classes at HFBK Hamburg -->
-                        <ul class="accordion-content__cv-info__classes searchText filter">
+                        <ul class="accordion-content__cv-info__classes">
     <?php if ($graduate->class()->isNotEmpty()): ?>
     <?php foreach ($graduate->class()->split() as $tags): ?>
-                            <li>Klasse <?= $tags ?></li>
+                            <li class="searchText filter">Klasse <?= $tags ?></li>
     <?php endforeach ?>
     <?php endif ?>
                         </ul>
@@ -262,9 +269,9 @@ Summary of all Projects
                         
                             <!-- All connected projects -->
                             <ul>
-    <?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure(); foreach ($gradProjects as $gradProject): ?>
-                                <li class="filter"><?= $gradProject->linkThesis()->toPage()->title()?></li>
-    <?php endforeach ?><?php endif ?>
+<?php foreach ($site->children()->published()->filterBy('authorID', $graduate) as $gradProject):?> 
+				<li class="filter"><?= $gradProject->title()?></li>
+<?php endforeach?>
                             </ul>
                         </div>
 
@@ -274,9 +281,9 @@ Summary of all Projects
                             <!-- Website -->                        
                             <li><a target="_blank" href="<?= $graduate->website()->toUrl()?>">Website</a></li>
     <?php endif ?>
-    <?php if ($graduate->email()->isNotEmpty()): ?>                         
+    <?php if ($graduate->socialsEmail()->isNotEmpty()): ?>                         
                             <!-- Mail -->
-                            <li><a href="mailto:<?= Str::encode($graduate->email()) ?>">Mail</a></li>
+                            <li><a href="mailto:<?= Str::encode($graduate->socialsEmail()) ?>">Mail</a></li>
     <?php endif ?> 
                             <!-- Socials -->
     <?php $entries = $graduate->socials()->toStructure(); foreach ($entries as $entry): ?>
@@ -284,7 +291,7 @@ Summary of all Projects
     <?php endforeach ?>
                         </ul> 
                     </div> 
-                    
+                
 
                     <!-- Graduate Bio -->
                     <div class="accordion-content__cv__bio searchText">    

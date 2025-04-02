@@ -169,24 +169,6 @@ columns:
             type: url
             label: Link to HFBK Repository
       
-
-      # graduateinfo:
-      #   type: fields
-      #   fields:
-
-      #     headline5: 
-      #       label: Connect Graduate Profile
-      #       type: headline
-      #       numbered: false
-      #       help: This section connects your Thesis Project to your Graduate Profile. Once you filled out and published your Graduate Profile you will able to select it by clicking on the "Graduate Profile" field. Please keep in mind that only published and unlisted pages are showing up. If your Graduate Profile is still a draft, it will not show up. Once the connection is made you will be able to go to you Graduate Profile by clicking on this field.
-
-      #     connectedGraduateUser:
-      #       label: Graduate User Profile
-      #       type: users
-      #       query: kirby.users.filterBy("role", "graduate")
-      #       help: Select your name here
-      #       icon: user
-      #       multiple: false
    
       toDo:
         type: fields

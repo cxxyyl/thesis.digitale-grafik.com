@@ -13,7 +13,7 @@ sections:
       # Graduate View Version
       graduateUser: 
         label: Linked Graduate View
-        value: "{{ page.connectedGraduateUser.toUser.firstname }} {{ page.connectedGraduateUser.toUser.surname }}"
+        value: "{{ page.authorID.toUser.name }}"
       degree: 
         label: Year
         value: "{{ page.yearOfPublishing }}" 
