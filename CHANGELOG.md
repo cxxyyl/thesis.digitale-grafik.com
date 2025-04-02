@@ -17,12 +17,13 @@
 - ☑️ Update Blueprint connections between Thesis and Graduate (User)
     - ☑️ added in-between step so the website does not break -> but it works!
 
-- Update all Graduate Profiles and Thesis
+- Update all Graduate Profiles and Thesis -> With Christoph
+    - Demo Akseli Manner
     - Add Graduate Page Content to Graduate (User)
     - Add the correct Graduate ID's (the folder-strings in accounts) to the right thesis, so it shows up
 
-- Delete Theses Blueprint
-- Delete Graduates
+- ☑️ Delete Theses Blueprint
+- ☑️ Delete Graduates
 
 - Update Connections to frontend
 
