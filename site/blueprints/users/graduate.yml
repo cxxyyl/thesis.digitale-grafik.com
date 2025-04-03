@@ -18,8 +18,8 @@ permissions:
     update: false
   user:
     changeEmail: true
-    changeLanguage: true
-    changeName: true
+    changeLanguage: false
+    changeName: false
     changePassword: true
     changeRole: false
     delete: false
