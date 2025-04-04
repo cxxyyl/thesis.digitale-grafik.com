@@ -49,3 +49,20 @@ For current thesis
 - durch alle daten gehen und nochmal korrigieren -> Besonders Jahre abgleichen
 - AuthorID in jede Thesis einfügen
 - Alle Graudate Profile aktualisieren
+
+
+Feedback Christoph: 
+- email unkenntlich machen. 
+
+und ich weiß nicht ob wir die e-mails ins frontend tun sollten
+wenn wir das in der vergangenheit gut gemacht haben, dann wurde das im frontend irgendwie verschlüsselt oder in ein data-attribut getan und erst bei hover oder click "entschlüsselt"
+
+
+
+To Do's hat nen falschen Apostrophen ;)
+19:51
+
+die hilfetexte könnte man noch mal kürzen oder polishen oder wenn man faul ist auf deutsch übersetzen und zurück oder chatgpt fragen
+
+
+

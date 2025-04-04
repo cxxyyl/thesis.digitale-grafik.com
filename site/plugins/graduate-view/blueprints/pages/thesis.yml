@@ -125,7 +125,7 @@ columns:
             label: File Upload
             type: headline
             numbered: false
-            help: Please upload a PDF or a zip file of your written thesis here. If possiible it would be great, if the file size would be not to big. In case you should use a lot of images the file should not be bigger than 30mb. 
+            help: Please upload a PDF or ZIP file of your written thesis here. If possible, ensure the file size is not too large. If your thesis contains many images, the file size should not exceed 30 MB.
 
           thesispdf: 
             label: Upload your file here!
@@ -175,7 +175,7 @@ columns:
         fields:
 
           headline7:
-            label: To Do's
+            label: To Do‘s
             type: headline
 
           toDoThesis: 
