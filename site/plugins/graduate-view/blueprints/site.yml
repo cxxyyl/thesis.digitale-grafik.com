@@ -37,7 +37,7 @@ tabs:
             label: Website Archive
             value: "{{ page.mirrorKDG }}"
           toDo: 
-            label: ToDo's
+            label: ToDo‘s
             value: "{{ page.toDoThesis}}"
             width: 1/6
 
@@ -89,7 +89,7 @@ tabs:
           layout: table
           columns: 
             toDo: 
-              label: ToDo's
+              label: ToDo‘s
               value: "{{ page.toDoGraduate }}"
 
   imprint: 
