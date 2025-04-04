@@ -1,48 +1,49 @@
 title: Thesis
 
-sections:
-  # Once all the theses are not in the theses folder but directly in content this can be usesd to filter. 
-  theses:
-    type: pages
-    label: "Your Theses"
-    query: site.childrenAndDrafts().filterBy('authorID', user.id)
-    template: thesis
+columns: 
+  main:
+    width: 1/2 
+    sections:
+      # Once all the theses are not in the theses folder but directly in content this can be usesd to filter. 
+      theses:
+        type: pages
+        label: "Your BA and/or MA thesis"
+        query: site.childrenAndDrafts().filterBy('authorID', user.id)
+        template: thesis
 
-    layout: table
-    columns: 
-      # Graduate View Version
-      graduateUser: 
-        label: Linked Graduate View
-        value: "{{ page.authorID.toUser.name }}"
-      degree: 
-        label: Year
-        value: "{{ page.yearOfPublishing }}" 
+        layout: table
+        columns: 
+          # Graduate View Version
+          graduateUser: 
+            label: Linked Graduate View
+            value: "{{ page.authorID.toUser.name }}"
+          degree: 
+            label: Year
+            value: "{{ page.yearOfPublishing }}" 
 
 
-  info: 
-    type: fields
-    fields: 
-      headline1: 
-        type: headline
-        numberd: false
-        label: How To
+  aside:
+    width: 1/2 
+    sections: 
+      info: 
+        type: fields
+        fields: 
+          howto1: 
+            label: Tipps for using thesis.digitale
+            type: info
+            text: | 
+              Howdy!
 
-      howto1: 
-        label: Tipps for using thesis.digitale
-        type: info
-        text: | 
-          Howdy!
+              Here you'll find a short guide on how to use this backend. There are two sections – your account and your thesis.
 
-          Here you'll find a short guide on how to use this backend. There are two sections – your account and your thesis.
+              1. Go to „Your Account“, you can find it on the bottom left side of the panel. Fill out all sections in the "Personal Information" and "Contact & Social" sections.
+              <br>
+              2. Go back to „Thesis“, you can find it on the top left side of the panel. At the top right corner of the „Your Theses“ table, click the +Add button to add your Thesis Page. Use the main title of your thesis as the page title.
+              <br>
+              3. Fill out the Thesis Page.
+              Complete the Thesis Info section. Upload your written thesis as a PDF file in the File Upload Section. Link to your Thesis Website in the Mirror section. If you published your practical work on https://projekte.hfbk.net/, you can also link to it.
+              <br>
+              4. Once you're finished, publish your Thesis Project by switching its status to "Published". 
 
-          1. Go to „Your Account“, you can find it on the bottom left side of the panel. Fill out all sections in the "Personal Information" and "Contact & Social" sections.
-          <br>
-          2. Go back to „Thesis“, you can find it on the top left side of the panel. At the top right corner of the „Your Theses“ table, click the +Add button to add your Thesis Page. Use the main title of your thesis as the page title.
-          <br>
-          3. Fill out the Thesis Page.
-          Complete the Thesis Info section. Upload your written thesis as a PDF file in the File Upload Section. Link to your Thesis Website in the Mirror section. If you published your practical work on https://projekte.hfbk.net/, you can also link to it. 
-          <br>
-          4. Once you're finished, publish your Thesis Project by switching its status to "Published". 
-
-          With this, you are done!
+              With this, you are done!
 
