@@ -23,7 +23,7 @@ columns:
 
           thesisAbstract: 
             label: Abstract for the Thesis
-            type: textarea
+            type: writer
             buttons: 
               - bold
               - italic

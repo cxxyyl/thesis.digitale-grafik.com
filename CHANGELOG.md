@@ -46,9 +46,19 @@ For current thesis
 
 ## ToDo's Christoph & Stephan
 - ☑️ für alle Konten emails abgleichen und ein Passwort generieren
-- durch alle daten gehen und nochmal korrigieren -> Besonders Jahre abgleichen
-- AuthorID in jede Thesis einfügen
-- Alle Graudate Profile aktualisieren
+- ☑️ durch alle daten gehen und nochmal korrigieren -> Besonders Jahre abgleichen
+- ☑️ AuthorID in jede Thesis einfügen
+- ☑️ Alle Graudate Profile aktualisieren
+
+
+
+
+
+- fix link thesis in bio -> Projects
+- textarea -> writer
+- imprint seite
+-  asc desc
+
 
 
 Feedback Christoph: 
@@ -59,10 +69,9 @@ wenn wir das in der vergangenheit gut gemacht haben, dann wurde das im frontend 
 
 
 
-To Do's hat nen falschen Apostrophen ;)
-19:51
 
-die hilfetexte könnte man noch mal kürzen oder polishen oder wenn man faul ist auf deutsch übersetzen und zurück oder chatgpt fragen
+
+
 
 
 
