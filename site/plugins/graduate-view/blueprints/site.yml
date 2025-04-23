@@ -101,17 +101,28 @@ tabs:
         fields: 
           about: 
             label: About
-            type: textarea
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
+              - link
+            nodes: true
             counter: true
-            size: large
             spellcheck: true
 
           imprint: 
             label: Imprint
-            type: textarea
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
+              - link
+              - email
+            nodes: true
             counter: true
-            size: large
-            # spellcheck: true
+            spellcheck: true
            
   housekeeping: 
     label: Housekeeping

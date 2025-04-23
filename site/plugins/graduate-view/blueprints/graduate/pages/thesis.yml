@@ -23,14 +23,15 @@ columns:
 
           thesisAbstract: 
             label: Abstract for the Thesis
-            type: textarea
-            buttons: 
+            type: writer
+            inline: true
+            marks: 
               - bold
               - italic
+              - link
             spellcheck: true
             counter: true
             maxlength: 1000
-            size: medium
             width: 2/3
             help: Please write short abstract for your thesis. The abstract should summerize your written thesis. You can also mention relevant topics, keywords or authors that were related in your research. In theory the abstract is important on this website, as it is one of the pieces of information that feed the search option on thesis.digitale. The Abstract should not be longer than 1000 characters with spaces. 
 
@@ -180,9 +181,12 @@ columns:
 
           toDoThesis: 
             label: Whats left to do?
-            type: textarea
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
             counter: true
-            size: medium
             buttons: false
             spellcheck: true
 
