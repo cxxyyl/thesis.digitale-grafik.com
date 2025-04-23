@@ -239,8 +239,7 @@ Direct Link to Subpage for Printing Options
                         <!-- Degrees pursured at HFBK Hamburg -->
                         <ul class="accordion-content__cv-info__degrees">
 
-                    
-<?php foreach ($site->children()->published()->filterBy('authorID', $graduate) as $gradProject):?>
+<?php foreach ($site->children()->published()->filterBy('authorID', $id) as $gradProject):?>
 <?php 
 // Make 20XX/YY from 20XX
 $gradPublished = (int) $gradProject->yearOfPublishing()->value(); // Convert to an integer
