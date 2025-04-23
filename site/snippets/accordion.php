@@ -13,6 +13,7 @@
 
     // Connected Graduate
     $graduate = $item->authorID()->toUser();
+    $id = $item->authorID();
 ?>
 
 
@@ -256,11 +257,11 @@ $GradIsWs = $GradSemesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs
 
                         <!-- Part of following Classes at HFBK Hamburg -->
                         <ul class="accordion-content__cv-info__classes">
-    <?php if ($graduate->class()->isNotEmpty()): ?>
-    <?php foreach ($graduate->class()->split() as $tags): ?>
+<?php if ($graduate->class()->isNotEmpty()): ?>
+<?php foreach ($graduate->class()->split() as $tags): ?>
                             <li class="searchText filter">Klasse <?= $tags ?></li>
-    <?php endforeach ?>
-    <?php endif ?>
+<?php endforeach ?>
+<?php endif ?>
                         </ul>
                             
                         <div class="accordion-content__cv-info__projects">
@@ -269,35 +270,36 @@ $GradIsWs = $GradSemesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs
                         
                             <!-- All connected projects -->
                             <ul>
-<?php foreach ($site->children()->published()->filterBy('authorID', $graduate) as $gradProject):?> 
-				<li class="filter"><?= $gradProject->title()?></li>
-<?php endforeach?>
+<?php foreach ($site->children()->published()->filterBy('authorID', $id) as $gradProject):?> 
+                            <li class="filter"><?= $gradProject->title()?></li>
+<?php endforeach ?>
+
                             </ul>
                         </div>
 
                         <!-- All socials and other links -->
                         <ul class="accordion-content__cv-info__socials">
-    <?php if ($graduate->website()->isNotEmpty()): ?> 
+<?php if ($graduate->website()->isNotEmpty()): ?> 
                             <!-- Website -->                        
                             <li><a target="_blank" href="<?= $graduate->website()->toUrl()?>">Website</a></li>
-    <?php endif ?>
-    <?php if ($graduate->socialsEmail()->isNotEmpty()): ?>                         
+<?php endif ?>
+<?php if ($graduate->socialsEmail()->isNotEmpty()): ?>                         
                             <!-- Mail -->
                             <li><a href="mailto:<?= Str::encode($graduate->socialsEmail()) ?>">Mail</a></li>
-    <?php endif ?> 
+<?php endif ?> 
                             <!-- Socials -->
-    <?php $entries = $graduate->socials()->toStructure(); foreach ($entries as $entry): ?>
+<?php $entries = $graduate->socials()->toStructure(); foreach ($entries as $entry): ?>
                             <li><a class="searchText filter" target="_blank" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a></li>
-    <?php endforeach ?>
+<?php endforeach ?>
                         </ul> 
                     </div> 
                 
 
                     <!-- Graduate Bio -->
                     <div class="accordion-content__cv__bio searchText">    
-    <?php if ($graduate->bio()->isNotEmpty()): ?>
+<?php if ($graduate->bio()->isNotEmpty()): ?>
                         <?= $graduate->bio()->kirbytext()?> 
-    <?php endif ?>
+<?php endif ?>
                     </div>  
                 </div>      
             </section>
