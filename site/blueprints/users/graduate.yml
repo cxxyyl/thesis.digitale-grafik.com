@@ -50,12 +50,11 @@ columns:
 
           bio:
             label: Short Bio
-            type: textarea
-            buttons: 
+            type: writer
+            inline: true
+            marks: 
               - bold
               - italic
-              - ul
-              - ol
               - link
               - email
             counter: true

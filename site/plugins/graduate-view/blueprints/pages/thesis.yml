@@ -24,6 +24,7 @@ columns:
           thesisAbstract: 
             label: Abstract for the Thesis
             type: writer
+            inline: true
             buttons: 
               - bold
               - italic
@@ -180,7 +181,11 @@ columns:
 
           toDoThesis: 
             label: Whats left to do?
-            type: textarea
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
             counter: true
             size: medium
             buttons: false
