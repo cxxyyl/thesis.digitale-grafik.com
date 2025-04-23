@@ -11,6 +11,7 @@ tabs:
         label: All Thesis Drafts
         query: site.index(true).filterBy('Template', 'thesis').filterBy('Status', 'draft', 'unlisted')
         template: thesis
+        sortBy: title asc
 
         layout: table
         columns:
@@ -46,7 +47,7 @@ tabs:
         label: All Listed Theses
         template: thesis
         status: listed
-        # sortBy: yearOfPublishing desc
+        sortBy: yearOfPublishing desc semesterCycle desc
 
         layout: table
         columns:
