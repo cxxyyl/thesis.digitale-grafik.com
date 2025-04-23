@@ -54,10 +54,10 @@ For current thesis
 
 
 
-- fix link thesis in bio -> Projects
+- ☑️ fix link thesis in bio -> Projects
 - textarea -> writer
 - imprint seite
--  asc desc
+- ☑️ thesis sorting  / descending
 
 
 
