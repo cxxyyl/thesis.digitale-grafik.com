@@ -27,11 +27,13 @@
 
 - ☑️ Update Connections to frontend
 
+
 ## No more Thesis or Graduate Selection
 - ☑️ Graduate and all Theses (Pages) are linked by Author ID
 
-### How to Display in Frontend
 
+
+### How to Display in Frontend
 For current thesis
 - ☑️ Display all Thesis Content
     - ☑️ rewrite config to rename BA / MA etc 
@@ -44,6 +46,8 @@ For current thesis
         - ☑️ ! check years -> WS+1 / SS+0
     - ☑️ display names of thesis
 
+
+
 ## ToDo's Christoph & Stephan
 - ☑️ für alle Konten emails abgleichen und ein Passwort generieren
 - ☑️ durch alle daten gehen und nochmal korrigieren -> Besonders Jahre abgleichen
@@ -51,15 +55,14 @@ For current thesis
 - ☑️ Alle Graudate Profile aktualisieren
 
 
-
-
-
 - ☑️ fix link thesis in bio -> Projects
-- textarea -> writer
-- imprint seite
-- ☑️ thesis sorting  / descending
+- ☑️ fix graduate degree in bio
+- ☑️ textarea -> writer
+- ☑️ imprint seite
+- ☑️ thesis sorting / descending
 
 
+- ☑️ fix textarea -> writer conversion errors
 
 Feedback Christoph: 
 - email unkenntlich machen. 
