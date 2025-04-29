@@ -54,27 +54,10 @@ For current thesis
 - ☑️ AuthorID in jede Thesis einfügen
 - ☑️ Alle Graudate Profile aktualisieren
 
-
 - ☑️ fix link thesis in bio -> Projects
 - ☑️ fix graduate degree in bio
 - ☑️ textarea -> writer
 - ☑️ imprint seite
 - ☑️ thesis sorting / descending
 
-
 - ☑️ fix textarea -> writer conversion errors
-
-Feedback Christoph: 
-- email unkenntlich machen. 
-
-und ich weiß nicht ob wir die e-mails ins frontend tun sollten
-wenn wir das in der vergangenheit gut gemacht haben, dann wurde das im frontend irgendwie verschlüsselt oder in ein data-attribut getan und erst bei hover oder click "entschlüsselt"
-
-
-
-
-
-
-
-
-

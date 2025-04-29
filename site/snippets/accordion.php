@@ -89,13 +89,7 @@ Direct Link to Subpage for Printing Options
             <!-- Links for downloading the thesis and opening the original thesis website  -->
             <div class="accordion-container__downloads">
 
-            <!-- Website Status-->
-<!-- 
-                
-
-
--->
-
+            <!-- Website Status -->
 <?php if ($item->mirrorExternalBroken()->toBool() === true && $item->mirrorExternal()->isNotEmpty()):?>
                 <h4 class="status-online">Website</h4>
 <?php elseif ($item->mirrorExternalBroken()->toBool() === false && $item->mirrorKDG()->isNotEmpty()):?>
