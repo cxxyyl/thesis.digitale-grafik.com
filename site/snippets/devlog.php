@@ -20,17 +20,15 @@ cxxyyl          from hover to click. Hover was a nice idea, but in the end it's 
                 had to rework some of the html (.opened / .no-close) for the js script. And also some changes to the css to minimize the extra 
                 area html elements with text occupy -> so a lot of width: 100% to width: fit-content. There is also finally a favicon   ✦✦
                 and a meta desctiption. Will finish the changelog / readme now and upload. Fingers crossed.                             ✦✦
-
+                Okay, wow, good job me, deleted all the updatet accounts, while uploading ... had to redo everything again – this hurts so much
+            
+                WE ARE ONLINE ! 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
 2025–APR–23     Had another meeting with Christoph to put some more missing infos about graduates and theses into the backend. He also suggeste
 cxxyyl          switching from textarea to writer. I also found a bug with how the graduate account data is fetched, works now! Projects and Degree
                 are showing up in the bio section <3
 
-
-⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
-2025–APR–23     Christoph had a had some feedback, for some of the fields and mostly spelling and apostrophs. It's added now :)
-cxxyyl
 
 
 ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
