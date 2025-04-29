@@ -1,4 +1,4 @@
-<?php foreach ($site->grandchildren()->published()->sortBy('yearOfPublishing', 'desc', 'semesterCycle', 'desc') as $item):?> 
+<?php foreach ($site->children()->published()->sortBy('yearOfPublishing', 'desc', 'semesterCycle', 'desc') as $item):?> 
 <?php 
     $template = $item->template();$thesis = 'thesis';if (str_contains($template, $thesis)): 
 
@@ -9,8 +9,11 @@
 
     // Check if SuSe or WiSe
     $semesterCycle = $item->semesterCycle()->value(); // Get the value of semesterCycle
-      $isWs = $semesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs to true or false
+    $isWs = $semesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs to true or false
 
+    // Connected Graduate
+    $graduate = $item->authorID()->toUser();
+    $id = $item->authorID();
 ?>
 
 
@@ -29,25 +32,20 @@ Title ------ <?= $item->title()?><?php endif ?>
 <?php if ($item->thesisSubtitle()->isNotEmpty()): ?>
 Subtitle --- <?= $item->thesisSubtitle()?><?php endif ?>
 
-<?php $graduate = $item->connectedGraduate()->toPage() ?>
-By --------- <?=$graduate->name()?> <?=$graduate->surname()?>
+<?php if ($graduate->name()->isNotEmpty()):?>
+By --------- <?=$graduate->name()?><?php endif ?>
 
 <?php if($item->selectDegree()->isNotEmpty()): ?>
-Degree ----- <?= $item->selectDegree()?><?php endif?>
+Degree ----- <?= option('category-map-short')[$item->selectDegree()->value()] ?><?php endif?>
 
 <?php if($item->semesterCycle()->isNotEmpty()): ?>
-Published -- <?= $item->semesterCycle()?><?php endif?>
- – <?php if($item->yearOfPublishing()->isNotEmpty()): ?><?php if($isWs === true): ?><?= $newYear ?><?php else: ?><?= $item->yearOfPublishing() ?><?php endif; ?><?php endif; ?>
+Published -- <?= $item->semesterCycle()?><?php endif?> – <?php if($item->yearOfPublishing()->isNotEmpty()): ?><?php if($isWs === true): ?><?= $newYear ?><?php else: ?><?= $item->yearOfPublishing() ?><?php endif; ?><?php endif; ?>
 
 
 Direct Link to Subpage for Printing Options
 <?= $item->url()?>
 
-Summary of all Projects
-<?= $item->connectedGraduate()->toPage()->url()?>
-
-
- --> 
+--> 
 
     <div class="accordion_row"> <!-- Wrapper for every row -->
         <div class="accordion-container"> <!-- Everything inside of the visible row -->
@@ -59,7 +57,7 @@ Summary of all Projects
 
             <!-- Pursued Degree -->
 <?php if($item->selectDegree()->isNotEmpty()): ?>
-            <p data-search="<?= option('category-map') [$item->selectDegree()->value()]?>" class="accordion-container__degree filter searchText"><?= $item->selectDegree()?></p>
+            <p data-search="<?= $item->selectDegree()?>" class="accordion-container__degree filter searchText"><?= option('category-map-short') [$item->selectDegree()->value()]?></p>
 <?php endif?>
 
             <!-- Semester of Publishing -->
@@ -78,26 +76,20 @@ Summary of all Projects
 
             <!-- Language the thesis is written in -->
 <?php if ($item->language()->isNotEmpty()): ?>
-            <h4 data-search="<?=option('category-map')[$item->language()->category()->value()]?>" class="accordion-container__language"><?= $item->language()->category()?></h4>
+            <h4 data-search="<?=option('category-map')[$item->language()->category()->value()]?>" class="accordion-container__language filter searchText"><?= $item->language()->category()?></h4>
 <?php endif ?>
             
             <!-- Thesis Title -->
             <h4 class="accordion-container__thesis"><?= $item->title()?></h4>
             
              <!-- Thesis Author -->
-<?php $graduate = $item->connectedGraduate()->toPage() ?>
-            <h4 class="accordion-container__graduate"><?=$graduate->name()?> <?=$graduate->surname()?></h4>
+
+            <h4 class="accordion-container__graduate"><?=$graduate->name()?></h4>
             
             <!-- Links for downloading the thesis and opening the original thesis website  -->
             <div class="accordion-container__downloads">
 
-                <!-- Website Status-->
-<!-- 
-                
-
-
--->
-
+            <!-- Website Status -->
 <?php if ($item->mirrorExternalBroken()->toBool() === true && $item->mirrorExternal()->isNotEmpty()):?>
                 <h4 class="status-online">Website</h4>
 <?php elseif ($item->mirrorExternalBroken()->toBool() === false && $item->mirrorKDG()->isNotEmpty()):?>
@@ -145,20 +137,20 @@ Summary of all Projects
             -->
 
                 <!-- Thesis Title -->
-                <h2 class="accordion-content__thesis__title searchText"><?= $item->title()?></h2>  
+                <h2 class="accordion-content__thesis__title searchText no-close"><?= $item->title()?></h2>  
                 
                 <div class="accordion-content__thesis-info--wrapper">
                     <div class="accordion-content__thesis-info">
 
                         <!-- Thesis Subtitle // this will only show up, if there is a subtitle -->
     <?php if ($item->thesisSubtitle()->isNotEmpty()): ?>
-                        <h5 class="searchText accordion-content__thesis-info__subtitle"><?= $item->thesisSubtitle()?></h5>
+                        <h5 class="searchText accordion-content__thesis-info__subtitle no-close"><?= $item->thesisSubtitle()?></h5>
     <?php endif ?>
                         <ul class="accordion-content__thesis-info__published">
 
                             <!-- Persued Degree -->
     <?php if($item->selectDegree()->isNotEmpty()): ?>
-                            <li data-search="<?= option('category-map') [$item->selectDegree()->value()]?>" class="searchText filter"><?= option('category-map')[$item->selectDegree()->value()]?> Thesis</li>
+                            <li class="no-close" data-search="<?= option('category-map') [$item->selectDegree()->value()]?>" class="searchText filter"><?= option('category-map')[$item->selectDegree()->value()]?> Thesis</li>
     <?php endif?>
 
                             <!-- Year of Publishing -->
@@ -166,20 +158,20 @@ Summary of all Projects
                                 <?php if($item->semesterCycle()->isNotEmpty()):?>
                                     <span class="filter searchText"><?= $item->semesterCycle()?></span>
                                 <?php endif?> 
-                                <?php if($item->yearOfPublishing()->isNotEmpty()):?><?php if($isWs === true):?><span class="filter searchText"><?= $newYear?></span><?php else:?><span class="filter searchText"><?= $item->yearOfPublishing()?></span><?php endif?><?php endif?>
+                                <?php if($item->yearOfPublishing()->isNotEmpty()):?><?php if($isWs === true):?><span class="filter searchText no-close"><?= $newYear?></span><?php else:?><span class="filter searchText no-close"><?= $item->yearOfPublishing()?></span><?php endif?><?php endif?>
                             </li>
                         </ul>
                         
                         <!-- Advisors -->
                         <ul class="accordion-content__thesis-info__advisors">
     <?php if ($item->advisor1()->isNotEmpty()): ?>
-                            <li class="searchText filter"><?= $item->advisor1()?></li>
+                            <li class="searchText filter no-close"><?= $item->advisor1()?></li>
     <?php endif ?>
     <?php if ($item->advisor2()->isNotEmpty()): ?>
-                            <li class="searchText filter"><?= $item->advisor2()?></li>
+                            <li class="searchText filter no-close"><?= $item->advisor2()?></li>
     <?php endif ?>
     <?php if ($item->advisor3()->isNotEmpty()): ?>
-                            <li class="searchText filter"><?= $item->advisor3()?></li>
+                            <li class="searchText filter no-close"><?= $item->advisor3()?></li>
     <?php endif ?>
                         </ul>
 
@@ -190,10 +182,10 @@ Summary of all Projects
                         -->
     <?php if ($item->thesisTags()->isNotEmpty()): ?>
                         <div class="accordion-content__thesis-info__topics">    
-                            <h5>Topics</h5>
+                            <h5 class="no-close">Topics</h5>
                             <div class="accordion-content__thesis-info__topics__tags">
     <?php foreach ($item->thesisTags()->split() as $tags): ?>
-                                <button class="searchText tag filter"><?= $tags ?></button>
+                                <button class="searchText tag filter no-close"><?= $tags ?></button>
     <?php endforeach ?>
                             </div>
                         </div>           
@@ -208,7 +200,7 @@ Summary of all Projects
                 I'll find a solution for this at some point. 
                 -->
                     <div class="accordion-content__thesis-abstract searchText">
-                       <div class="scrollwrapper">
+                       <div class="scrollwrapper no-close">
     <?php if ($item->thesisAbstract()->isNotEmpty()): ?>
                             <?= $item->thesisAbstract()->kirbytext()?>
     <?php endif ?>
@@ -230,67 +222,79 @@ Summary of all Projects
 
                                                         ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
             ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
-            -->
-                <?php $graduate = $item->connectedGraduate()->toPage() ?>    
+            --> 
                 <!-- Graduate -->
-<?php if ($graduate->name()->isNotEmpty()): ?>
-                <h2 class="accordion-content__cv__graduate searchText"><?= $graduate->name()?> <?= $graduate->surname()?></h2>
+<?php if ($graduate->name()): ?>
+                <h2 class="accordion-content__cv__graduate searchText no-close"><?= $graduate->name()?></h2>
 <?php endif ?>
                 <div class="accordion-content__cv__info--wrapper">
                     <div class="accordion-content__cv__info">
 
                         <!-- Degrees pursured at HFBK Hamburg -->
                         <ul class="accordion-content__cv-info__degrees">
-    <?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure();foreach ($gradProjects as $gradProject): ?>
-                            <li class="searchText"><?= $gradProject->selectStudies()?>, <?= $gradProject->graduation()->toDate('Y')?></li>
-    <?php endforeach ?>
-    <?php endif ?>
+
+<?php foreach ($site->children()->published()->filterBy('authorID', $id) as $gradProject):?>
+<?php 
+// Make 20XX/YY from 20XX
+$gradPublished = (int) $gradProject->yearOfPublishing()->value(); // Convert to an integer
+$gradNextYear = $gradPublished + 1; // Add 1 to the year
+// Check if SuSe or WiSe
+$GradSemesterCycle = $gradProject->semesterCycle()->value(); // Get the value of semesterCycle
+$GradIsWs = $GradSemesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs to true or false
+?>
+<?php if ($gradProject->selectDegree()->isNotEmpty() && $gradProject->yearOfPublishing()->isNotEmpty()): ?>
+			                <li class="searchText no-close"><?= $gradProject->selectDegree()->value()?>, <?php if($GradIsWs === true): ?><?= $gradNextYear ?><?php else: ?><?= $gradProject->yearOfPublishing()?><?php endif ?></li>
+<?php endif ?> 
+<?php endforeach?>
                         </ul>
 
                         <!-- Part of following Classes at HFBK Hamburg -->
-                        <ul class="accordion-content__cv-info__classes searchText filter">
-    <?php if ($graduate->class()->isNotEmpty()): ?>
-    <?php foreach ($graduate->class()->split() as $tags): ?>
-                            <li>Klasse <?= $tags ?></li>
-    <?php endforeach ?>
-    <?php endif ?>
+                        <ul class="accordion-content__cv-info__classes">
+<?php if ($graduate->class()->isNotEmpty()): ?>
+<?php foreach ($graduate->class()->split() as $tags): ?>
+                            <li class="searchText filter no-close">Klasse <?= $tags ?></li>
+<?php endforeach ?>
+<?php endif ?>
                         </ul>
                             
                         <div class="accordion-content__cv-info__projects">
                             <!-- Link to other Thesis Projects -->
-                            <h5>Thesis Projects at KDG:</h5>
+                            <h5 class="no-close">Thesis Projects at KDG:</h5>
                         
                             <!-- All connected projects -->
                             <ul>
-    <?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure(); foreach ($gradProjects as $gradProject): ?>
-                                <li class="filter"><?= $gradProject->linkThesis()->toPage()->title()?></li>
-    <?php endforeach ?><?php endif ?>
+<?php foreach ($site->children()->published()->filterBy('authorID', $id) as $gradProject):?> 
+                            <li class="filter no-close"><?= $gradProject->title()?></li>
+<?php endforeach ?>
+
                             </ul>
                         </div>
 
                         <!-- All socials and other links -->
                         <ul class="accordion-content__cv-info__socials">
-    <?php if ($graduate->website()->isNotEmpty()): ?> 
+<?php if ($graduate->website()->isNotEmpty()): ?> 
                             <!-- Website -->                        
-                            <li><a target="_blank" href="<?= $graduate->website()->toUrl()?>">Website</a></li>
-    <?php endif ?>
-    <?php if ($graduate->email()->isNotEmpty()): ?>                         
+                            <li><a class="no-close" target="_blank" href="<?= $graduate->website()->toUrl()?>">Website</a></li>
+<?php endif ?>
+<?php if ($graduate->socialsEmail()->isNotEmpty()): ?>                         
                             <!-- Mail -->
-                            <li><a href="mailto:<?= Str::encode($graduate->email()) ?>">Mail</a></li>
-    <?php endif ?> 
+                            <li><a class="no-close" href="mailto:<?= Str::encode($graduate->socialsEmail()) ?>">Mail</a></li>
+<?php endif ?> 
                             <!-- Socials -->
-    <?php $entries = $graduate->socials()->toStructure(); foreach ($entries as $entry): ?>
-                            <li><a class="searchText filter" target="_blank" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a></li>
-    <?php endforeach ?>
+<?php $entries = $graduate->socials()->toStructure(); foreach ($entries as $entry): ?>
+                            <li><a class="searchText filter no-close" target="_blank" href="<?= $entry->socialLink()->url() ?>"> <?= $entry->socialName() ?></a></li>
+<?php endforeach ?>
                         </ul> 
                     </div> 
-                    
+                
 
                     <!-- Graduate Bio -->
                     <div class="accordion-content__cv__bio searchText">    
-    <?php if ($graduate->bio()->isNotEmpty()): ?>
-                        <?= $graduate->bio()->kirbytext()?> 
-    <?php endif ?>
+<?php if ($graduate->bio()->isNotEmpty()): ?>
+                        <div class="no-close">
+                            <?= $graduate->bio()->kirbytext()?> 
+                        </div>
+<?php endif ?>
                     </div>  
                 </div>      
             </section>
@@ -298,7 +302,7 @@ Summary of all Projects
             <!-- Links to: Download Thesis / Open Website / Practical Works -->
             <div class="accordion-content__links">
 <?php if ($item->thesispdf()->isNotEmpty()): ?>
-                <div class="accordion-content__links__download-container">
+                <div class="accordion-content__links__download-container no-close">
                     <a target="_blank" href="<?=$item->thesispdf()->toFile()->url()?>">Download Thesis ↓</a>
                     <button class="tag"><?= $item->language()->category()?></button>
                 </div>
@@ -311,12 +315,12 @@ Summary of all Projects
 <?php else:?>
 <?php if ($item->mirrorKDG()->isNotEmpty()): ?> 
                 <!-- Link to KDG Archive Website-->
-                <a target="_blank"  href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
+                <a class="no-close" target="_blank"  href="<?=$item->mirrorKDG()->url()?>">Open Website ↗</a>
 <?php endif ?>
 <?php endif ?>
 <?php if ($item->repositoryLink()->isNotEmpty()): ?>
                 <!-- Link To HFBK Repository -->
-                <a target="_blank" href="<?=$item->repositoryLink()->url()?>">Practical Work ↗</a>
+                <a class="no-close" target="_blank" href="<?=$item->repositoryLink()->url()?>">Practical Work ↗</a>
 <?php endif ?>
             </div>
         </div>

@@ -1,3 +1,9 @@
+# Current Version
+-> Version 1.2 – Graduate Profiles
+   Version 1.1 – UI Update
+   Version 1.0 – Base Version / Lauch
+
+
 # Welcome
 
 Hey welcome to this project! This is the official™ Klasse Digitale Grafik archive for all thesis projects – for now at least. 
@@ -43,6 +49,44 @@ Here are some guidelines in casd you should decide to develop a theme, feature, 
 
 In case of a general redesign for this website in the future please add the original css I wrote as the "legacy1.0" theme. 
 That would be really great! Thanks ❤
+
+
+
+
+
+# Version 1.2 – Graduate Update
+
+Okay, so what's new ? A lot and not so much. The frontend has not changed (a lot) -> now no more hover only click. But the Backend got some (futureproofing?) work. 
+The problem was that util now everyone could edit everything, and there was only one shared login. Yikes! I wanted to implement this, when I first started working
+on thesis.digitale, but I was not able to do it. But now everything worked out <3
+
+### Updates: 
+- Log-In for every graduate
+- Graduates are only able to see/edit their own profiles and theses. 
+- No more connecting graduate and thesis to each other, it's automatially done with the accountID.
+- Seperate Blueprints for Graduate and Admin Backend.
+
+### Plugins & Location of Blueprints
+This is important. With the addition of the graduate view plug-in the **/blueprints/site.yml** and **/blueprints/pages/...** files are not in /blueprints anymore. 
+They are now located in **site/plugins/graduate-view**. 
+
+For Admin-View
+- site/plugins/graduate-view/site.yml
+- site/plugins/graduate-view/pages/thesis.yml
+
+For Graduate-View
+- site/plugins/graduate-view/graduate/site.yml
+- site/plugins/graduate-view/graduate/pages/thesis.yml
+
+
+
+
+
+
+
+
+
+
 
 
 ## Credits

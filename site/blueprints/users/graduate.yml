@@ -1,0 +1,187 @@
+title: Graduate
+  
+permissions:
+  access:
+    account: true
+    panel: true
+    site: true
+    languages: true
+    system: false
+    users: false
+  languages:
+    create: false
+    delete: false
+  pages:
+    sort: false
+  site:
+    changeTitle: false
+    update: false
+  user:
+    changeEmail: true
+    changeLanguage: false
+    changeName: false
+    changePassword: true
+    changeRole: false
+    delete: false
+    update: true
+  users:
+    changeEmail: false
+    changeLanguage: false
+    changeName: false
+    changePassword: false
+    changeRole: false
+    create: false
+    delete: false
+    update: false
+
+columns: 
+  info: 
+    width: 1/2
+
+    sections: 
+      graduate:
+        type: fields
+        fields: 
+
+          headline1: 
+            type: headline
+            label: Personal Information
+            numbered: false
+
+          bio:
+            label: Short Bio
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
+              - link
+              - email
+            counter: true
+            maxlength: 600
+            size: medium
+            counter: true 
+            help: Write a few sentences about yourself. Your interests, what you do or where you studied. You can also add links to other websites or projects in the field.   
+            Your Bio is one of the pieces of information that feed the search option on thesis.digitale. The Bio should not be longer than 500 characters with spaces. 
+
+          class: 
+            label: Part of the following Classes
+            type: tags
+            required: true
+            help: If you are in multiple classes, please select / add all of them. If you're only in Klasse Digitale Grafik you only add "Digitale Grafik"
+            options:
+              - Digitale Grafik
+              - Typografie
+              - Grafik
+              - Fotografie
+
+              - Film
+
+              - Boyce
+              - Demand
+              - Slominski
+              - Stadtbäumer
+              - Atkins
+              
+              - Social Design
+              - Experimental Design
+              - Industrial Design
+              - Product Design
+
+              - Kahlon
+              - Koether
+              - Voigt
+
+              - Attia
+              - Bulloch
+              - Denny
+              - Faust
+              - Afsah
+
+          # headline2:
+          #   type: headline
+          #   label: Degrees and Projects
+          #   help: In this section you can fill out what degrees you pursued at HFBK. To add a new fild to theis structure you can click on the +add button on the top right corner or down in the middle. If it's for example a BA, you would add only one entry in this structure. If you graduated with both a BA and MA from HFBK you would make two entries — one for your BA and one for your MA. You're also able to add the year you've graduated. What's also important is the "Connect Thesis" field. Please remember to conect your thesis, once you're done. 
+          
+          # studies: 
+          #   label: Studies
+          #   type: structure
+          #   fields:
+      
+          #     selectStudies:
+          #       label: Select Degree
+          #       type: radio
+          #       required: true
+          #       options:
+          #         Bachelor of Fine Arts: Fine Arts or Design — Bachelor of Fine Arts
+          #         Master of Fine Arts: Fine Arts or Design — Master of Fine Arts
+          #         Bachelor of Arts: Teaching Degree — Bachelor of Arts
+          #         Master of Arts: Teaching Degree — Master of Arts
+          #         PHD: Doctoral Studies — PHD
+          #       help: Please select the degree that corresponds with your current thesis project.  
+
+          #     graduation: 
+          #       label: Year of Graduation
+          #       type: date
+          #       calendar: false
+          #       display: YYYY
+          #       required: true
+
+          #     headline4: 
+          #       type: headline
+          #       label: Connect Thesis
+          #       numbered: false
+          #       help: This section connects your Graduate Profile to your Thesis Project. Once you filled out and published your Graduate Profile as well as your Thesis Project come back here to connect your Thesis. Click one the "Connect Thesis" field to choose your Thesis Project from the dropdown. Please keep in mind that only published and unlisted pages are showing up. If your Thesis Project is still a draft, it will not show up. Once the connection is made you will be able to go to you Thesis Project by clicking on this field. 
+                
+          #     linkThesis:
+          #       label: Connect Thesis
+          #       type: pages
+          #       required: false
+          #       query: site.childrenAndDrafts().filterBy('authorID', user.id)
+          #       help: Select your Thesis here
+          #       icon: book
+          #       image:
+          #         cover: false
+          #       multiple: false
+
+  social:
+    width: 1/2 
+    sections: 
+
+      contact:
+        type: fields
+        fields: 
+
+          headline3: 
+            type: headline
+            label: Contact & Socials
+            numbered: false
+            help: This is the Section for all your Contact Information and Social Media Links. If you have your own website you can link it here. The last field called "Social" is a structure field. You can add multiple entries into it by clicking on the +add Button in the top right corner. Enter what ever you want to share. are.na, github, instagram, or some obscure forum.
+          
+          website:
+            label: Link to Website
+            type: url
+            icon: heart-filled
+
+          socialsEmail: 
+            label: Graduate Mail 
+            type: email
+            icon: email
+            help: If people should be able to contact you via Email enter you Email adress here. The Email you are using for the thesis.digitale log-in will not be shown anywhere. The Email you put in the Email field will be encrypted so website scrapers won't be easily able to scrape it.
+
+          socials: 
+            label: Socials
+            type: structure
+            fields:
+
+              socialName:
+                label: Site Name
+                type: text
+                maxlength: 50
+                help: Connect your Socials here. Instagram, Github, Arena, Soundcloud. Whatever you want to share.
+
+              socialLink:
+                label: Profile Link
+                type: url
+
+                

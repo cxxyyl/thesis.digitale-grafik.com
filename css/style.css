@@ -37,7 +37,7 @@ _________
 * > * > * > * > * > * > * > *{background-color: peru ;}
 * > * > * > * > * > * > * > * > *{background-color: green ;}
 * > * > * > * > * > * > * > * > * > *{background-color: palevioletred ;}
-* > * > * > * > * > * > * > * > * > * > *{background-color: palevioletred ;}
+* > * > * > * > * > * > * > * > * > * > *{background-color: rgb(123, 255, 116) ;}
 * > * > * > * > * > * > * > * > * > * > * > *{background-color: yellow ;} */
 
 
@@ -278,7 +278,7 @@ ____________________
 
 }
 
-.tag--delete:hover{
+.tag--delete.active{
     /* Add a litttel shake animation on hover */
     animation: deleteShake 750ms ease infinite;
 }
@@ -297,7 +297,7 @@ ____________________
 /* * Cursor Options */
 .filter{
     /* Interaction */
-    cursor: pointer;
+    cursor: pointer !important;
     
     /* Animation */
     transition: background-color 750ms ease;
@@ -506,6 +506,19 @@ ____________________
 /* ^ Accordion */
 /* Here is all the content of this website. This contains the rows and the content inside of of them */
 
+
+/* 
+⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+
+
+
+
+⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+ */
+
+
 /* This is the wrapper, that holds everything */
 .accordion {
     /* Layout */
@@ -513,10 +526,28 @@ ____________________
 
     /* Color */
     border-bottom: 1px solid var(--color-primary);
+    
 
 }
+
+/* This is the active class, once an accordion was clicked and is opened */
+.opened{
+    cursor: url('/assets/close.svg'), auto; 
+    /* add custom cursor X for close */
+}
+
+/* Assigned to all elemnts inside the accordion that should not trigger the closing of the accordion -> see js */
+.no-close{
+    cursor: auto;
+}
+
     /* ^ Accordion Table Rows */
     /* These are the single rows you see in the Table */
+
+    /* 
+    ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+    ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+    */
 
     /* Flex Version */
     .accordion-container{
@@ -545,7 +576,7 @@ ____________________
 
     }
 
-    .accordion:hover .accordion-container{
+    .accordion.opened .accordion-container{
         transform: translateY(100%);
         opacity: 0;
         transition: transform 1000ms ease 200ms, opacity 500ms ease 200ms; /* This is the transition + delay for the opening on hover */ 
@@ -628,14 +659,14 @@ ____________________
         }
 
 
-        .accordion:hover .accordion_row{
+        .accordion.opened .accordion_row{
 
             /* Layout */
             height: var(--contentMaxHeight);
             transition: height 750ms ease 200ms /* This is the transition + delay for the opening on hover */
         }
 
-        .accordion:hover .accordion-content {
+        .accordion.opened .accordion-content {
 
             /* Layout */
             height: var(--contentMaxHeight);
@@ -644,7 +675,28 @@ ____________________
         }
 
 
-    /* ^ Accordion Inner Content -> opens on Hover */
+
+
+
+    /* ^ Accordion Inner Content -> opens on click */
+
+        /* 
+        ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+ 
+
+
+
+    
+        ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+        */
+
+        /* 
+        In general I made a few adjustments to the elements inside accordion-content. 
+        Mainly switching from width: 100% to width: fit-content -> this helps reducing
+        the space the elements block. With this the clickabale area to close the accordion
+        is larger -> activate dev-view (* >) to see what I mean – it‘s all very snug now. 
+        */
+
     .accordion-content {
         /* Layout */
         height: 0;
@@ -667,6 +719,17 @@ ____________________
         /* ^ Accordion Thesis Information*/
         /* This is the left block of content */
       
+        /* 
+        ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+            ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+
+
+
+            ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+        ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+        */
+
+
 
         /* .accordion-content__thesis {
         } */
@@ -674,7 +737,7 @@ ____________________
             /* Thesis Title */
             .accordion-content__thesis__title { 
                 /* Layout */
-                width: 100%;
+                width: fit-content;
                 padding-top: var(--spacing-xs);
                 padding-bottom: var(--spacing-xs);
 
@@ -705,13 +768,21 @@ ____________________
                     .accordion-content__thesis-info__published, 
                     .accordion-content__thesis-info__advisors{
                         /* Layout */
-                        padding-bottom: var(--spacing-sm);
+                        margin-bottom: var(--spacing-sm);
+                        width: fit-content;
+                    }
+
+                    .accordion-content__thesis-info__advisors{
+                        li{
+                            width: fit-content;
+                        }
                     }
 
                     /* Headline for Topics */
                     .accordion-content__thesis-info__topics > h5{
                         /* Layout */
                         padding-bottom: var(--spacing-xxs);
+                        width: fit-content;
 
                         /* Interaction */
                         user-select: none;
@@ -768,9 +839,21 @@ ____________________
         /* This is the right block of content */
         /* .accordion-content__cv {} */
 
+        /* 
+        ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+                                                    ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
+
+
+
+                                                    ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+        ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+        */
+
+        
             .accordion-content__cv__graduate{
                 /* Layout */
-                width: 100%;
+                width: fit-content;
+                justify-self: end;
                 padding-bottom: var(--spacing-xs);
                 padding-top: var(--spacing-xs);
 
@@ -780,6 +863,7 @@ ____________________
             }
             
             .accordion-content__cv__info--wrapper{
+                /* Layout */
                 display: flex;
                 flex-direction: row-reverse;
                 flex-wrap: nowrap;
@@ -790,6 +874,10 @@ ____________________
             }
             .accordion-content__cv__info{
                 /* Layout */
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
                 min-width: calc((100% * 1/3) - var(--spacing-xs));
                 max-width: calc((100% * 1/3) - var(--spacing-xs));
 
@@ -804,9 +892,18 @@ ____________________
                 .accordion-content__cv-info__classes, 
                 .accordion-content__cv-info__projects{
                     /* Layout */
-                    padding-bottom: var(--spacing-sm);
+                    margin-bottom: var(--spacing-sm);
                 } 
 
+                .accordion-content__cv-info__projects{
+
+                    h5, li{
+                        width: fit-content;
+                        justify-self: end;
+                    }
+                }
+
+                  
 
 
             .accordion-content__cv__bio {
@@ -855,6 +952,7 @@ ____________________
             a, h3{
                 /* Interaction */
                 user-select: none;
+                cursor:  pointer !important;
                 
                 /* Typography */
                 font-size: var(--font-lg);
