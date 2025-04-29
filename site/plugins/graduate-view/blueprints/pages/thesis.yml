@@ -1,0 +1,205 @@
+title: Thesis
+icon: book
+
+columns: 
+  main:
+    width: 2/3 
+    sections: 
+
+      thesisInfo: 
+        type: fields
+        fields: 
+
+          headline1: 
+            label: Thesis Info
+            type: headline
+            numbered: false
+
+          thesisSubtitle:
+            label: Thesis Subtitle
+            type: text
+            help: If your Thesis has a subtitle please enter it into this field. 
+
+
+          thesisAbstract: 
+            label: Abstract for the Thesis
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
+            spellcheck: true
+            counter: true
+            maxlength: 1000
+            size: medium
+            width: 2/3
+            help: Please write short abstract for your thesis. The abstract should summerize your written thesis. You can also mention relevant topics, keywords or authors that were related in your research. In theory the abstract is important on this website, as it is one of the pieces of information that feed the search option on thesis.digitale. The Abstract should not be longer than 1000 characters with spaces. 
+
+
+          thesisTags: 
+            label: Keywords and Topics
+            type: tags
+            width: 1/3
+            help: Please use tags to make the topics you wrote on more accessible. Thesis.digitale uses these tags to interconnect all the different thesis projects as well as make them searchable. You can look at all the tags other graduates have already used in their projects. Please check if there are already tags describing your project, if not feel free to add your own tags as well. Please keep in mind that the tags are not way to specific so they could apply to other thesis projects as well. 
+            options: 
+              type: query
+              # query: page.siblings.pluck("thesisTags", ",", true)
+              query: site.index(true).pluck("thesisTags", ",", true) # probably have tho change this
+
+          selectDegree:
+            label: Select Degree
+            type: radio
+            required: true
+            width: 1/2
+            options:
+              Bachelor of Fine Arts: Fine Arts or Design — Bachelor of Fine Arts
+              Master of Fine Arts: Fine Arts or Design — Master of Fine Arts
+              Bachelor of Arts: Teaching Degree — Bachelor of Arts
+              Master of Arts: Teaching Degree — Master of Arts
+              PHD: Doctoral Studies — PHD
+            help: Please select the degree that corresponds with this thesis.  
+
+          language: 
+            label: Language the thesis is written in
+            type: radio
+            default: false
+            options: 
+              de: German
+              en: English
+            width: 1/2
+            help: Please select if wou wrote your thesis in German or English. 
+            required: true
+                            
+          semesterCycle:
+            label: Summersemester / Wintersemester
+            type: select
+            options: 
+              - SuSe 
+              - WiSe
+            width: 1/2
+            help: The Semester that you should put in is the Semester in which you graduated, not the one you registerd your thesis.
+            required: true
+
+
+          yearOfPublishing:
+            label: Year of Publishing
+            type: text
+            icon: calendar
+            width: 1/2
+            help: If you selected SuSe (Summer Semester) the Date should be 20XX. If you selected WiSe (Winter Semester) enter the Year the Semester started – e.g. for WiSe 2024/25 you would only enter 2024. 
+            required: true
+          
+
+      advisors:
+        type: fields
+        fields:
+
+          headline2: 
+            label: Thesis Advisors
+            type: headline
+            numbered: false
+            help: Please fill out the names of your thesis advisors. We decided against using titles like Prof. For example, if Christoph is your first advisor, you would write Christoph Knoth instead of Prof. Christoph Knoth. If your advisor has a doctorate, please check with them on how they want to be mentioned.
+
+          advisor1: 
+            label: First Advisior
+            type: text
+            width: 1/3
+
+          advisor2: 
+            label: Second Advisior
+            type: text
+            width: 1/3
+
+          advisor3:
+            label: Third Advisior
+            type: text
+            width: 1/3
+
+  sidebar: 
+    width: 1/3
+    sections: 
+      thesisUpload:
+        type: fields
+        fields: 
+
+          headline3: 
+            label: File Upload
+            type: headline
+            numbered: false
+            help: Please upload a PDF or ZIP file of your written thesis here. If possible, ensure the file size is not too large. If your thesis contains many images, the file size should not exceed 30 MB.
+
+          thesispdf: 
+            label: Upload your file here!
+            type: files
+            max: 1
+            multiple: false
+            required: false
+
+      thesisLinks: 
+        type: fields
+        fields: 
+          headline4: 
+            label: Thesis Website Mirrors
+            type: headline
+            numbered: false
+            help: This section links to your own thesis website. In case you host it on one of your domains or somewhere on the KDG server, please paste the link into the MIRROR EXTERNAL field. There will also be an archived version of your thesis website in case your own version goes offline at some point. Please get in touch with Christoph or Konrad about the archived version. Most likely, you will send them a zip file of your final thesis website.
+
+          mirrorExternal:
+            type: url
+            label: External Domain — Link to Thesis Website on your own hosting service. 
+            width: 1/2
+
+          mirrorExternalBroken:
+            type: toggle
+            label: External hosting is Online?
+            width: 1/2
+            text: 
+              - "offline"
+              - "online"
+          
+          mirrorKDG:
+            type: url
+            label: Archive or KDG Hosted — Link to Thesis Website Archive or Website hosted on the KDG Server. 
+
+          headline6: 
+            type: headline
+            label: HFBK Repository
+            help: This section connects to you project overview over at https://projekte.hfbk.net/ In case you also uploaded your practical work over there you are able to link it here. 
+
+          repositoryLink:
+            type: url
+            label: Link to HFBK Repository
+      
+   
+      toDo:
+        type: fields
+        fields:
+
+          headline7:
+            label: To Do‘s
+            type: headline
+
+          toDoThesis: 
+            label: Whats left to do?
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
+            counter: true
+            size: medium
+            buttons: false
+            spellcheck: true
+
+          authorID:
+            label: AuthorID (Admin Only)
+            type: users
+            multiple: false
+            help: Normally, the authorID is automatically generated by the person who created the page. In the event that a thesis page is created by an admin, it can be assigned to the correct graduate via this field.
+
+
+            
+
+
+
+        

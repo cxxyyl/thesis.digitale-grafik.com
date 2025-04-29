@@ -12,13 +12,16 @@
 
 <?php 
     // Make 20XX/YY from 20XX
-    $yearOfPublishing = (int) $page->yearOfPublishing()->value(); // Convert to an integer
-    $nextYear = $yearOfPublishing + 1; // Add 1 to the year
-    $newYear = $yearOfPublishing . '/' . substr($nextYear, -2); // Format as "2025/26"
+    $published = (int) $page->yearOfPublishing()->value(); // Convert to an integer
+    $nextYear = $published + 1; // Add 1 to the year
+    $newYear = $published . '/' . substr($nextYear, -2); // Format as "2025/26"
 
     // Check if SuSe or WiSe
     $semesterCycle = $page->semesterCycle()->value(); // Get the value of semesterCycle
       $isWs = $semesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs to true or false
+
+	// Save current authorID
+	$graduate = $page->authorID()->toUser();  
 ?>
 
 <main class="standalone">
@@ -30,19 +33,15 @@
 <?php if ($page->thesisSubtitle()->isNotEmpty()): ?>
 			<h2><?= $page->thesisSubtitle()?></h2>
 <?php endif ?>
-<?php $graduate = $page->connectedGraduate()->toPage() ?>
-			<p><?=$graduate->name()?> <?=$graduate->surname()?></p>
+<!-- Connect to user -->
+			<p><?=$graduate->name()?></p>
+<!-- Select degree -> structure -->
 <?php if($page->selectDegree()->isNotEmpty()): ?>
 			<p><?= option('category-map')[$page->selectDegree()->value()] ?> Thesis</p>
 <?php endif?>
-<?php if($page->semesterCycle()->isNotEmpty() && $page->yearOfPublishing()->isNotEmpty()): ?>
-			<p><?= $page->semesterCycle()?> – <?php if($isWs === true): ?><?= $newYear?><?php else: ?><?= $page->yearOfPublishing()?><?php endif?></p>
-<?php endif?>
-
 <?php if ($page->language()->isNotEmpty()): ?>
 			<p><?= option('category-map')[$page->language()->category()->value()] ?></p>
 <?php endif ?>
-
 <?php if ($page->thesisAbstract()->isNotEmpty()): ?>
 				<h3>Abstract</h3>
 				<div class="text-wrapper">
@@ -91,13 +90,12 @@
 		</section>
 	</article>
 
-
 	<article class="standalone__graduate">
 		<section>
 			<h1>About the Author</h1>
 			<h3>Bio</h3>
 <?php if ($graduate->bio()->isNotEmpty()): ?>
-<?= $graduate->bio()->kirbytext()?> 
+			<?= $graduate->bio()->kirbytext()?> 
 <?php endif ?>   
 			<h3>Classes</h3>
 <?php if ($graduate->class()->isNotEmpty()): ?>
@@ -109,40 +107,48 @@
 <?php endif ?>
 			<h3>Degrees at HFBK Hamburg</h3>
 				<ul>
-<?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure();foreach ($gradProjects as $gradProject): ?>
-					<li class="searchText"><?= $gradProject->selectStudies()?>, <?= $gradProject->graduation()->toDate('Y')?></li>
-<?php endforeach ?>
+
+<?php foreach ($site->children()->published()->filterBy('authorID', $graduate) as $gradProject):?>
+<?php 
+// Make 20XX/YY from 20XX
+$gradPublished = (int) $gradProject->yearOfPublishing()->value(); // Convert to an integer
+$gradNextYear = $gradPublished + 1; // Add 1 to the year
+
+// Check if SuSe or WiSe
+$GradSemesterCycle = $gradProject->semesterCycle()->value(); // Get the value of semesterCycle
+$GradIsWs = $GradSemesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs to true or false
+?>
+
+<?php if ($gradProject->selectDegree()->isNotEmpty() && $gradProject->yearOfPublishing()->isNotEmpty()): ?>
+			<li><?= $gradProject->selectDegree()->value()?>, <?php if($GradIsWs === true): ?><?= $gradNextYear ?><?php else: ?><?= $gradProject->yearOfPublishing()?><?php endif ?></li>
+<?php endif ?> 
+<?php endforeach?>
+				</ul>
+		</section>
+
+		<section>
+			<h3>Contact</h3>
+				<ul>
+<?php if ($graduate->website()->isNotEmpty()): ?>
+					<li><a target="_blank" href=" <?= $graduate->website()->toUrl()?>"><?= $graduate->website()?></a></li>
+<?php endif ?>
+<?php if ($graduate->socialsEmail()->isNotEmpty()): ?>
+					<li><a href="mailto:<?= Str::encode($graduate->email()) ?>"><?= Str::encode($graduate->email()) ?></a></li>
 <?php endif ?>
 				</ul>
-			</section>
-					
-			<section>
-				<h3>Contact</h3>
-					<ul>
-<?php if ($graduate->website()->isNotEmpty()): ?>
-						<li><a target="_blank" href=" <?= $graduate->website()->toUrl()?>"><?= $graduate->website()?></a></li>
-<?php endif ?>
-<?php if ($graduate->email()->isNotEmpty()): ?>
-						<li><a href="mailto:<?= Str::encode($graduate->email()) ?>"><?= Str::encode($graduate->email()) ?></a></li>
-<?php endif ?>
-					</ul>
-			</section>                
+		</section>                
 			
-			<section>
-				<h3>Projects</h3>
-					<ul>
-<?php if ($graduate->studies()->isNotEmpty()): ?><?php $gradProjects = $graduate->studies()->toStructure(); foreach ($gradProjects as $gradProject): ?>
-						<li><a href="<?= $gradProject->linkThesis()->toPage()->url()?>"><?= $gradProject->linkThesis()->toPage()->title()?></a></li>
-<?php endforeach ?><?php endif ?>
-					</ul>
-			</section>
-	
-			<section>
-				<h3><a id="author-page" href="<?= $graduate->url()?>">To Author Page</a></h3>
-			</section>
+		<section>
+			<h3>Projects</h3>
+			<ul>
+<!-- check kirby index for all pages with graduate ID , make array, for each display array-->
+<?php foreach ($site->children()->published()->filterBy('authorID', $graduate) as $gradProject):?> 
+				<li><a href="<?= $gradProject->url()?>"><?= $gradProject->title()?></a></li>
+<?php endforeach?>
+			</ul>		
+		</section>	
 	</article>
 </main>
-
 
 
 <?php snippet('footer')?>

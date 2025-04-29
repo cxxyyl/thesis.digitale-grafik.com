@@ -13,8 +13,13 @@ columns:
         type: fields
         fields:
           text:
-            type: textarea
-            size: huge
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
+              - link
+              - email
   sidebar:
     width: 1/3
     sections:

@@ -1,0 +1,158 @@
+title: Thesis
+
+tabs:
+
+  admin view: 
+    label: Theses
+    sections:
+
+      drafts:
+        type: pages
+        label: All Thesis Drafts
+        query: site.index(true).filterBy('Template', 'thesis').filterBy('Status', 'draft', 'unlisted')
+        template: thesis
+        sortBy: title asc
+
+        layout: table
+        columns:
+          title: false
+          graduate: 
+            label: Page Author
+            value: "{{ page.authorID.toUser.name }}"
+          tags: 
+            label: Tags
+            value: "{{ page.thesisTags }}"
+          year: 
+            label: Year
+            value: "{{ page.semesterCycle }} {{ page.yearOfPublishing }} "           
+          advisors:
+            label: Advisors
+            value: "{{ page.advisor1 }}, {{ page.advisor2 }}, {{ page.advisor3 }}"
+          uplaod: 
+            label: PDF
+            value:  "{{ page.thesispdf }}"
+          mirror1: 
+            label: Website
+            value: "{{ page.mirrorExternal }}"
+          mirror2:
+            label: Website Archive
+            value: "{{ page.mirrorKDG }}"
+          toDo: 
+            label: ToDo‘s
+            value: "{{ page.toDoThesis}}"
+            width: 1/6
+
+      listed:
+        type: pages
+        label: All Listed Theses
+        template: thesis
+        status: listed
+        sortBy: yearOfPublishing desc semesterCycle desc
+
+        layout: table
+        columns:
+      
+          title: false
+    
+          graduate: 
+            label: Page Author
+            value: "{{ page.authorID.toUser.name }}"
+          tags: 
+            label: Tags
+            value: "{{ page.thesisTags }}"
+          year: 
+            label: Year
+            value: "{{ page.semesterCycle }} {{ page.yearOfPublishing }} "            
+          advisors:
+            label: Advisors
+            value: "{{ page.advisor1 }}, {{ page.advisor2 }}, {{ page.advisor3 }}"
+          uplaod: 
+            label: PDF
+            value:  "{{ page.thesispdf }}"
+          mirror1: 
+            label: Website
+            value: "{{ page.mirrorExternal }}"
+          mirror2:
+            label: Website Archive
+            value: "{{ page.mirrorKDG }}"
+          toDo: 
+            label: ToDo's
+            value: "{{ page.toDoThesis}}"
+            width: 1/6
+
+        graduates:
+          label: Overview of all Graduates
+          type: pages
+          parent: site.find("graduates")
+          template: graduate
+          sortBy: title asc
+          
+          layout: table
+          columns: 
+            toDo: 
+              label: ToDo‘s
+              value: "{{ page.toDoGraduate }}"
+
+  imprint: 
+    label: Imprint & About
+    sections:
+      imprintandabout: 
+        type: fields
+        fields: 
+          about: 
+            label: About
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
+              - link
+            nodes: true
+            counter: true
+            spellcheck: true
+
+          imprint: 
+            label: Imprint
+            type: writer
+            inline: true
+            marks: 
+              - bold
+              - italic
+              - link
+              - email
+            nodes: true
+            counter: true
+            spellcheck: true
+           
+  housekeeping: 
+    label: Housekeeping
+    sections: 
+      unlisted: 
+        label: Unlisted Pages
+        type: pages
+        query: site.index(true).filterBy('Status', 'unlisted')
+      
+      meta: 
+        type: fields
+        fields: 
+          headline2: 
+            label: Open Graph
+            type: headline
+            numberd: false
+
+          ogDescription:
+            label: OG Description
+            type: text
+            counter: true
+            font: sans
+            minlength: 50
+            maxlength: 200
+            width: 1/2
+
+          ogImage:
+            label: OG Image
+            type: files
+            max: 1
+            multriple: false
+            size: medium
+            width: 1/2
