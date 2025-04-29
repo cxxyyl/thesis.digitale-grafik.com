@@ -50,6 +50,9 @@ Here are some guidelines in casd you should decide to develop a theme, feature, 
 In case of a general redesign for this website in the future please add the original css I wrote as the "legacy1.0" theme. 
 That would be really great! Thanks ❤
 
+# Credits
+2024 – [cxxyyl](https://cxxyyl.xyz/), with addtional help from [OMDD](https://www.are.na/omdd)
+This website uses [Kirby CMS](https://getkirby.com/)
 
 
 
@@ -78,17 +81,3 @@ For Graduate-View
 - site/plugins/graduate-view/graduate/site.yml
 - site/plugins/graduate-view/graduate/pages/thesis.yml
 
-
-
-
-
-
-
-
-
-
-
-
-## Credits
-2024 – [cxxyyl](https://cxxyyl.xyz/), with addtional help from [OMDD](https://www.are.na/omdd)
-This website uses [Kirby CMS](https://getkirby.com/)
