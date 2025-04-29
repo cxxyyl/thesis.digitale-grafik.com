@@ -3,46 +3,28 @@
 <script src="/modules/titleanimation/titleanimation.js" type="text/javascript"></script>
 <script>
 
-// Hover -> to click
-// document.querySelectorAll('.accordion').forEach(element => {
-//    element.addEventListener('click', function(){
-//     element.classList.toggle('opened');
-//    });
-// });
+// JS for open accordion with click
 
-
-// Hover -> to click
-// document.querySelectorAll('.accordion').forEach(element => {
-
-// const blocklist = [".no-close", "button", "input"]; 
-
-// // .accordion-content__thesis__title
-// // 
-
-//    element.addEventListener("click", (event) => {
-//       const accordion = event.target.closest(".accordion");
-
-//       element.classList.toggle('opened');
-
-//        Check if the clicked element or its ancestors are in the blocklist
-//       if (accordion && !blocklist.some(selector => event.target.closest(selector))) {
-//          element.classList.toggle('opened');
-//       }
-//    });
-
-// });
-
+// get all .accordion elements
 document.querySelectorAll('.accordion').forEach(element => {
 
-element.addEventListener("mousedown", (event) => {
+   // Check for mousedown event
+   element.addEventListener("mousedown", (event) => {
 
-   if(element.classList.contains('opened') && (event.target.closest('.no-close'))) {
-      return;
-   }
+      // In this state the eventlistener is enabled for .accordion and all elements inside .accordion
+      // If I click on a text or a button, the .accordion would close again. To prevent this we have
+      // the follwing if(...)
 
-  element.classList.toggle('opened');
-});
+      // this is for only closing the acordion
+      // if the .accordion is .openend -> this checks all child elements. the one I'm currently 
+      // trying to click on has the .no-close the fuction gets canceled -> so the accordion won't close
+      if(element.classList.contains('opened') && (event.target.closest('.no-close'))) {
+         return;
+      }
 
+   // Otherwise opening and closing works with this toggle  
+   element.classList.toggle('opened');
+   });
 });
 
 
