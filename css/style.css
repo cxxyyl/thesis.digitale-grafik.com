@@ -27,7 +27,7 @@ _________
 
 
 /* ? Dev View */
-*{background-color: chartreuse;}
+/* *{background-color: chartreuse;}
 * > *{background-color:coral ;}
 * > * > *{background-color: cornflowerblue;}
 * > * > * > *{background-color: darkkhaki;}
@@ -38,7 +38,7 @@ _________
 * > * > * > * > * > * > * > * > *{background-color: green ;}
 * > * > * > * > * > * > * > * > * > *{background-color: palevioletred ;}
 * > * > * > * > * > * > * > * > * > * > *{background-color: rgb(123, 255, 116) ;}
-* > * > * > * > * > * > * > * > * > * > * > *{background-color: yellow ;}
+* > * > * > * > * > * > * > * > * > * > * > *{background-color: yellow ;} */
 
 
 /* For Exhibition Only */
@@ -531,7 +531,7 @@ ____________________
 }
 
 .opened{
-    cursor: crosshair; 
+    cursor: url('/assets/close.svg'), auto; 
     /* add custom cursor X for close */
 }
 
@@ -943,6 +943,7 @@ ____________________
             a, h3{
                 /* Interaction */
                 user-select: none;
+                cursor:  pointer !important;
                 
                 /* Typography */
                 font-size: var(--font-lg);
