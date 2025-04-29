@@ -530,11 +530,13 @@ ____________________
 
 }
 
+/* This is the active class, once an accordion was clicked and is opened */
 .opened{
     cursor: url('/assets/close.svg'), auto; 
     /* add custom cursor X for close */
 }
 
+/* Assigned to all elemnts inside the accordion that should not trigger the closing of the accordion -> see js */
 .no-close{
     cursor: auto;
 }
@@ -673,7 +675,10 @@ ____________________
         }
 
 
-    /* ^ Accordion Inner Content -> opens on Hover */
+
+
+
+    /* ^ Accordion Inner Content -> opens on click */
 
         /* 
         ⎾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ‾ ⏋
@@ -683,6 +688,13 @@ ____________________
 
     
         ⎿ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ⏌
+        */
+
+        /* 
+        In general I made a few adjustments to the elements inside accordion-content. 
+        Mainly switching from width: 100% to width: fit-content -> this helps reducing
+        the space the elements block. With this the clickabale area to close the accordion
+        is larger -> activate dev-view (* >) to see what I mean – it‘s all very snug now. 
         */
 
     .accordion-content {
@@ -889,9 +901,6 @@ ____________________
                         width: fit-content;
                         justify-self: end;
                     }
-
-                
-
                 }
 
                   
