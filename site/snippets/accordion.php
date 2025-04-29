@@ -76,7 +76,7 @@ Direct Link to Subpage for Printing Options
 
             <!-- Language the thesis is written in -->
 <?php if ($item->language()->isNotEmpty()): ?>
-            <h4 data-search="<?=option('category-map')[$item->language()->category()->value()]?>" class="accordion-container__language"><?= $item->language()->category()?></h4>
+            <h4 data-search="<?=option('category-map')[$item->language()->category()->value()]?>" class="accordion-container__language filter searchText"><?= $item->language()->category()?></h4>
 <?php endif ?>
             
             <!-- Thesis Title -->
