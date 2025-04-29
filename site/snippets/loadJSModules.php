@@ -34,7 +34,7 @@
 
 document.querySelectorAll('.accordion').forEach(element => {
 
-element.addEventListener("click", (event) => {
+element.addEventListener("mousedown", (event) => {
 
    if(element.classList.contains('opened') && (event.target.closest('.no-close'))) {
       return;
