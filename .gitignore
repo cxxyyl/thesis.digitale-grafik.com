@@ -9,6 +9,7 @@ Icon
 
 /media/*
 !/media/index.html
+/site/sessions
 
 # Lock files
 # ---------------
@@ -31,20 +32,18 @@ Icon
 # Cache Files
 # ---------------
 
-/site/cache/*
-!/site/cache/index.html
+/site/cache
+
 
 # Accounts
 # ---------------
 
-/site/accounts/*
-!/site/accounts/index.html
+/site/accounts/
 
 # Sessions
 # ---------------
 
-/site/sessions/*
-!/site/sessions/index.html
+/site/sessions
 
 # License
 # ---------------
@@ -54,5 +53,11 @@ Icon
 # Don't put this stuff on GIT
 # ----------CONTENT----------
 
-/media/*
-/content/*
+/media
+/content
+
+# ----------SYSTEM----------
+# Don't put this stuff on GIT
+# ----------SYSTEM----------
+
+/kirby

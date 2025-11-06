@@ -1,5 +1,11 @@
 # Version 1.2 – Graduate Update
 
+## Last Updates
+
+**2025-11-06: Bugfix User Account Linking**
+
+Admins could link different Accounts to a page, but the page would not show up in the Graduate View for the linked account. New hook in the write-user-id plugin that fixes this problem. The issue was -> the field "users" writes - user://USERID instead of just the USERID. The hook deletes " - user://" and writes the cleaned id to a new hidden field which is used for filtering.
+
 ## ToDo
 - change Admin Panel / site.yml
     - ☑️ Delete How To
