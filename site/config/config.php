@@ -1,6 +1,8 @@
 <?php
 return [
-    'debug'  => true,
+    'debug'  => false,
+    'panel.vue.compiler' => false,
+
 
     'category-map' => [
         'Bachelor of Fine Arts'     => 'Bachelor',

@@ -1,6 +1,10 @@
 # Kirby .htaccess
 # revision 2023-07-22
 
+#Hetzner php 8.4
+FcgidWrapper "/home/httpd/cgi-bin/php84-fcgi-starter.fcgi" .php
+
+
 # rewrite rules
 <IfModule mod_rewrite.c>
 
@@ -65,3 +69,5 @@ Header set Content-Type "text/plain" "expr=-z %{CONTENT_TYPE}"
 Header set X-Content-Type-Options "nosniff"
 
 </IfModule>
+
+

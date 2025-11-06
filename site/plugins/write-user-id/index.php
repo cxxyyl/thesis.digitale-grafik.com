@@ -39,11 +39,3 @@ Kirby::plugin('cxxyyl/write-user-id', [
     ]
 ]);
 
-
-
-
-
-
-
-?>
-
