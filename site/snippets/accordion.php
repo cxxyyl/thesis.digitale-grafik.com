@@ -291,7 +291,7 @@ $GradIsWs = $GradSemesterCycle === 'WiSe'; // Check if it's "WiSe" and set $isWs
                     <!-- Graduate Bio -->
                     <div class="accordion-content__cv__bio searchText">    
 <?php if ($graduate->bio()->isNotEmpty()): ?>
-                        <div class="no-close">
+                        <div class=" scrollwrapper no-close">
                             <?= $graduate->bio()->kirbytext()?> 
                         </div>
 <?php endif ?>

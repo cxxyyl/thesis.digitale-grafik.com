@@ -149,16 +149,18 @@ a{
     cursor: pointer;
 }
 
-
+html{
+    /* Interaction */
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+    scrollbar-color: var(--color-primary) var(--color-secondary);
+}
 
 /* ? Body Base Styling */
 body {
     /* Layout */
     padding: 0;
     margin: 0;
-
-    /* Interaction */
-    overflow-y: scroll;
 
     /* Color */
     color: var(--color-primary);
@@ -903,22 +905,15 @@ ____________________
                     }
                 }
 
-                  
-
 
             .accordion-content__cv__bio {
-                /* Layout */
-               flex-grow: 1;
+                flex-grow: 1;
                 height: var(--contentMaxHeightInner);
-
-                column-count: 2; /* Number of columns */
-                column-gap: var(--spacing-xs); /* Space between columns */
-                column-fill: auto; /* Fills the column with text until it's full!  */
-                overflow-y: hidden; /* Prevent content from overflowing the container */
+                overflow-y: auto; /* Prevent content from overflowing the container */
                
                 /* Typography */
                 text-align: left;
-                direction: rtl; /* Okay this is a bit hacky! First rtl for column orientation */
+     
 
                 p{
                     /* Layout */
@@ -933,6 +928,11 @@ ____________________
                     width:var(--spacing-md); 
 
                     content: "";
+                }
+
+                .scrollwrapper{
+                    width: 50%; 
+                    justify-self: end;
                 }
             }
 
@@ -979,6 +979,8 @@ ____________________
 
             .scrollwrapper{
                 overflow-y: auto;
+                width: 100%;
+
             }
         }
 
@@ -999,6 +1001,7 @@ ____________________
 
             .scrollwrapper{
                 overflow-y: auto;
+                width: 100%;
             }
         }
 
